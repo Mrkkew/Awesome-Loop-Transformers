@@ -1,0 +1,30 @@
+name: Suggest a paper
+description: Propose a verified looped-Transformer or broader latent-reasoning paper.
+title: "[Paper] "
+labels: [paper]
+body:
+  - type: input
+    id: title
+    attributes:
+      label: Paper title
+    validations:
+      required: true
+  - type: input
+    id: primary
+    attributes:
+      label: Primary-source URL
+      description: arXiv, OpenReview, official proceedings, or author project page.
+    validations:
+      required: true
+  - type: textarea
+    id: mechanism
+    attributes:
+      label: Loop or latent-reasoning mechanism
+      description: Explain the inclusion case in one or two sentences.
+    validations:
+      required: true
+  - type: input
+    id: code
+    attributes:
+      label: Official code or model URL
+      description: Optional; must be author- or project-owned.

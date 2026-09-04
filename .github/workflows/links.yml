@@ -1,0 +1,24 @@
+name: Link check
+
+on:
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 3 * * 1'
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check external links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --verbose
+            --no-progress
+            --accept 200,206,429
+            --exclude 'img.shields.io'
+            --exclude 'localhost'
+            README.md README.zh-CN.md CONTRIBUTING.md lib/papers.ts
+          fail: true
