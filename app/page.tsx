@@ -10,48 +10,58 @@ const copy = {
   en: {
     atlas: 'OPEN-SOURCE · BILINGUAL · CONTINUOUSLY UPDATED',
     headlineA: 'The research map', headlineB: 'for models that', headlineC: 'think in loops.',
-    dek: 'A clear path through looped and recurrent-depth Transformers, latent reasoning, adaptive compute, and test-time scaling.',
-    explore: 'Explore 142 works', star: 'Star on GitHub', proof: 'Built for researchers, engineers, and anyone tracking the next axis of model scaling.',
+    dek: 'A bilingual survey of looped and recurrent-depth Transformers, with a separate track for related latent-reasoning methods.',
+    star: 'Star on GitHub', proof: 'Primary papers, official code, and concise original summaries in one place.',
     papers: 'works catalogued', recent: 'from 2024 onward', tracks: 'research tracks', languages: 'languages',
-    visualTitle: 'One core. More depth.', visualCaption: 'The same learned block refines a latent state across repeated passes.',
+    visualTitle: 'Repeated computation, shared parameters.', visualCaption: 'The same learned block refines a latent state across repeated passes.',
     input: 'Input tokens', shared: 'Shared core', refine: 'Refine × N', output: 'Output',
-    thesis: 'THE FIELD, IN ONE SENTENCE',
-    thesisText: 'Looped models separate parameter depth from computation depth: one compact module can keep refining a latent state, while routing, halting, and stability determine when more compute becomes better reasoning.',
+    concept: 'CORE MECHANISM', conceptTitle: 'Reuse the weights. Extend the computation.',
+    conceptText: 'A looped Transformer applies a shared block repeatedly through depth. Each pass updates the latent state, while routing or halting determines how much computation an input receives.',
+    conceptSteps: [
+      ['01', 'Share', 'Reuse one learned block across depth.'],
+      ['02', 'Refine', 'Update the latent state on every pass.'],
+      ['03', 'Adapt', 'Route or halt according to the input.'],
+    ],
     route: 'A FIVE-STEP READING ROUTE', routeText: 'Understand the field before diving into the full catalog.',
-    catalog: 'RESEARCH CATALOG', catalogText: 'Find the paper that answers your question.',
+    catalog: 'RESEARCH CATALOG', catalogText: 'Search the literature by question, topic, or model.',
     all: 'All topics', search: 'Search titles, models, authors, venues…', recentOnly: '2024—present', allYears: 'All years',
     results: 'results', paper: 'Paper', code: 'Code', project: 'Project', key: 'Key work',
-    broaderTitle: 'A wider view of latent reasoning',
-    broaderText: 'Coconut, HRM, TRM, implicit CoT, and related methods do not all use a looped Transformer. They appear in a separate, clearly labeled track because they pursue the same goal: multi-step computation inside learned latent states.',
+    broaderTitle: 'Why include broader latent reasoning?',
+    broaderText: 'Coconut, HRM, TRM, implicit CoT, and related methods do not necessarily use a looped Transformer, but they also extend reasoning through iterative computation in latent states. To keep the scope clear, representative work is collected in a separate “Broader Latent Reasoning” track.',
     method: 'CURATION STANDARD',
-    methodText: 'A research index should help you judge relevance—not just collect links.',
-    methodDetail: 'The catalog separates the recurrent-depth Transformer core from representative broader latent-reasoning work, records first-public dates, and links to primary sources.',
+    methodText: 'How the catalog is organized.',
+    methodDetail: 'The core looped-Transformer track is maintained for broad coverage; the larger latent-reasoning field is represented selectively. Dates refer to first public release, and links prioritize papers, official code, and project pages.',
     include: 'Included', includeItems: ['Weight-tied or recurrent-depth Transformer blocks', 'Learned halting, routing, stability, and loop systems', 'Direct analyses and applications of looped models', 'Closely related latent-state reasoning research'],
     exclude: 'Out of scope', excludeItems: ['Agent loops or repeated API calls', 'Ordinary RNNs without a latent-reasoning connection', 'Entries supported only by secondary summaries', 'Unverifiable or mismatched repositories'],
-    updated: 'Research snapshot', contribute: 'Help map the field.', contributeText: 'Star the repository to follow new work, or suggest a paper we should add.', suggest: 'Suggest a paper',
+    updated: 'Research snapshot', contribute: 'Found something missing?', contributeText: 'Star the repository to follow updates, or open an issue with a primary-source link and a short note on the method.', suggest: 'Suggest a paper',
   },
   zh: {
     atlas: '开源 · 双语 · 持续更新',
     headlineA: '循环模型研究，', headlineB: '从这里', headlineC: '开始。',
-    dek: '系统梳理循环与递归深度 Transformer、潜在推理、自适应计算和测试时扩展研究。',
-    explore: '浏览 142 项工作', star: '前往 GitHub 点 Star', proof: '为研究者、工程师和关注新型计算扩展方式的读者而整理。',
+    dek: '以循环与递归深度 Transformer 为核心，并单列相关的潜在推理研究。',
+    star: '前往 GitHub 点 Star', proof: '聚合论文原文、官方代码与简明的中英文概述。',
     papers: '项收录工作', recent: '项来自 2024 年以后', tracks: '个研究方向', languages: '种语言',
-    visualTitle: '一个核心，更深计算。', visualCaption: '共享模块在多次循环中持续更新隐状态。',
+    visualTitle: '共享参数，重复计算。', visualCaption: '同一学习模块在多次循环中持续更新隐状态。',
     input: '输入 token', shared: '共享核心', refine: '循环细化 × N', output: '输出',
-    thesis: '一句话理解这个领域',
-    thesisText: '循环模型将参数深度与计算深度分离：同一模块可以反复更新隐状态，而路由、停止策略与训练稳定性共同决定额外计算能否转化为更好的推理。',
+    concept: '核心机制', conceptTitle: '复用同一组参数，扩展计算深度。',
+    conceptText: 'Loop Transformer 在深度方向反复应用共享模块。每次循环都会更新隐状态，而路由或停止机制决定不同输入需要多少计算。',
+    conceptSteps: [
+      ['01', '共享', '在不同深度复用同一个学习模块。'],
+      ['02', '细化', '每次循环继续更新隐状态。'],
+      ['03', '调节', '根据输入选择路由或停止。'],
+    ],
     route: '五步阅读路线', routeText: '先建立研究脉络，再进入完整论文目录。',
-    catalog: '论文目录', catalogText: '从问题出发，找到真正相关的论文。',
+    catalog: '论文目录', catalogText: '按问题、主题或模型查找相关工作。',
     all: '全部主题', search: '搜索标题、模型、作者或会议……', recentOnly: '2024 至今', allYears: '全部年份',
     results: '项结果', paper: '论文', code: '代码', project: '主页', key: '重点工作',
-    broaderTitle: '从更广的视角看潜在推理',
-    broaderText: 'Coconut、HRM、TRM、隐式 CoT 等方法并不都采用 Loop Transformer，但都关注在隐状态中完成多步计算。因此，本图谱将其作为独立板块，选取具有代表性的研究。',
+    broaderTitle: '为什么收录广义潜在推理？',
+    broaderText: 'Coconut、HRM、TRM、隐式 CoT 等方法不一定采用 Loop Transformer，但同样通过隐状态中的迭代计算扩展推理过程。为避免范围混淆，相关工作单列为“广义潜在推理”，仅收录具有代表性的研究。',
     method: '收录原则',
-    methodText: '研究目录不应只是链接集合，也应帮助读者判断工作的相关性。',
-    methodDetail: '目录区分循环深度 Transformer 核心研究与广义潜在推理代表工作，记录首次公开日期，并优先链接论文、代码和项目的官方页面。',
+    methodText: '这份目录如何组织。',
+    methodDetail: '核心方向尽量覆盖 Loop Transformer 的主要工作；范围更广的潜在推理则选取代表性研究。日期以首次公开时间为准，链接优先指向论文、代码或项目的官方页面。',
     include: '收录范围', includeItems: ['权重共享或循环深度 Transformer', '停止、路由、稳定性与循环系统研究', '直接分析或应用循环模型的工作', '与主题紧密相关的隐空间推理研究'],
     exclude: '不在范围', excludeItems: ['Agent 循环或重复 API 调用', '与潜在推理无关的普通 RNN', '只有二手介绍、缺少论文原文的工作', '与论文不匹配的代码仓库'],
-    updated: '最近更新', contribute: '一起完善这份研究图谱。', contributeText: '在 GitHub 上 Star 以关注后续更新，也欢迎补充我们遗漏的论文。', suggest: '推荐论文',
+    updated: '最近更新', contribute: '发现遗漏或错误？', contributeText: '在 GitHub 上 Star 以关注更新，也欢迎通过 Issue 提交论文原始链接和简要说明。', suggest: '推荐论文',
   },
 };
 
@@ -71,6 +81,7 @@ export default function Home() {
   const t = copy[lang];
 
   const recentCount = papers.filter((paper) => Number(paper.date.slice(0, 4)) >= 2024).length;
+  const broaderCount = papers.filter((paper) => paper.category === 'Broader Latent Reasoning').length;
   const filtered = useMemo(() => {
     const normalized = query.trim().toLowerCase();
     return papers
@@ -98,7 +109,7 @@ export default function Home() {
           <p className="dek">{t.dek}</p>
           <div className="hero-actions">
             <a className="star-button" href={githubUrl} target="_blank" rel="noreferrer"><span>★</span>{t.star}<b>↗</b></a>
-            <a className="secondary-button" href="#catalog">{t.explore}<span>↓</span></a>
+            <a className="secondary-button" href="#catalog">{lang === 'en' ? `Explore ${papers.length} works` : `浏览 ${papers.length} 项工作`}<span>↓</span></a>
           </div>
           <p className="hero-proof">{t.proof}</p>
         </div>
@@ -122,11 +133,9 @@ export default function Home() {
       </section>
 
       <section className="thesis-section">
-        <p className="eyebrow">{t.thesis}</p><p className="thesis-copy">{t.thesisText}</p>
-        <div className="axis-grid">
-          <div><span>01</span><h3>{lang === 'en' ? 'Parameter axis' : '参数维度'}</h3><p>{lang === 'en' ? 'How much unique capacity is stored?' : '模型存储了多少独立参数容量？'}</p></div>
-          <div><span>02</span><h3>{lang === 'en' ? 'Depth axis' : '深度维度'}</h3><p>{lang === 'en' ? 'How many transformations are applied?' : '隐状态经历了多少次变换？'}</p></div>
-          <div><span>03</span><h3>{lang === 'en' ? 'Token axis' : 'Token 维度'}</h3><p>{lang === 'en' ? 'How much reasoning is externalized as text?' : '多少推理过程被外化为文本？'}</p></div>
+        <div className="thesis-intro"><p className="eyebrow">{t.concept}</p><h2>{t.conceptTitle}</h2><p>{t.conceptText}</p></div>
+        <div className="concept-flow">
+          {t.conceptSteps.map(([number, title, detail], index) => <div className="concept-step" key={number}><span>{number}</span><div><h3>{title}</h3><p>{detail}</p></div>{index < t.conceptSteps.length - 1 && <b>→</b>}</div>)}
         </div>
       </section>
 
@@ -136,7 +145,7 @@ export default function Home() {
       </section>
 
       <section className="broader-note">
-        <div className="broader-number">+26</div><div><p className="eyebrow">{lang === 'en' ? 'EXTENDED SCOPE' : '扩展范围'}</p><h2>{t.broaderTitle}</h2><p>{t.broaderText}</p></div>
+        <div className="broader-number">+{broaderCount}</div><div><p className="eyebrow">{lang === 'en' ? 'EXTENDED SCOPE' : '扩展范围'}</p><h2>{t.broaderTitle}</h2><p>{t.broaderText}</p></div>
       </section>
 
       <section className="catalog-section" id="catalog">
