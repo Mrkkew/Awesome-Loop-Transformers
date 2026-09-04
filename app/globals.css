@@ -22,6 +22,8 @@ button,input { font:inherit; }
 .hero-actions { display:flex; align-items:center; gap:20px; margin-top:36px; color:rgba(24,24,20,.62); font-size:13px; }
 .primary-button { display:inline-flex; width:max-content; padding:13px 18px; background:var(--acid); border:1px solid var(--ink); border-radius:3px; color:var(--ink); font-weight:740; box-shadow:4px 4px 0 var(--ink); transition:transform .15s,box-shadow .15s; }
 .primary-button:hover { transform:translate(2px,2px); box-shadow:2px 2px 0 var(--ink); }
+.star-button { display:inline-flex; width:max-content; padding:13px 18px; border:1px solid var(--ink); border-radius:3px; background:var(--ink); color:white; font-weight:740; transition:transform .15s,background .15s,color .15s; }
+.star-button:hover { transform:translateY(-2px); background:var(--blue); }
 .diagram-wrap { min-width:0; }
 .loop-diagram { min-height:360px; padding:28px; border:1px solid var(--ink); border-radius:50% 50% 8px 8px; background:#fffefa; display:flex; flex-direction:column; align-items:center; justify-content:center; box-shadow:11px 11px 0 var(--red); }
 .diagram-label,.diagram-caption { font:720 10px/1.4 var(--font-geist-mono),monospace; letter-spacing:.12em; }

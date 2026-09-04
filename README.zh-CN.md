@@ -3,11 +3,11 @@
 
 <p align="center"><strong>简体中文</strong>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="README.md">English</a></p>
 
-<p align="center"><img src="public/og.png" alt="Awesome Loop Transformers 双语研究图谱" width="100%" /></p>
+<p align="center"><a href="https://awesome-loop-transformers.bright-haven-2369.chatgpt.site"><img src="public/og.png" alt="Awesome Loop Transformers 双语研究图谱" width="100%" /></a></p>
 
 <p align="center"><strong>围绕 Loop Transformer 整理的一份双语研究图谱：从循环与递归深度，到潜在推理和测试时计算。</strong></p>
 
-<p align="center"><a href="https://github.com/Mrkkew/Awesome-Loop-Transformers"><img alt="Curated papers" src="https://img.shields.io/badge/curated-137%20works-5df2ff?style=flat-square&labelColor=080b18"></a>&nbsp;<a href="https://github.com/Mrkkew/Awesome-Loop-Transformers/actions/workflows/links.yml"><img alt="Link check" src="https://img.shields.io/github/actions/workflow/status/Mrkkew/Awesome-Loop-Transformers/links.yml?style=flat-square&label=links&labelColor=080b18"></a>&nbsp;<a href="LICENSE"><img alt="License: CC BY 4.0" src="https://img.shields.io/badge/license-CC%20BY%204.0-a78bfa?style=flat-square&labelColor=080b18"></a>&nbsp;<a href="data/papers.json"><img alt="JSON catalog" src="https://img.shields.io/badge/data-JSON-c6ff4a?style=flat-square&labelColor=080b18"></a></p>
+<p align="center"><a href="https://github.com/Mrkkew/Awesome-Loop-Transformers"><img alt="Star this atlas" src="https://img.shields.io/github/stars/Mrkkew/Awesome-Loop-Transformers?style=flat-square&label=star%20this%20atlas&labelColor=080b18&color=d8ff55"></a>&nbsp;<a href="https://github.com/Mrkkew/Awesome-Loop-Transformers"><img alt="Curated papers" src="https://img.shields.io/badge/curated-137%20works-5df2ff?style=flat-square&labelColor=080b18"></a>&nbsp;<a href="https://github.com/Mrkkew/Awesome-Loop-Transformers/actions/workflows/links.yml"><img alt="Link check" src="https://img.shields.io/github/actions/workflow/status/Mrkkew/Awesome-Loop-Transformers/links.yml?style=flat-square&label=links&labelColor=080b18"></a>&nbsp;<a href="LICENSE"><img alt="License: CC BY 4.0" src="https://img.shields.io/badge/license-CC%20BY%204.0-a78bfa?style=flat-square&labelColor=080b18"></a>&nbsp;<a href="data/papers.json"><img alt="JSON catalog" src="https://img.shields.io/badge/data-JSON-c6ff4a?style=flat-square&labelColor=080b18"></a></p>
 
 <p align="center"><a href="#收录范围"><strong>收录范围</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#综述分类"><strong>综述分类</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#核心必读"><strong>核心必读</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#完整目录"><strong>完整目录</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#参与贡献"><strong>参与贡献</strong></a></p>
 

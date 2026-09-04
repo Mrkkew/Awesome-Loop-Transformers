@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Contribution guide / 贡献指南
+    url: https://github.com/Mrkkew/Awesome-Loop-Transformers/blob/main/CONTRIBUTING.md
+    about: Read the catalog scope and contribution format before submitting a larger change.

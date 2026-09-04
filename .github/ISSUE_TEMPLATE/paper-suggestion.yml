@@ -1,0 +1,57 @@
+name: Paper suggestion / 论文建议
+description: Suggest a missing paper, code repository, or correction.
+title: "[Paper] "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping improve the atlas. 欢迎补充论文或提出修正。
+  - type: input
+    id: title
+    attributes:
+      label: Paper title / 论文标题
+      placeholder: Full paper title
+    validations:
+      required: true
+  - type: input
+    id: paper
+    attributes:
+      label: Primary-source link / 论文原始链接
+      description: arXiv, OpenReview, proceedings, or an official project page.
+      placeholder: https://arxiv.org/abs/...
+    validations:
+      required: true
+  - type: input
+    id: code
+    attributes:
+      label: Official code or project page / 官方代码或项目主页
+      placeholder: https://github.com/...
+  - type: dropdown
+    id: track
+    attributes:
+      label: Suggested track / 建议分类
+      options:
+        - Foundations & Theory / 基础与理论
+        - Architectures & Scaling / 架构与扩展
+        - Latent Reasoning / 潜在推理
+        - Adaptive Compute / 自适应计算
+        - Training & Analysis / 训练与机制分析
+        - Systems & Applications / 系统与应用
+        - Broader Latent Reasoning / 广义潜在推理
+        - Unsure / 不确定
+    validations:
+      required: true
+  - type: textarea
+    id: relevance
+    attributes:
+      label: Why it belongs / 收录理由
+      description: Briefly describe the loop, recurrent-depth, adaptive-compute, or latent-reasoning mechanism.
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: Additional notes / 其他说明
+      description: Include any metadata correction or relationship to an existing entry.

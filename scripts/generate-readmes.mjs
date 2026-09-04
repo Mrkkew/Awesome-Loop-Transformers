@@ -2,6 +2,7 @@ import { writeFileSync } from 'node:fs';
 import { categories, categoryZh, lastUpdated, papers } from '../lib/papers.ts';
 
 const repo = 'https://github.com/Mrkkew/Awesome-Loop-Transformers';
+const site = 'https://awesome-loop-transformers.bright-haven-2369.chatgpt.site';
 
 const intro = {
   en: {
@@ -85,6 +86,7 @@ function render(lang) {
   const coreCount = recentCount - broaderCount;
   const badge = (alt, src, href) => `<a href="${href}"><img alt="${alt}" src="${src}"></a>`;
   const badges = [
+    badge('Star this atlas', 'https://img.shields.io/github/stars/Mrkkew/Awesome-Loop-Transformers?style=flat-square&label=star%20this%20atlas&labelColor=080b18&color=d8ff55', repo),
     badge('Curated papers', `https://img.shields.io/badge/curated-${recentCount}%20works-5df2ff?style=flat-square&labelColor=080b18`, repo),
     badge('Link check', 'https://img.shields.io/github/actions/workflow/status/Mrkkew/Awesome-Loop-Transformers/links.yml?style=flat-square&label=links&labelColor=080b18', `${repo}/actions/workflows/links.yml`),
     badge('License: CC BY 4.0', 'https://img.shields.io/badge/license-CC%20BY%204.0-a78bfa?style=flat-square&labelColor=080b18', 'LICENSE'),
@@ -95,7 +97,7 @@ function render(lang) {
     '<!-- This file is generated from lib/papers.ts. Edit the data source, then run npm run artifacts. -->',
     '<h1 align="center">Awesome Loop Transformers</h1>', '',
     `<p align="center">${t.language}</p>`, '',
-    `<p align="center"><img src="public/og.png" alt="${lang === 'en' ? 'Awesome Loop Transformers — a bilingual research atlas' : 'Awesome Loop Transformers 双语研究图谱'}" width="100%" /></p>`, '',
+    `<p align="center"><a href="${site}"><img src="public/og.png" alt="${lang === 'en' ? 'Awesome Loop Transformers — a bilingual research atlas' : 'Awesome Loop Transformers 双语研究图谱'}" width="100%" /></a></p>`, '',
     `<p align="center"><strong>${t.tagline}</strong></p>`, '',
     `<p align="center">${badges}</p>`, '',
     `<p align="center">${nav}</p>`, '',

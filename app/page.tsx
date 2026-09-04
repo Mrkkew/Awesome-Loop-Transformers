@@ -8,7 +8,7 @@ const copy = {
     atlas: 'A bilingual research atlas · 2024—present',
     headlineA: 'Models that think', headlineB: 'in depth,', headlineC: 'not only in tokens.',
     dek: 'A survey-style map of looped and recurrent-depth Transformers—plus the broader latent-reasoning ideas shaping this new compute axis.',
-    explore: 'Explore the literature', verified: 'Papers, code, and project pages in one place.',
+    explore: 'Explore the literature', star: 'Star on GitHub', verified: 'Papers, code, and project pages in one place.',
     papers: 'curated works', sources: 'primary sources', languages: 'languages',
     thesis: 'The field in one sentence',
     thesisText: 'Looped models decouple parameter depth from computation depth: a compact learned module can be reused to refine a latent state, while routing, halting, and stability decide whether extra computation actually helps.',
@@ -28,7 +28,7 @@ const copy = {
     atlas: '双语研究图谱 · 2024 至今',
     headlineA: '让模型在', headlineB: '深度中思考，', headlineC: '而不只在 token 中思考。',
     dek: '从 Loop Transformer 出发，梳理循环与递归深度、潜在推理和测试时计算的关键工作。',
-    explore: '浏览论文图谱', verified: '论文、代码与项目主页一站直达。',
+    explore: '浏览论文图谱', star: '在 GitHub 上 Star', verified: '论文、代码与项目主页一站直达。',
     papers: '篇收录工作', sources: '原始论文链接', languages: '种语言',
     thesis: '一句话理解这个领域',
     thesisText: '循环模型将参数深度与计算深度解耦：同一模块可反复更新隐状态，而路由、停止策略与训练稳定性共同决定额外计算能否转化为性能提升。',
@@ -87,7 +87,11 @@ export default function Home() {
           <p className="eyebrow">{t.atlas}</p>
           <h1>{t.headlineA}<br /><em>{t.headlineB}</em><br />{t.headlineC}</h1>
           <p className="dek">{t.dek}</p>
-          <div className="hero-actions"><a className="primary-button" href="#catalog">{t.explore}</a><span>{t.verified}</span></div>
+          <div className="hero-actions">
+            <a className="primary-button" href="#catalog">{t.explore}</a>
+            <a className="star-button" href="https://github.com/Mrkkew/Awesome-Loop-Transformers" target="_blank" rel="noreferrer">★ {t.star}</a>
+            <span>{t.verified}</span>
+          </div>
         </div>
         <div className="diagram-wrap">
           <div className="loop-diagram" aria-label="A shared Transformer block repeated through depth">
