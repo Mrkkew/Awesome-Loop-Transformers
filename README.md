@@ -53,7 +53,7 @@ The core catalog focuses on models that reuse a learned Transformer layer, block
 
 ### Foundations & Theory
 
-<details open>
+<details>
 <summary><strong>2026</strong> · 4 papers</summary>
 
 - **When Does Recurrence Become an Algorithm? Convergence Selection in Weight-Tied Looped Transformers** — Tong Zhang et al.. *arXiv 2026*.<br>
@@ -170,7 +170,7 @@ The core catalog focuses on models that reuse a learned Transformer layer, block
 
 ### Architectures & Scaling
 
-<details open>
+<details>
 <summary><strong>2026</strong> · 19 papers</summary>
 
 - **SMELT: Scaling Laws for Compute-Matched MoE Looped Transformers** — Shaowen Wang et al.. *arXiv 2026*.<br>
@@ -291,7 +291,7 @@ The core catalog focuses on models that reuse a learned Transformer layer, block
 
 ### Latent Reasoning
 
-<details open>
+<details>
 <summary><strong>2026</strong> · 7 papers</summary>
 
 - **Penelope: Localized Latent Recurrence for Efficient Structured Reasoning** — Yutong Chen et al.. *arXiv 2026*.<br>
@@ -351,7 +351,7 @@ The core catalog focuses on models that reuse a learned Transformer layer, block
 
 ### Adaptive Compute
 
-<details open>
+<details>
 <summary><strong>2026</strong> · 8 papers</summary>
 
 - **RecurTrace: Adaptive Latent Reasoning with Loop-Time Memory** — Yuxiang Wang et al.. *arXiv 2026*.<br>
@@ -407,7 +407,7 @@ The core catalog focuses on models that reuse a learned Transformer layer, block
 
 ### Training & Analysis
 
-<details open>
+<details>
 <summary><strong>2026</strong> · 21 papers</summary>
 
 - **Looped Transformers under the Jacobian Lens: Does the Global Workspace Survive Recurrence?** — Wenlong Wang, Fergal Reid. *arXiv 2026*.<br>
@@ -511,7 +511,7 @@ The core catalog focuses on models that reuse a learned Transformer layer, block
 
 ### Systems & Applications
 
-<details open>
+<details>
 <summary><strong>2026</strong> · 23 papers</summary>
 
 - **Recirculation** — Michael C. Mozer et al.. *arXiv 2026*.<br>
@@ -619,7 +619,7 @@ The core catalog focuses on models that reuse a learned Transformer layer, block
 
 ### Broader Latent Reasoning
 
-<details open>
+<details>
 <summary><strong>2026</strong> · 6 papers</summary>
 
 - **BDH-CQ: In-Context Learning with Recurrent Latent Reasoning** — Björn Engdahl et al.. *arXiv 2026*.<br>

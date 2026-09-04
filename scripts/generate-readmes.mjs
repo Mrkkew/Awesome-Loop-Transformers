@@ -126,7 +126,7 @@ function render(lang) {
     for (const year of [...byYear.keys()].sort().reverse()) {
       const yearCount = byYear.get(year).length;
       const yearUnit = lang === 'en' ? (yearCount === 1 ? 'paper' : 'papers') : '篇';
-      out.push(`<details${year === lastUpdated.slice(0, 4) ? ' open' : ''}>`, `<summary><strong>${year}</strong> · ${yearCount} ${yearUnit}</summary>`, '');
+      out.push('<details>', `<summary><strong>${year}</strong> · ${yearCount} ${yearUnit}</summary>`, '');
       for (const paper of byYear.get(year)) {
         out.push(`- **${paper.title}** — ${paper.authors}. *${paper.venue}*.<br>`, `  ${paper.summary[lang]}<br>`, `  ${links(paper, lang)}`, '');
       }

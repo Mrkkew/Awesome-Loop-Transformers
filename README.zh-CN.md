@@ -53,7 +53,7 @@
 
 ### 基础与理论
 
-<details open>
+<details>
 <summary><strong>2026</strong> · 4 篇</summary>
 
 - **When Does Recurrence Become an Algorithm? Convergence Selection in Weight-Tied Looped Transformers** — Tong Zhang et al.. *arXiv 2026*.<br>
@@ -170,7 +170,7 @@
 
 ### 架构与扩展
 
-<details open>
+<details>
 <summary><strong>2026</strong> · 19 篇</summary>
 
 - **SMELT: Scaling Laws for Compute-Matched MoE Looped Transformers** — Shaowen Wang et al.. *arXiv 2026*.<br>
@@ -291,7 +291,7 @@
 
 ### 潜在推理
 
-<details open>
+<details>
 <summary><strong>2026</strong> · 7 篇</summary>
 
 - **Penelope: Localized Latent Recurrence for Efficient Structured Reasoning** — Yutong Chen et al.. *arXiv 2026*.<br>
@@ -351,7 +351,7 @@
 
 ### 自适应计算
 
-<details open>
+<details>
 <summary><strong>2026</strong> · 8 篇</summary>
 
 - **RecurTrace: Adaptive Latent Reasoning with Loop-Time Memory** — Yuxiang Wang et al.. *arXiv 2026*.<br>
@@ -407,7 +407,7 @@
 
 ### 训练与机制分析
 
-<details open>
+<details>
 <summary><strong>2026</strong> · 21 篇</summary>
 
 - **Looped Transformers under the Jacobian Lens: Does the Global Workspace Survive Recurrence?** — Wenlong Wang, Fergal Reid. *arXiv 2026*.<br>
@@ -511,7 +511,7 @@
 
 ### 系统与应用
 
-<details open>
+<details>
 <summary><strong>2026</strong> · 23 篇</summary>
 
 - **Recirculation** — Michael C. Mozer et al.. *arXiv 2026*.<br>
@@ -619,7 +619,7 @@
 
 ### 广义潜在推理
 
-<details open>
+<details>
 <summary><strong>2026</strong> · 6 篇</summary>
 
 - **BDH-CQ: In-Context Learning with Recurrent Latent Reasoning** — Björn Engdahl et al.. *arXiv 2026*.<br>
