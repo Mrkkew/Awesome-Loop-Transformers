@@ -389,6 +389,230 @@ export const papers: Paper[] = [
     id: '2511.21581', date: '2025-11-26', title: 'Learning When to Stop: Adaptive Latent Reasoning via Reinforcement Learning', authors: 'Alex Ning et al.', venue: 'arXiv 2025', category: 'Broader Latent Reasoning', tags: ['reinforcement-learning', 'adaptive-length', 'broader-scope'],
     summary: { en: 'Optimizes a stopping policy for latent reasoning, explicitly trading continuous reasoning length against answer accuracy.', zh: '为潜在推理优化停止策略，显式权衡连续推理长度与答案准确率。' }, paper: 'https://arxiv.org/abs/2511.21581', code: 'https://github.com/apning/adaptive-latent-reasoning'
   },
+  {
+    id: '2410.09375', date: '2024-10-12', title: 'Looped ReLU MLPs May Be All You Need as Practical Programmable Computers', authors: 'Yingyu Liang et al.', venue: 'arXiv 2024', category: 'Foundations & Theory', tags: ['programmability', 'mlp', 'non-transformer'],
+    summary: { en: 'Shows that a compact looped ReLU MLP can implement the primitive operations of a programmable computer, providing a non-attention comparison point for looped Transformer expressivity.', zh: '证明紧凑的循环 ReLU MLP 可实现可编程计算机的基本操作，为循环 Transformer 的表达能力提供非注意力架构参照。' }, paper: 'https://arxiv.org/abs/2410.09375'
+  },
+  {
+    id: '2410.21698', date: '2024-10-29', title: 'On the Role of Depth and Looping for In-Context Learning with Task Diversity', authors: 'Khashayar Gatmiry et al.', venue: 'arXiv 2024', category: 'Foundations & Theory', tags: ['in-context-learning', 'robustness', 'task-diversity'],
+    summary: { en: 'Establishes depth requirements for diverse in-context regression tasks and argues that weight-tied looping retains expressivity while improving robustness and monotonicity across depth.', zh: '建立多样化上下文回归任务的深度需求，并说明权重共享循环在保持表达力的同时，可改善分布偏移鲁棒性和随深度变化的单调性。' }, paper: 'https://arxiv.org/abs/2410.21698'
+  },
+  {
+    id: '2501.10688', date: '2025-01-18', title: 'Neural Algorithmic Reasoning for Hypergraphs with Looped Transformers', authors: 'Zekai Huang et al.', venue: 'arXiv 2025', category: 'Foundations & Theory', tags: ['hypergraphs', 'algorithmic-reasoning', 'programmability'],
+    summary: { en: 'Extends constructive looped-Transformer simulations from graphs to hypergraphs through graph reductions and hyperedge-aware encodings for algorithms such as Dijkstra and Helly.', zh: '通过图退化与超边感知编码，把循环 Transformer 的构造性算法模拟从图扩展到超图，包括 Dijkstra 与 Helly 等算法。' }, paper: 'https://arxiv.org/abs/2501.10688'
+  },
+  {
+    id: '2502.08482', date: '2025-02-12', title: 'Enhancing Auto-regressive Chain-of-Thought through Loop-Aligned Reasoning', authors: 'Qifan Yu et al.', venue: 'arXiv 2025', category: 'Latent Reasoning', tags: ['relay', 'chain-of-thought', 'length-generalization'],
+    summary: { en: 'RELAY aligns visible reasoning steps with loop iterations, using intermediate supervision to generate length-generalizing rationales that then improve an autoregressive model.', zh: 'RELAY 将显式推理步骤与循环迭代对齐，通过中间监督生成可进行长度外推的推理链，再用于增强自回归模型。' }, paper: 'https://arxiv.org/abs/2502.08482', code: 'https://github.com/qifanyu/RELAY'
+  },
+  {
+    id: '2510.07739', date: '2025-10-09', title: 'MeSH: Memory-as-State-Highways for Recursive Transformers', authors: 'Chengting Yu et al.', venue: 'arXiv 2025', category: 'Architectures & Scaling', tags: ['memory', 'routing', 'iteration-specialization'],
+    summary: { en: 'Adds an explicit memory buffer and lightweight routers to separate long-lived from transient state and encourage distinct computation at different recursive steps.', zh: '引入显式记忆缓冲区和轻量路由器，分离长期与瞬时状态，并促使不同递归步形成差异化计算。' }, paper: 'https://arxiv.org/abs/2510.07739', code: 'https://github.com/LivingFutureLab/MeSH'
+  },
+  {
+    id: '2511.21882', date: '2025-11-26', title: 'Closed-Loop Transformers: Autoregressive Modeling as Iterative Latent Equilibrium', authors: 'Akbar Anbar Jafari, Gholamreza Anbarjafari', venue: 'arXiv 2025', category: 'Latent Reasoning', tags: ['equilibrium', 'energy-based-model', 'iterative-refinement'],
+    summary: { en: 'Proposes refining each token’s latent state toward a learned energy-based equilibrium before generation, framing autoregressive prediction as a closed-loop correction process.', zh: '在生成每个 token 前，把潜在状态迭代细化到学习到的能量平衡点，将自回归预测重述为闭环纠错过程。' }, paper: 'https://arxiv.org/abs/2511.21882'
+  },
+  {
+    id: '2512.12880', date: '2025-12-14', title: 'Improving Recursive Transformers with Mixture of LoRAs', authors: 'Mohammadmahdi Nouriborji et al.', venue: 'arXiv 2025', category: 'Architectures & Scaling', tags: ['lora', 'conditional-compute', 'parameter-sharing'],
+    summary: { en: 'Restores some layer-wise expressivity lost to recursive weight sharing by inserting token-conditioned LoRA experts into a shared feed-forward network.', zh: '在共享前馈网络中加入 token 条件化的 LoRA 专家，补回递归权重共享所损失的部分逐层表达能力。' }, paper: 'https://arxiv.org/abs/2512.12880'
+  },
+  {
+    id: '2601.09588', date: '2026-01-14', title: 'Energy-Entropy Regularization: The True Power of Minimal Looped Transformers', authors: 'Wai-Lun Lam', venue: 'arXiv 2026', category: 'Training & Analysis', tags: ['optimization', 'entropy', 'minimal-model'],
+    summary: { en: 'Uses Tsallis-entropy and Hamiltonian-inspired optimization to train an unusually small single-head looped Transformer on a long-range induction task.', zh: '利用 Tsallis 熵与受 Hamilton 动力学启发的优化方法，训练极小的单头循环 Transformer 完成长程归纳任务。' }, paper: 'https://arxiv.org/abs/2601.09588'
+  },
+  {
+    id: '2601.10242', date: '2026-01-15', title: 'Loop as a Bridge: Can Looped Transformers Truly Link Representation Space and Natural Language Outputs?', authors: 'Guanxu Chen et al.', venue: 'arXiv 2026', category: 'Training & Analysis', tags: ['introspection', 'representation', 'negative-result'],
+    summary: { en: 'Tests whether extra loops improve access to internal knowledge and finds that some apparent bridging gains instead reflect degraded representations, exposing a limit of current looped models.', zh: '检验额外循环能否改善内部知识的表达，发现部分表面增益来自表示退化，从而揭示现有循环模型的内省局限。' }, paper: 'https://arxiv.org/abs/2601.10242'
+  },
+  {
+    id: '2602.02156', date: '2026-02-02', title: 'LoopViT: Scaling Visual ARC with Looped Transformers', authors: 'Wen-Jie Shu et al.', venue: 'arXiv 2026', category: 'Systems & Applications', tags: ['vision', 'arc-agi', 'dynamic-exit'],
+    summary: { en: 'Builds an 18M-parameter recurrent vision Transformer for ARC-AGI and uses predictive entropy as a parameter-free stopping signal for adaptive visual reasoning depth.', zh: '构建用于 ARC-AGI 的 1800 万参数循环视觉 Transformer，并以预测熵作为无需额外参数的动态停止信号。' }, paper: 'https://arxiv.org/abs/2602.02156', code: 'https://github.com/WenjieShu/LoopViT'
+  },
+  {
+    id: '2602.10097', date: '2026-02-10', title: 'Step-resolved data attribution for looped transformers', authors: 'Georgios Kaissis et al.', venue: 'arXiv 2026', category: 'Training & Analysis', tags: ['data-attribution', 'interpretability', 'tensor-sketch'],
+    summary: { en: 'Decomposes training-example influence across individual recurrent steps and uses TensorSketch to make per-loop attribution practical without materializing full per-example gradients.', zh: '把训练样本影响分解到各个循环步，并用 TensorSketch 在不显式保存逐样本完整梯度的情况下实现逐步归因。' }, paper: 'https://arxiv.org/abs/2602.10097'
+  },
+  {
+    id: '2602.10520', date: '2026-02-11', title: 'Prioritize the Process, Not Just the Outcome: Rewarding Latent Thought Trajectories Improves Reasoning in Looped Language Models', authors: 'Jonathan Williams, Esin Tureci', venue: 'arXiv 2026', category: 'Training & Analysis', tags: ['rltt', 'reinforcement-learning', 'trajectory-credit'],
+    summary: { en: 'RLTT distributes reinforcement credit across Ouro’s entire latent trajectory instead of rewarding only the final recurrent state, directly training the hidden reasoning process.', zh: 'RLTT 将强化学习信用分配到 Ouro 的完整潜在轨迹，而不只奖励最后一个循环状态，从而直接训练隐式推理过程。' }, paper: 'https://arxiv.org/abs/2602.10520', code: 'https://github.com/jonwill8/RLTT'
+  },
+  {
+    id: '2603.08391', date: '2026-03-09', title: 'Adaptive Loops and Memory in Transformers: Think Harder or Know More?', authors: 'Markus Frey et al.', venue: 'arXiv 2026', category: 'Architectures & Scaling', tags: ['adaptive-loops', 'memory-bank', 'layer-specialization'],
+    summary: { en: 'Combines learned per-layer looping with gated memory banks, separating extra iterative computation from additional learned storage and revealing different benefits across task types.', zh: '结合逐层自适应循环与门控记忆库，将额外迭代计算和额外学习存储分离，并揭示二者在不同任务上的作用差异。' }, paper: 'https://arxiv.org/abs/2603.08391'
+  },
+  {
+    id: '2603.19714', date: '2026-03-20', title: 'LoopRPT: Reinforcement Pre-Training for Looped Language Models', authors: 'Guo Tang et al.', venue: 'arXiv 2026', category: 'Training & Analysis', tags: ['reinforcement-pretraining', 'ouro', 'latent-supervision'],
+    summary: { en: 'Applies reinforcement signals directly to intermediate latent steps during pretraining, aiming to improve hard-token representations earlier in Ouro-style computation.', zh: '在预训练阶段把强化信号直接施加到中间潜在步骤，使 Ouro 式模型更早形成高质量的困难 token 表示。' }, paper: 'https://arxiv.org/abs/2603.19714'
+  },
+  {
+    id: '2603.29057', date: '2026-03-30', title: 'LA-Sign: Looped Transformers with Geometry-aware Alignment for Skeleton-based Sign Language Recognition', authors: 'Muxin Pu et al.', venue: 'arXiv 2026', category: 'Systems & Applications', tags: ['sign-language', 'skeleton', 'hyperbolic-alignment'],
+    summary: { en: 'Uses encoder-decoder recurrence to refine skeletal motion representations and adds geometry-aware cross-modal alignment for isolated sign-language recognition.', zh: '利用编码器—解码器循环细化骨骼动作表示，并加入几何感知的跨模态对齐以完成孤立手语识别。' }, paper: 'https://arxiv.org/abs/2603.29057'
+  },
+  {
+    id: '2604.02051', date: '2026-04-02', title: 'Ouroboros: Dynamic Weight Generation for Recursive Transformers via Input-Conditioned LoRA Modulation', authors: 'Jaber Jaber, Osama Jaber', venue: 'arXiv 2026', category: 'Architectures & Scaling', tags: ['hypernetwork', 'lora', 'step-specialization'],
+    summary: { en: 'Uses a compact controller to generate input- and step-conditioned modulation over shared LoRA bases, giving a recursive block different effective transformations at each visit.', zh: '用紧凑控制器在共享 LoRA 基底上生成输入与步数条件调制，使递归模块每次访问时具有不同的有效变换。' }, paper: 'https://arxiv.org/abs/2604.02051', code: 'https://github.com/RightNow-AI/ouroboros'
+  },
+  {
+    id: '2604.09168', date: '2026-04-10', title: 'ELT: Elastic Looped Transformers for Visual Generation', authors: 'Sahil Goyal et al.', venue: 'arXiv 2026', category: 'Systems & Applications', tags: ['visual-generation', 'self-distillation', 'anytime-inference'],
+    summary: { en: 'Trains recurrent image and video generators with intra-loop self-distillation so one checkpoint supports elastic compute-quality trade-offs at inference.', zh: '用循环内自蒸馏训练图像与视频生成模型，使单一检查点在推理时支持弹性的算力—质量权衡。' }, paper: 'https://arxiv.org/abs/2604.09168'
+  },
+  {
+    id: '2604.09870', date: '2026-04-10', title: 'Relational Preference Encoding in Looped Transformer Internal States', authors: 'Jan Kirin', venue: 'arXiv 2026', category: 'Training & Analysis', tags: ['preference-modeling', 'probing', 'erratum'],
+    summary: { en: 'Studies preference readout across Ouro iterations; its appended audit retracts inflated headline results but preserves a smaller relational-over-pointwise decoding effect and useful evaluation warnings.', zh: '研究 Ouro 各循环步中的偏好读出；追加审计撤回了被高估的主要结果，但保留了较小的关系式优于逐点式解码效应及重要评估警示。' }, paper: 'https://arxiv.org/abs/2604.09870'
+  },
+  {
+    id: '2604.18839', date: '2026-04-20', title: 'One Step Forward and K Steps Back: Better Reasoning with Denoising Recursion Models', authors: 'Chris Cameron et al.', venue: 'arXiv 2026', category: 'Broader Latent Reasoning', tags: ['denoising-recursion', 'arc-agi', 'broader-scope'],
+    summary: { en: 'Trains recursive reasoners to reverse controlled corruption over multiple refinement steps, providing intermediate-state curricula for search-like structured reasoning.', zh: '训练递归推理器通过多步细化逆转可控扰动，为具有搜索性质的结构化推理提供中间状态课程。' }, paper: 'https://arxiv.org/abs/2604.18839'
+  },
+  {
+    id: '2604.21254', date: '2026-04-23', title: 'Hyperloop Transformers', authors: 'Abbas Zeitoun et al.', venue: 'arXiv 2026', category: 'Architectures & Scaling', tags: ['hyper-connections', 'memory-efficiency', 'partial-looping'],
+    summary: { en: 'Loops only a middle layer block and adds hyper-connections between visits, targeting strong language modeling under model-memory constraints and quantization.', zh: '只循环中间层块，并在各次访问之间加入 Hyper-Connections，面向模型内存受限与量化场景提升语言建模效率。' }, paper: 'https://arxiv.org/abs/2604.21254'
+  },
+  {
+    id: '2605.00206', date: '2026-04-30', title: 'State Stream Transformer (SST) V2: Parallel Training of Nonlinear Recurrence for Latent Space Reasoning', authors: 'Thea Aviss', venue: 'arXiv 2026', category: 'Broader Latent Reasoning', tags: ['state-stream', 'nonlinear-recurrence', 'parallel-training'],
+    summary: { en: 'Streams nonlinear recurrent state horizontally across decoder positions and uses a two-pass approximation to train this sequential latent pathway in parallel.', zh: '在解码位置间横向传递非线性循环状态，并用两遍近似实现该顺序潜在通路的并行训练。' }, paper: 'https://arxiv.org/abs/2605.00206'
+  },
+  {
+    id: '2605.11262', date: '2026-05-11', title: 'Latent Chain-of-Thought Improves Structured-Data Transformers', authors: 'Carson Dudley, Samet Oymak', venue: 'arXiv 2026', category: 'Latent Reasoning', tags: ['structured-data', 'feedback-tokens', 'time-series'],
+    summary: { en: 'Feeds compressed query-position states back as extra tokens for repeated processing, extending latent test-time computation to tabular prediction and time-series forecasting.', zh: '把查询位置的压缩状态作为额外 token 反馈给模型反复处理，将潜在测试时计算扩展到表格预测与时间序列预测。' }, paper: 'https://arxiv.org/abs/2605.11262'
+  },
+  {
+    id: '2605.12466', date: '2026-05-12', title: 'Solve the Loop: Attractor Models for Language and Reasoning', authors: 'Jacob Fein-Ashley, Paria Rashidinejad', venue: 'arXiv 2026', category: 'Latent Reasoning', tags: ['attractor-model', 'fixed-point', 'implicit-differentiation'],
+    summary: { en: 'Replaces fixed unrolling with an attractor module solved to convergence and trained by implicit differentiation, enabling adaptive effective depth with constant training memory.', zh: '用求解至收敛的吸引子模块取代固定展开，并通过隐式微分训练，实现训练内存恒定的自适应有效深度。' }, paper: 'https://arxiv.org/abs/2605.12466'
+  },
+  {
+    id: '2605.16343', date: '2026-05-08', title: 'LoopQ: Quantization for Recursive Transformers', authors: 'Rui Fang et al.', venue: 'arXiv 2026', category: 'Systems & Applications', tags: ['quantization', 'recursive-error', 'deployment'],
+    summary: { en: 'Identifies loop-specific post-training quantization failures and combines scaling, state alignment, and trajectory-aware optimization to limit recursively accumulated error.', zh: '识别循环模型特有的训练后量化失效，并结合激活缩放、状态对齐与轨迹感知优化来抑制递归误差累积。' }, paper: 'https://arxiv.org/abs/2605.16343'
+  },
+  {
+    id: '2605.26797', date: '2026-05-26', title: 'Latent Recurrent Transformer: Architecture Exploration, Training Strategies, and Scaling Behavior', authors: 'Zeyi Huang et al.', venue: 'arXiv 2026', category: 'Architectures & Scaling', tags: ['cross-token-recurrence', 'parallel-training', 'kv-cache'],
+    summary: { en: 'Carries a high-level hidden state from one token into the next while preserving the standard KV-cache interface, and introduces interleaved parallel training for the cross-token recurrence.', zh: '把前一 token 的高层隐藏状态传递到下一 token，同时保留标准 KV-cache 接口，并提出交错并行训练处理跨 token 循环。' }, paper: 'https://arxiv.org/abs/2605.26797'
+  },
+  {
+    id: '2605.30202', date: '2026-05-28', title: 'A Dual-Path Architecture for Scaling Compute and Capacity in LLMs', authors: 'Markus Frey et al.', venue: 'arXiv 2026', category: 'Architectures & Scaling', tags: ['dual-path', 'capacity', 'token-gating'],
+    summary: { en: 'Pairs a repeatedly applied deep sublayer with a single-pass wide feed-forward path, allowing token-wise gates to trade iterative compute against one-step parameter capacity.', zh: '将反复执行的深路径与单次执行的宽前馈路径并列，让 token 级门控在迭代计算与单步参数容量间分配资源。' }, paper: 'https://arxiv.org/abs/2605.30202'
+  },
+  {
+    id: '2605.30215', date: '2026-05-28', title: 'Déjà View: Looping Transformers for Multi-View 3D Reconstruction', authors: 'Alessandro Burzio et al.', venue: 'arXiv 2026', category: 'Systems & Applications', tags: ['3d-reconstruction', 'multiview', 'iterative-refinement'],
+    summary: { en: 'Makes progressive multi-view reconstruction explicit by recurrently applying one Transformer block, exposing refinement count as an inference-time compute knob.', zh: '通过循环应用单一 Transformer 块显式实现多视角重建的渐进细化，并把细化次数变成推理时计算旋钮。' }, paper: 'https://arxiv.org/abs/2605.30215'
+  },
+  {
+    id: '2605.30757', date: '2026-05-29', title: 'Chain-of-Thought and Compressed Looped Transformers: A Memory-Budget Separation', authors: 'Haozhou Zhang', venue: 'arXiv 2026', category: 'Foundations & Theory', tags: ['memory-complexity', 'chain-of-thought', 'separation'],
+    summary: { en: 'Formalizes a memory-capacity separation: extra iterations do not give compressed latent loops the growing scratchpad available to polynomial-length chain of thought.', zh: '形式化说明记忆容量分离：增加循环次数不会让压缩潜在循环获得多项式长度思维链所拥有的增长式草稿空间。' }, paper: 'https://arxiv.org/abs/2605.30757'
+  },
+  {
+    id: '2606.01495', date: '2026-05-31', title: 'CART: Context-Anchored Recurrent Transformer -- A Parameter-Efficient Architecture with Learned Stability', authors: 'Chad A. Capps', venue: 'arXiv 2026', category: 'Architectures & Scaling', tags: ['context-anchor', 'lti-gate', 'negative-result'],
+    summary: { en: 'Cross-attends a recurrent core to frozen context keys and values under a learned stability gate; controlled experiments also document where this recipe fails to beat dense baselines or extrapolate in depth.', zh: '让循环核心在学习式稳定门控下交叉注意固定上下文的键值，并通过受控实验记录该方案未能击败稠密基线或进行深度外推的情形。' }, paper: 'https://arxiv.org/abs/2606.01495'
+  },
+  {
+    id: '2606.04678', date: '2026-06-03', title: 'Test-Time Compute Scaling for ASR with Depth-Conditioned Looped Transformers', authors: 'Yacouba Kaloga et al.', venue: 'arXiv 2026', category: 'Systems & Applications', tags: ['speech-recognition', 'depth-conditioning', 'ctc'],
+    summary: { en: 'Turns recurrent encoder depth into an inference budget for speech recognition using sparse CTC checkpoints, depth conditioning, and delayed posterior feedback.', zh: '通过稀疏 CTC 检查点、深度条件调制和延迟后验反馈，把循环编码器深度变成语音识别的推理预算。' }, paper: 'https://arxiv.org/abs/2606.04678'
+  },
+  {
+    id: '2606.09357', date: '2026-06-08', title: 'Rethinking Depth: A study of the Recursive-Transformer for Speech Recognition', authors: 'Thomas Rolland et al.', venue: 'arXiv 2026', category: 'Systems & Applications', tags: ['speech-recognition', 'layer-sharing', 'parameter-efficiency'],
+    summary: { en: 'Systematically studies where and how much recursion to use in speech encoders, finding competitive recognition with substantially fewer unique parameters in limited-loop regimes.', zh: '系统研究语音编码器应在何处、以多大深度递归，发现有限循环可在显著减少独立参数的同时保持有竞争力的识别效果。' }, paper: 'https://arxiv.org/abs/2606.09357'
+  },
+  {
+    id: '2606.13106', date: '2026-06-11', title: 'Demystifying Hidden-State Recurrence: Switchable Latent Reasoning with On-Policy Reinforcement Learning', authors: 'Jiayu Yang et al.', venue: 'arXiv 2026', category: 'Broader Latent Reasoning', tags: ['switch', 'on-policy-rl', 'hidden-state-recurrence'],
+    summary: { en: 'Introduces explicit entry and exit tokens around recurrent hidden-state reasoning, making the latent block compatible with on-policy RL and accessible to causal probing.', zh: '在循环隐藏状态推理前后加入显式进入与退出 token，使潜在模块既能使用在策略强化学习，也便于进行因果探测。' }, paper: 'https://arxiv.org/abs/2606.13106'
+  },
+  {
+    id: '2606.17524', date: '2026-06-16', title: 'Learning to Refine Hidden States for Reliable LLM Reasoning', authors: 'Chia-Hsuan Hsu, Jui-Ming Yao', venue: 'arXiv 2026', category: 'Broader Latent Reasoning', tags: ['relar', 'adaptive-refinement', 'reinforcement-learning'],
+    summary: { en: 'Uses learned depth and action controllers to choose how many latent refinements to perform and in which direction before decoding, trained from step-wise likelihood improvement.', zh: '用学习到的深度与动作控制器决定解码前进行多少次潜在细化及其方向，并以逐步似然改善作为训练信号。' }, paper: 'https://arxiv.org/abs/2606.17524'
+  },
+  {
+    id: '2606.20737', date: '2026-06-17', title: 'Repeated Shared Access Enables Grokking, but Edit Propagation Depends on an Addressable Memory', authors: 'Yanan Niu', venue: 'arXiv 2026', category: 'Training & Analysis', tags: ['grokking', 'memory', 'knowledge-editing'],
+    summary: { en: 'Separates recurrence from shared-memory access in a controlled grid, finding that either can enable grokking but reliable multi-hop edit propagation follows addressable memory rather than looping alone.', zh: '在受控实验中分离循环与共享记忆访问：二者都可能促进 grokking，但可靠的多跳编辑传播取决于可寻址记忆，而非循环本身。' }, paper: 'https://arxiv.org/abs/2606.20737'
+  },
+  {
+    id: '2606.24898', date: '2026-06-12', title: 'Dense Supervision Is Not Enough: The Readout Blind Spot in Looped Language Models', authors: 'Rituraj Sharma, Tu Vu', venue: 'arXiv 2026', category: 'Training & Analysis', tags: ['dense-supervision', 'hidden-state-scale', 'readout'],
+    summary: { en: 'Shows that per-loop cross-entropy can train usable exits while leaving recurrent-state scale uncontrolled when normalized readouts hide radial information, motivating explicit scale control.', zh: '说明逐循环交叉熵虽能训练可用出口，但归一化读出会遮蔽径向尺度，使循环状态规模失控，因此需要显式尺度约束。' }, paper: 'https://arxiv.org/abs/2606.24898'
+  },
+  {
+    id: '2607.00341', date: '2026-07-01', title: 'DiscoLoop: Looping Discrete Embeddings and Continuous Hidden States for Multi-hop Reasoning', authors: 'Hengyu Fu et al.', venue: 'arXiv 2026', category: 'Latent Reasoning', tags: ['discrete-continuous', 'multi-hop', 'representation-alignment'],
+    summary: { en: 'Carries both a discrete embedding channel and a continuous hidden-state channel through recurrence, addressing a gap between decodable bridge entities and token-aligned representations.', zh: '在循环中同时传递离散嵌入与连续隐藏状态通道，缓解可解码桥接实体与 token 对齐表示之间的落差。' }, paper: 'https://arxiv.org/abs/2607.00341'
+  },
+  {
+    id: '2607.00774', date: '2026-07-01', title: 'Soft Mixture-of-Recursions: Going Deeper with Recursive Vision Transformers', authors: 'Sang In Lee, Jihun Park', venue: 'arXiv 2026', category: 'Systems & Applications', tags: ['vision-transformer', 'soft-routing', 'intermediate-states'],
+    summary: { en: 'Learns token-wise mixtures over every recursion output so recursive vision Transformers can exploit intermediate states instead of reading only the final visit.', zh: '对所有递归步输出学习 token 级软混合，使递归视觉 Transformer 能利用中间状态，而非只读取最后一次访问。' }, paper: 'https://arxiv.org/abs/2607.00774'
+  },
+  {
+    id: '2607.10681', date: '2026-07-12', title: 'LayerNorm as Implicit Gain Control in Looped Transformers', authors: 'Matthias M. M. Buehlmaier', venue: 'arXiv 2026', category: 'Training & Analysis', tags: ['layernorm', 'stability', 'dynamical-systems'],
+    summary: { en: 'Analyzes pre-LayerNorm as an implicit gain controller for recurrent dynamics, distinguishing spectral stability from operator-norm bounds and stabilization from memory.', zh: '把 Pre-LayerNorm 分析为循环动力学的隐式增益控制器，区分谱稳定性与算子范数界，也区分稳定作用与记忆作用。' }, paper: 'https://arxiv.org/abs/2607.10681'
+  },
+  {
+    id: '2607.14427', date: '2026-07-15', title: 'Per-Token Fixed-Point Convergence in Depth-Recurrent Transformers', authors: 'Joe Logan', venue: 'arXiv 2026', category: 'Adaptive Compute', tags: ['fixed-point', 'token-halting', 'training-free'],
+    summary: { en: 'Measures token-specific convergence depths and shows that a training-free stability rule can halt settled tokens earlier than a learned router at the studied scale.', zh: '测量不同 token 的收敛深度，并显示在所研究规模上，免训练的稳定性规则可比学习式路由器更早停止已收敛 token。' }, paper: 'https://arxiv.org/abs/2607.14427'
+  },
+  {
+    id: '2607.15178', date: '2026-07-16', title: 'T^2MLR: Transformer with Temporal Middle-Layer Recurrence', authors: 'Ziyang Cai et al.', venue: 'arXiv 2026', category: 'Latent Reasoning', tags: ['middle-layer-recurrence', 'cross-token', 'retrofit'],
+    summary: { en: 'Feeds a cached middle-layer representation from the previous token into an earlier layer of the current token, preserving latent computation across decoding steps with localized recurrence.', zh: '把前一 token 的中层表示送入当前 token 的更早层，以局部循环在解码步之间保留潜在计算。' }, paper: 'https://arxiv.org/abs/2607.15178'
+  },
+  {
+    id: '2607.17843', date: '2026-07-20', title: 'Mobius Learning: Cyclic Depth Folding in Transformers', authors: 'Tongtian Zhu', venue: 'arXiv 2026', category: 'Architectures & Scaling', tags: ['cyclic-depth', 'block-order', 'distributed-training'],
+    summary: { en: 'Rotates block order across data streams so each shared group learns both shallow and deep roles, exploring cyclic depth folding beyond a fixed loop order.', zh: '在不同数据流间轮换模块顺序，使每个共享模块组同时学习浅层与深层角色，探索超越固定循环顺序的环形深度折叠。' }, paper: 'https://arxiv.org/abs/2607.17843'
+  },
+  {
+    id: '2607.18553', date: '2026-07-20', title: 'Operational Proto-Introspection in Looped Language Models: Process-Quality Taps, Executable Branching, and the Readout-Control Boundary', authors: 'Jan Kirin', venue: 'arXiv 2026', category: 'Training & Analysis', tags: ['introspection', 'hidden-state-readout', 'branching'],
+    summary: { en: 'Tests whether Ouro and Huginn states reveal ongoing solution quality, finding useful decision-level readouts while reporting that direct generative steering does not reliably convert.', zh: '检验 Ouro 与 Huginn 状态能否反映当前解题质量，发现其读出可支持决策，但直接生成式操控未能可靠转化为收益。' }, paper: 'https://arxiv.org/abs/2607.18553'
+  },
+  {
+    id: '2607.20519', date: '2026-07-08', title: 'Adaptive Depth in Looped Transformers: Diagnosing Learned Halting Gates and Trajectory Readouts', authors: 'Andrei Cristian Popescu et al.', venue: 'arXiv 2026', category: 'Adaptive Compute', tags: ['halting', 'trajectory', 'readout'],
+    summary: { en: 'Separates trajectory formation from exit readout and finds that simple post-hoc confidence rules can rival learned gates when the recurrent trajectory is shaped independently.', zh: '区分循环轨迹形成与出口读出，并发现当轨迹独立塑形时，简单的事后置信度规则可与学习式停止门相当。' }, paper: 'https://arxiv.org/abs/2607.20519'
+  },
+  {
+    id: '2607.20594', date: '2026-07-22', title: 'When Does Recurrence Become an Algorithm? Convergence Selection in Weight-Tied Looped Transformers', authors: 'Tong Zhang et al.', venue: 'arXiv 2026', category: 'Foundations & Theory', tags: ['algorithm-selection', 'convergence', 'depth-extrapolation'],
+    summary: { en: 'Uses controlled group-word tasks to show how weight tying and training budgets select serial computation frontiers, and introduces convergence-time scaling as a mechanistic diagnostic.', zh: '用受控群字问题研究权重共享与训练预算如何选择串行计算前沿，并提出收敛时间扩展作为机制诊断工具。' }, paper: 'https://arxiv.org/abs/2607.20594'
+  },
+  {
+    id: '2607.22083', date: '2026-07-24', title: 'Nanbeige4.2-3B: Unlocking Agentic Capabilities in a Compact Model', authors: 'Nanbeige Lab et al.', venue: 'arXiv 2026', category: 'Systems & Applications', tags: ['agentic-model', 'pretraining', 'looped-stack'],
+    summary: { en: 'Pretrains a compact 3B agentic model on a looped Transformer that reuses its layer stack, pairing recurrent depth with a large-scale agentic post-training pipeline.', zh: '基于复用层栈的循环 Transformer 预训练紧凑型 3B Agent 模型，并结合大规模 Agent 后训练流程。' }, paper: 'https://arxiv.org/abs/2607.22083'
+  },
+  {
+    id: '2607.25915', date: '2026-07-28', title: 'Penelope: Localized Latent Recurrence for Efficient Structured Reasoning', authors: 'Yutong Chen et al.', venue: 'arXiv 2026', category: 'Latent Reasoning', tags: ['localized-recurrence', 'gru', 'cot-distillation'],
+    summary: { en: 'Restricts recurrent refinement to a middle decoder interval anchored by a cached prefix, reducing the cost of latent reasoning without repeatedly running the full model.', zh: '把循环细化限制在由缓存前缀锚定的解码器中间区间，避免为潜在推理反复执行完整模型。' }, paper: 'https://arxiv.org/abs/2607.25915'
+  },
+  {
+    id: '2607.27656', date: '2026-07-30', title: 'Looped Transformers with Source-Centered State Evolution', authors: 'Bum Jun Kim et al.', venue: 'arXiv 2026', category: 'Architectures & Scaling', tags: ['scse', 'fixed-point', 'input-conditioning'],
+    summary: { en: 'Defines recurrence around a learned input-conditioned anchor whose zero deviation is exactly invariant, removing the forcing bias created by repeated additive input injection.', zh: '围绕学习到的输入条件锚点定义循环，使零偏差严格不变，从而消除重复加性输入注入产生的强迫偏置。' }, paper: 'https://arxiv.org/abs/2607.27656'
+  },
+  {
+    id: '2608.06727', date: '2026-08-07', title: 'bioMoR: Biology-Guided Mixture-of-Recursions for Effective Genomic Learning', authors: 'Koushik Howlader et al.', venue: 'arXiv 2026', category: 'Systems & Applications', tags: ['genomics', 'mixture-of-recursions', 'graph-routing'],
+    summary: { en: 'Injects biological graphs into token embeddings, attention bias, and the recursion router, allocating deeper computation to genes and pathways according to structured knowledge.', zh: '把生物图知识注入 token 嵌入、注意力偏置与递归路由器，依据结构知识为基因和通路分配更深计算。' }, paper: 'https://arxiv.org/abs/2608.06727'
+  },
+  {
+    id: '2608.08113', date: '2026-08-08', title: 'Think Deep, Speak Once: Relit, A Recursive Latent Implicit Transformer Framework', authors: 'Abhishek Panwar et al.', venue: 'arXiv 2026', category: 'Broader Latent Reasoning', tags: ['relit', 'recursive-block', 'implicit-reasoning'],
+    summary: { en: 'Adds a lightweight recursive latent block to a frozen language model, aiming to combine semantic representations with deep implicit reasoning before a single verbal response.', zh: '在冻结语言模型上加入轻量递归潜在模块，把语义表示与深层隐式推理结合后再一次性输出语言答案。' }, paper: 'https://arxiv.org/abs/2608.08113'
+  },
+  {
+    id: '2608.09888', date: '2026-08-10', title: 'BDH-CQ: In-Context Learning with Recurrent Latent Reasoning', authors: 'Björn Engdahl et al.', venue: 'arXiv 2026', category: 'Broader Latent Reasoning', tags: ['in-context-learning', 'recurrent-memory', 'arc-agi'],
+    summary: { en: 'Continuously updates recurrent memory from demonstrations and then solves a query by iterating in a high-dimensional latent space without verbalizing intermediate steps.', zh: '根据示例持续更新循环记忆，再在高维潜在空间中迭代求解查询，而无需语言化中间步骤。' }, paper: 'https://arxiv.org/abs/2608.09888'
+  },
+  {
+    id: '2608.13141', date: '2026-08-13', title: 'MergeOver: Post-Training Token Merging for Recursive Vision Transformers', authors: 'Junseo Kim et al.', venue: 'arXiv 2026', category: 'Systems & Applications', tags: ['token-merging', 'vision-transformer', 'edge-deployment'],
+    summary: { en: 'Adds retraining-free token merging to a recursively weight-shared vision Transformer while tracking spatial unmerging constraints across repeated stages.', zh: '在递归权重共享视觉 Transformer 中加入免重训的 token 合并，并跨重复阶段维护空间反合并约束。' }, paper: 'https://arxiv.org/abs/2608.13141'
+  },
+  {
+    id: '2608.13987', date: '2026-08-14', title: 'Nanbeige4.2-3B on Apple Silicon: Fixing Deployment Bugs and Decreasing Looped Transformer Memory Overhead', authors: 'John T. Halloran', venue: 'arXiv 2026', category: 'Systems & Applications', tags: ['apple-silicon', 'memory', 'deployment'],
+    summary: { en: 'Audits practical deployment failures of a looped agentic model on Apple Silicon and uses chunked prefill to reduce the peak attention-memory penalty from its second stack pass.', zh: '审计循环 Agent 模型在 Apple Silicon 上的实际部署故障，并用分块预填充降低第二次层栈执行带来的峰值注意力内存开销。' }, paper: 'https://arxiv.org/abs/2608.13987', code: 'https://github.com/johnhalloran321/Nanbeige4.2-3B-mps-fix'
+  },
+  {
+    id: '2608.26556', date: '2026-08-27', title: 'Dynamical phase selection controls compute scaling in looped transformers', authors: 'Gunn Kim', venue: 'arXiv 2026', category: 'Training & Analysis', tags: ['dynamical-phase', 'bifurcation', 'compute-scaling'],
+    summary: { en: 'Shows that identically trained looped architectures can settle into distinct bifurcation regimes whose relaxation dynamics determine test-time compute scaling.', zh: '说明相同架构与目标的循环模型可能落入不同分岔相，其松弛动力学会决定测试时计算扩展行为。' }, paper: 'https://arxiv.org/abs/2608.26556'
+  },
+  {
+    id: '2608.26973', date: '2026-08-27', title: 'Squeezing More from Limited Data with Recursive Transformers', authors: 'Serdar Gülbahar et al.', venue: 'arXiv 2026', category: 'Architectures & Scaling', tags: ['data-limited', 'recursive-transformer', 'factorized-embeddings'],
+    summary: { en: 'Studies recursive weight sharing when pretraining data are scarce, coupling it with factorized embeddings to spend compute without over-expanding parameter capacity.', zh: '研究预训练数据稀缺时的递归权重共享，并结合因式分解嵌入，在不盲目扩大参数容量的情况下增加计算。' }, paper: 'https://arxiv.org/abs/2608.26973'
+  },
+  {
+    id: '2609.01924', date: '2026-09-01', title: 'Looped Transformers under the Jacobian Lens: Does the Global Workspace Survive Recurrence?', authors: 'Wenlong Wang, Fergal Reid', venue: 'arXiv 2026', category: 'Training & Analysis', tags: ['jacobian-lens', 'global-workspace', 'causal-analysis'],
+    summary: { en: 'Extends Jacobian-lens interventions to virtual unrollings of Ouro and Huginn, finding that both form workspace-like representations but transport and expose them differently across recurrence.', zh: '把 Jacobian Lens 干预扩展到 Ouro 与 Huginn 的虚拟展开，发现二者都形成类似全局工作空间的表示，但跨循环传递与暴露方式不同。' }, paper: 'https://arxiv.org/abs/2609.01924'
+  },
+  {
+    id: '2609.03379', date: '2026-09-03', title: 'RecurTrace: Adaptive Latent Reasoning with Loop-Time Memory', authors: 'Yuxiang Wang et al.', venue: 'arXiv 2026', category: 'Adaptive Compute', tags: ['loop-memory', 'halting', 'adaptive-depth'],
+    summary: { en: 'Lets each repeated layer attend over its own prior loop states and trains a halting head from loss-improvement supervision, combining loop-time memory with input-adaptive depth.', zh: '让每个重复层关注自身此前各循环状态，并用损失改善监督训练停止头，把循环时间记忆与输入自适应深度结合起来。' }, paper: 'https://arxiv.org/abs/2609.03379'
+  },
 ];
 
 export const lastUpdated = '2026-09-04';

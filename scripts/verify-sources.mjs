@@ -4,11 +4,21 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 const decode = (value) => value
   .replaceAll('&amp;', '&').replaceAll('&quot;', '"').replaceAll('&#39;', "'")
   .replaceAll('&lt;', '<').replaceAll('&gt;', '>');
-const normalize = (value) => decode(value).toLowerCase()
-  .normalize('NFKD').replace(/[^a-z0-9]+/g, ' ').trim();
+const normalize = (value) => decode(value)
+  .replace(/\\['`^"~=]\{?([A-Za-z])\}?/g, '$1')
+  .toLowerCase()
+  .normalize('NFKD').replace(/\p{M}+/gu, '').replace(/[^a-z0-9]+/g, ' ').trim();
+
+const requestedIds = new Set(process.argv.slice(2));
+const selectedPapers = requestedIds.size ? papers.filter((paper) => requestedIds.has(paper.id)) : papers;
+if (requestedIds.size && selectedPapers.length !== requestedIds.size) {
+  const known = new Set(selectedPapers.map((paper) => paper.id));
+  throw new Error(`Unknown paper ID(s): ${[...requestedIds].filter((id) => !known.has(id)).join(', ')}`);
+}
 
 const failures = [];
-for (const [index, paper] of papers.entries()) {
+const months = new Map(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].map((month, index) => [month, String(index + 1).padStart(2, '0')]));
+for (const [index, paper] of selectedPapers.entries()) {
   let response;
   try {
     response = await fetch(paper.paper, {
@@ -21,7 +31,7 @@ for (const [index, paper] of papers.entries()) {
   }
 
   if (response.status === 429) {
-    console.log(`[${index + 1}/${papers.length}] rate-limited but reachable: ${paper.id}`);
+    console.log(`[${index + 1}/${selectedPapers.length}] rate-limited but reachable: ${paper.id}`);
     await sleep(1_500);
     continue;
   }
@@ -41,7 +51,14 @@ for (const [index, paper] of papers.entries()) {
     const prefix = expected.split(' ').slice(0, 6).join(' ');
     if (!actual.includes(prefix)) failures.push(`${paper.id}: title mismatch\n  expected: ${paper.title}\n  source: ${decode(match[1])}`);
   }
-  console.log(`[${index + 1}/${papers.length}] verified: ${paper.id}`);
+  if (new URL(paper.paper).hostname === 'arxiv.org') {
+    const submitted = html.match(/Submitted on\s+(\d{1,2})\s+([A-Z][a-z]{2})\s+(\d{4})/);
+    if (submitted) {
+      const sourceDate = `${submitted[3]}-${months.get(submitted[2])}-${submitted[1].padStart(2, '0')}`;
+      if (sourceDate !== paper.date) failures.push(`${paper.id}: first-public date mismatch\n  catalog: ${paper.date}\n  source: ${sourceDate}`);
+    }
+  }
+  console.log(`[${index + 1}/${selectedPapers.length}] verified: ${paper.id}`);
   await sleep(1_000);
 }
 
@@ -49,4 +66,4 @@ if (failures.length) {
   console.error(`\n${failures.length} source verification failure(s):\n${failures.join('\n')}`);
   process.exit(1);
 }
-console.log(`\nVerified ${papers.length} primary paper pages.`);
+console.log(`\nVerified ${selectedPapers.length} primary paper pages.`);

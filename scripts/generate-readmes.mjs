@@ -8,7 +8,7 @@ const intro = {
     language: '[中文](README.zh-CN.md) | **English**',
     tagline: 'A verified, survey-style atlas of looped and recurrent-depth Transformers, with a broader track for latent reasoning.',
     scopeTitle: 'What this list covers',
-    scope: 'The core catalog focuses on models that reuse a learned Transformer layer, block, or stack through depth within one forward process. A separately labeled **Broader Latent Reasoning** track covers Coconut, HRM, TRM, implicit CoT, and related work that shares the goal of multi-step computation in learned hidden states but does not necessarily use a looped Transformer.',
+    scope: 'The core catalog focuses on models that reuse a learned Transformer layer, block, or stack through depth within one forward process, plus direct theory, analysis, systems work, and applications of those models. It is maintained as a comprehensive snapshot through the date shown above. A separately labeled **Broader Latent Reasoning** track covers representative work such as Coconut, HRM, TRM, and implicit CoT that shares the goal of multi-step computation in learned hidden states but does not necessarily use a looped Transformer; this broader track is selective rather than exhaustive.',
     mapTitle: 'Survey map',
     map: [
       ['Foundations & Theory', 'Expressivity, programmability, in-context optimization, length and depth generalization.'],
@@ -26,6 +26,7 @@ const intro = {
       'Code and model links are included only when an official author/project source could be identified.',
       'Dates refer to first public release; venues reflect the latest verified publication status in this snapshot.',
       'Summaries are original editorial notes, not copied abstracts.',
+      'The core looped/recursive-Transformer track is searched for comprehensive coverage; the much larger broader latent-reasoning track is intentionally representative.',
       'Agent loops, repeated full-model API calls, and ordinary sequence recurrence without a direct latent-reasoning connection are out of core scope.',
     ],
     contributeTitle: 'Contributing', contribute: 'Corrections and new papers are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) and include a primary-source link plus evidence of the loop or latent-reasoning mechanism.',
@@ -34,7 +35,7 @@ const intro = {
     language: '**中文** | [English](README.md)',
     tagline: '经过链接核验、按综述方式组织的循环与递归深度 Transformer 图谱，并扩展收录广义潜在推理工作。',
     scopeTitle: '收录范围',
-    scope: '主目录聚焦在一次前向过程中沿深度重复使用 Transformer 层、模块或层栈的模型。另设明确标注的 **广义潜在推理** 板块，收录 Coconut、HRM、TRM、隐式 CoT 等具有共同目标的工作：它们都在学习到的隐状态中进行多步计算，但不一定采用循环 Transformer。',
+    scope: '主目录聚焦在一次前向过程中沿深度重复使用 Transformer 层、模块或层栈的模型，以及直接研究这些模型的理论、机制、系统与应用工作，并按上方快照日期尽可能完整维护。另设明确标注的 **广义潜在推理** 板块，代表性收录 Coconut、HRM、TRM、隐式 CoT 等具有共同目标的工作：它们都在学习到的隐状态中进行多步计算，但不一定采用循环 Transformer；由于该领域范围极广，这一板块是精选而非穷举。',
     mapTitle: '综述分类',
     map: [
       ['基础与理论', '表达能力、可编程性、上下文优化、长度泛化与深度泛化。'],
@@ -52,6 +53,7 @@ const intro = {
       '代码和模型链接只有在确认来自作者或官方项目时才会收录。',
       '日期采用首次公开时间；会议状态采用本次快照中能够确认的最新状态。',
       '所有短评均为原创编辑概述，不复制论文摘要。',
+      '循环/递归 Transformer 核心路线按完整覆盖目标检索；规模更大的广义潜在推理路线则有意采用代表性精选。',
       'Agent 循环、重复调用完整模型的 API 流程，以及与潜在推理无直接关系的普通序列循环不属于核心范围。',
     ],
     contributeTitle: '参与贡献', contribute: '欢迎修正信息或补充论文。请先阅读 [CONTRIBUTING.md](CONTRIBUTING.md)，并提供论文原始链接及其循环或潜在推理机制的依据。',
@@ -69,15 +71,18 @@ function links(paper, lang) {
 function render(lang) {
   const t = intro[lang];
   const recentCount = papers.filter((paper) => Number(paper.date.slice(0, 4)) >= 2024).length;
+  const broaderCount = papers.filter((paper) => Number(paper.date.slice(0, 4)) >= 2024 && paper.category === 'Broader Latent Reasoning').length;
+  const coreCount = recentCount - broaderCount;
   const out = [
     '<!-- This file is generated from lib/papers.ts. Edit the data source, then run npm run readme. -->',
     '# Awesome Loop Transformers', '', t.language, '',
+    `<p align="center"><img src="public/og.png" alt="${lang === 'en' ? 'Awesome Loop Transformers — a bilingual research atlas' : 'Awesome Loop Transformers 双语研究图谱'}" width="100%" /></p>`, '',
     `[![Curated papers](https://img.shields.io/badge/curated-${recentCount}%20works-d8ff55?style=flat-square&labelColor=181814)](${repo})`,
     `[![Link check](https://img.shields.io/github/actions/workflow/status/Mrkkew/Awesome-Loop-Transformers/links.yml?style=flat-square&label=links)](${repo}/actions/workflows/links.yml)`,
     `[![License: CC BY 4.0](https://img.shields.io/badge/license-CC%20BY%204.0-2b59ff?style=flat-square)](LICENSE)`,
     '', `> ${t.tagline}`, '',
     `**${t.updated}:** ${lastUpdated}  `,
-    `**${lang === 'en' ? 'Coverage' : '收录数量'}:** ${recentCount} ${lang === 'en' ? 'works from 2024 onward' : '篇 2024 年以来的工作'} · ${papers.length} ${lang === 'en' ? 'total including foundations' : '篇（含基础工作）'}`,
+    `**${lang === 'en' ? 'Coverage' : '收录数量'}:** ${recentCount} ${lang === 'en' ? `works from 2024 onward (${coreCount} core · ${broaderCount} broader)` : `篇 2024 年以来的工作（核心 ${coreCount} 篇 · 广义潜在推理 ${broaderCount} 篇）`} · ${papers.length} ${lang === 'en' ? 'total including foundations' : '篇（含基础工作）'}`,
     '', `## ${t.scopeTitle}`, '', t.scope, '',
     `## ${t.mapTitle}`, '',
     `| ${lang === 'en' ? 'Track' : '方向'} | ${lang === 'en' ? 'Focus' : '关注问题'} |`, '| --- | --- |',
@@ -96,7 +101,7 @@ function render(lang) {
       const yearUnit = lang === 'en' ? (yearCount === 1 ? 'paper' : 'papers') : '篇';
       out.push(`<details${year >= '2024' ? ' open' : ''}>`, `<summary><strong>${year}</strong> · ${yearCount} ${yearUnit}</summary>`, '');
       for (const paper of byYear.get(year)) {
-        out.push(`- **${paper.title}** — ${paper.authors}. *${paper.venue}*.  `, `  ${paper.summary[lang]}  `, `  ${links(paper, lang)}`, '');
+        out.push(`- **${paper.title}** — ${paper.authors}. *${paper.venue}*.<br>`, `  ${paper.summary[lang]}<br>`, `  ${links(paper, lang)}`, '');
       }
       out.push('</details>', '');
     }
