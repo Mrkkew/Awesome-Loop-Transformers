@@ -7,8 +7,8 @@ const copy = {
   en: {
     atlas: 'A bilingual research atlas · 2024—present',
     headlineA: 'Models that think', headlineB: 'in depth,', headlineC: 'not only in tokens.',
-    dek: 'A verified, survey-style map of looped and recurrent-depth Transformers—plus the broader latent-reasoning ideas shaping this new compute axis.',
-    explore: 'Explore the literature', verified: 'Primary-source links, checked title by title.',
+    dek: 'A survey-style map of looped and recurrent-depth Transformers—plus the broader latent-reasoning ideas shaping this new compute axis.',
+    explore: 'Explore the literature', verified: 'Papers, code, and project pages in one place.',
     papers: 'curated works', sources: 'primary sources', languages: 'languages',
     thesis: 'The field in one sentence',
     thesisText: 'Looped models decouple parameter depth from computation depth: a compact learned module can be reused to refine a latent state, while routing, halting, and stability decide whether extra computation actually helps.',
@@ -25,24 +25,24 @@ const copy = {
     updated: 'Research snapshot', contribute: 'Know a paper we missed?', contributeText: 'Open a pull request with a primary-source link and a short note explaining the loop or latent-reasoning mechanism.', contributeCta: 'Contribution guide',
   },
   zh: {
-    atlas: '中英双语研究图谱 · 2024 至今',
+    atlas: '双语研究图谱 · 2024 至今',
     headlineA: '让模型在', headlineB: '深度中思考，', headlineC: '而不只在 token 中思考。',
-    dek: '一份经过链接核验、按综述方式组织的循环与递归深度 Transformer 图谱，并延伸到正在塑造这一计算新维度的广义潜在推理工作。',
-    explore: '浏览论文图谱', verified: '逐篇核对标题与论文原始来源。',
-    papers: '篇精选工作', sources: '论文原始来源', languages: '种语言',
+    dek: '从 Loop Transformer 出发，梳理循环与递归深度、潜在推理和测试时计算的关键工作。',
+    explore: '浏览论文图谱', verified: '论文、代码与项目主页一站直达。',
+    papers: '篇收录工作', sources: '原始论文链接', languages: '种语言',
     thesis: '一句话理解这个领域',
-    thesisText: '循环模型把参数深度与计算深度部分解耦：紧凑的学习模块可被反复调用来细化隐状态，而路由、停止和稳定性决定额外计算究竟带来增益还是过度思考。',
-    route: '五步阅读路线', routeText: '把这个领域读成一组递进问题，而不是一堆链接。',
-    catalog: '论文目录', catalogText: '可按标题、作者、会议、标签及原创双语短评搜索。',
+    thesisText: '循环模型将参数深度与计算深度解耦：同一模块可反复更新隐状态，而路由、停止策略与训练稳定性共同决定额外计算能否转化为性能提升。',
+    route: '五步阅读路线', routeText: '顺着五个问题，快速建立对这个方向的整体认识。',
+    catalog: '论文目录', catalogText: '按标题、作者、会议、标签或双语短评搜索。',
     all: '全部主题', search: '搜索论文、模型、作者……', recent: '仅 2024 至今', allYears: '全部年份',
     results: '项结果', paper: '论文', code: '代码', project: '主页', key: '重点工作',
     broaderTitle: '为什么收录“广义潜在推理”？',
-    broaderText: 'Coconut、HRM、TRM、隐式 CoT 等工作并非全部采用循环 Transformer。代表性工作被放在清晰标注的扩展板块中，因为其共同目标都是：让模型在学习到的隐状态中完成多步计算，而非只能依赖解码出来的文本。广义潜在推理发展极快，因此采用精选策略；循环/递归 Transformer 核心路线则按完整覆盖目标维护。',
-    method: '收录与核验标准',
-    methodText: '每条记录都追溯到 arXiv、OpenReview、正式会议论文页或官方项目主页。目录区分按完整覆盖目标检索的循环深度 Transformer 核心路线与代表性精选的广义潜在推理路线，记录首次公开日期，并使用原创概述而非复制论文摘要。',
-    include: '收录', includeItems: ['权重共享或循环深度 Transformer', '学习式停止、路由、稳定性与循环系统', '直接研究或应用循环模型的工作', '明确标注范围的广义隐空间推理'],
-    exclude: '不收录', excludeItems: ['Agent 循环或重复 API 调用', '与潜在推理没有直接联系的普通 RNN', '只能从二手摘要找到的论文', '无法验证或与论文不匹配的仓库链接'],
-    updated: '调研快照', contribute: '发现遗漏的论文？', contributeText: '提交 Pull Request，并附论文原始链接及对循环或潜在推理机制的简要说明。', contributeCta: '查看贡献指南',
+    broaderText: 'Coconut、HRM、TRM、隐式 CoT 并不都采用 Loop Transformer，但都关注在隐状态中完成多步计算、减少对显式思维链的依赖。因此，本图谱将其作为独立的扩展板块，并选取其中具有代表性的研究。',
+    method: '收录原则',
+    methodText: '核心目录尽量覆盖 Loop Transformer 的主要工作；广义潜在推理则选取代表性研究。日期以首次公开时间为准，链接优先指向论文、代码或项目的官方页面，短评均为原创概述。',
+    include: '收录范围', includeItems: ['权重共享或循环深度 Transformer', '停止、路由、稳定性与循环系统研究', '直接分析或应用循环模型的工作', '与主题紧密相关的隐空间推理研究'],
+    exclude: '不在范围', excludeItems: ['Agent 循环或重复 API 调用', '与潜在推理无关的普通 RNN', '只有二手介绍、缺少论文原文的工作', '与论文不匹配的代码仓库'],
+    updated: '最近更新', contribute: '发现遗漏的论文？', contributeText: '欢迎提交 Pull Request，一起把这份图谱做得更完整。', contributeCta: '查看贡献方式',
   },
 };
 
@@ -114,7 +114,7 @@ export default function Home() {
       </section>
 
       <section className="broader-note">
-        <div className="broader-icon">↗</div><div><p className="eyebrow">EXTENDED SCOPE</p><h2>{t.broaderTitle}</h2><p>{t.broaderText}</p></div>
+        <div className="broader-icon">↗</div><div><p className="eyebrow">{lang === 'en' ? 'EXTENDED SCOPE' : '扩展范围'}</p><h2>{t.broaderTitle}</h2><p>{t.broaderText}</p></div>
       </section>
 
       <section className="catalog-section" id="catalog">

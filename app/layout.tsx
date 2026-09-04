@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://raw.githubusercontent.com/Mrkkew/Awesome-Loop-Transformers/main/public/'),
   title: 'Awesome Loop Transformers',
-  description: 'A verified bilingual research atlas of looped and recurrent-depth Transformers, latent reasoning, adaptive compute, and systems.',
+  description: 'A bilingual research atlas of looped and recurrent-depth Transformers, latent reasoning, adaptive compute, and systems.',
   keywords: ['looped transformer', 'recurrent depth', 'latent reasoning', 'test-time compute', 'awesome list'],
   authors: [{ name: 'Awesome Loop Transformers contributors' }],
   openGraph: {

@@ -5,7 +5,7 @@
 
 <p align="center"><img src="public/og.png" alt="Awesome Loop Transformers 双语研究图谱" width="100%" /></p>
 
-<p align="center"><strong>经过链接核验、按综述方式组织的循环与递归深度 Transformer 图谱，并扩展收录广义潜在推理工作。</strong></p>
+<p align="center"><strong>围绕 Loop Transformer 整理的一份双语研究图谱：从循环与递归深度，到潜在推理和测试时计算。</strong></p>
 
 <p align="center"><a href="https://github.com/Mrkkew/Awesome-Loop-Transformers"><img alt="Curated papers" src="https://img.shields.io/badge/curated-137%20works-5df2ff?style=flat-square&labelColor=080b18"></a>&nbsp;<a href="https://github.com/Mrkkew/Awesome-Loop-Transformers/actions/workflows/links.yml"><img alt="Link check" src="https://img.shields.io/github/actions/workflow/status/Mrkkew/Awesome-Loop-Transformers/links.yml?style=flat-square&label=links&labelColor=080b18"></a>&nbsp;<a href="LICENSE"><img alt="License: CC BY 4.0" src="https://img.shields.io/badge/license-CC%20BY%204.0-a78bfa?style=flat-square&labelColor=080b18"></a>&nbsp;<a href="data/papers.json"><img alt="JSON catalog" src="https://img.shields.io/badge/data-JSON-c6ff4a?style=flat-square&labelColor=080b18"></a></p>
 
@@ -17,23 +17,23 @@
 | :---: | :---: | :---: | :---: |
 | **137** 篇近期工作 | **111** 篇核心工作 | **26** 篇代表性工作 | **142** 篇（含基础工作） |
 
-<p align="center"><sub>最近调研更新: <strong>2026-09-04</strong> · 原始来源链接与中英双语原创短评</sub></p>
+<p align="center"><sub>最近调研更新: <strong>2026-09-04</strong> · 论文、代码与项目主页一站直达</sub></p>
 
 
 ## 收录范围
 
-主目录聚焦在一次前向过程中沿深度重复使用 Transformer 层、模块或层栈的模型，以及直接研究这些模型的理论、机制、系统与应用工作，并按上方快照日期尽可能完整维护。另设明确标注的 **广义潜在推理** 板块，代表性收录 Coconut、HRM、TRM、隐式 CoT 等具有共同目标的工作：它们都在学习到的隐状态中进行多步计算，但不一定采用循环 Transformer；由于该领域范围极广，这一板块是精选而非穷举。
+主目录关注的是这样一类模型：在一次前向计算中，重复使用同一个 Transformer 层、模块或层栈；同时也收录直接讨论它们的理论、训练、系统和应用工作。**广义潜在推理** 单独成章，其中包括 Coconut、HRM、TRM、隐式 CoT 等代表性工作。它们未必属于 Loop Transformer，但都让模型在隐状态中完成多步计算。这个方向范围很大，因此这里只选有代表性的研究。
 
 ## 综述分类
 
 | 方向 | 数量 | 关注问题 |
 | --- | :---: | --- |
-| **[基础与理论](#基础与理论)** | 20 | 表达能力、可编程性、上下文优化、长度泛化与深度泛化。 |
-| **[架构与扩展](#架构与扩展)** | 26 | 权重共享、循环核心、MoE、多分辨率设计与扩展规律。 |
-| **[潜在推理](#潜在推理)** | 12 | 测试时深度、静默多步计算、Huginn、Ouro 与潜在 CoT。 |
-| **[自适应计算](#自适应计算)** | 11 | Token 路由、学习式停止、提前退出与预算条件深度。 |
-| **[训练与机制分析](#训练与机制分析)** | 23 | 优化、稳定性、残差缩放、不动点与机制研究。 |
-| **[系统与应用](#系统与应用)** | 24 | 服务系统、KV 内存、并行循环、代码、多模态、机器人与工具调用。 |
+| **[基础与理论](#基础与理论)** | 20 | 表达能力、可编程性，以及长度与深度泛化。 |
+| **[架构与扩展](#架构与扩展)** | 26 | 参数共享、循环核心、MoE、多分辨率设计与扩展规律。 |
+| **[潜在推理](#潜在推理)** | 12 | 测试时深度、隐状态中的多步计算，以及潜在 CoT。 |
+| **[自适应计算](#自适应计算)** | 11 | Token 级路由、学习式停止、提前退出与预算条件深度。 |
+| **[训练与机制分析](#训练与机制分析)** | 23 | 优化、稳定性、收敛、不动点与过度思考。 |
+| **[系统与应用](#系统与应用)** | 24 | 推理延迟、KV 内存、并行循环，以及代码、多模态和机器人应用。 |
 | **[广义潜在推理](#广义潜在推理)** | 26 | 连续思维、隐式 CoT、层次循环、HRM 与 TRM。 |
 
 ## 核心必读
@@ -738,18 +738,18 @@
 
 </details>
 
-## 链接核验与编辑规范
+## 整理方式
 
-- 每个论文链接必须指向 arXiv、OpenReview、正式会议论文页或作者官方项目页。
-- 代码和模型链接只有在确认来自作者或官方项目时才会收录。
-- 日期采用首次公开时间；会议状态采用本次快照中能够确认的最新状态。
-- 所有短评均为原创编辑概述，不复制论文摘要。
-- 循环/递归 Transformer 核心路线按完整覆盖目标检索；规模更大的广义潜在推理路线则有意采用代表性精选。
-- Agent 循环、重复调用完整模型的 API 流程，以及与潜在推理无直接关系的普通序列循环不属于核心范围。
+- 论文链接优先使用 arXiv、OpenReview、正式会议论文页或作者项目主页。
+- 代码和模型链接只收录作者或项目方公开的版本。
+- 日期以论文首次公开时间为准；会议状态随公开信息更新。
+- 短评均为原创概述，不直接复制论文摘要。
+- Loop Transformer 核心路线尽量完整；范围更大的广义潜在推理只选代表性工作。
+- Agent 工作流、重复调用完整模型的 API 流程，以及无关的普通序列循环不在核心范围内。
 
-## 参与贡献
+## 一起完善这份图谱
 
-欢迎修正信息或补充论文。请先阅读 [CONTRIBUTING.md](CONTRIBUTING.md)，并提供论文原始链接及其循环或潜在推理机制的依据。
+发现遗漏或错误，欢迎提交 Pull Request。具体格式见 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
 ---
 

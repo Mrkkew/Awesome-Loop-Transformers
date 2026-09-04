@@ -7,7 +7,7 @@ authors:
     given-names: "Yulin"
 repository-code: "https://github.com/Mrkkew/Awesome-Loop-Transformers"
 url: "https://github.com/Mrkkew/Awesome-Loop-Transformers"
-abstract: "A verified bilingual research atlas of looped, recursive, and recurrent-depth Transformers, with a selective broader track for latent reasoning."
+abstract: "A bilingual research atlas of looped, recursive, and recurrent-depth Transformers, with a selective broader track for latent reasoning."
 keywords:
   - looped transformers
   - recursive transformers

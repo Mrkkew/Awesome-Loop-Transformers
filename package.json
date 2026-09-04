@@ -1,6 +1,6 @@
 {
   "name": "awesome-loop-transformers",
-  "description": "A verified bilingual research atlas of looped, recursive, and recurrent-depth Transformers.",
+  "description": "A bilingual research atlas of looped, recursive, and recurrent-depth Transformers.",
   "version": "0.1.0",
   "private": true,
   "engines": {
