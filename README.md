@@ -1,18 +1,24 @@
-<!-- This file is generated from lib/papers.ts. Edit the data source, then run npm run readme. -->
-# Awesome Loop Transformers
+<!-- This file is generated from lib/papers.ts. Edit the data source, then run npm run artifacts. -->
+<h1 align="center">Awesome Loop Transformers</h1>
 
-[中文](README.zh-CN.md) | **English**
+<p align="center"><strong>English</strong>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="README.zh-CN.md">简体中文</a></p>
 
 <p align="center"><img src="public/og.png" alt="Awesome Loop Transformers — a bilingual research atlas" width="100%" /></p>
 
-[![Curated papers](https://img.shields.io/badge/curated-137%20works-d8ff55?style=flat-square&labelColor=181814)](https://github.com/Mrkkew/Awesome-Loop-Transformers)
-[![Link check](https://img.shields.io/github/actions/workflow/status/Mrkkew/Awesome-Loop-Transformers/links.yml?style=flat-square&label=links)](https://github.com/Mrkkew/Awesome-Loop-Transformers/actions/workflows/links.yml)
-[![License: CC BY 4.0](https://img.shields.io/badge/license-CC%20BY%204.0-2b59ff?style=flat-square)](LICENSE)
+<p align="center"><strong>A verified, survey-style atlas of looped and recurrent-depth Transformers, with a broader track for latent reasoning.</strong></p>
 
-> A verified, survey-style atlas of looped and recurrent-depth Transformers, with a broader track for latent reasoning.
+<p align="center"><a href="https://github.com/Mrkkew/Awesome-Loop-Transformers"><img alt="Curated papers" src="https://img.shields.io/badge/curated-137%20works-5df2ff?style=flat-square&labelColor=080b18"></a>&nbsp;<a href="https://github.com/Mrkkew/Awesome-Loop-Transformers/actions/workflows/links.yml"><img alt="Link check" src="https://img.shields.io/github/actions/workflow/status/Mrkkew/Awesome-Loop-Transformers/links.yml?style=flat-square&label=links&labelColor=080b18"></a>&nbsp;<a href="LICENSE"><img alt="License: CC BY 4.0" src="https://img.shields.io/badge/license-CC%20BY%204.0-a78bfa?style=flat-square&labelColor=080b18"></a>&nbsp;<a href="data/papers.json"><img alt="JSON catalog" src="https://img.shields.io/badge/data-JSON-c6ff4a?style=flat-square&labelColor=080b18"></a></p>
 
-**Last research update:** 2026-09-04  
-**Coverage:** 137 works from 2024 onward (111 core · 26 broader) · 142 total including foundations
+<p align="center"><a href="#what-this-list-covers"><strong>Scope</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#survey-map"><strong>Survey map</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#essential-reading"><strong>Essential reading</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#complete-catalog"><strong>Full catalog</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#contributing"><strong>Contribute</strong></a></p>
+
+## At a glance
+
+| 2024—present | Core loop track | Broader latent track | Full catalog |
+| :---: | :---: | :---: | :---: |
+| **137** recent works | **111** core works | **26** selected works | **142** with foundations |
+
+<p align="center"><sub>Last research update: <strong>2026-09-04</strong> · Primary-source links and bilingual editorial summaries</sub></p>
+
 
 ## What this list covers
 
@@ -20,15 +26,15 @@ The core catalog focuses on models that reuse a learned Transformer layer, block
 
 ## Survey map
 
-| Track | Focus |
-| --- | --- |
-| **Foundations & Theory** | Expressivity, programmability, in-context optimization, length and depth generalization. |
-| **Architectures & Scaling** | Weight sharing, recurrent cores, MoE, multi-resolution designs, and scaling laws. |
-| **Latent Reasoning** | Test-time depth, silent multi-step computation, Huginn, Ouro, and latent CoT. |
-| **Adaptive Compute** | Token routing, learned halting, early exit, and budget-conditioned depth. |
-| **Training & Analysis** | Optimization, stability, residual scaling, fixed points, and mechanistic studies. |
-| **Systems & Applications** | Serving, KV memory, parallel loops, code, multimodal, robotics, and tool use. |
-| **Broader Latent Reasoning** | Continuous thoughts, implicit CoT, hierarchical recurrence, HRM, and TRM. |
+| Track | Works | What it covers |
+| --- | :---: | --- |
+| **[Foundations & Theory](#foundations--theory)** | 20 | Expressivity, programmability, in-context optimization, length and depth generalization. |
+| **[Architectures & Scaling](#architectures--scaling)** | 26 | Weight sharing, recurrent cores, MoE, multi-resolution designs, and scaling laws. |
+| **[Latent Reasoning](#latent-reasoning)** | 12 | Test-time depth, silent multi-step computation, Huginn, Ouro, and latent CoT. |
+| **[Adaptive Compute](#adaptive-compute)** | 11 | Token routing, learned halting, early exit, and budget-conditioned depth. |
+| **[Training & Analysis](#training--analysis)** | 23 | Optimization, stability, residual scaling, fixed points, and mechanistic studies. |
+| **[Systems & Applications](#systems--applications)** | 24 | Serving, KV memory, parallel loops, code, multimodal, robotics, and tool use. |
+| **[Broader Latent Reasoning](#broader-latent-reasoning)** | 26 | Continuous thoughts, implicit CoT, hierarchical recurrence, HRM, and TRM. |
 
 ## Essential reading
 
@@ -68,7 +74,7 @@ The core catalog focuses on models that reuse a learned Transformer layer, block
 
 </details>
 
-<details open>
+<details>
 <summary><strong>2025</strong> · 4 papers</summary>
 
 - **To CoT or To Loop? A Formal Comparison Between Chain-of-Thought and Looped Transformers** — Kevin Xu, Issei Sato. *arXiv 2025*.<br>
@@ -89,7 +95,7 @@ The core catalog focuses on models that reuse a learned Transformer layer, block
 
 </details>
 
-<details open>
+<details>
 <summary><strong>2024</strong> · 7 papers</summary>
 
 - **On the Role of Depth and Looping for In-Context Learning with Task Diversity** — Khashayar Gatmiry et al.. *arXiv 2024*.<br>
@@ -245,7 +251,7 @@ The core catalog focuses on models that reuse a learned Transformer layer, block
 
 </details>
 
-<details open>
+<details>
 <summary><strong>2025</strong> · 4 papers</summary>
 
 - **Improving Recursive Transformers with Mixture of LoRAs** — Mohammadmahdi Nouriborji et al.. *arXiv 2025*.<br>
@@ -266,7 +272,7 @@ The core catalog focuses on models that reuse a learned Transformer layer, block
 
 </details>
 
-<details open>
+<details>
 <summary><strong>2024</strong> · 3 papers</summary>
 
 - **Relaxed Recursive Transformers: Effective Parameter Sharing with Layer-wise LoRA** — Sangmin Bae et al.. *ICLR 2025*.<br>
@@ -318,7 +324,7 @@ The core catalog focuses on models that reuse a learned Transformer layer, block
 
 </details>
 
-<details open>
+<details>
 <summary><strong>2025</strong> · 5 papers</summary>
 
 - **Closed-Loop Transformers: Autoregressive Modeling as Iterative Latent Equilibrium** — Akbar Anbar Jafari, Gholamreza Anbarjafari. *arXiv 2025*.<br>
@@ -382,7 +388,7 @@ The core catalog focuses on models that reuse a learned Transformer layer, block
 
 </details>
 
-<details open>
+<details>
 <summary><strong>2025</strong> · 3 papers</summary>
 
 - **Think-at-Hard: Selective Latent Iterations to Improve Reasoning Language Models** — Tianyu Fu et al.. *ICML 2026*.<br>
@@ -490,7 +496,7 @@ The core catalog focuses on models that reuse a learned Transformer layer, block
 
 </details>
 
-<details open>
+<details>
 <summary><strong>2025</strong> · 2 papers</summary>
 
 - **What Makes Looped Transformers Perform Better Than Non-Recursive Ones (Provably)** — Zixuan Gong et al.. *arXiv 2025*.<br>
@@ -602,7 +608,7 @@ The core catalog focuses on models that reuse a learned Transformer layer, block
 
 </details>
 
-<details open>
+<details>
 <summary><strong>2025</strong> · 1 paper</summary>
 
 - **Parallel Loop Transformer for Efficient Test-Time Computation Scaling** — Bohong Wu et al.. *arXiv 2025*.<br>
@@ -642,7 +648,7 @@ The core catalog focuses on models that reuse a learned Transformer layer, block
 
 </details>
 
-<details open>
+<details>
 <summary><strong>2025</strong> · 14 papers</summary>
 
 - **Learning When to Stop: Adaptive Latent Reasoning via Reinforcement Learning** — Alex Ning et al.. *arXiv 2025*.<br>
@@ -703,7 +709,7 @@ The core catalog focuses on models that reuse a learned Transformer layer, block
 
 </details>
 
-<details open>
+<details>
 <summary><strong>2024</strong> · 6 papers</summary>
 
 - **Compressed Chain of Thought: Efficient Reasoning through Dense Representations** — Zhiyuan Deng et al.. *arXiv 2024*.<br>
@@ -747,4 +753,4 @@ Corrections and new papers are welcome. Please read [CONTRIBUTING.md](CONTRIBUTI
 
 ---
 
-CC BY 4.0 · Maintained by [Mrkkew](https://github.com/Mrkkew/Awesome-Loop-Transformers) · Data source: [lib/papers.ts](lib/papers.ts)
+CC BY 4.0 · Maintained by [Mrkkew](https://github.com/Mrkkew/Awesome-Loop-Transformers) · Data source: [lib/papers.ts](lib/papers.ts) · Machine-readable export: [data/papers.json](data/papers.json) · [Citation](CITATION.cff)

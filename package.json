@@ -1,5 +1,6 @@
 {
-  "name": "sites-project",
+  "name": "awesome-loop-transformers",
+  "description": "A verified bilingual research atlas of looped, recursive, and recurrent-depth Transformers.",
   "version": "0.1.0",
   "private": true,
   "engines": {
@@ -11,6 +12,8 @@
     "start": "vinext start",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
     "readme": "node scripts/generate-readmes.mjs",
+    "catalog": "node scripts/generate-catalog.mjs",
+    "artifacts": "npm run readme && npm run catalog",
     "check:data": "node scripts/check-data.mjs",
     "verify:sources": "node scripts/verify-sources.mjs"
   },

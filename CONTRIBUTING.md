@@ -36,7 +36,7 @@ Add one typed record to `lib/papers.ts`, then run:
 
 ```bash
 npm run check:data
-npm run readme
+npm run artifacts
 npm run build
 ```
 
@@ -48,4 +48,4 @@ Never edit the generated paper lists in `README.md` or `README.zh-CN.md` directl
 - [ ] Authors, first-public date, and venue status were checked.
 - [ ] English and Chinese notes are concise and original.
 - [ ] Category and tags describe the mechanism rather than hype.
-- [ ] `npm run check:data` and `npm run readme` pass.
+- [ ] `npm run check:data` and `npm run artifacts` pass.

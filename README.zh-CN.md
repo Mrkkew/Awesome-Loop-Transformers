@@ -1,18 +1,24 @@
-<!-- This file is generated from lib/papers.ts. Edit the data source, then run npm run readme. -->
-# Awesome Loop Transformers
+<!-- This file is generated from lib/papers.ts. Edit the data source, then run npm run artifacts. -->
+<h1 align="center">Awesome Loop Transformers</h1>
 
-**中文** | [English](README.md)
+<p align="center"><strong>简体中文</strong>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="README.md">English</a></p>
 
 <p align="center"><img src="public/og.png" alt="Awesome Loop Transformers 双语研究图谱" width="100%" /></p>
 
-[![Curated papers](https://img.shields.io/badge/curated-137%20works-d8ff55?style=flat-square&labelColor=181814)](https://github.com/Mrkkew/Awesome-Loop-Transformers)
-[![Link check](https://img.shields.io/github/actions/workflow/status/Mrkkew/Awesome-Loop-Transformers/links.yml?style=flat-square&label=links)](https://github.com/Mrkkew/Awesome-Loop-Transformers/actions/workflows/links.yml)
-[![License: CC BY 4.0](https://img.shields.io/badge/license-CC%20BY%204.0-2b59ff?style=flat-square)](LICENSE)
+<p align="center"><strong>经过链接核验、按综述方式组织的循环与递归深度 Transformer 图谱，并扩展收录广义潜在推理工作。</strong></p>
 
-> 经过链接核验、按综述方式组织的循环与递归深度 Transformer 图谱，并扩展收录广义潜在推理工作。
+<p align="center"><a href="https://github.com/Mrkkew/Awesome-Loop-Transformers"><img alt="Curated papers" src="https://img.shields.io/badge/curated-137%20works-5df2ff?style=flat-square&labelColor=080b18"></a>&nbsp;<a href="https://github.com/Mrkkew/Awesome-Loop-Transformers/actions/workflows/links.yml"><img alt="Link check" src="https://img.shields.io/github/actions/workflow/status/Mrkkew/Awesome-Loop-Transformers/links.yml?style=flat-square&label=links&labelColor=080b18"></a>&nbsp;<a href="LICENSE"><img alt="License: CC BY 4.0" src="https://img.shields.io/badge/license-CC%20BY%204.0-a78bfa?style=flat-square&labelColor=080b18"></a>&nbsp;<a href="data/papers.json"><img alt="JSON catalog" src="https://img.shields.io/badge/data-JSON-c6ff4a?style=flat-square&labelColor=080b18"></a></p>
 
-**最近调研更新:** 2026-09-04  
-**收录数量:** 137 篇 2024 年以来的工作（核心 111 篇 · 广义潜在推理 26 篇） · 142 篇（含基础工作）
+<p align="center"><a href="#收录范围"><strong>收录范围</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#综述分类"><strong>综述分类</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#核心必读"><strong>核心必读</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#完整目录"><strong>完整目录</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#参与贡献"><strong>参与贡献</strong></a></p>
+
+## 一览
+
+| 2024 年至今 | 核心循环路线 | 广义潜在路线 | 完整目录 |
+| :---: | :---: | :---: | :---: |
+| **137** 篇近期工作 | **111** 篇核心工作 | **26** 篇代表性工作 | **142** 篇（含基础工作） |
+
+<p align="center"><sub>最近调研更新: <strong>2026-09-04</strong> · 原始来源链接与中英双语原创短评</sub></p>
+
 
 ## 收录范围
 
@@ -20,15 +26,15 @@
 
 ## 综述分类
 
-| 方向 | 关注问题 |
-| --- | --- |
-| **基础与理论** | 表达能力、可编程性、上下文优化、长度泛化与深度泛化。 |
-| **架构与扩展** | 权重共享、循环核心、MoE、多分辨率设计与扩展规律。 |
-| **潜在推理** | 测试时深度、静默多步计算、Huginn、Ouro 与潜在 CoT。 |
-| **自适应计算** | Token 路由、学习式停止、提前退出与预算条件深度。 |
-| **训练与机制分析** | 优化、稳定性、残差缩放、不动点与机制研究。 |
-| **系统与应用** | 服务系统、KV 内存、并行循环、代码、多模态、机器人与工具调用。 |
-| **广义潜在推理** | 连续思维、隐式 CoT、层次循环、HRM 与 TRM。 |
+| 方向 | 数量 | 关注问题 |
+| --- | :---: | --- |
+| **[基础与理论](#基础与理论)** | 20 | 表达能力、可编程性、上下文优化、长度泛化与深度泛化。 |
+| **[架构与扩展](#架构与扩展)** | 26 | 权重共享、循环核心、MoE、多分辨率设计与扩展规律。 |
+| **[潜在推理](#潜在推理)** | 12 | 测试时深度、静默多步计算、Huginn、Ouro 与潜在 CoT。 |
+| **[自适应计算](#自适应计算)** | 11 | Token 路由、学习式停止、提前退出与预算条件深度。 |
+| **[训练与机制分析](#训练与机制分析)** | 23 | 优化、稳定性、残差缩放、不动点与机制研究。 |
+| **[系统与应用](#系统与应用)** | 24 | 服务系统、KV 内存、并行循环、代码、多模态、机器人与工具调用。 |
+| **[广义潜在推理](#广义潜在推理)** | 26 | 连续思维、隐式 CoT、层次循环、HRM 与 TRM。 |
 
 ## 核心必读
 
@@ -68,7 +74,7 @@
 
 </details>
 
-<details open>
+<details>
 <summary><strong>2025</strong> · 4 篇</summary>
 
 - **To CoT or To Loop? A Formal Comparison Between Chain-of-Thought and Looped Transformers** — Kevin Xu, Issei Sato. *arXiv 2025*.<br>
@@ -89,7 +95,7 @@
 
 </details>
 
-<details open>
+<details>
 <summary><strong>2024</strong> · 7 篇</summary>
 
 - **On the Role of Depth and Looping for In-Context Learning with Task Diversity** — Khashayar Gatmiry et al.. *arXiv 2024*.<br>
@@ -245,7 +251,7 @@
 
 </details>
 
-<details open>
+<details>
 <summary><strong>2025</strong> · 4 篇</summary>
 
 - **Improving Recursive Transformers with Mixture of LoRAs** — Mohammadmahdi Nouriborji et al.. *arXiv 2025*.<br>
@@ -266,7 +272,7 @@
 
 </details>
 
-<details open>
+<details>
 <summary><strong>2024</strong> · 3 篇</summary>
 
 - **Relaxed Recursive Transformers: Effective Parameter Sharing with Layer-wise LoRA** — Sangmin Bae et al.. *ICLR 2025*.<br>
@@ -318,7 +324,7 @@
 
 </details>
 
-<details open>
+<details>
 <summary><strong>2025</strong> · 5 篇</summary>
 
 - **Closed-Loop Transformers: Autoregressive Modeling as Iterative Latent Equilibrium** — Akbar Anbar Jafari, Gholamreza Anbarjafari. *arXiv 2025*.<br>
@@ -382,7 +388,7 @@
 
 </details>
 
-<details open>
+<details>
 <summary><strong>2025</strong> · 3 篇</summary>
 
 - **Think-at-Hard: Selective Latent Iterations to Improve Reasoning Language Models** — Tianyu Fu et al.. *ICML 2026*.<br>
@@ -490,7 +496,7 @@
 
 </details>
 
-<details open>
+<details>
 <summary><strong>2025</strong> · 2 篇</summary>
 
 - **What Makes Looped Transformers Perform Better Than Non-Recursive Ones (Provably)** — Zixuan Gong et al.. *arXiv 2025*.<br>
@@ -602,7 +608,7 @@
 
 </details>
 
-<details open>
+<details>
 <summary><strong>2025</strong> · 1 篇</summary>
 
 - **Parallel Loop Transformer for Efficient Test-Time Computation Scaling** — Bohong Wu et al.. *arXiv 2025*.<br>
@@ -642,7 +648,7 @@
 
 </details>
 
-<details open>
+<details>
 <summary><strong>2025</strong> · 14 篇</summary>
 
 - **Learning When to Stop: Adaptive Latent Reasoning via Reinforcement Learning** — Alex Ning et al.. *arXiv 2025*.<br>
@@ -703,7 +709,7 @@
 
 </details>
 
-<details open>
+<details>
 <summary><strong>2024</strong> · 6 篇</summary>
 
 - **Compressed Chain of Thought: Efficient Reasoning through Dense Representations** — Zhiyuan Deng et al.. *arXiv 2024*.<br>
@@ -747,4 +753,4 @@
 
 ---
 
-CC BY 4.0 · Maintained by [Mrkkew](https://github.com/Mrkkew/Awesome-Loop-Transformers) · Data source: [lib/papers.ts](lib/papers.ts)
+CC BY 4.0 · Maintained by [Mrkkew](https://github.com/Mrkkew/Awesome-Loop-Transformers) · 数据源：[lib/papers.ts](lib/papers.ts) · 机器可读数据：[data/papers.json](data/papers.json) · [引用信息](CITATION.cff)

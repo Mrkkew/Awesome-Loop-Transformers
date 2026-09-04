@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If this research atlas supports your work, please cite it using the metadata below."
+title: "Awesome Loop Transformers"
+type: dataset
+authors:
+  - family-names: "Li"
+    given-names: "Yulin"
+repository-code: "https://github.com/Mrkkew/Awesome-Loop-Transformers"
+url: "https://github.com/Mrkkew/Awesome-Loop-Transformers"
+abstract: "A verified bilingual research atlas of looped, recursive, and recurrent-depth Transformers, with a selective broader track for latent reasoning."
+keywords:
+  - looped transformers
+  - recursive transformers
+  - recurrent depth
+  - latent reasoning
+  - test-time compute
+license: CC-BY-4.0
+date-released: 2026-09-04
