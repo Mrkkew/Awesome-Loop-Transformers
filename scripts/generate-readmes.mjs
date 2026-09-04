@@ -137,7 +137,7 @@ function render(lang) {
   const dataLinks = lang === 'en'
     ? 'Data source: [lib/papers.ts](lib/papers.ts) · Machine-readable export: [data/papers.json](data/papers.json) · [Citation](CITATION.cff)'
     : '数据源：[lib/papers.ts](lib/papers.ts) · 机器可读数据：[data/papers.json](data/papers.json) · [引用信息](CITATION.cff)';
-  out.push(`## ${t.methodTitle}`, '', ...t.method.map((item) => `- ${item}`), '', `## ${t.contributeTitle}`, '', t.contribute, '', '---', '', `CC BY 4.0 · Maintained by [Mrkkew](${repo}) · ${dataLinks}`, '');
+  out.push(`## ${t.methodTitle}`, '', ...t.method.map((item) => `- ${item}`), '', `## ${t.contributeTitle}`, '', t.contribute, '', '---', '', `CC BY 4.0 · Maintained by [Yulin Li](${repo}) · ${dataLinks}`, '');
   return out.join('\n');
 }
 

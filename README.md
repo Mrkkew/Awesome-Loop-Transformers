@@ -753,4 +753,4 @@ Corrections and new papers are welcome. Please read [CONTRIBUTING.md](CONTRIBUTI
 
 ---
 
-CC BY 4.0 · Maintained by [Mrkkew](https://github.com/Mrkkew/Awesome-Loop-Transformers) · Data source: [lib/papers.ts](lib/papers.ts) · Machine-readable export: [data/papers.json](data/papers.json) · [Citation](CITATION.cff)
+CC BY 4.0 · Maintained by [Yulin Li](https://github.com/Mrkkew/Awesome-Loop-Transformers) · Data source: [lib/papers.ts](lib/papers.ts) · Machine-readable export: [data/papers.json](data/papers.json) · [Citation](CITATION.cff)
