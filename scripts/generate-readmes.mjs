@@ -124,7 +124,7 @@ function render(lang) {
     '<!-- This file is generated from lib/papers.ts. Edit the data source, then run npm run artifacts. -->',
     '<a id="top"></a>', '',
     `<p align="center">${t.language}</p>`, '',
-    `<p align="center"><a href="${site}"><img src="public/readme-hero.svg" alt="${lang === 'en' ? 'Awesome Loop Transformers: a shared Transformer block updates a latent state over repeated steps before readout.' : 'Awesome Loop Transformers：共享 Transformer 模块经多次循环更新隐状态，再输出结果。'}" width="100%" /></a></p>`, '',
+    `<p align="center"><a href="${site}"><img src="public/readme-hero.png" alt="${lang === 'en' ? 'Awesome Loop Transformers: a shared Transformer block updates a latent state over repeated steps before readout.' : 'Awesome Loop Transformers：共享 Transformer 模块经多次循环更新隐状态，再输出结果。'}" width="100%" /></a></p>`, '',
     '<h1 align="center">Awesome Loop Transformers</h1>', '',
     `<p align="center"><strong>${t.tagline}</strong></p>`, '',
     `<p align="center">${badges}</p>`, '',
@@ -139,7 +139,7 @@ function render(lang) {
     ...readingSelection.map(([id, name, en, zh]) => {
       const paper = papers.find((item) => item.id === id);
       if (!paper) throw new Error(`Reading selection refers to missing paper ${id}`);
-      return `| **[${name}](${paper.paper})** · ${paper.date.slice(0, 4)} | ${lang === 'en' ? en : zh} |`;
+      return `| **[${name}](${paper.paper})**<br><sub>${paper.date.slice(0, 4)}</sub> | ${lang === 'en' ? en : zh} |`;
     }), '',
     ...section(t.scopeTitle, 'scope'), t.scope, '',
     lang === 'en'

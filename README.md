@@ -3,7 +3,7 @@
 
 <p align="center"><strong>English</strong>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="README.zh-CN.md">简体中文</a></p>
 
-<p align="center"><a href="https://awesome-loop-transformers.bright-haven-2369.chatgpt.site"><img src="public/readme-hero.svg" alt="Awesome Loop Transformers: a shared Transformer block updates a latent state over repeated steps before readout." width="100%" /></a></p>
+<p align="center"><a href="https://awesome-loop-transformers.bright-haven-2369.chatgpt.site"><img src="public/readme-hero.png" alt="Awesome Loop Transformers: a shared Transformer block updates a latent state over repeated steps before readout." width="100%" /></a></p>
 
 <h1 align="center">Awesome Loop Transformers</h1>
 
@@ -35,14 +35,14 @@ Eight entry points, from shared-depth architectures to latent reasoning. Short n
 
 | Paper / model | Research question |
 | --- | --- |
-| **[Universal Transformers](https://arxiv.org/abs/1807.03819)** · 2018 | How can one shared Transformer transition replace a fixed stack of layers? |
-| **[Programmable Looped Transformers](https://proceedings.mlr.press/v202/giannou23a.html)** · 2023 | What kinds of iterative algorithms can a looped Transformer execute? |
-| **[Huginn](https://arxiv.org/abs/2502.05171)** · 2025 | Can additional recurrent depth improve reasoning without generating more tokens? |
-| **[Ouro](https://arxiv.org/abs/2510.25741)** · 2025 | How can looped language models be pretrained and their depth allocation learned? |
-| **[Mixture-of-Recursions](https://arxiv.org/abs/2507.10524)** · 2025 | How can a shared model assign different recursion depths to individual tokens? |
-| **[Parallel Loop Transformer](https://arxiv.org/abs/2510.24824)** · 2025 | How can loop execution reduce sequential latency and KV-cache overhead? |
-| **[Coconut](https://arxiv.org/abs/2412.06769)** · 2024 | How can hidden states serve as intermediate thoughts? · Broader latent reasoning |
-| **[Tiny Recursive Model (TRM)](https://arxiv.org/abs/2510.04871)** · 2025 | Can a tiny recursive network refine structured answers without a Transformer backbone? · Broader latent reasoning |
+| **[Universal Transformers](https://arxiv.org/abs/1807.03819)**<br><sub>2018</sub> | How can one shared Transformer transition replace a fixed stack of layers? |
+| **[Programmable Looped Transformers](https://proceedings.mlr.press/v202/giannou23a.html)**<br><sub>2023</sub> | What kinds of iterative algorithms can a looped Transformer execute? |
+| **[Huginn](https://arxiv.org/abs/2502.05171)**<br><sub>2025</sub> | Can additional recurrent depth improve reasoning without generating more tokens? |
+| **[Ouro](https://arxiv.org/abs/2510.25741)**<br><sub>2025</sub> | How can looped language models be pretrained and their depth allocation learned? |
+| **[Mixture-of-Recursions](https://arxiv.org/abs/2507.10524)**<br><sub>2025</sub> | How can a shared model assign different recursion depths to individual tokens? |
+| **[Parallel Loop Transformer](https://arxiv.org/abs/2510.24824)**<br><sub>2025</sub> | How can loop execution reduce sequential latency and KV-cache overhead? |
+| **[Coconut](https://arxiv.org/abs/2412.06769)**<br><sub>2024</sub> | How can hidden states serve as intermediate thoughts? · Broader latent reasoning |
+| **[Tiny Recursive Model (TRM)](https://arxiv.org/abs/2510.04871)**<br><sub>2025</sub> | Can a tiny recursive network refine structured answers without a Transformer backbone? · Broader latent reasoning |
 
 <a id="scope"></a>
 

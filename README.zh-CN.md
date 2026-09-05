@@ -3,7 +3,7 @@
 
 <p align="center"><strong>简体中文</strong>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="README.md">English</a></p>
 
-<p align="center"><a href="https://awesome-loop-transformers.bright-haven-2369.chatgpt.site"><img src="public/readme-hero.svg" alt="Awesome Loop Transformers：共享 Transformer 模块经多次循环更新隐状态，再输出结果。" width="100%" /></a></p>
+<p align="center"><a href="https://awesome-loop-transformers.bright-haven-2369.chatgpt.site"><img src="public/readme-hero.png" alt="Awesome Loop Transformers：共享 Transformer 模块经多次循环更新隐状态，再输出结果。" width="100%" /></a></p>
 
 <h1 align="center">Awesome Loop Transformers</h1>
 
@@ -35,14 +35,14 @@
 
 | 论文 / 模型 | 研究问题 |
 | --- | --- |
-| **[Universal Transformers](https://arxiv.org/abs/1807.03819)** · 2018 | 如何以共享的 Transformer 变换替代固定深度的层栈？ |
-| **[Programmable Looped Transformers](https://proceedings.mlr.press/v202/giannou23a.html)** · 2023 | 循环 Transformer 能够执行哪些迭代算法？ |
-| **[Huginn](https://arxiv.org/abs/2502.05171)** · 2025 | 增加循环深度能否在不生成更多 token 的情况下改善推理？ |
-| **[Ouro](https://arxiv.org/abs/2510.25741)** · 2025 | 如何预训练循环语言模型，并学习计算深度的分配？ |
-| **[Mixture-of-Recursions](https://arxiv.org/abs/2507.10524)** · 2025 | 如何在共享模型中为不同 token 分配递归深度？ |
-| **[Parallel Loop Transformer](https://arxiv.org/abs/2510.24824)** · 2025 | 如何组织循环执行，以降低串行延迟与 KV 缓存开销？ |
-| **[Coconut](https://arxiv.org/abs/2412.06769)** · 2024 | 如何以隐状态表示中间思维？· 广义潜在推理 |
-| **[Tiny Recursive Model (TRM)](https://arxiv.org/abs/2510.04871)** · 2025 | 不依赖 Transformer 主干的微型递归网络能否逐步改进结构化答案？· 广义潜在推理 |
+| **[Universal Transformers](https://arxiv.org/abs/1807.03819)**<br><sub>2018</sub> | 如何以共享的 Transformer 变换替代固定深度的层栈？ |
+| **[Programmable Looped Transformers](https://proceedings.mlr.press/v202/giannou23a.html)**<br><sub>2023</sub> | 循环 Transformer 能够执行哪些迭代算法？ |
+| **[Huginn](https://arxiv.org/abs/2502.05171)**<br><sub>2025</sub> | 增加循环深度能否在不生成更多 token 的情况下改善推理？ |
+| **[Ouro](https://arxiv.org/abs/2510.25741)**<br><sub>2025</sub> | 如何预训练循环语言模型，并学习计算深度的分配？ |
+| **[Mixture-of-Recursions](https://arxiv.org/abs/2507.10524)**<br><sub>2025</sub> | 如何在共享模型中为不同 token 分配递归深度？ |
+| **[Parallel Loop Transformer](https://arxiv.org/abs/2510.24824)**<br><sub>2025</sub> | 如何组织循环执行，以降低串行延迟与 KV 缓存开销？ |
+| **[Coconut](https://arxiv.org/abs/2412.06769)**<br><sub>2024</sub> | 如何以隐状态表示中间思维？· 广义潜在推理 |
+| **[Tiny Recursive Model (TRM)](https://arxiv.org/abs/2510.04871)**<br><sub>2025</sub> | 不依赖 Transformer 主干的微型递归网络能否逐步改进结构化答案？· 广义潜在推理 |
 
 <a id="scope"></a>
 
