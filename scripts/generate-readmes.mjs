@@ -93,7 +93,7 @@ const readingSelection = [
   ['2507.10524', 'Mixture-of-Recursions', 'How can a shared model assign different recursion depths to individual tokens?', '如何在共享模型中为不同 token 分配递归深度？'],
   ['2510.24824', 'Parallel Loop Transformer', 'How can loop execution reduce sequential latency and KV-cache overhead?', '如何组织循环执行，以降低串行延迟与 KV 缓存开销？'],
   ['2412.06769', 'Coconut', 'How can hidden states serve as intermediate thoughts? · Broader latent reasoning', '如何以隐状态表示中间思维？· 广义潜在推理'],
-  ['2510.04871', 'Tiny Recursive Model (TRM)', 'Can a tiny recursive network refine structured answers without a Transformer backbone? · Broader latent reasoning', '不依赖 Transformer 主干的微型递归网络能否逐步改进结构化答案？· 广义潜在推理'],
+  ['2510.04871', 'Tiny Recursive Model (TRM)', 'How can a small shared network alternately refine latent states and candidate answers? · Broader latent reasoning', '小型共享网络如何交替更新隐状态与候选答案？· 广义潜在推理'],
 ];
 
 const categoryAnchor = (category) => category.toLowerCase().replaceAll('&', '').replaceAll(' ', '-');

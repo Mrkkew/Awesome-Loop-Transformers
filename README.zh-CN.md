@@ -15,7 +15,7 @@
 
 <p align="center"><a href="#start-here"><strong>🧭 阅读路线</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#essential-reading"><strong>📌 推荐阅读</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#complete-catalog"><strong>📚 完整目录</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#contributing"><strong>🤝 参与贡献</strong></a></p>
 
-<p align="center"><sub>142 篇论文 · 7 个研究方向 · English / 简体中文 · 文献更新: 2026-09-04</sub></p>
+<p align="center"><sub>142 篇论文 · 7 个研究方向 · English / 简体中文 · 文献更新: 2026-09-05</sub></p>
 
 ---
 
@@ -44,7 +44,7 @@
 | **[Mixture-of-Recursions](https://arxiv.org/abs/2507.10524)**<br><sub>2025</sub> | 如何在共享模型中为不同 token 分配递归深度？ |
 | **[Parallel Loop Transformer](https://arxiv.org/abs/2510.24824)**<br><sub>2025</sub> | 如何组织循环执行，以降低串行延迟与 KV 缓存开销？ |
 | **[Coconut](https://arxiv.org/abs/2412.06769)**<br><sub>2024</sub> | 如何以隐状态表示中间思维？· 广义潜在推理 |
-| **[Tiny Recursive Model (TRM)](https://arxiv.org/abs/2510.04871)**<br><sub>2025</sub> | 不依赖 Transformer 主干的微型递归网络能否逐步改进结构化答案？· 广义潜在推理 |
+| **[Tiny Recursive Model (TRM)](https://arxiv.org/abs/2510.04871)**<br><sub>2025</sub> | 小型共享网络如何交替更新隐状态与候选答案？· 广义潜在推理 |
 
 <a id="scope"></a>
 
@@ -494,7 +494,7 @@
 
 - **[Think-at-Hard: Selective Latent Iterations to Improve Reasoning Language Models](https://openreview.net/forum?id=eQaJSRZiGn)**<br>
   Tianyu Fu et al. · *ICML 2026*<br>
-  分析 Ouro 的额外循环在何处有效，并把循环计算选择性投入更困难的 token 或推理阶段。<br>
+  用轻量决策器为困难 token 选择额外的隐空间迭代，并结合深度感知 LoRA 与双因果注意力进行针对性细化。<br>
   [论文](https://openreview.net/forum?id=eQaJSRZiGn) · [代码](https://github.com/thu-nics/TaH)
 
 - **[Mixture-of-Recursions: Learning Dynamic Recursive Depths for Adaptive Token-Level Computation](https://arxiv.org/abs/2507.10524)**<br>
@@ -628,7 +628,7 @@
 <details>
 <summary><strong>2025</strong> · 2 篇</summary>
 
-- **[What Makes Looped Transformers Perform Better Than Non-Recursive Ones (Provably)](https://arxiv.org/abs/2510.10089)**<br>
+- **[What Makes Looped Transformers Perform Better Than Non-Recursive Ones](https://arxiv.org/abs/2510.10089)**<br>
   Zixuan Gong et al. · *arXiv 2025*<br>
   从损失景观几何解释循环注意力的优化优势，并据此提出分阶段训练方法。<br>
   [论文](https://arxiv.org/abs/2510.10089)
@@ -771,7 +771,7 @@
 
 - **[Parallel Loop Transformer for Efficient Test-Time Computation Scaling](https://arxiv.org/abs/2510.24824)**<br>
   Bohong Wu et al. · *arXiv 2025*<br>
-  重组循环迭代以释放并行性，降低传统循环深度带来的串行延迟与缓存增长。<br>
+  通过跨 token 重叠执行循环步，并结合首轮 KV 共享与门控滑动窗口注意力，降低串行延迟与缓存开销。<br>
   [论文](https://arxiv.org/abs/2510.24824)
 
 </details>
@@ -832,7 +832,7 @@
 
 - **[Less is More: Recursive Reasoning with Tiny Networks](https://arxiv.org/abs/2510.04871)**<br>
   Alexia Jolicoeur-Martineau · *arXiv 2025*<br>
-  提出 Tiny Recursive Model：不依赖 Transformer 主干，用极小循环网络反复改进结构化推理问题的答案。<br>
+  提出 Tiny Recursive Model：用小型共享网络交替更新隐状态与候选答案，并在结构化推理任务上比较自注意力与无注意力两种实现。<br>
   [论文](https://arxiv.org/abs/2510.04871) · [代码](https://github.com/SamsungSAILMontreal/TinyRecursiveModels)
 
 - **[SIM-CoT: Supervised Implicit Chain-of-Thought](https://arxiv.org/abs/2509.20317)**<br>
@@ -860,9 +860,9 @@
   使用 Jacobi 式更新并行细化多个连续思维位置，而不是串行生成推理文本。<br>
   [论文](https://arxiv.org/abs/2506.18582) · [代码](https://github.com/whyNLP/PCCoT)
 
-- **[Pretraining Language Models to Ponder in Continuous Space](https://arxiv.org/abs/2505.20674)**<br>
-  Yuhang Zang et al. · *arXiv 2025*<br>
-  把连续思考纳入预训练，使隐空间推理成为原生能力，而不是只在任务微调阶段加入。<br>
+- **[PonderLM: Pretraining Language Models to Ponder in Continuous Space](https://arxiv.org/abs/2505.20674)**<br>
+  Boyi Zeng et al. · *ICLR 2026*<br>
+  在预训练中学习连续思考，将预测分布加权得到的 token 嵌入回送模型，在输出 token 前执行额外的前向计算。<br>
   [论文](https://arxiv.org/abs/2505.20674) · [代码](https://github.com/LUMIA-Group/PonderingLM)
 
 - **[Hybrid Latent Reasoning via Reinforcement Learning](https://arxiv.org/abs/2505.18454)**<br>

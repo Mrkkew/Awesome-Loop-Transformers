@@ -15,7 +15,7 @@
 | [Mixture-of-Recursions](https://arxiv.org/abs/2507.10524) | 路由器为不同 token 分配递归深度，并结合活跃 token 计算与 KV 管理提高效率。 | 同时考察路由、活跃 token 数、内存、吞吐量与预测质量。 |
 | [Parallel Loop Transformer](https://arxiv.org/abs/2510.24824) | 通过跨循环并行重叠执行不同 token 的循环步，并结合首轮 KV 共享与门控滑动窗口注意力控制内存开销。 | 关注执行依赖和缓存组织，不能只比较名义循环次数。 |
 | [Coconut](https://arxiv.org/abs/2412.06769) | 将末层隐状态直接作为下一步输入嵌入，而不先解码为词语。 | 区分连续思维步与 Transformer 模块内部的深度循环。 |
-| [Tiny Recursive Model](https://arxiv.org/abs/2510.04871) | 使用小型递归网络研究谜题等结构化推理任务。 | 与语言模型比较时，需同时考虑任务、监督方式与评测协议。 |
+| [Tiny Recursive Model](https://arxiv.org/html/2510.04871v1#S4.SS5) | 共享网络交替更新隐状态与候选答案，并比较自注意力与无注意力两种实现。 | 比较结果时，需同时考虑任务、监督方式与具体架构版本。 |
 
 ## 为什么将 Coconut 单独分类？
 

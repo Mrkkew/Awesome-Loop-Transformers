@@ -118,12 +118,12 @@ export const papers: Paper[] = [
     summary: { en: 'Introduces fast and slow latent dynamics so a recurrent-depth model can separate local refinement from longer-horizon state evolution.', zh: '引入快慢两种隐状态动力学，让循环深度模型分离局部细化与长程状态演化。' }, paper: 'https://arxiv.org/abs/2509.23314'
   },
   {
-    id: '2510.10089', date: '2025-10-11', title: 'What Makes Looped Transformers Perform Better Than Non-Recursive Ones (Provably)', authors: 'Zixuan Gong et al.', venue: 'arXiv 2025', category: 'Training & Analysis', tags: ['optimization', 'loss-landscape', 'theory'],
+    id: '2510.10089', date: '2025-10-11', title: 'What Makes Looped Transformers Perform Better Than Non-Recursive Ones', authors: 'Zixuan Gong et al.', venue: 'arXiv 2025', category: 'Training & Analysis', tags: ['optimization', 'loss-landscape', 'theory'],
     summary: { en: 'Uses loss-landscape geometry to explain an optimization advantage of recurrent attention and turns the analysis into a staged training strategy.', zh: '从损失景观几何解释循环注意力的优化优势，并据此提出分阶段训练方法。' }, paper: 'https://arxiv.org/abs/2510.10089'
   },
   {
     id: '2510.24824', date: '2025-10-28', title: 'Parallel Loop Transformer for Efficient Test-Time Computation Scaling', authors: 'Bohong Wu et al.', venue: 'arXiv 2025', category: 'Systems & Applications', tags: ['parallel-loops', 'kv-cache', 'latency'],
-    summary: { en: 'Reorganizes loop iterations to expose more parallelism and reduce the sequential latency and cache growth of conventional recurrent depth.', zh: '重组循环迭代以释放并行性，降低传统循环深度带来的串行延迟与缓存增长。' }, paper: 'https://arxiv.org/abs/2510.24824'
+    summary: { en: 'Overlaps loop steps across tokens and combines first-loop KV sharing with gated sliding-window attention to reduce sequential latency and cache overhead.', zh: '通过跨 token 重叠执行循环步，并结合首轮 KV 共享与门控滑动窗口注意力，降低串行延迟与缓存开销。' }, paper: 'https://arxiv.org/abs/2510.24824'
   },
   {
     id: '2510.25741', date: '2025-10-29', title: 'Scaling Latent Reasoning via Looped Language Models', authors: 'Rui-Jie Zhu et al.', venue: 'arXiv 2025', category: 'Latent Reasoning', tags: ['ouro', 'pretraining', 'learned-depth'], foundation: true,
@@ -134,8 +134,8 @@ export const papers: Paper[] = [
     summary: { en: 'Converts dense pretrained models into recurrent-depth models through continued training, testing how much loop behavior can be installed after pretraining.', zh: '通过继续训练把稠密预训练模型改造成循环深度模型，检验能否在预训练后补装循环推理能力。' }, paper: 'https://arxiv.org/abs/2511.07384', code: 'https://github.com/mcleish7/retrofitting-recurrence'
   },
   {
-    id: '2511.08577', date: '2025-11-11', title: 'Think-at-Hard: Selective Latent Iterations to Improve Reasoning Language Models', authors: 'Tianyu Fu et al.', venue: 'ICML 2026', category: 'Adaptive Compute', tags: ['selective-compute', 'ouro', 'routing'],
-    summary: { en: 'Analyzes where extra Ouro iterations help and selectively spends recurrent computation on harder tokens or stages.', zh: '分析 Ouro 的额外循环在何处有效，并把循环计算选择性投入更困难的 token 或推理阶段。' }, paper: 'https://openreview.net/forum?id=eQaJSRZiGn', code: 'https://github.com/thu-nics/TaH'
+    id: '2511.08577', date: '2025-11-11', title: 'Think-at-Hard: Selective Latent Iterations to Improve Reasoning Language Models', authors: 'Tianyu Fu et al.', venue: 'ICML 2026', category: 'Adaptive Compute', tags: ['selective-compute', 'hard-token', 'routing'],
+    summary: { en: 'Uses a lightweight decider to select hard tokens for additional latent iterations, with depth-aware LoRA and duo-causal attention supporting targeted refinement.', zh: '用轻量决策器为困难 token 选择额外的隐空间迭代，并结合深度感知 LoRA 与双因果注意力进行针对性细化。' }, paper: 'https://openreview.net/forum?id=eQaJSRZiGn', code: 'https://github.com/thu-nics/TaH'
   },
   {
     id: '2601.21582', date: '2026-01-29', title: 'Depth-Recurrent Attention Mixtures: Giving Latent Reasoning the Attention it Deserves', authors: 'Jonas Knupp et al.', venue: 'arXiv 2026', category: 'Architectures & Scaling', tags: ['attention-mixture', 'recurrent-depth'],
@@ -354,8 +354,8 @@ export const papers: Paper[] = [
     summary: { en: 'Uses reinforcement learning to combine sampled tokens with prior hidden states, preserving discrete generation while introducing latent computation.', zh: '用强化学习融合采样 token 和先前隐藏状态，在保留离散生成的同时引入隐空间计算。' }, paper: 'https://arxiv.org/abs/2505.18454', code: 'https://github.com/Yueeeeeeee/HRPO'
   },
   {
-    id: '2505.20674', date: '2025-05-27', title: 'Pretraining Language Models to Ponder in Continuous Space', authors: 'Yuhang Zang et al.', venue: 'arXiv 2025', category: 'Broader Latent Reasoning', tags: ['pondering', 'pretraining', 'broader-scope'],
-    summary: { en: 'Moves continuous pondering into pretraining so latent reasoning is learned as a native capability rather than added only by task fine-tuning.', zh: '把连续思考纳入预训练，使隐空间推理成为原生能力，而不是只在任务微调阶段加入。' }, paper: 'https://arxiv.org/abs/2505.20674', code: 'https://github.com/LUMIA-Group/PonderingLM'
+    id: '2505.20674', date: '2025-05-27', title: 'PonderLM: Pretraining Language Models to Ponder in Continuous Space', authors: 'Boyi Zeng et al.', venue: 'ICLR 2026', category: 'Broader Latent Reasoning', tags: ['pondering', 'pretraining', 'broader-scope'],
+    summary: { en: 'Learns continuous pondering during pretraining by feeding a probability-weighted sum of token embeddings back into additional forward passes before emitting a token.', zh: '在预训练中学习连续思考，将预测分布加权得到的 token 嵌入回送模型，在输出 token 前执行额外的前向计算。' }, paper: 'https://arxiv.org/abs/2505.20674', code: 'https://github.com/LUMIA-Group/PonderingLM'
   },
   {
     id: '2506.18582', date: '2025-06-23', title: 'Parallel Continuous Chain-of-Thought with Jacobi Iteration', authors: 'Zhenyu Zhang et al.', venue: 'arXiv 2025', category: 'Broader Latent Reasoning', tags: ['parallel-reasoning', 'jacobi', 'broader-scope'],
@@ -379,7 +379,7 @@ export const papers: Paper[] = [
   },
   {
     id: '2510.04871', date: '2025-10-06', title: 'Less is More: Recursive Reasoning with Tiny Networks', authors: 'Alexia Jolicoeur-Martineau', venue: 'arXiv 2025', category: 'Broader Latent Reasoning', tags: ['trm', 'tiny-model', 'broader-scope'], foundation: true,
-    summary: { en: 'Proposes the Tiny Recursive Model, a very small recurrent network that iteratively improves solutions to structured reasoning problems without a Transformer backbone.', zh: '提出 Tiny Recursive Model：不依赖 Transformer 主干，用极小循环网络反复改进结构化推理问题的答案。' }, paper: 'https://arxiv.org/abs/2510.04871', code: 'https://github.com/SamsungSAILMontreal/TinyRecursiveModels'
+    summary: { en: 'Proposes the Tiny Recursive Model: a small shared network alternately refines a latent state and a candidate answer, with both self-attention and attention-free variants evaluated on structured reasoning tasks.', zh: '提出 Tiny Recursive Model：用小型共享网络交替更新隐状态与候选答案，并在结构化推理任务上比较自注意力与无注意力两种实现。' }, paper: 'https://arxiv.org/abs/2510.04871', code: 'https://github.com/SamsungSAILMontreal/TinyRecursiveModels'
   },
   {
     id: '2510.15522', date: '2025-10-17', title: 'LLM Latent Reasoning as Chain of Superposition', authors: 'Jingcheng Deng et al.', venue: 'arXiv 2025', category: 'Broader Latent Reasoning', tags: ['vocabulary-space', 'superposition', 'broader-scope'],
@@ -615,4 +615,4 @@ export const papers: Paper[] = [
   },
 ];
 
-export const lastUpdated = '2026-09-04';
+export const lastUpdated = '2026-09-05';

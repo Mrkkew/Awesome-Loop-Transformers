@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "title": "Awesome Loop Transformers",
   "repository": "https://github.com/Mrkkew/Awesome-Loop-Transformers",
-  "lastUpdated": "2026-09-04",
+  "lastUpdated": "2026-09-05",
   "scope": {
     "core": "Looped, recursive, and recurrent-depth Transformer research, including direct theory, analysis, systems, and applications.",
     "broader": "A selective track of latent-reasoning work that performs multi-step computation in learned hidden states without necessarily using a looped Transformer."
@@ -380,7 +380,7 @@
     {
       "id": "2510.10089",
       "date": "2025-10-11",
-      "title": "What Makes Looped Transformers Perform Better Than Non-Recursive Ones (Provably)",
+      "title": "What Makes Looped Transformers Perform Better Than Non-Recursive Ones",
       "authors": "Zixuan Gong et al.",
       "venue": "arXiv 2025",
       "category": "Training & Analysis",
@@ -408,8 +408,8 @@
         "latency"
       ],
       "summary": {
-        "en": "Reorganizes loop iterations to expose more parallelism and reduce the sequential latency and cache growth of conventional recurrent depth.",
-        "zh": "重组循环迭代以释放并行性，降低传统循环深度带来的串行延迟与缓存增长。"
+        "en": "Overlaps loop steps across tokens and combines first-loop KV sharing with gated sliding-window attention to reduce sequential latency and cache overhead.",
+        "zh": "通过跨 token 重叠执行循环步，并结合首轮 KV 共享与门控滑动窗口注意力，降低串行延迟与缓存开销。"
       },
       "paper": "https://arxiv.org/abs/2510.24824"
     },
@@ -461,12 +461,12 @@
       "category": "Adaptive Compute",
       "tags": [
         "selective-compute",
-        "ouro",
+        "hard-token",
         "routing"
       ],
       "summary": {
-        "en": "Analyzes where extra Ouro iterations help and selectively spends recurrent computation on harder tokens or stages.",
-        "zh": "分析 Ouro 的额外循环在何处有效，并把循环计算选择性投入更困难的 token 或推理阶段。"
+        "en": "Uses a lightweight decider to select hard tokens for additional latent iterations, with depth-aware LoRA and duo-causal attention supporting targeted refinement.",
+        "zh": "用轻量决策器为困难 token 选择额外的隐空间迭代，并结合深度感知 LoRA 与双因果注意力进行针对性细化。"
       },
       "paper": "https://openreview.net/forum?id=eQaJSRZiGn",
       "code": "https://github.com/thu-nics/TaH"
@@ -1468,9 +1468,9 @@
     {
       "id": "2505.20674",
       "date": "2025-05-27",
-      "title": "Pretraining Language Models to Ponder in Continuous Space",
-      "authors": "Yuhang Zang et al.",
-      "venue": "arXiv 2025",
+      "title": "PonderLM: Pretraining Language Models to Ponder in Continuous Space",
+      "authors": "Boyi Zeng et al.",
+      "venue": "ICLR 2026",
       "category": "Broader Latent Reasoning",
       "tags": [
         "pondering",
@@ -1478,8 +1478,8 @@
         "broader-scope"
       ],
       "summary": {
-        "en": "Moves continuous pondering into pretraining so latent reasoning is learned as a native capability rather than added only by task fine-tuning.",
-        "zh": "把连续思考纳入预训练，使隐空间推理成为原生能力，而不是只在任务微调阶段加入。"
+        "en": "Learns continuous pondering during pretraining by feeding a probability-weighted sum of token embeddings back into additional forward passes before emitting a token.",
+        "zh": "在预训练中学习连续思考，将预测分布加权得到的 token 嵌入回送模型，在输出 token 前执行额外的前向计算。"
       },
       "paper": "https://arxiv.org/abs/2505.20674",
       "code": "https://github.com/LUMIA-Group/PonderingLM"
@@ -1593,8 +1593,8 @@
       ],
       "foundation": true,
       "summary": {
-        "en": "Proposes the Tiny Recursive Model, a very small recurrent network that iteratively improves solutions to structured reasoning problems without a Transformer backbone.",
-        "zh": "提出 Tiny Recursive Model：不依赖 Transformer 主干，用极小循环网络反复改进结构化推理问题的答案。"
+        "en": "Proposes the Tiny Recursive Model: a small shared network alternately refines a latent state and a candidate answer, with both self-attention and attention-free variants evaluated on structured reasoning tasks.",
+        "zh": "提出 Tiny Recursive Model：用小型共享网络交替更新隐状态与候选答案，并在结构化推理任务上比较自注意力与无注意力两种实现。"
       },
       "paper": "https://arxiv.org/abs/2510.04871",
       "code": "https://github.com/SamsungSAILMontreal/TinyRecursiveModels"

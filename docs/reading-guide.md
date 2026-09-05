@@ -15,7 +15,7 @@ The papers in this field extend computation in different ways. A useful first qu
 | [Mixture-of-Recursions](https://arxiv.org/abs/2507.10524) | Token routers assign recursion depths within a shared stack; active-token computation and KV handling affect efficiency. | Examine routing, active tokens, memory use, and throughput alongside prediction quality. |
 | [Parallel Loop Transformer](https://arxiv.org/abs/2510.24824) | Cross-loop parallelism overlaps different tokens' loop steps; first-loop KV sharing and gated sliding-window attention address memory cost. | Inspect execution dependencies and cache design, not just the nominal number of loops. |
 | [Coconut](https://arxiv.org/abs/2412.06769) | The last hidden state becomes the next input embedding instead of being decoded into a word. | Distinguish continuous thought steps from repeated depth inside a Transformer block. |
-| [Tiny Recursive Model](https://arxiv.org/abs/2510.04871) | A small recursive network is studied on structured reasoning tasks such as puzzles. | Consider the task, supervision, and evaluation protocol before comparing with language-model benchmarks. |
+| [Tiny Recursive Model](https://arxiv.org/html/2510.04871v1#S4.SS5) | A shared network alternately updates latent states and candidate answers; both attention and attention-free variants are evaluated. | Consider the task, supervision, and architecture variant before comparing results. |
 
 ## Why is Coconut listed separately?
 

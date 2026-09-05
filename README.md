@@ -15,7 +15,7 @@
 
 <p align="center"><a href="#start-here"><strong>🧭 Start here</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#essential-reading"><strong>📌 Essential reading</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#complete-catalog"><strong>📚 Full catalog</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#contributing"><strong>🤝 Contribute</strong></a></p>
 
-<p align="center"><sub>142 papers · 7 research topics · English / 简体中文 · Last research update: 2026-09-04</sub></p>
+<p align="center"><sub>142 papers · 7 research topics · English / 简体中文 · Last research update: 2026-09-05</sub></p>
 
 ---
 
@@ -44,7 +44,7 @@ Eight entry points, from shared-depth architectures to latent reasoning. Short n
 | **[Mixture-of-Recursions](https://arxiv.org/abs/2507.10524)**<br><sub>2025</sub> | How can a shared model assign different recursion depths to individual tokens? |
 | **[Parallel Loop Transformer](https://arxiv.org/abs/2510.24824)**<br><sub>2025</sub> | How can loop execution reduce sequential latency and KV-cache overhead? |
 | **[Coconut](https://arxiv.org/abs/2412.06769)**<br><sub>2024</sub> | How can hidden states serve as intermediate thoughts? · Broader latent reasoning |
-| **[Tiny Recursive Model (TRM)](https://arxiv.org/abs/2510.04871)**<br><sub>2025</sub> | Can a tiny recursive network refine structured answers without a Transformer backbone? · Broader latent reasoning |
+| **[Tiny Recursive Model (TRM)](https://arxiv.org/abs/2510.04871)**<br><sub>2025</sub> | How can a small shared network alternately refine latent states and candidate answers? · Broader latent reasoning |
 
 <a id="scope"></a>
 
@@ -494,7 +494,7 @@ Choose a topic below, then expand a year. Papers are ordered newest first within
 
 - **[Think-at-Hard: Selective Latent Iterations to Improve Reasoning Language Models](https://openreview.net/forum?id=eQaJSRZiGn)**<br>
   Tianyu Fu et al. · *ICML 2026*<br>
-  Analyzes where extra Ouro iterations help and selectively spends recurrent computation on harder tokens or stages.<br>
+  Uses a lightweight decider to select hard tokens for additional latent iterations, with depth-aware LoRA and duo-causal attention supporting targeted refinement.<br>
   [Paper](https://openreview.net/forum?id=eQaJSRZiGn) · [Code](https://github.com/thu-nics/TaH)
 
 - **[Mixture-of-Recursions: Learning Dynamic Recursive Depths for Adaptive Token-Level Computation](https://arxiv.org/abs/2507.10524)**<br>
@@ -628,7 +628,7 @@ Choose a topic below, then expand a year. Papers are ordered newest first within
 <details>
 <summary><strong>2025</strong> · 2 papers</summary>
 
-- **[What Makes Looped Transformers Perform Better Than Non-Recursive Ones (Provably)](https://arxiv.org/abs/2510.10089)**<br>
+- **[What Makes Looped Transformers Perform Better Than Non-Recursive Ones](https://arxiv.org/abs/2510.10089)**<br>
   Zixuan Gong et al. · *arXiv 2025*<br>
   Uses loss-landscape geometry to explain an optimization advantage of recurrent attention and turns the analysis into a staged training strategy.<br>
   [Paper](https://arxiv.org/abs/2510.10089)
@@ -771,7 +771,7 @@ Choose a topic below, then expand a year. Papers are ordered newest first within
 
 - **[Parallel Loop Transformer for Efficient Test-Time Computation Scaling](https://arxiv.org/abs/2510.24824)**<br>
   Bohong Wu et al. · *arXiv 2025*<br>
-  Reorganizes loop iterations to expose more parallelism and reduce the sequential latency and cache growth of conventional recurrent depth.<br>
+  Overlaps loop steps across tokens and combines first-loop KV sharing with gated sliding-window attention to reduce sequential latency and cache overhead.<br>
   [Paper](https://arxiv.org/abs/2510.24824)
 
 </details>
@@ -832,7 +832,7 @@ Choose a topic below, then expand a year. Papers are ordered newest first within
 
 - **[Less is More: Recursive Reasoning with Tiny Networks](https://arxiv.org/abs/2510.04871)**<br>
   Alexia Jolicoeur-Martineau · *arXiv 2025*<br>
-  Proposes the Tiny Recursive Model, a very small recurrent network that iteratively improves solutions to structured reasoning problems without a Transformer backbone.<br>
+  Proposes the Tiny Recursive Model: a small shared network alternately refines a latent state and a candidate answer, with both self-attention and attention-free variants evaluated on structured reasoning tasks.<br>
   [Paper](https://arxiv.org/abs/2510.04871) · [Code](https://github.com/SamsungSAILMontreal/TinyRecursiveModels)
 
 - **[SIM-CoT: Supervised Implicit Chain-of-Thought](https://arxiv.org/abs/2509.20317)**<br>
@@ -860,9 +860,9 @@ Choose a topic below, then expand a year. Papers are ordered newest first within
   Uses Jacobi-style updates to refine multiple continuous thought positions in parallel rather than generating a serial rationale.<br>
   [Paper](https://arxiv.org/abs/2506.18582) · [Code](https://github.com/whyNLP/PCCoT)
 
-- **[Pretraining Language Models to Ponder in Continuous Space](https://arxiv.org/abs/2505.20674)**<br>
-  Yuhang Zang et al. · *arXiv 2025*<br>
-  Moves continuous pondering into pretraining so latent reasoning is learned as a native capability rather than added only by task fine-tuning.<br>
+- **[PonderLM: Pretraining Language Models to Ponder in Continuous Space](https://arxiv.org/abs/2505.20674)**<br>
+  Boyi Zeng et al. · *ICLR 2026*<br>
+  Learns continuous pondering during pretraining by feeding a probability-weighted sum of token embeddings back into additional forward passes before emitting a token.<br>
   [Paper](https://arxiv.org/abs/2505.20674) · [Code](https://github.com/LUMIA-Group/PonderingLM)
 
 - **[Hybrid Latent Reasoning via Reinforcement Learning](https://arxiv.org/abs/2505.18454)**<br>
