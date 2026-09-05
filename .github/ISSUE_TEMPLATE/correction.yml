@@ -1,0 +1,23 @@
+name: Correction / 内容纠错
+description: Report incorrect metadata, a broken link, or a summary that needs revision.
+title: "[Correction] "
+body:
+  - type: input
+    id: entry
+    attributes:
+      label: Paper or page / 论文或页面
+      description: Link to the affected paper or repository page.
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: Suggested correction / 修正建议
+      description: Explain the issue and proposed correction. 中英文均可。
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Supporting source / 参考来源
+      description: If applicable, link to the paper, official code, proceedings, or author page.

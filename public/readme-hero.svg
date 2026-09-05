@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">Awesome Loop Transformers</title>
+  <desc id="desc">A bilingual research guide. Input is processed by a shared Transformer block that repeatedly updates a latent state before producing output. The loop reuses the same weights.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="400" gradientUnits="userSpaceOnUse"><stop stop-color="#080E21"/><stop offset="1" stop-color="#10182F"/></linearGradient>
+    <linearGradient id="accent" x1="52" y1="120" x2="430" y2="220" gradientUnits="userSpaceOnUse"><stop stop-color="#67E8F9"/><stop offset="1" stop-color="#AFA0FF"/></linearGradient>
+    <linearGradient id="core" x1="737" y1="168" x2="963" y2="276" gradientUnits="userSpaceOnUse"><stop stop-color="#123E54"/><stop offset="1" stop-color="#292345"/></linearGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" stroke="#8CB1FF" stroke-opacity=".055"/></pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="m1 1 7 4-7 4" stroke="#6DE4EF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  </defs>
+  <rect width="1200" height="400" rx="16" fill="url(#bg)"/>
+  <rect width="1200" height="400" rx="16" fill="url(#grid)"/>
+  <rect x=".5" y=".5" width="1199" height="399" rx="15.5" stroke="#263552"/>
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+    <circle cx="57" cy="49" r="4" fill="#6DE4EF"/>
+    <text x="72" y="54" fill="#A0B2CE" font-size="12" font-weight="600" letter-spacing="2">PAPERS · CODE · RESEARCH</text>
+    <text x="52" y="112" fill="#F3F6FF" font-size="26" font-weight="700" letter-spacing="3">AWESOME</text>
+    <text x="48" y="192" fill="url(#accent)" font-size="88" font-weight="800" letter-spacing="-3">LOOP</text>
+    <text x="52" y="237" fill="#F3F6FF" font-size="32" font-weight="700" letter-spacing=".5">TRANSFORMERS</text>
+    <path d="M52 263H138" stroke="#6DE4EF" stroke-width="3"/>
+    <text x="52" y="300" fill="#B1C0D8" font-size="17">Recurrent depth. Latent reasoning.</text>
+    <text x="52" y="325" fill="#B1C0D8" font-size="17">Test-time computation.</text>
+    <text x="52" y="368" fill="#7E92B4" font-size="12" letter-spacing="1.5">BILINGUAL READING GUIDE / EN + ZH</text>
+    <path d="M467 48V352" stroke="#283551"/>
+    <text x="521" y="54" fill="#A0B2CE" font-size="12" font-weight="600" letter-spacing="2">ONE SHARED BLOCK. MULTIPLE STEPS.</text>
+    <path d="M967 218H987V128Q987 108 967 108H715Q695 108 695 128V218H730" stroke="#6DE4EF" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <rect x="746" y="94" width="192" height="28" rx="14" fill="#102538" stroke="#275363"/>
+    <text x="842" y="113" text-anchor="middle" fill="#8CE7ED" font-size="12" font-weight="600">REPEAT · SAME WEIGHTS</text>
+    <rect x="519" y="184" width="122" height="68" rx="12" fill="#121F36" stroke="#354863"/>
+    <text x="580" y="214" text-anchor="middle" fill="#E9EFFA" font-size="16" font-weight="600">Input</text>
+    <text x="580" y="236" text-anchor="middle" fill="#93A7C7" font-size="13">initial state</text>
+    <path d="M641 218H730" stroke="#6DE4EF" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <rect x="738" y="166" width="224" height="108" rx="16" fill="url(#core)" stroke="#76DDEB" stroke-width="1.5"/>
+    <text x="850" y="202" text-anchor="middle" fill="#F3F8FF" font-size="19" font-weight="700">Shared Transformer</text>
+    <text x="850" y="230" text-anchor="middle" fill="#C3D8EE" font-size="15">update the latent state</text>
+    <text x="850" y="255" text-anchor="middle" fill="#80DCE5" font-size="13" font-family="'SFMono-Regular', Consolas, monospace">h[t] → h[t + 1]</text>
+    <path d="M962 218H1026" stroke="#6DE4EF" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <rect x="1034" y="184" width="119" height="68" rx="12" fill="#121F36" stroke="#354863"/>
+    <text x="1093" y="214" text-anchor="middle" fill="#E9EFFA" font-size="16" font-weight="600">Output</text>
+    <text x="1093" y="236" text-anchor="middle" fill="#93A7C7" font-size="13">readout</text>
+    <path d="M752 312H947" stroke="#44516C" stroke-width="1.5"/>
+    <circle cx="752" cy="312" r="4" fill="#6DE4EF"/><circle cx="801" cy="312" r="4" fill="#74D1F3"/><circle cx="850" cy="312" r="4" fill="#8EB8FC"/><circle cx="947" cy="312" r="4" fill="#B09BF6"/>
+    <text x="752" y="337" text-anchor="middle" fill="#92A7C8" font-size="12">1</text><text x="801" y="337" text-anchor="middle" fill="#92A7C8" font-size="12">2</text><text x="850" y="337" text-anchor="middle" fill="#92A7C8" font-size="12">3</text><text x="899" y="337" text-anchor="middle" fill="#92A7C8" font-size="12">···</text><text x="947" y="337" text-anchor="middle" fill="#92A7C8" font-size="12">T</text>
+    <text x="850" y="368" text-anchor="middle" fill="#7E92B4" font-size="12" letter-spacing="1">UNROLL COMPUTATION, REUSE PARAMETERS</text>
+  </g>
+</svg>
