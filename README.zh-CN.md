@@ -27,6 +27,8 @@
 - **研究推理与扩展** — [Huginn](https://arxiv.org/abs/2502.05171) → [Ouro](https://arxiv.org/abs/2510.25741) → [自适应计算](#adaptive-compute)与[并行循环](https://arxiv.org/abs/2510.24824)。
 - **了解相关方法** — [Coconut](https://arxiv.org/abs/2412.06769)、[HRM](https://arxiv.org/abs/2506.21734)、[TRM](https://arxiv.org/abs/2510.04871) → [广义潜在推理](#broader-latent-reasoning)。
 
+→ [方法对照与阅读要点](docs/reading-guide.zh-CN.md)：辨析循环深度、连续思维、路由与并行循环，并了解如何比较实验结果。
+
 <a id="essential-reading"></a>
 
 ## 推荐阅读

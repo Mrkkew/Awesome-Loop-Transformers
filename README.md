@@ -27,6 +27,8 @@
 - **Study reasoning and scaling** — [Huginn](https://arxiv.org/abs/2502.05171) → [Ouro](https://arxiv.org/abs/2510.25741) → [adaptive compute](#adaptive-compute) and [parallel loops](https://arxiv.org/abs/2510.24824).
 - **Explore related methods** — [Coconut](https://arxiv.org/abs/2412.06769), [HRM](https://arxiv.org/abs/2506.21734), and [TRM](https://arxiv.org/abs/2510.04871) → [broader latent reasoning](#broader-latent-reasoning).
 
+→ [Compare the mechanisms and learn what to measure](docs/reading-guide.md): recurrent depth, continuous thoughts, routing, and parallel loops.
+
 <a id="essential-reading"></a>
 
 ## Essential reading

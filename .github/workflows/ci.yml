@@ -16,6 +16,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run check:data
+      - run: npm run test:sources
       - run: npm run artifacts
       - name: Ensure generated artifacts are current
         run: git diff --exit-code README.md README.zh-CN.md data/papers.json

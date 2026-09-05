@@ -15,6 +15,7 @@
     "catalog": "node scripts/generate-catalog.mjs",
     "artifacts": "npm run readme && npm run catalog",
     "check:data": "node scripts/check-data.mjs",
+    "test:sources": "node --test scripts/source-metadata.test.mjs",
     "verify:sources": "node scripts/verify-sources.mjs"
   },
   "dependencies": {

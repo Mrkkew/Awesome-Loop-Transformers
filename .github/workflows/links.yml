@@ -20,5 +20,5 @@ jobs:
             --accept 200,206,429
             --exclude 'img.shields.io'
             --exclude 'localhost'
-            README.md README.zh-CN.md CONTRIBUTING.md lib/papers.ts
+            README.md README.zh-CN.md CONTRIBUTING.md docs/ lib/papers.ts
           fail: true

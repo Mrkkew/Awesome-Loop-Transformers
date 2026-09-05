@@ -134,6 +134,9 @@ function render(lang) {
     '---', '',
     ...section(t.startTitle, 'start-here'),
     ...t.routes.map(([label, route]) => `- **${label}** — ${route}`), '',
+    lang === 'en'
+      ? '→ [Compare the mechanisms and learn what to measure](docs/reading-guide.md): recurrent depth, continuous thoughts, routing, and parallel loops.'
+      : '→ [方法对照与阅读要点](docs/reading-guide.zh-CN.md)：辨析循环深度、连续思维、路由与并行循环，并了解如何比较实验结果。', '',
     ...section(t.essentials, 'essential-reading'), t.essentialIntro, '',
     `| ${t.essentialHeaders.join(' | ')} |`, '| --- | --- |',
     ...readingSelection.map(([id, name, en, zh]) => {

@@ -42,6 +42,12 @@ npm run build
 
 Never edit the generated paper lists in `README.md` or `README.zh-CN.md` directly.
 
+## Source metadata checks / 来源信息检查
+
+Run `npm run verify:sources -- <paper-id> ...` for the entries you changed. It compares full titles and, for arXiv pages, first-submission dates. Exit code `1` indicates a mismatch; `2` means the check is incomplete (for example, rate limiting or missing metadata). Retry incomplete checks or inspect the primary page manually. Author names, venues, summaries, and official code ownership still require editorial review.
+
+对修改的条目运行 `npm run verify:sources -- <paper-id> ...`，可比对完整标题及 arXiv 首次提交日期。退出码 `1` 表示信息不一致，`2` 表示检查未完成，例如遇到限流或缺少页面信息。检查未完成时应重试或人工查看原始页面；作者、会议、概述及代码归属仍需人工确认。
+
 ## Pull request checklist
 
 - [ ] Primary paper link opens and its title matches the entry.
