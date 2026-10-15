@@ -9,13 +9,13 @@
 
 <p align="center"><strong>循环 Transformer、潜在推理与测试时计算。<br>汇集论文原文、官方代码与中英文概述，梳理研究进展。</strong></p>
 
-<p align="center"><a href="https://github.com/Mrkkew/Awesome-Loop-Transformers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/Mrkkew/Awesome-Loop-Transformers?style=flat-square&labelColor=080b18&color=d8ff55"></a>&nbsp;<a href="#complete-catalog"><img alt="Papers in the full catalog" src="https://img.shields.io/badge/papers-142-5df2ff?style=flat-square&labelColor=080b18"></a>&nbsp;<a href="https://github.com/Mrkkew/Awesome-Loop-Transformers/actions/workflows/ci.yml"><img alt="Data and build" src="https://img.shields.io/github/actions/workflow/status/Mrkkew/Awesome-Loop-Transformers/ci.yml?style=flat-square&label=build&labelColor=080b18"></a>&nbsp;<a href="LICENSE"><img alt="License: CC BY 4.0" src="https://img.shields.io/badge/license-CC%20BY%204.0-a78bfa?style=flat-square&labelColor=080b18"></a>&nbsp;<a href="data/papers.json"><img alt="JSON catalog" src="https://img.shields.io/badge/data-JSON-c6ff4a?style=flat-square&labelColor=080b18"></a></p>
+<p align="center"><a href="https://github.com/Mrkkew/Awesome-Loop-Transformers/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/Mrkkew/Awesome-Loop-Transformers?style=flat-square&labelColor=080b18&color=d8ff55"></a>&nbsp;<a href="#complete-catalog"><img alt="Papers in the full catalog" src="https://img.shields.io/badge/papers-143-5df2ff?style=flat-square&labelColor=080b18"></a>&nbsp;<a href="https://github.com/Mrkkew/Awesome-Loop-Transformers/actions/workflows/ci.yml"><img alt="Data and build" src="https://img.shields.io/github/actions/workflow/status/Mrkkew/Awesome-Loop-Transformers/ci.yml?style=flat-square&label=build&labelColor=080b18"></a>&nbsp;<a href="LICENSE"><img alt="License: CC BY 4.0" src="https://img.shields.io/badge/license-CC%20BY%204.0-a78bfa?style=flat-square&labelColor=080b18"></a>&nbsp;<a href="data/papers.json"><img alt="JSON catalog" src="https://img.shields.io/badge/data-JSON-c6ff4a?style=flat-square&labelColor=080b18"></a></p>
 
 <p align="center"><a href="https://awesome-loop-transformers.bright-haven-2369.chatgpt.site/#catalog"><strong>搜索交互式论文目录 ↗</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="https://github.com/Mrkkew/Awesome-Loop-Transformers/issues/new?template=paper-suggestion.yml">推荐论文</a></p>
 
 <p align="center"><a href="#start-here"><strong>🧭 阅读路线</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#essential-reading"><strong>📌 推荐阅读</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#complete-catalog"><strong>📚 完整目录</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#contributing"><strong>🤝 参与贡献</strong></a></p>
 
-<p align="center"><sub>142 篇论文 · 7 个研究方向 · English / 简体中文 · 文献更新: 2026-09-05</sub></p>
+<p align="center"><sub>143 篇论文 · 7 个研究方向 · English / 简体中文 · 文献更新: 2026-09-05</sub></p>
 
 ---
 
@@ -54,7 +54,7 @@
 
 **广义潜在推理：**连续思维、隐式 CoT 与递归推理等方向的代表性工作，包括 Coconut、HRM 和 TRM。这些方法不一定采用循环 Transformer，因此单独分类。
 
-2024 年以来共收录 **137** 项工作，其中核心方向 **111** 项、广义潜在推理 **26** 项；目录同时保留更早的基础研究。
+2024 年以来共收录 **138** 项工作，其中核心方向 **112** 项、广义潜在推理 **26** 项；目录同时保留更早的基础研究。
 
 <a id="complete-catalog"></a>
 
@@ -69,7 +69,7 @@
 | **[潜在推理](#latent-reasoning)** | 12 | 测试时深度、隐状态中的多步计算，以及潜在 CoT。 |
 | **[自适应计算](#adaptive-compute)** | 11 | Token 级路由、学习式停止、提前退出与预算条件深度。 |
 | **[训练与机制分析](#training--analysis)** | 23 | 优化、稳定性、收敛、不动点与过度思考。 |
-| **[系统与应用](#systems--applications)** | 24 | 推理延迟、KV 内存、并行循环，以及代码、多模态和机器人应用。 |
+| **[系统与应用](#systems--applications)** | 25 | 推理延迟、KV 内存、并行循环，以及代码、多模态和机器人应用。 |
 | **[广义潜在推理](#broader-latent-reasoning)** | 26 | 连续思维、隐式 CoT、层次循环、HRM 与 TRM。 |
 
 <a id="foundations--theory"></a>
@@ -647,7 +647,12 @@
 ### 系统与应用
 
 <details>
-<summary><strong>2026</strong> · 23 篇</summary>
+<summary><strong>2026</strong> · 24 篇</summary>
+
+- **[FlashLoop: Fast and Memory-Efficient Looped Transformers via Lazy Updates](https://arxiv.org/abs/2609.29812)**<br>
+  Wanqi Yang, Shiwei Liu · *arXiv 2026*<br>
+  复用共享 Transformer 模块在相邻循环间的稳定状态，并压缩跨循环 KV 残差，无需重新训练即可减少推理计算与缓存开销。<br>
+  [论文](https://arxiv.org/abs/2609.29812) · [代码](https://github.com/Superone77/FlashLoop) · [主页](https://superone77.github.io/FlashLoop/)
 
 - **[Recirculation](https://arxiv.org/abs/2608.17981)**<br>
   Michael C. Mozer et al. · *arXiv 2026*<br>
