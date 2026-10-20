@@ -9,13 +9,13 @@
 
 <p align="center"><strong>Looped Transformers, latent reasoning, and test-time compute.<br>A bilingual reading guide with papers, official code, and research summaries.</strong></p>
 
-<p align="center"><a href="https://github.com/Mrkkew/Awesome-Loop-Transformers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/Mrkkew/Awesome-Loop-Transformers?style=flat-square&labelColor=080b18&color=d8ff55"></a>&nbsp;<a href="#complete-catalog"><img alt="Papers in the full catalog" src="https://img.shields.io/badge/papers-142-5df2ff?style=flat-square&labelColor=080b18"></a>&nbsp;<a href="https://github.com/Mrkkew/Awesome-Loop-Transformers/actions/workflows/ci.yml"><img alt="Data and build" src="https://img.shields.io/github/actions/workflow/status/Mrkkew/Awesome-Loop-Transformers/ci.yml?style=flat-square&label=build&labelColor=080b18"></a>&nbsp;<a href="LICENSE"><img alt="License: CC BY 4.0" src="https://img.shields.io/badge/license-CC%20BY%204.0-a78bfa?style=flat-square&labelColor=080b18"></a>&nbsp;<a href="data/papers.json"><img alt="JSON catalog" src="https://img.shields.io/badge/data-JSON-c6ff4a?style=flat-square&labelColor=080b18"></a></p>
+<p align="center"><a href="https://github.com/Mrkkew/Awesome-Loop-Transformers/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/Mrkkew/Awesome-Loop-Transformers?style=flat-square&labelColor=080b18&color=d8ff55"></a>&nbsp;<a href="#complete-catalog"><img alt="Papers in the full catalog" src="https://img.shields.io/badge/papers-143-5df2ff?style=flat-square&labelColor=080b18"></a>&nbsp;<a href="https://github.com/Mrkkew/Awesome-Loop-Transformers/actions/workflows/ci.yml"><img alt="Data and build" src="https://img.shields.io/github/actions/workflow/status/Mrkkew/Awesome-Loop-Transformers/ci.yml?style=flat-square&label=build&labelColor=080b18"></a>&nbsp;<a href="LICENSE"><img alt="License: CC BY 4.0" src="https://img.shields.io/badge/license-CC%20BY%204.0-a78bfa?style=flat-square&labelColor=080b18"></a>&nbsp;<a href="data/papers.json"><img alt="JSON catalog" src="https://img.shields.io/badge/data-JSON-c6ff4a?style=flat-square&labelColor=080b18"></a></p>
 
 <p align="center"><a href="https://awesome-loop-transformers.bright-haven-2369.chatgpt.site/#catalog"><strong>Search the interactive catalog ↗</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="https://github.com/Mrkkew/Awesome-Loop-Transformers/issues/new?template=paper-suggestion.yml">Suggest a paper</a></p>
 
 <p align="center"><a href="#start-here"><strong>🧭 Start here</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#essential-reading"><strong>📌 Essential reading</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#complete-catalog"><strong>📚 Full catalog</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#contributing"><strong>🤝 Contribute</strong></a></p>
 
-<p align="center"><sub>142 papers · 7 research topics · English / 简体中文 · Last research update: 2026-09-05</sub></p>
+<p align="center"><sub>143 papers · 7 research topics · English / 简体中文 · Last research update: 2026-09-05</sub></p>
 
 ---
 
@@ -54,7 +54,7 @@ Eight entry points, from shared-depth architectures to latent reasoning. Short n
 
 **Broader latent reasoning:** selected work on continuous thoughts, implicit CoT, and recursive reasoning, including Coconut, HRM, and TRM. These methods need not use a looped Transformer and are listed separately.
 
-Of the **137 works from 2024 onward**, **111** belong to the core track and **26** to broader latent reasoning. Earlier foundations are also included.
+Of the **138 works from 2024 onward**, **112** belong to the core track and **26** to broader latent reasoning. Earlier foundations are also included.
 
 <a id="complete-catalog"></a>
 
@@ -69,7 +69,7 @@ Choose a topic below, then expand a year. Papers are ordered newest first within
 | **[Latent Reasoning](#latent-reasoning)** | 12 | Test-time depth, silent multi-step computation, Huginn, Ouro, and latent CoT. |
 | **[Adaptive Compute](#adaptive-compute)** | 11 | Token routing, learned halting, early exit, and budget-conditioned depth. |
 | **[Training & Analysis](#training--analysis)** | 23 | Optimization, stability, residual scaling, fixed points, and mechanistic studies. |
-| **[Systems & Applications](#systems--applications)** | 24 | Serving, KV memory, parallel loops, code, multimodal, robotics, and tool use. |
+| **[Systems & Applications](#systems--applications)** | 25 | Serving, KV memory, parallel loops, code, multimodal, robotics, and tool use. |
 | **[Broader Latent Reasoning](#broader-latent-reasoning)** | 26 | Continuous thoughts, implicit CoT, hierarchical recurrence, HRM, and TRM. |
 
 <a id="foundations--theory"></a>
@@ -647,7 +647,12 @@ Choose a topic below, then expand a year. Papers are ordered newest first within
 ### Systems & Applications
 
 <details>
-<summary><strong>2026</strong> · 23 papers</summary>
+<summary><strong>2026</strong> · 24 papers</summary>
+
+- **[FlashLoop: Fast and Memory-Efficient Looped Transformers via Lazy Updates](https://arxiv.org/abs/2609.29812)**<br>
+  Wanqi Yang, Shiwei Liu · *arXiv 2026*<br>
+  Reuses stable states across repeated shared Transformer blocks and compresses cross-loop KV residuals, reducing inference computation and memory without retraining.<br>
+  [Paper](https://arxiv.org/abs/2609.29812) · [Code](https://github.com/Superone77/FlashLoop) · [Project](https://superone77.github.io/FlashLoop/)
 
 - **[Recirculation](https://arxiv.org/abs/2608.17981)**<br>
   Michael C. Mozer et al. · *arXiv 2026*<br>

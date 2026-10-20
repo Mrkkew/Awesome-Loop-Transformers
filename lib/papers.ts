@@ -46,6 +46,10 @@ export const categoryZh: Record<Category, string> = {
 
 export const papers: Paper[] = [
   {
+    id: '2609.29812', date: '2026-09-24', title: 'FlashLoop: Fast and Memory-Efficient Looped Transformers via Lazy Updates', authors: 'Wanqi Yang, Shiwei Liu', venue: 'arXiv 2026', category: 'Systems & Applications', tags: ['sparse-updates', 'sparse-attention', 'kv-cache', 'quantization'],
+    summary: { en: 'Reuses stable states across repeated shared Transformer blocks and compresses cross-loop KV residuals, reducing inference computation and memory without retraining.', zh: '复用共享 Transformer 模块在相邻循环间的稳定状态，并压缩跨循环 KV 残差，无需重新训练即可减少推理计算与缓存开销。' }, paper: 'https://arxiv.org/abs/2609.29812', code: 'https://github.com/Superone77/FlashLoop', project: 'https://superone77.github.io/FlashLoop/'
+  },
+  {
     id: '1603.08983', date: '2016-03-29', title: 'Adaptive Computation Time for Recurrent Neural Networks', authors: 'Alex Graves', venue: 'arXiv 2016', category: 'Foundations & Theory', tags: ['halting', 'adaptive-depth'], foundation: true,
     summary: { en: 'Introduces a differentiable halting mechanism that lets recurrent models spend different amounts of computation on different inputs.', zh: '提出可微分的停止机制，使循环模型能够针对不同输入动态分配计算步数。' }, paper: 'https://arxiv.org/abs/1603.08983'
   },
