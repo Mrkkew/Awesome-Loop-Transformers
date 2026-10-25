@@ -9,13 +9,13 @@
 
 <p align="center"><strong>循环 Transformer、潜在推理与测试时计算。<br>汇集论文原文、官方代码与中英文概述，梳理研究进展。</strong></p>
 
-<p align="center"><a href="https://github.com/Mrkkew/Awesome-Loop-Transformers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/Mrkkew/Awesome-Loop-Transformers?style=flat-square&labelColor=080b18&color=d8ff55"></a>&nbsp;<a href="#complete-catalog"><img alt="Papers in the full catalog" src="https://img.shields.io/badge/papers-142-5df2ff?style=flat-square&labelColor=080b18"></a>&nbsp;<a href="https://github.com/Mrkkew/Awesome-Loop-Transformers/actions/workflows/ci.yml"><img alt="Data and build" src="https://img.shields.io/github/actions/workflow/status/Mrkkew/Awesome-Loop-Transformers/ci.yml?style=flat-square&label=build&labelColor=080b18"></a>&nbsp;<a href="LICENSE"><img alt="License: CC BY 4.0" src="https://img.shields.io/badge/license-CC%20BY%204.0-a78bfa?style=flat-square&labelColor=080b18"></a>&nbsp;<a href="data/papers.json"><img alt="JSON catalog" src="https://img.shields.io/badge/data-JSON-c6ff4a?style=flat-square&labelColor=080b18"></a></p>
+<p align="center"><a href="https://github.com/Mrkkew/Awesome-Loop-Transformers/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/Mrkkew/Awesome-Loop-Transformers?style=flat-square&labelColor=080b18&color=d8ff55"></a>&nbsp;<a href="#complete-catalog"><img alt="Papers in the full catalog" src="https://img.shields.io/badge/papers-235-5df2ff?style=flat-square&labelColor=080b18"></a>&nbsp;<a href="https://github.com/Mrkkew/Awesome-Loop-Transformers/actions/workflows/ci.yml"><img alt="Data and build" src="https://img.shields.io/github/actions/workflow/status/Mrkkew/Awesome-Loop-Transformers/ci.yml?style=flat-square&label=build&labelColor=080b18"></a>&nbsp;<a href="LICENSE"><img alt="License: CC BY 4.0" src="https://img.shields.io/badge/license-CC%20BY%204.0-a78bfa?style=flat-square&labelColor=080b18"></a>&nbsp;<a href="data/papers.json"><img alt="JSON catalog" src="https://img.shields.io/badge/data-JSON-c6ff4a?style=flat-square&labelColor=080b18"></a></p>
 
 <p align="center"><a href="https://awesome-loop-transformers.bright-haven-2369.chatgpt.site/#catalog"><strong>搜索交互式论文目录 ↗</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="https://github.com/Mrkkew/Awesome-Loop-Transformers/issues/new?template=paper-suggestion.yml">推荐论文</a></p>
 
 <p align="center"><a href="#start-here"><strong>🧭 阅读路线</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#essential-reading"><strong>📌 推荐阅读</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#complete-catalog"><strong>📚 完整目录</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#contributing"><strong>🤝 参与贡献</strong></a></p>
 
-<p align="center"><sub>142 篇论文 · 7 个研究方向 · English / 简体中文 · 文献更新: 2026-09-05</sub></p>
+<p align="center"><sub>235 篇论文 · 8 个研究方向 · English / 简体中文 · 文献更新: 2026-10-25</sub></p>
 
 ---
 
@@ -54,7 +54,7 @@
 
 **广义潜在推理：**连续思维、隐式 CoT 与递归推理等方向的代表性工作，包括 Coconut、HRM 和 TRM。这些方法不一定采用循环 Transformer，因此单独分类。
 
-2024 年以来共收录 **137** 项工作，其中核心方向 **111** 项、广义潜在推理 **26** 项；目录同时保留更早的基础研究。
+2024 年以来共收录 **230** 项工作，其中核心方向 **189** 项、广义潜在推理 **41** 项；目录同时保留更早的基础研究。
 
 <a id="complete-catalog"></a>
 
@@ -64,20 +64,71 @@
 
 | 方向 | 数量 | 关注问题 |
 | --- | :---: | --- |
-| **[基础与理论](#foundations--theory)** | 20 | 表达能力、可编程性，以及长度与深度泛化。 |
-| **[架构与扩展](#architectures--scaling)** | 26 | 参数共享、循环核心、MoE、多分辨率设计与扩展规律。 |
-| **[潜在推理](#latent-reasoning)** | 12 | 测试时深度、隐状态中的多步计算，以及潜在 CoT。 |
-| **[自适应计算](#adaptive-compute)** | 11 | Token 级路由、学习式停止、提前退出与预算条件深度。 |
-| **[训练与机制分析](#training--analysis)** | 23 | 优化、稳定性、收敛、不动点与过度思考。 |
-| **[系统与应用](#systems--applications)** | 24 | 推理延迟、KV 内存、并行循环，以及代码、多模态和机器人应用。 |
-| **[广义潜在推理](#broader-latent-reasoning)** | 26 | 连续思维、隐式 CoT、层次循环、HRM 与 TRM。 |
+| **[基础与理论](#foundations--theory)** | 30 | 表达能力、可编程性，以及长度与深度泛化。 |
+| **[架构与扩展](#architectures--scaling)** | 43 | 参数共享、循环核心、MoE、多分辨率设计与扩展规律。 |
+| **[潜在推理](#latent-reasoning)** | 21 | 测试时深度、隐状态中的多步计算，以及潜在 CoT。 |
+| **[自适应计算](#adaptive-compute)** | 24 | Token 级路由、学习式停止、提前退出与预算条件深度。 |
+| **[训练与机制分析](#training--analysis)** | 32 | 优化、稳定性、收敛、不动点与过度思考。 |
+| **[系统与应用](#systems--applications)** | 39 | 推理延迟、KV 内存、并行循环，以及代码、多模态和机器人应用。 |
+| **[安全与监控](#safety--monitoring)** | 5 | 随循环深度变化的越狱风险、潜在计算监控、激活引导与深度稳健对齐。 |
+| **[广义潜在推理](#broader-latent-reasoning)** | 41 | 连续思维、隐式 CoT、层次循环、HRM 与 TRM。 |
 
 <a id="foundations--theory"></a>
 
 ### 基础与理论
 
 <details>
-<summary><strong>2026</strong> · 4 篇</summary>
+<summary><strong>2026</strong> · 14 篇</summary>
+
+- **[Predictive Latents for Autoregressive Language Models: Possibility, Gauge, and Obstruction](https://arxiv.org/abs/2610.28540)**<br>
+  Yuzhou Hong · *arXiv 2026*<br>
+  把迭代隐状态的风险拆成 token 风险、教师强制风险与开环风险；在满秩协方差统计量、线性最小二乘转移与重新拟合的 unembedding 条件下，宽度 k 的隐状态可在可逆规范变换意义下匹配贝叶斯预测器，而单步损失很小并不能证明 token 预测或自由展开可靠，除非同时给出秩或单射条件。<br>
+  [论文](https://arxiv.org/abs/2610.28540)
+
+- **[Internalizing Chain-of-thought into Looped Transformers](https://arxiv.org/abs/2610.25998)**<br>
+  Kehang Zhou, Pinyan Lu · *arXiv 2026*<br>
+  构造常位宽循环 Transformer，可在显式思维链与隐式思考之间插值；证明在 s(n)^{1/k}=Ω(L) 的条件下，用 L 次循环模拟时间 t、空间 s 的图灵机时，相对非循环队列机基线，上下文窗口与生成 token 数均缩小约 L 倍。<br>
+  [论文](https://arxiv.org/abs/2610.25998)
+
+- **[Looped Reasoning Finishes Earlier Than You Think](https://arxiv.org/abs/2610.18174)**<br>
+  Sumin Park, T. Konstantin Rusch · *arXiv 2026*<br>
+  指出缓慢衰减的振荡模态可能主导耦合隐动力学的收敛速率，进而提出具有精确逐 token 相位旋转对称性的规范等变循环推理器 QRR；该设计不再形成主导性的慢振荡瓶颈，同时保持推理相关商动力学解耦，在 Sudoku、Maze 与 Mini-ARC 上收敛更快。<br>
+  [论文](https://arxiv.org/abs/2610.18174)
+
+- **[Learning to Extrapolate in Depth with Looped Transformers](https://arxiv.org/abs/2610.14456)**<br>
+  Huitao Yang et al. · *arXiv 2026*<br>
+  以全对连通性任务分析深度外推，证明在可交换性与对称正初始化条件下，深度 K 上的总体训练（population training）收敛为由单一参数控制的更新规则，该参数在传播与拟合之间权衡，由此得到端点显式的有限安全测试深度窗口；当训练深度超出训练难度越多，认证的深度增益呈指数增长。<br>
+  [论文](https://arxiv.org/abs/2610.14456)
+
+- **[Invariant-Measure Reasoners: Stable Representations for Latent Reasoning](https://arxiv.org/abs/2610.10996)**<br>
+  Yuto Inui, Takuya Konishi, Yoshinobu Kawahara · *arXiv 2026*<br>
+  注意到反复更新的隐状态可能收敛到一个紧集却不收敛到不动点，于是用该集合上的不变测度做预测，使不同循环深度下的答案更稳定，并在某些情形下反而利用了这种非不动点动力学。<br>
+  [论文](https://arxiv.org/abs/2610.10996)
+
+- **[Universal interpolation for deep residual self-attention networks](https://arxiv.org/abs/2610.01981)**<br>
+  Sibylle Marcotte, Joan Bruna · *arXiv 2026*<br>
+  研究仅靠深度、高度权重共享的自注意力堆叠能表示多少函数，证明两个冻结的单头 softmax 残差块（高斯初始化投影）可在连续或有限深度下，把任意 N 条长度为 n 的 token 序列集合插值到另一同规模集合，并刻画因果掩码带来的限制及相应保证。<br>
+  [论文](https://arxiv.org/abs/2610.01981)
+
+- **[Looped Transformers as Optimizers](https://arxiv.org/abs/2609.37379)**<br>
+  Yulong Huang et al. · *arXiv 2026*<br>
+  把循环隐状态视为快速权重，从投影、局部目标与优化器规则出发闭式推导循环转移，指出现有转移与之不匹配；对齐现有转移的输入映射后训练损失下降、常识准确率提升，而据此提出的 OperLoop 在匹配训练 FLOPs 下提升了生成性能。<br>
+  [论文](https://arxiv.org/abs/2609.37379)
+
+- **[Beyond the Training Horizon: Mechanisms and Limits of Length Generalization in Looped Transformers](https://arxiv.org/abs/2609.33144)**<br>
+  Jia Liang, Xi Jin, Liangming Pan · *arXiv 2026*<br>
+  从机制上对比两种循环 Transformer 递推方案在多项式迭代、有限状态复合与图遍历任务上的表现，发现二者都能超越训练长度泛化却在更深时退化，且循环状态同时编码内容与“是否仍可继续计算”的状态信息。<br>
+  [论文](https://arxiv.org/abs/2609.33144)
+
+- **[Statistical Gains from Looped Estimation under Parameter Budgets](https://arxiv.org/abs/2609.25778)**<br>
+  Xinyu Tian, Xiaotong Shen · *arXiv 2026*<br>
+  在共同参数预算下比较循环与非共享（untied）估计器：给出循环筛极大似然的平方 Hellinger 风险上界与 untied 族的极小极大下界；对已知 Hölder 光滑度的目标，循环网络在对数因子内达到极小极大速率，且在足够大的固定预算下循环风险趋于零，而 untied 风险仍存在正下界。<br>
+  [论文](https://arxiv.org/abs/2609.25778)
+
+- **[Right Direction, Wrong Step: Geometric Analysis of Finite-Step Failure in Looped Transformers](https://arxiv.org/abs/2609.16665)**<br>
+  Zhihao Guo et al. · *arXiv 2026*<br>
+  用路径曲率分解循环 Transformer 的更新步，解释为何局部有利的方向在整步施加时仍会损害参考答案；实验表明固定四分之一步长能在四个设置中 72.2%-83.2% 的选定失败样本上带来参考效用的正向增益。<br>
+  [论文](https://arxiv.org/abs/2609.16665)
 
 - **[When Does Recurrence Become an Algorithm? Convergence Selection in Weight-Tied Looped Transformers](https://arxiv.org/abs/2607.20594)**<br>
   Tong Zhang et al. · *arXiv 2026*<br>
@@ -218,7 +269,92 @@
 ### 架构与扩展
 
 <details>
-<summary><strong>2026</strong> · 19 篇</summary>
+<summary><strong>2026</strong> · 36 篇</summary>
+
+- **[Looped Uniform Diffusion Language Models](https://arxiv.org/abs/2610.30066)**<br>
+  Saiteja Utpala et al. · *arXiv 2026*<br>
+  在均匀扩散语言模型的每个去噪步内加入选择性循环，在相同验证 NLL 下最多减少 3.3 倍训练算力，并在固定去噪步数下降低生成困惑度；训练时偏向较小循环次数的分布更高效。<br>
+  [论文](https://arxiv.org/abs/2610.30066)
+
+- **[Asymmetric Looped Transformers: Fixed Global Representations for an Iterative Decoder](https://arxiv.org/abs/2610.28489)**<br>
+  Cheng Liang et al. · *arXiv 2026*<br>
+  将上下文构建与状态精修分离：单遍编码器写出固定的全局 KV 缓存，权重共享的循环解码器在同一次 softmax 中同时关注全局 KV 与自身局部 KV，在 1B 规模上改善困惑度与零样本准确率。<br>
+  [论文](https://arxiv.org/abs/2610.28489)
+
+- **[Block Recursive Transformers for Structured Parameter Sharing](https://arxiv.org/abs/2610.24998)**<br>
+  Josep Marques et al. · *EMNLP Findings 2026*<br>
+  指出共享粒度是与共享比例并列的关键因素：将层划分为连续块并逐块递归复用，在局部精修与深度差异化之间取得平衡，在 1.7B 参数以内优于逐层共享与整栈循环复用。<br>
+  [论文](https://arxiv.org/abs/2610.24998) · [主页](https://aim-skku.github.io/BRT/)
+
+- **[UpLoop: Upcycling Large Language Models with Gated Loop](https://arxiv.org/abs/2610.25004)**<br>
+  Tieyuan Chen et al. · *arXiv 2026*<br>
+  通过逐层局部循环，并在注意力与 MLP 残差分支上加入隐维门控，把预训练 LLM 升级为循环模型，突破以往两轮即饱和的限制，三轮时在 20 个基准上平均提升 6.17 个百分点。<br>
+  [论文](https://arxiv.org/abs/2610.25004)
+
+- **[Dual-Slot: From Serial Loops to Parallel Slots in Language Models](https://arxiv.org/abs/2610.25086)**<br>
+  Yiqin Hao et al. · *arXiv 2026*<br>
+  将循环迭代拆分为潜在槽与预测槽，使当前 token 复用上一 token 的深层状态，用成对调用取代串行调用，在保持自回归生成的同时保留原始解码吞吐：稠密模型 93.1%–96.5%，MoE 模型 98.1%–99.6%。<br>
+  [论文](https://arxiv.org/abs/2610.25086)
+
+- **[Towards Looped Models Done Right, Part I: Topology, Input Injection, Recurrent-State Design](https://arxiv.org/abs/2610.23036)**<br>
+  Benhao Huang et al. · *arXiv 2026*<br>
+  系统拆解循环语言模型的三个设计轴——循环位于何处、输入如何注入、循环状态如何组织，发现以 prelude-recurrent block-coda 夹层为核心的完整 Huginn 式设计在 730M 规模上优于 Ouro，并可迁移到 8B-A0.8B（展开后 32B-A3B）的 MoE 模型。<br>
+  [论文](https://arxiv.org/abs/2610.23036) · [代码](https://github.com/ifm-ai/xllm-loop)
+
+- **[LoopREG: Representation Supervision Enables Test-Time Recurrent Depth in Diffusion Transformers](https://arxiv.org/abs/2610.17877)**<br>
+  Zipeng Wang et al. · *arXiv 2026*<br>
+  用预训练视觉编码器的表征监督循环扩散 Transformer 的共享块，使额外推理轮次能外推到训练深度之外：将 SiT-B/2 的局部 REG 基线 FID 从 15.08 降至 4.91，第三次访问则把两轮检查点的 FID 从 14.71 改善到 5.34。<br>
+  [论文](https://arxiv.org/abs/2610.17877)
+
+- **[Scaling to Tens of Thousands of Test-Time Iterations with Loop-Native Attention Residuals](https://arxiv.org/abs/2610.11570)**<br>
+  Pengxiang Li et al. · *arXiv 2026*<br>
+  主张循环 Transformer 需要专属的循环原生残差：以内容加权与时间衰减聚合历史循环状态，抑制不可靠更新，使 7M 参数模型在数独极限版上超过两万次测试时迭代仍持续提升。<br>
+  [论文](https://arxiv.org/abs/2610.11570) · [代码](https://github.com/pixeli99/InfiLoop)
+
+- **[One Block, Multiple Depths: Recurrent Vision Transformers with Depth-Programmed Experts](https://arxiv.org/abs/2610.12448)**<br>
+  Adrian Bulat, Yassine Ouali, Georgios Tzimiropoulos · *arXiv 2026*<br>
+  反复应用单个 ViT 块，并用连续深度坐标混合一个小型共享专家库来恢复各循环深度特有的 FFN，以约少 70% 的存储参数达到全深度编码器精度，并支持重采样的弹性部署深度。<br>
+  [论文](https://arxiv.org/abs/2610.12448)
+
+- **[Recurrent Looped Transformer](https://arxiv.org/abs/2610.07591)**<br>
+  Yifan Zhang et al. · *arXiv 2026*<br>
+  把层拆分为并行因果编码器与循环解码器，解码器将当前 token 的编码输出与上一 token 的解码状态合并，使计算深度随序列长度增长而单 token 成本固定，奇偶校验可泛化到 256 位。<br>
+  [论文](https://arxiv.org/abs/2610.07591) · [代码](https://github.com/yifanzhang-pro/recurrent-looped-tranformer)
+
+- **[Looping Beyond Twice: A Scalable Recipe for Looped Mixture-of-Experts](https://arxiv.org/abs/2610.01153)**<br>
+  Di He et al. · *arXiv 2026*<br>
+  诊断循环 MoE 在两轮之后收益消失的原因——残差方差随迭代增长与专家选择塌缩，再用残差缩放、输入重注入、逐循环路由器与循环残差加以稳定，在 100M–1.7B 规模上稳定循环 9–12 轮。<br>
+  [论文](https://arxiv.org/abs/2610.01153) · [代码](https://github.com/hed-ucas/LOOM)
+
+- **[The Surprising Effectiveness of Shared Memory in Looped Transformers](https://arxiv.org/abs/2610.02383)**<br>
+  Giovanni Monea et al. · *arXiv 2026*<br>
+  预训练时只让第一轮循环写入 KV 缓存，后续循环读取该缓存并保留一小段本地窗口；共享记忆不但没有损害质量反而提升质量，在 150M–1B 规模、五轮循环下将上下文内存降低 76%–79%。<br>
+  [论文](https://arxiv.org/abs/2610.02383)
+
+- **[Scaling Laws for Looped Mixture of Experts](https://arxiv.org/abs/2609.40316)**<br>
+  Yanbei Chen, Anirudh Goyal, Raghuraman Krishnamoorthi · *arXiv 2026*<br>
+  通过有界的稀疏条件循环映射，把模型规模、数据、稀疏度与循环次数纳入统一缩放律，发现稀疏度带来约 3 倍激活参数效率，而循环在推理任务上带来约 2 倍总参数效率。<br>
+  [论文](https://arxiv.org/abs/2609.40316)
+
+- **[How to Loop MoE: Flatten the Experts, Untie the Attention](https://arxiv.org/abs/2609.35751)**<br>
+  Shouren Wang et al. · *arXiv 2026*<br>
+  研究 MoE 应当如何循环，提出 Foil：压平专家层使每一轮从大一倍的专家池中路由，并让每轮拥有独立注意力参数而专家与路由器保持共享，在 100B token 上降低损失并改善路由均衡。<br>
+  [论文](https://arxiv.org/abs/2609.35751) · [代码](https://github.com/SR-A-W/how-to-loop-moe)
+
+- **[Storing Is Not Remembering: LSTM-UT and Bounded Gated Memory for Looped Transformers](https://arxiv.org/abs/2609.19521)**<br>
+  Aras Kavuncu, Muhammad Burhan Hafez · *arXiv 2026*<br>
+  指出保留更多历史并不等于历史可用，并在共享块中加入小型有界门控单元状态；仅在深度 12 训练，即在深度 60 保持 99.7% 精确精度，深度 1000 时仍高于 99.95%。<br>
+  [论文](https://arxiv.org/abs/2609.19521)
+
+- **[MoRE: Mixture of Reused Experts](https://arxiv.org/abs/2609.18176)**<br>
+  Eric S. Qiu et al. · *COLM 2026*<br>
+  在相邻层组之间共享专家池，同时为每层保留独立路由器并加入轻量深度嵌入，在不增加参数的情况下扩大路由组合，在 114M–1.15B 规模上优于标准 MoE 与权重共享基线。<br>
+  [论文](https://arxiv.org/abs/2609.18176)
+
+- **[How Model Growth, Recursion, and Boundary Operators Influence Scaling Exponents](https://arxiv.org/abs/2609.19107)**<br>
+  Zixi Chen et al. · *arXiv 2026*<br>
+  证明架构干预可以改变缩放指数而不只是常数：无论是否共享权重，模型增长都带来最大指数增益，7.4B 的模型增长架构以约少 20 倍计算在 CORE 上匹敌 GPT-3 13B，且在有数据约束的多轮训练情形下循环次数应随规模增加。<br>
+  [论文](https://arxiv.org/abs/2609.19107) · [代码](https://github.com/qlabs-eng/scaling-exponents)
 
 - **[SMELT: Scaling Laws for Compute-Matched MoE Looped Transformers](https://arxiv.org/abs/2609.01343)**<br>
   Shaowen Wang et al. · *arXiv 2026*<br>
@@ -369,7 +505,52 @@
 ### 潜在推理
 
 <details>
-<summary><strong>2026</strong> · 7 篇</summary>
+<summary><strong>2026</strong> · 16 篇</summary>
+
+- **[Present but Hard to Read: Probing Latent Reasoning with Minimal Pairs](https://arxiv.org/abs/2610.28498)**<br>
+  Aur Shalev Merin · *arXiv 2026*<br>
+  对 Ouro-1.4B 与 Qwen 2.5-1.5B 做最小对比探测：被复制的数字存在于跨问题共享的编码中（读出值约 0.9），而一次只看一个提示的探针几乎读不出；未写出的中间和虽有微弱信号且可读，却并未真正被使用。<br>
+  [论文](https://arxiv.org/abs/2610.28498)
+
+- **[Causal Latent Workspaces for Looped Transformers](https://arxiv.org/abs/2610.22796)**<br>
+  Ilia Zaznov · *arXiv 2026*<br>
+  在锚定的四轮共享深度循环 Transformer 中加入因果、按内容寻址的前缀工作区：每个位置把门控向量写入前缀专属的潜在槽位，并在下一次共享块运算前取回摘要；在六种设置中的五种取得最优平均留出困惑度，优于五个 Transformer 对照组。<br>
+  [论文](https://arxiv.org/abs/2610.22796)
+
+- **[Learning to Compute Is Not Learning to Retain or Reuse in Looped Transformers](https://arxiv.org/abs/2610.19768)**<br>
+  Peilong Zhou et al. · *arXiv 2026*<br>
+  用带有精确隐状态反事实的上下文 Mealy 机，把循环 Transformer 的失败拆分为计算失败、保持丢失与状态不可复用：训练在 32 次循环作答的模型到 64 次循环只剩 22% 的答案，而随机位置监督可保留 99.8%。<br>
+  [论文](https://arxiv.org/abs/2610.19768)
+
+- **[From Chain-of-Thought to Loops: Non-Autoregressive Latent Reasoning via Looped Transformers](https://arxiv.org/abs/2610.11472)**<br>
+  Gerard Grau García et al. · *arXiv 2026*<br>
+  用对紧凑潜在工作区的迭代精炼取代从左到右的潜在生成：共享 Transformer 反复应用若干次后，由概率头并行采样潜在 token 来条件化自回归解码器；在 HumanEval 与 MBPP 上准确率与显式 CoT 相当，而推理阶段延迟降至约 1/42。<br>
+  [论文](https://arxiv.org/abs/2610.11472)
+
+- **[What Matters for Latent Reasoning with Flow Matching](https://arxiv.org/abs/2610.06666)**<br>
+  Yassine Ouali, Adrian Bulat, Georgios Tzimiropoulos · *arXiv 2026*<br>
+  从潜在思考应满足的五项要求（有用、多样、可解释、可精炼、高效）出发提出 FLaRe：一套流匹配训练配方，涵盖潜在空间编码什么、在何处训练流以及如何读出答案，以四分之一延迟达到显式 CoT 97% 的准确率。<br>
+  [论文](https://arxiv.org/abs/2610.06666)
+
+- **[Shared Weights, Selected Computations: How Looped Transformers Route What Each Loop Does](https://arxiv.org/abs/2609.39892)**<br>
+  Jiaju Wu, Yi Hu, Muhan Zhang · *arXiv 2026*<br>
+  追问循环 Transformer 的每一次循环是否执行相同计算。在图游走任务上，不同循环可前进不同步数，而作用在输入隐状态上的学习到的线性映射 J 会选择共享块执行哪一种已学会的转移。<br>
+  [论文](https://arxiv.org/abs/2609.39892)
+
+- **[What Makes Recurrence Effective in Looped Language Models?](https://arxiv.org/abs/2609.36636)**<br>
+  Xinlin Zhuang et al. · *arXiv 2026*<br>
+  系统研究循环语言模型在何种条件下受益于额外循环：推理表现可在超出训练深度后继续提升，而知识类性能下降；仅凭有效深度不足以预测表现，层与迭代的分配方式同样重要；逐通道历史状态注入配合时间步条件化，比常规初始状态注入更稳健。<br>
+  [论文](https://arxiv.org/abs/2609.36636)
+
+- **[Principled Thoughts for Latent Recursive LLM Systems](https://arxiv.org/abs/2609.36159)**<br>
+  Fahd Seddik, Fatemeh Fard · *arXiv 2026*<br>
+  指出仅用交叉熵训练会使连续思考缺乏约束，证明由此产生的四种失效模式，并把因果性、最小性、可分离性与稳定性转化为可微辅助损失；REST 在单智能体与多智能体潜在递归中最多提升 7.5 个点。<br>
+  [论文](https://arxiv.org/abs/2609.36159) · [主页](https://fard-lab.github.io/REST)
+
+- **[Trading Depth for Time in Recurrent Transformers](https://arxiv.org/abs/2609.21605)**<br>
+  Zeyi Huang et al. · *arXiv 2026*<br>
+  在相邻词表 token 之间插入一个潜在思考 token，让共享骨干在预测下一个词前精炼隐状态。在训练 FLOPs 匹配的情况下，它优于 PonderLM-2，并随计算量增加超过两循环 Transformer；以约一半参数取得 LRT 深度加倍所带来增益的 89%。<br>
+  [论文](https://arxiv.org/abs/2609.21605)
 
 - **[Penelope: Localized Latent Recurrence for Efficient Structured Reasoning](https://arxiv.org/abs/2607.25915)**<br>
   Yutong Chen et al. · *arXiv 2026*<br>
@@ -445,7 +626,72 @@
 ### 自适应计算
 
 <details>
-<summary><strong>2026</strong> · 8 篇</summary>
+<summary><strong>2026</strong> · 21 篇</summary>
+
+- **[Loop to Look Better: Learning Adaptive Depth for Question-Guided Perception in Vision-Language Models](https://arxiv.org/abs/2610.30824)**<br>
+  Wencheng Ye et al. · *arXiv 2026*<br>
+  LoopLook 为预训练视觉语言模型引入编码器侧的循环感知：带问题注入地反复访问视觉编码器中后段，用学习到的停机机制决定视觉深度，并以 token 级 Mixture-of-Looks 融合各轮表示，最高提升 8.6%，首 token 时间仅增加 5.1-6.5%。<br>
+  [论文](https://arxiv.org/abs/2610.30824)
+
+- **[Think Harder Where It Matters: Item-Level Adaptive Recursion for Sequential Recommendation](https://arxiv.org/abs/2610.30128)**<br>
+  Zhanshuo Cao et al. · *arXiv 2026*<br>
+  LoopRec 在序列推荐中反复应用单个权重共享块，并在每个递归边界设置轻量二分类“退出或继续”门，把固定深度变成逐物品的自适应属性；学习到的分配会把更深计算给低频物品与近期交互。<br>
+  [论文](https://arxiv.org/abs/2610.30128) · [代码](https://github.com/Elpmis117/LoopRec)
+
+- **[Spherical Fixed-Point Reasoners: Adaptive Loop Halting on the Hypersphere](https://arxiv.org/abs/2610.25646)**<br>
+  Arber Zela et al. · *arXiv 2026*<br>
+  SFPRM 把 FPRM 的阻尼不动点循环搬到单位超球面上，使输入注入、阻尼与停机都成为测地线操作并天然有界；在 Sudoku-Extreme、Maze-Hard 与 Mini-ARC 上优于 FPRM，且测试时计算分配更有效。<br>
+  [论文](https://arxiv.org/abs/2610.25646) · [代码](https://github.com/arberzela/sfprm)
+
+- **[recAMPLIFY: Large-Scale Pretraining of Recursive Protein Language Models](https://arxiv.org/abs/2610.26747)**<br>
+  Saurav Jha et al. · *arXiv 2026*<br>
+  recAMPLIFY 预训练一个权重共享的蛋白质语言模型，其核心以可变循环次数精炼残基表示，并提出 Gated Mixture Recurrence：用学习到的残差门把停机与门控统一为单一自适应计算目标，使期望层深最多降低 37%，且停机深度与生物学性质相关。<br>
+  [论文](https://arxiv.org/abs/2610.26747) · [代码](https://github.com/chandar-lab/AMPLIFY/tree/recamplify)
+
+- **[One Model to Loop Them All: Elastic Latent Recurrence for Language Models](https://arxiv.org/abs/2610.12582)**<br>
+  Faisal Ladhak et al. · *arXiv 2026*<br>
+  Elastic Latent Recurrence 训练出的循环语言模型在单循环时即可接近同规模非循环模型的精度，并随循环次数增加持续提升；其关键在于门控状态更新、混合循环数训练以及按循环序号与预算进行条件化，4B 模型四循环时提升 7.25 分。<br>
+  [论文](https://arxiv.org/abs/2610.12582)
+
+- **[Enabling Dynamic Computation in Looped LMs](https://arxiv.org/abs/2610.09013)**<br>
+  Aayush Mishra et al. · *arXiv 2026*<br>
+  作者指出 Ouro 式循环语言模型因每一轮循环都需要独立 KV 缓存，在实践中并未真正实现动态计算；“最佳可用”KV 缓存策略在保持全深度性能的同时把 FLOPs 与 KV 内存最多减少 30%，修正后的早退先验则让 token 按难度在不同深度退出。<br>
+  [论文](https://arxiv.org/abs/2610.09013)
+
+- **[ALoDLM: Adaptively Looped Diffusion Language Models](https://arxiv.org/abs/2610.04198)**<br>
+  Liancheng Fang et al. · *arXiv 2026*<br>
+  ALoDLM 用 token 自适应的潜在递归取代扩散语言模型中统一的去噪深度：已经可以确定的位置提前提交，未解决的位置继续精炼，并通过条件 NELBO 学习 token 级计算调度，在 1.7B 与 8B 规模上改善质量-效率权衡。<br>
+  [论文](https://arxiv.org/abs/2610.04198) · [代码](https://github.com/amazon-science/ALoDLM) · [主页](https://alo-dlm.github.io)
+
+- **[AdaLoop: Adaptive-Depth Latent Reasoning for Audio Language Models](https://arxiv.org/abs/2610.06949)**<br>
+  Lee Seung-woo, Bowen Qi · *arXiv 2026*<br>
+  AdaLoop 增加一个轻量循环模块，用共享 Transformer 块反复精炼音频表示，并为每个音频-问题对学习何时停止，参数量增加不足 3%，在三个音频大模型上平均提升 2.9 至 3.8 分，最大增益出现在感知密集型子任务上。<br>
+  [论文](https://arxiv.org/abs/2610.06949)
+
+- **[Scheduling Recursive Reasoning in Looped Transformers](https://arxiv.org/abs/2609.36653)**<br>
+  Boyuan Wang et al. · *arXiv 2026*<br>
+  TAPS 把终端损失对递归更新尺度的敏感性分解为持续进展项与去中心波动项，并在推理时在线调整步长；无需重新训练即可提升终端精度，将该原则写入训练还可再获提升，并在匹配基线精度时实现最高 1.56 倍墙钟加速。<br>
+  [论文](https://arxiv.org/abs/2609.36653)
+
+- **[Looped Actor: Depth-Recurrent Reasoning Models for Reinforcement Learning](https://arxiv.org/abs/2609.37432)**<br>
+  T. Konstantin Rusch et al. · *arXiv 2026*<br>
+  Looped Actor 是一种深度循环策略，用共享块把隐状态迭代推向不动点，并按状态改变循环次数；它以远少参数追平 16 倍参数的非共享基线，且在 Boxoban 上循环次数随剩余推动步数增加。<br>
+  [论文](https://arxiv.org/abs/2609.37432) · [代码](https://github.com/camail-official/LoopedActor)
+
+- **[Improving Test-Time Scaling with Adaptive Looped Transformers](https://arxiv.org/abs/2609.35748)**<br>
+  Yichen You et al. · *arXiv 2026*<br>
+  TaH2 将循环主干与迭代决策器联合后训练，用前瞻标签标注再做一次循环是否有益，从而把额外迭代集中在真正受益的 token 上，在 AIME 上把精度-计算斜率相对非循环基线提升 53%。<br>
+  [论文](https://arxiv.org/abs/2609.35748) · [代码](https://github.com/thu-nics/TaH)
+
+- **[MoR-MLLM: Mixture of Recursions for Efficient Multimodal Large Language Models](https://arxiv.org/abs/2610.08830)**<br>
+  Pengcheng Zheng et al. · *arXiv 2026*<br>
+  MoR-MLLM 把 Mixture-of-Recursions 引入多模态大模型，为每个 token 学习递归深度，使视觉或语言上困难的 token 获得更多计算、简单 token 跳过冗余操作，并用三阶段调优与熵正则路由损失稳定训练。<br>
+  [论文](https://arxiv.org/abs/2610.08830)
+
+- **[T-LoopFormer: Token-Level Elastic-Depth Looped Transformers with Dynamic Routing](https://arxiv.org/abs/2609.15160)**<br>
+  Mingqian Yu et al. · *arXiv 2026*<br>
+  T-LoopFormer 通过动态 token 选择路由器让每个 token 自行决定循环次数，并为每一轮递归维护独立的 KV 缓存，使不同深度的 token 只访问对应的缓存状态，从而在保持语言建模与零样本推理性能的同时降低解码延迟。<br>
+  [论文](https://arxiv.org/abs/2609.15160) · [代码](https://github.com/YuMingQian1234/T-LoopFormer)
 
 - **[RecurTrace: Adaptive Latent Reasoning with Loop-Time Memory](https://arxiv.org/abs/2609.03379)**<br>
   Yuxiang Wang et al. · *arXiv 2026*<br>
@@ -516,7 +762,52 @@
 ### 训练与机制分析
 
 <details>
-<summary><strong>2026</strong> · 21 篇</summary>
+<summary><strong>2026</strong> · 30 篇</summary>
+
+- **[How Much Gradient Does Truncated Backprop Lose in Looped Transformers?](https://arxiv.org/abs/2610.28871)**<br>
+  Aur Shalev Merin · *arXiv 2026*<br>
+  在九个循环语言模型上，用一次反向传播精确算出每种截断长度所丢弃的权重梯度：该梯度集中在输出端、在微调过程中变小，且未能证明比无需测量的简单规则更能预测截断的训练代价。<br>
+  [论文](https://arxiv.org/abs/2610.28871)
+
+- **[Truncate or Not? A Scaling Study of Looped Transformers with Truncated Backpropagation](https://arxiv.org/abs/2610.26030)**<br>
+  Xuyuan Xiong et al. · *arXiv 2026*<br>
+  在近600次训练中联合改变模型规模、token预算与前向/反向循环数，并用有效参数拟合统一的缩放律；等算力下，用更少循环做完整BPTT优于截断训练，训练两个循环是循环模型的最优设置。<br>
+  [论文](https://arxiv.org/abs/2610.26030)
+
+- **[Inside the Loop: A Mechanistic Study of Weight-Tied Transformers on Depth-Bound Algorithmic Tasks](https://arxiv.org/abs/2610.24135)**<br>
+  Magnus Sesodia et al. · *NeurIPS 2026*<br>
+  在有逐跳真值的有向置换遍历任务上，四层块迭代八次可在所有随机种子下解出，而同等有效深度、同样训练的非绑定模型除非降低学习率或监督其中间层，否则始终做不到；探针与干预显示循环模型形成随迭代预算调整的逐步推进阶梯。<br>
+  [论文](https://arxiv.org/abs/2610.24135) · [代码](https://github.com/magnus-sesodia/insidetheloop)
+
+- **[Adaptive-Depth Is a Finishing Stage](https://arxiv.org/abs/2610.14252)**<br>
+  Andrei Piterbarg et al. · *NeurIPS 2026 AXIOM Workshop*<br>
+  固定优先训练在大部分训练中保持较浅的固定深度，只在最后阶段改变深度；在2亿参数下把建模训练算力降低45%、在10亿参数下降低31-37%，NLL分别控制在0.5%与0.8%以内。<br>
+  [论文](https://arxiv.org/abs/2610.14252)
+
+- **[Recurrent Self-Improvement: Dynamic Cross-Loop On-Policy Distillation for Looped Language Models](https://arxiv.org/abs/2610.10623)**<br>
+  Yi Wang et al. · *arXiv 2026*<br>
+  把循环模型自身冻结的末端循环当作算力更强的教师，在学生自生成的轨迹上指导中间循环，无需外部教师即可获得跨循环的稠密监督；动态版本随共享权重更新持续刷新教师。<br>
+  [论文](https://arxiv.org/abs/2610.10623)
+
+- **[Towards Looped Models Done Right, Part II: Rethinking at Fixed Points](https://arxiv.org/abs/2610.06833)**<br>
+  Benhao Huang et al. · *arXiv 2026*<br>
+  指出接近不动点的循环状态可支撑截断反传、末端KV共享、更快的蒸馏预填充与基于回放的强化学习，并改进塑造这些不动点的两个训练要素：带熵正则的可学习深度先验与正交输入注入。<br>
+  [论文](https://arxiv.org/abs/2610.06833)
+
+- **[Closing the Loop: Practical Training Recipes for Looped Language Models](https://arxiv.org/abs/2610.00673)**<br>
+  Andrei Marchenko et al. · *arXiv 2026*<br>
+  通过中期训练、学习率预热与更强的退出门正则，把循环语言模型的从零训练成本从7.7T降到310B token；1.4B循环模型在全部12项基准上胜过参数匹配的稠密基线，而仅用一个可学习输入混合标量加平滑退出损失，即可把预训练稠密模型转为循环模型。<br>
+  [论文](https://arxiv.org/abs/2610.00673)
+
+- **[Loop Dropout: Regularizing Shared Updates in Looped Language Models](https://arxiv.org/abs/2609.34218)**<br>
+  Zirui Zhu et al. · *arXiv 2026*<br>
+  发现LoRA用于循环语言模型时存在后循环偏置、前几个循环几乎得不到适配，并用适配器应用的随机掩码加逆生存重标定来修正，在不增加推理开销的情况下提升数学、指令微调与代码表现。<br>
+  [论文](https://arxiv.org/abs/2609.34218) · [代码](https://github.com/NUS-HPC-AI-Lab/loop-dropout)
+
+- **[Prediction Dynamics in Depth-Recurrent Language Models](https://arxiv.org/abs/2609.21383)**<br>
+  Xinyue Luo, Fei Yu · *arXiv 2026*<br>
+  用间隔分解刻画为何中间循环的答案已与最终答案一致、而分数仍在变化；在Huginn-3.5B与Ouro-1.4B上表明，计入更新方向与竞争者配对后，平均最早合格深度在去除共同平移的基础上再降低总深度的22.5-34.4%。<br>
+  [论文](https://arxiv.org/abs/2609.21383)
 
 - **[Looped Transformers under the Jacobian Lens: Does the Global Workspace Survive Recurrence?](https://arxiv.org/abs/2609.01924)**<br>
   Wenlong Wang, Fergal Reid · *arXiv 2026*<br>
@@ -647,7 +938,82 @@
 ### 系统与应用
 
 <details>
-<summary><strong>2026</strong> · 23 篇</summary>
+<summary><strong>2026</strong> · 38 篇</summary>
+
+- **[BeNice! Closing Looping's Inference-Memory Gap via KV-Sharing](https://arxiv.org/abs/2610.31633)**<br>
+  Hayden Prairie et al. · *arXiv 2026*<br>
+  循环模型每轮递归都会单独生成一份 KV 缓存，推理显存随深度线性增长。该工作采用两阶段方案：先用随机深度预训练诱导收缩型残差动力学，再用 BeNice! 把最后一轮递归的 KV 缓存广播到第一轮，在达到与非共享微调相当困惑度的同时消除逐轮缓存。<br>
+  [论文](https://arxiv.org/abs/2610.31633)
+
+- **[Exploring Recurrent-Depth Language Models for Multitask Clinical Text Processing](https://arxiv.org/abs/2610.27559)**<br>
+  Xi Yang et al. · *arXiv 2026*<br>
+  作者在 9 个临床数据集上联合微调 Ouro-1.4B/2.6B-Thinking、HRM-Text-1B 与 Qwen3 基线，并在 4 个留出集（共 13 个数据集）上评估：Ouro-1.4B-Thinking 在 11 个数据集上优于 Qwen3-1.7B，Ouro-2.6B-Thinking 在多数任务上可与 Qwen3-8B 匹敌，HRM-Text-1B 表现不一，推理与问答类任务提升最大。<br>
+  [论文](https://arxiv.org/abs/2610.27559)
+
+- **[HistoLoop: Iterative Contextual Inference with a Looped Transformer for Histology-Based Spatial Gene Expression Prediction](https://arxiv.org/abs/2610.28339)**<br>
+  Ziang Liu et al. · *arXiv 2026*<br>
+  HistoLoop 把空间基因表达预测建模为迭代上下文推断：共享空间 Transformer 将 spot 状态聚合为多分辨率上下文 token，交叉注意力检索 spot 专属上下文，再经记忆介导的更新把状态带到下一分辨率，在 HEST-Bench HVG50 上领先。<br>
+  [论文](https://arxiv.org/abs/2610.28339)
+
+- **[LoopAhead: Speculating Ahead for Faster Decoding in Looped Language Models](https://arxiv.org/abs/2610.21594)**<br>
+  Zixuan Liu et al. · *arXiv 2026*<br>
+  LoopAhead 引入轻量前瞻起草器，利用早期循环状态一次预测多个未来 token，再由更深轮次决定哪些推测分支继续或暂停，最终由全深度模型裁决，相对自回归解码最高取得 7.82 倍加速。<br>
+  [论文](https://arxiv.org/abs/2610.21594)
+
+- **[Retrofitting Recurrent Vision-Language Models from Pretrained Backbones](https://arxiv.org/abs/2610.22075)**<br>
+  Madhav Iyengar, Andreas Geiger, Hilde Kühne · *arXiv 2026*<br>
+  作者裁剪预训练 VLM 语言骨干的层数，用融合前层 token 的线性适配器循环剩余层中的一部分，并通过纯语言预训练、投影器对齐与视觉指令微调恢复性能，在语言参数减少 23.3% 的同时超过未剪枝基线。<br>
+  [论文](https://arxiv.org/abs/2610.22075) · [主页](https://madhavesdios.github.io/recurrent-vlms)
+
+- **[LoopQuant: Accurate and Efficient Post-Training Quantization for Looped Transformers](https://arxiv.org/abs/2610.16368)**<br>
+  Zhixiong Zhao et al. · *arXiv 2026*<br>
+  LoopQuant 统一跨轮递归状态的激活分布，在固定比特预算下按轮次敏感度分配激活精度，并在任务空间校准，使量化推理贴合低比特递归轨迹；在 Ouro-2.6B 上其 W4A4 配置超过所有 W4A8 基线。<br>
+  [论文](https://arxiv.org/abs/2610.16368)
+
+- **[RAMP: Recurrent Adaptive Mixed Precision for Efficient Prefill in Recurrent-Depth Language Models](https://arxiv.org/abs/2610.13041)**<br>
+  Ke Wan, Chen Chen · *arXiv 2026*<br>
+  递归早期注入的量化误差会被后续轮次逐步衰减。RAMP 因此让前段递归使用低精度权重-激活计算，仅在末端若干轮恢复高精度，在 4K 上下文下保持预填充质量并获得最高 1.16 倍的首次预填充加速。<br>
+  [论文](https://arxiv.org/abs/2610.13041)
+
+- **[Scaling RNA Foundation Models through Iterative Refinement](https://arxiv.org/abs/2610.13106)**<br>
+  Pengan Chen et al. · *arXiv 2026*<br>
+  Eco-RNA 是 80M 参数的 RNA 基础模型，其共享的输入条件 Transformer 核心被反复应用，使推理深度成为训练后可调的旋钮；在参数固定时，把精炼轮次从 1 增加到 4 可提升 RNAGym 适应度预测。<br>
+  [论文](https://arxiv.org/abs/2610.13106)
+
+- **[ResidualQuant: KV Cache Quantization for Looped Transformers with 2-Bit Residuals](https://arxiv.org/abs/2610.10381)**<br>
+  Heejun Kim et al. · *arXiv 2026*<br>
+  循环 Transformer 各轮的 KV 状态高度相似。ResidualQuant 以最后一轮 KV 为高精度参考，把前面各轮编码为带最小二乘缩放与旋转的 INT2 残差，并配合逐轮混合精度，将 KV 存储压缩 80.7%，精度仍接近 BF16。<br>
+  [论文](https://arxiv.org/abs/2610.10381)
+
+- **[Looped Diffusion Transformer](https://arxiv.org/abs/2609.40305)**<br>
+  Yong Xien Chng et al. · *arXiv 2026*<br>
+  Looped-DiT 在每个去噪步内重复执行共享 Transformer 块，并用跨轮深监督与自调制注意力稳定额外深度；260M 参数的循环模型超过大 6.5 倍的基线，推理算力低 4.9 倍。<br>
+  [论文](https://arxiv.org/abs/2609.40305)
+
+- **[Depth through recurrence: Looped transformers for flow-matching TTS](https://arxiv.org/abs/2609.29768)**<br>
+  Jiabao Ai et al. · *arXiv 2026*<br>
+  该工作系统比较流匹配 TTS 中的权重复用布局：七种循环方案每次评估均执行 18 次块调用，其中把九个块各连续执行两次的方案在保持可懂度与说话人相似度的同时，比非共享基线少 47.1% 参数。<br>
+  [论文](https://arxiv.org/abs/2609.29768)
+
+- **[FlashLoop: Fast and Memory-Efficient Looped Transformers via Lazy Updates](https://arxiv.org/abs/2609.29812)**<br>
+  Wanqi Yang, Shiwei Liu · *arXiv 2026*<br>
+  循环中的大部分计算是冗余的：状态变化集中在少数 token，注意力输出差异由稀疏而稳定的 key 列主导，相邻轮 KV 残差也易于低比特量化。FlashLoop 据此采用惰性更新，在保持精度的同时降低逐轮算力与 KV 显存。<br>
+  [论文](https://arxiv.org/abs/2609.29812)
+
+- **[Attention Routing Stabilizes Early: Working-Set Inference for Recurrent Language Models](https://arxiv.org/abs/2609.27373)**<br>
+  Ke Wan, Chen Chen · *arXiv 2026*<br>
+  循环语言模型的注意力路由比隐状态更早稳定。WISE 在前几轮用完整注意力发现块结构工作集，随后复用该支撑集而保留动态注意力权重与递归精炼，在 4K 上下文下取得 1.76 倍的后期注意力加速。<br>
+  [论文](https://arxiv.org/abs/2609.27373)
+
+- **[WaveFront Decoding: Parallelized Self-Speculative Decoding for Looped Language Models](https://arxiv.org/abs/2609.23033)**<br>
+  Hyeongju Ha, Jae-Joon Kim · *arXiv 2026*<br>
+  WaveFront 解码把处于不同递归深度的 token 状态压进同一次循环块调用，排成对角波前，使浅层起草与全深度验证并发执行，从而消除自推测解码中“先起草后验证”的阶段划分。<br>
+  [论文](https://arxiv.org/abs/2609.23033)
+
+- **[LoopSpec: Pipelined Self-Speculative Decoding for Looped Transformers](https://arxiv.org/abs/2609.17184)**<br>
+  SangLyul Cho et al. · *arXiv 2026*<br>
+  LoopSpec 用早期递归状态生成草稿 token，再由完整深度验证，同时把后续 token 的起草与当前 token 的验证流水线化，并可从更深轮次追加第二次提议，从而无需额外草稿模型即可实现无损自推测解码。<br>
+  [论文](https://arxiv.org/abs/2609.17184)
 
 - **[Recirculation](https://arxiv.org/abs/2608.17981)**<br>
   Michael C. Mozer et al. · *arXiv 2026*<br>
@@ -778,12 +1144,123 @@
 
 [↑ 返回目录](#complete-catalog)
 
+<a id="safety--monitoring"></a>
+
+### 安全与监控
+
+<details>
+<summary><strong>2026</strong> · 5 篇</summary>
+
+- **[Monitoring latent reasoning in looped language models](https://arxiv.org/abs/2610.18127)**<br>
+  Pawel Olszowiec et al. · *arXiv 2026*<br>
+  提出包含五个视角的机制可解释性检查流程，并应用于四个家族的八个循环语言模型，区分“携带式循环”（Ouro、LoopUS，提示仅随循环状态传递）与“重读式循环”（Parcae、Huginn、Rec-OLMo，每次迭代重新注入提示）。<br>
+  [论文](https://arxiv.org/abs/2610.18127)
+
+- **[Running Fewer Loops Removes Refusal Behaviour in Recurrent-Depth Language Models](https://arxiv.org/abs/2610.15218)**<br>
+  Seyedarmin Azizi et al. · *arXiv 2026*<br>
+  作者在四个 Ouro 检查点与 Huginn 上减少循环次数，发现安全性下降远大于精度损失——半深度时有害请求获得帮助的比例上升 5.3 倍；现有早退规则不会为有害请求分配更多循环，而随机深度训练能修复这一缺口。<br>
+  [论文](https://arxiv.org/abs/2610.15218)
+
+- **[Safe at One Loop, Risky at Another: Aligning Safety Across Recurrent Depths in Looped Language Models](https://arxiv.org/abs/2610.10625)**<br>
+  Yi Wang et al. · *arXiv 2026*<br>
+  揭示同一循环语言模型在不同推理深度上可能一边安全、一边可被越狱，且攻击可跨深度迁移；提出 SafeBridge，在共享循环层上加入深度特定控制与选择性状态桥接，并跨深度联合施加安全监督。<br>
+  [论文](https://arxiv.org/abs/2610.10625)
+
+- **[On the Chain-of-Thought Monitorability of Looped Language Models](https://arxiv.org/abs/2610.02741)**<br>
+  Han Wang, Ishwar B Balappanawar, Huan Zhang · *arXiv 2026*<br>
+  首次系统评估循环语言模型的思维链可监控性：在 MonitorBench 八个任务的标准与压力测试设置下，更深的循环只在特定的逻辑、科学、工程类线索—答案任务上削弱监控；与参数量或深度匹配的非循环模型相比，循环模型并未系统性更难监控。<br>
+  [论文](https://arxiv.org/abs/2610.02741)
+
+- **[When Steering Fails in Latent Reasoning: A Latent-to-Language Transition Gap](https://arxiv.org/abs/2609.21662)**<br>
+  Gaoxiang Huang, Lei Qi · *arXiv 2026*<br>
+  发现对连续思考做激活引导时，其对最终生成的影响远弱于对显式思维链的引导，即便表征位移幅度相当；潜空间到语言边界处输出分布的突变以及更弱的双向控制支持“潜在—语言转接鸿沟”的假设。<br>
+  [论文](https://arxiv.org/abs/2609.21662)
+
+</details>
+
+[↑ 返回目录](#complete-catalog)
+
 <a id="broader-latent-reasoning"></a>
 
 ### 广义潜在推理
 
 <details>
-<summary><strong>2026</strong> · 6 篇</summary>
+<summary><strong>2026</strong> · 21 篇</summary>
+
+- **[Curriculum Learning Teaches LLMs Long-Horizon Implicit Reasoning, Up To A Limit](https://arxiv.org/abs/2610.25612)**<br>
+  Jimson Huang et al. · *arXiv 2026*<br>
+  通过逐步增大词表与前瞻步数的课程微调，使 Qwen3-0.6B 在前瞻 256 步时达到 98%（无课程仅 45%），但进步呈饱和指数趋势，说明隐式推理深度存在随模型规模增长的内在上限。<br>
+  [论文](https://arxiv.org/abs/2610.25612)
+
+- **[Nested Shared-Operator Recursion on ARC-AGI-1: An Empirical Study of HRM, TRM and URM](https://arxiv.org/abs/2610.26666)**<br>
+  Sara Neri et al. · *arXiv 2026*<br>
+  在 HRM、TRM 与 URM 中加入持久的中间状态，使快速状态的反复更新经同一算子整合，检验嵌套递归能否提升 ARC-AGI-1 表现；在参数匹配且单卡预算下未发现一致优势，并给出后续确证实验方案。<br>
+  [论文](https://arxiv.org/abs/2610.26666)
+
+- **[Sep-Latent: Separator Tokens as Natural Compression Anchors for Implicit Reasoning](https://arxiv.org/abs/2610.22924)**<br>
+  Yinlong Xu et al. · *arXiv 2026*<br>
+  以分隔符 token 作为结构锚点，配合注意力衰减与多层蒸馏，使潜在推理可按问题难度自适应终止，在 GSM8k-Aug 上平均仅用 5.4 个潜在 token 即达到 56.8% 准确率。<br>
+  [论文](https://arxiv.org/abs/2610.22924)
+
+- **[Does Latent Chain-of-Thought Actually Reason? A Single, Unifying Taxonomy for Latent Reasoning](https://arxiv.org/abs/2610.21182)**<br>
+  Jingjie Qiu et al. · *arXiv 2026*<br>
+  在 21 组模型-任务配置中结合链删除、内容替换、探针与轨迹分析，发现在逻辑任务上 COCONUT 往往在链开始前就已编码可读答案，并提出区分潜在链所表示的内容与模型实际使用方式的统一分类法。<br>
+  [论文](https://arxiv.org/abs/2610.21182)
+
+- **[Tiny Recursive Message Passing](https://arxiv.org/abs/2610.18649)**<br>
+  Tommaso Salvatori et al. · *arXiv 2026*<br>
+  把 TRM 的深监督、截断递归与测试时演绎流程移植到消息传递网络，仅用 16k 参数、十分钟训练的模型即在数独极限版上达到约 99%，并零样本迁移到更大规模的 N 皇后与 SAT 实例。<br>
+  [论文](https://arxiv.org/abs/2610.18649)
+
+- **[Think Before You Paint: Recursive Latent Reasoning for Diffusion Models](https://arxiv.org/abs/2610.09876)**<br>
+  Paweł Skierś et al. · *arXiv 2026*<br>
+  在冻结扩散模型的每个去噪步内嵌入小型 TRM 式 Thinker，在学到的 token 网格上推理并通过 ControlNet 引导生成，仅用 10M 参数、无需符号监督即解出 92.5% 的困难 MNIST 数独。<br>
+  [论文](https://arxiv.org/abs/2610.09876)
+
+- **[Continuous Memory Machines](https://arxiv.org/abs/2610.07907)**<br>
+  Ciaran Regan et al. · *arXiv 2026*<br>
+  把循环状态拆分为承担不同角色的矩阵值短期与长期记忆，由 Transformer 联合读写，在算法、上下文学习与循环推理任务上优于既有记忆增强网络，同时保留连续思维机可解释的注意力模式。<br>
+  [论文](https://arxiv.org/abs/2610.07907)
+
+- **[LatentHarness: Learning Latent Actions for Memory and Reasoning via Counterfactual Policy Distillation](https://arxiv.org/abs/2609.39740)**<br>
+  Xiaoqiang Wang, Suyuchen Wang, Bang Liu · *arXiv 2026*<br>
+  把记忆访问与潜在计算统一为 THINK、RECALL、EXIT 三类潜在动作的序列决策，用反事实策略蒸馏对每个动作分支打分训练，在通用与长上下文推理基准上分别相对提升 2.8% 与 10.0%，并快 5.9 倍。<br>
+  [论文](https://arxiv.org/abs/2609.39740)
+
+- **[What Limits Recursive Reasoning Models: Optimization, Architecture and Test-Time Scaling](https://arxiv.org/abs/2609.39967)**<br>
+  Yuliana Shakhvalieva et al. · *arXiv 2026*<br>
+  在同一实验流程中分离 HRM、TRM 与 URM 的架构、梯度视野与状态更新控制，发现显式层级结构并非必需：采用中等梯度视野与大物理批次的稳定 13.6M 模型把算术分布外准确率从 36.2% 提升到 71.2%。<br>
+  [论文](https://arxiv.org/abs/2609.39967)
+
+- **[Where Do Embodied Decisions Come From? Rethinking Latent and Explicit Reasoning](https://arxiv.org/abs/2609.34794)**<br>
+  Yuan Lin et al. · *arXiv 2026*<br>
+  发现干预显式 CoT 会使 VLA 导航 F1 从 72.14% 跌至 11.84%，进而提出先决策后解释的范式：先预测动作再生成解释，在自动驾驶与机器人操作上优于先思考后行动与无 CoT 基线，且更依赖感知驱动的潜在计算。<br>
+  [论文](https://arxiv.org/abs/2609.34794) · [代码](https://github.com/ocean-luna/openvla-decide-then-explain)
+
+- **[Not All Thinking is Created Equal: Latent Reasoning Discovers a Recurrent Search Algorithm for Depth Generalization](https://arxiv.org/abs/2609.35643)**<br>
+  Huzi Cheng, Zhewei Zhang · *arXiv 2026*<br>
+  在同一主干上比较原始、CoT、停顿 token 与两种潜在推理变体，发现潜在模型能泛化到更多跳数，因为它们学到的是传播可达性的稀疏循环搜索回路，而非依赖局部图特征。<br>
+  [论文](https://arxiv.org/abs/2609.35643)
+
+- **[Next Thoughts Are Distributions: Generative Autoregressive Reasoning in the Latent Space](https://arxiv.org/abs/2609.33271)**<br>
+  Yang Li et al. · *arXiv 2026*<br>
+  用扩散头在自回归推理器上把下一个连续思维建模为多峰分布，使潜在推理可以分支；ATF 提升数学准确率，并能从强化学习与额外测试时思考中获益，多次采样覆盖更多解法。<br>
+  [论文](https://arxiv.org/abs/2609.33271)
+
+- **[Stream Recursion Model (SRM)](https://arxiv.org/abs/2609.28809)**<br>
+  Asael Sorensen et al. · *arXiv 2026*<br>
+  将 HRM 改造为多个相互作用的潜在流并以递归精修更新，使流的动态、因果贡献与路由可直接分析；在单参数效率上匹敌 GPT-2，并显示各流具有稳定的专门化分工。<br>
+  [论文](https://arxiv.org/abs/2609.28809)
+
+- **[When Recursive Models Finish Computing](https://arxiv.org/abs/2609.26487)**<br>
+  Hare Krishna et al. · *arXiv 2026*<br>
+  把 TRM 的循环从 16 步延长到 512 步，在 1000 道困难数独上使 MLP 变体的精确求解率升至 91.9%，并发现计算完成的共同标志：沿轨迹方向局部收缩，而其他方向仍可扩张。<br>
+  [论文](https://arxiv.org/abs/2609.26487)
+
+- **[Think Wider: Mitigating Latent Rank Collapse in Implicit Chain-of-Thought Reasoning](https://arxiv.org/abs/2609.07406)**<br>
+  Yuwen Hao, Menglin Yang · *arXiv 2026*<br>
+  指出隐式 CoT 中相邻潜在状态会向同一主方向塌缩的潜在秩塌缩现象，并提出即插即用的谱正则项惩罚该方向上的投影，在不改动主干与解码流程的前提下提升有效秩。<br>
+  [论文](https://arxiv.org/abs/2609.07406) · [代码](https://github.com/whitesweater/WIDER)
 
 - **[BDH-CQ: In-Context Learning with Recurrent Latent Reasoning](https://arxiv.org/abs/2608.09888)**<br>
   Björn Engdahl et al. · *arXiv 2026*<br>

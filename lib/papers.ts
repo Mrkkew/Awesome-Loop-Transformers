@@ -7,6 +7,7 @@ export type Category =
   | 'Adaptive Compute'
   | 'Training & Analysis'
   | 'Systems & Applications'
+  | 'Safety & Monitoring'
   | 'Broader Latent Reasoning';
 
 export type Paper = {
@@ -31,6 +32,7 @@ export const categories: Category[] = [
   'Adaptive Compute',
   'Training & Analysis',
   'Systems & Applications',
+  'Safety & Monitoring',
   'Broader Latent Reasoning',
 ];
 
@@ -41,6 +43,7 @@ export const categoryZh: Record<Category, string> = {
   'Adaptive Compute': '自适应计算',
   'Training & Analysis': '训练与机制分析',
   'Systems & Applications': '系统与应用',
+  'Safety & Monitoring': '安全与监控',
   'Broader Latent Reasoning': '广义潜在推理',
 };
 
@@ -613,6 +616,378 @@ export const papers: Paper[] = [
     id: '2609.03379', date: '2026-09-03', title: 'RecurTrace: Adaptive Latent Reasoning with Loop-Time Memory', authors: 'Yuxiang Wang et al.', venue: 'arXiv 2026', category: 'Adaptive Compute', tags: ['loop-memory', 'halting', 'adaptive-depth'],
     summary: { en: 'Lets each repeated layer attend over its own prior loop states and trains a halting head from loss-improvement supervision, combining loop-time memory with input-adaptive depth.', zh: '让每个重复层关注自身此前各循环状态，并用损失改善监督训练停止头，把循环时间记忆与输入自适应深度结合起来。' }, paper: 'https://arxiv.org/abs/2609.03379'
   },
+  {
+    id: '2609.07406', date: '2026-09-07', title: 'Think Wider: Mitigating Latent Rank Collapse in Implicit Chain-of-Thought Reasoning', authors: 'Yuwen Hao, Menglin Yang', venue: 'arXiv 2026', category: 'Broader Latent Reasoning', tags: ['implicit-cot', 'latent-cot', 'spectral-regularization', 'representation'],
+    summary: { en: 'Identifies latent rank collapse, where successive implicit-CoT states drift toward one dominant direction, and fixes it with a plug-and-play spectral regularizer that penalizes projections onto that direction, raising effective rank without touching the backbone or decoding.', zh: '指出隐式 CoT 中相邻潜在状态会向同一主方向塌缩的潜在秩塌缩现象，并提出即插即用的谱正则项惩罚该方向上的投影，在不改动主干与解码流程的前提下提升有效秩。' }, paper: 'https://arxiv.org/abs/2609.07406', code: 'https://github.com/whitesweater/WIDER'
+  },
+  {
+    id: '2609.15160', date: '2026-09-14', title: 'T-LoopFormer: Token-Level Elastic-Depth Looped Transformers with Dynamic Routing', authors: 'Mingqian Yu et al.', venue: 'arXiv 2026', category: 'Adaptive Compute', tags: ['adaptive-depth', 'depth-routing', 'kv-cache', 'looped-transformer'],
+    summary: { en: 'T-LoopFormer lets every token pick its own loop count through a dynamic token-choice router and pairs it with a per-recursion KV cache so tokens at different depths attend only to matching states, lowering decoding latency while holding language-modeling and zero-shot reasoning accuracy.', zh: 'T-LoopFormer 通过动态 token 选择路由器让每个 token 自行决定循环次数，并为每一轮递归维护独立的 KV 缓存，使不同深度的 token 只访问对应的缓存状态，从而在保持语言建模与零样本推理性能的同时降低解码延迟。' }, paper: 'https://arxiv.org/abs/2609.15160', code: 'https://github.com/YuMingQian1234/T-LoopFormer'
+  },
+  {
+    id: '2609.16665', date: '2026-09-15', title: 'Right Direction, Wrong Step: Geometric Analysis of Finite-Step Failure in Looped Transformers', authors: 'Zhihao Guo et al.', venue: 'arXiv 2026', category: 'Foundations & Theory', tags: ['convergence', 'step-size', 'optimization', 'theory'],
+    summary: { en: 'Decomposes looped-Transformer update steps with a pathwise curvature decomposition to explain how a locally improving direction can still hurt when applied in full, and finds that a fixed quarter step yields positive reference-utility gains for 72.2-83.2% of selected failures across four settings.', zh: '用路径曲率分解循环 Transformer 的更新步，解释为何局部有利的方向在整步施加时仍会损害参考答案；实验表明固定四分之一步长能在四个设置中 72.2%-83.2% 的选定失败样本上带来参考效用的正向增益。' }, paper: 'https://arxiv.org/abs/2609.16665'
+  },
+  {
+    id: '2609.17184', date: '2026-09-15', title: 'LoopSpec: Pipelined Self-Speculative Decoding for Looped Transformers', authors: 'SangLyul Cho et al.', venue: 'arXiv 2026', category: 'Systems & Applications', tags: ['speculative-decoding', 'inference-latency', 'serving'],
+    summary: { en: 'LoopSpec drafts tokens from early recurrent states and verifies them at full depth, pipelining future-token drafting with current-token verification and adding a selective second proposal from deeper loops, giving lossless self-speculative decoding without any auxiliary draft model.', zh: 'LoopSpec 用早期递归状态生成草稿 token，再由完整深度验证，同时把后续 token 的起草与当前 token 的验证流水线化，并可从更深轮次追加第二次提议，从而无需额外草稿模型即可实现无损自推测解码。' }, paper: 'https://arxiv.org/abs/2609.17184'
+  },
+  {
+    id: '2609.18176', date: '2026-09-16', title: 'MoRE: Mixture of Reused Experts', authors: 'Eric S. Qiu et al.', venue: 'COLM 2026', category: 'Architectures & Scaling', tags: ['mixture-of-experts', 'weight-sharing', 'depth-conditioning', 'language-modeling'],
+    summary: { en: 'Shares expert pools across groups of adjacent layers while keeping a router per layer and adding lightweight depth embeddings, expanding routing combinations without extra parameters and outperforming standard MoE and weight-sharing baselines from 114M to 1.15B.', zh: '在相邻层组之间共享专家池，同时为每层保留独立路由器并加入轻量深度嵌入，在不增加参数的情况下扩大路由组合，在 114M–1.15B 规模上优于标准 MoE 与权重共享基线。' }, paper: 'https://arxiv.org/abs/2609.18176'
+  },
+  {
+    id: '2609.19107', date: '2026-09-16', title: 'How Model Growth, Recursion, and Boundary Operators Influence Scaling Exponents', authors: 'Zixi Chen et al.', venue: 'arXiv 2026', category: 'Architectures & Scaling', tags: ['scaling-laws', 'compute-scaling', 'data-limited', 'model-growth'],
+    summary: { en: 'Shows architectural interventions can move scaling exponents, not just constants: model growth with or without weight sharing gives the largest exponent gains, a 7.4B model-growth architecture matches GPT-3 13B on CORE with roughly 20x less compute, and loop count should rise with scale in data-constrained multi-epoch regimes.', zh: '证明架构干预可以改变缩放指数而不只是常数：无论是否共享权重，模型增长都带来最大指数增益，7.4B 的模型增长架构以约少 20 倍计算在 CORE 上匹敌 GPT-3 13B，且在有数据约束的多轮训练情形下循环次数应随规模增加。' }, paper: 'https://arxiv.org/abs/2609.19107', code: 'https://github.com/qlabs-eng/scaling-exponents'
+  },
+  {
+    id: '2609.19521', date: '2026-09-17', title: 'Storing Is Not Remembering: LSTM-UT and Bounded Gated Memory for Looped Transformers', authors: 'Aras Kavuncu, Muhammad Burhan Hafez', venue: 'arXiv 2026', category: 'Architectures & Scaling', tags: ['recurrent-memory', 'depth-extrapolation', 'gating', 'universal-transformer'],
+    summary: { en: 'Shows that keeping more history is not the same as making it usable, then adds a small bounded gated cell state to the shared block; trained to depth 12, it holds 99.7% exact accuracy at depth 60 and stays above 99.95% at depth 1,000.', zh: '指出保留更多历史并不等于历史可用，并在共享块中加入小型有界门控单元状态；仅在深度 12 训练，即在深度 60 保持 99.7% 精确精度，深度 1000 时仍高于 99.95%。' }, paper: 'https://arxiv.org/abs/2609.19521'
+  },
+  {
+    id: '2609.21383', date: '2026-09-18', title: 'Prediction Dynamics in Depth-Recurrent Language Models', authors: 'Xinyue Luo, Fei Yu', venue: 'arXiv 2026', category: 'Training & Analysis', tags: ['prediction-dynamics', 'fixed-point', 'latent-reasoning', 'convergence'],
+    summary: { en: 'Derives a margin decomposition of why intermediate loop answers already match the final one while their scores keep moving; on Huginn-3.5B and Ouro-1.4B, accounting for update direction and competitor pairing lowers mean earliest qualifying depth by a further 22.5-34.4% of total depth beyond translation removal.', zh: '用间隔分解刻画为何中间循环的答案已与最终答案一致、而分数仍在变化；在Huginn-3.5B与Ouro-1.4B上表明，计入更新方向与竞争者配对后，平均最早合格深度在去除共同平移的基础上再降低总深度的22.5-34.4%。' }, paper: 'https://arxiv.org/abs/2609.21383'
+  },
+  {
+    id: '2609.21605', date: '2026-09-18', title: 'Trading Depth for Time in Recurrent Transformers', authors: 'Zeyi Huang et al.', venue: 'arXiv 2026', category: 'Latent Reasoning', tags: ['recurrent-depth', 'latent-thoughts', 'temporal-recurrence', 'parameter-efficiency'],
+    summary: { en: 'Inserts a latent thought token between vocabulary tokens so a shared backbone refines the hidden state before predicting. Under matched training FLOPs it beats PonderLM-2 and overtakes a two-loop Transformer as compute rises, recovering 89% of the LRT depth-doubling gain at about half the parameters.', zh: '在相邻词表 token 之间插入一个潜在思考 token，让共享骨干在预测下一个词前精炼隐状态。在训练 FLOPs 匹配的情况下，它优于 PonderLM-2，并随计算量增加超过两循环 Transformer；以约一半参数取得 LRT 深度加倍所带来增益的 89%。' }, paper: 'https://arxiv.org/abs/2609.21605'
+  },
+  {
+    id: '2609.21662', date: '2026-09-18', title: 'When Steering Fails in Latent Reasoning: A Latent-to-Language Transition Gap', authors: 'Gaoxiang Huang, Lei Qi', venue: 'arXiv 2026', category: 'Safety & Monitoring', tags: ['activation-steering', 'latent-cot', 'mechanistic-interpretability', 'transition-gap'],
+    summary: { en: 'Finds that steering continuous thoughts transfers far more weakly to the generated answer than steering explicit chain-of-thought, even at comparable representation movement; abrupt output-distribution change at the latent-to-language boundary and weaker bidirectional control support a latent-to-language transition gap.', zh: '发现对连续思考做激活引导时，其对最终生成的影响远弱于对显式思维链的引导，即便表征位移幅度相当；潜空间到语言边界处输出分布的突变以及更弱的双向控制支持“潜在—语言转接鸿沟”的假设。' }, paper: 'https://arxiv.org/abs/2609.21662'
+  },
+  {
+    id: '2609.23033', date: '2026-09-19', title: 'WaveFront Decoding: Parallelized Self-Speculative Decoding for Looped Language Models', authors: 'Hyeongju Ha, Jae-Joon Kim', venue: 'arXiv 2026', category: 'Systems & Applications', tags: ['speculative-decoding', 'parallel-decoding', 'inference-latency'],
+    summary: { en: 'Wavefront Decoding packs token states from mixed recurrence depths into a single recurrent-block call, arranging them as a diagonal wavefront so shallow-depth drafting and full-depth verification run concurrently and the draft-then-verify phases of self-speculation disappear.', zh: 'WaveFront 解码把处于不同递归深度的 token 状态压进同一次循环块调用，排成对角波前，使浅层起草与全深度验证并发执行，从而消除自推测解码中“先起草后验证”的阶段划分。' }, paper: 'https://arxiv.org/abs/2609.23033'
+  },
+  {
+    id: '2609.25778', date: '2026-09-22', title: 'Statistical Gains from Looped Estimation under Parameter Budgets', authors: 'Xinyu Tian, Xiaotong Shen', venue: 'arXiv 2026', category: 'Foundations & Theory', tags: ['approximation-theory', 'weight-sharing', 'minimax', 'parameter-efficiency'],
+    summary: { en: 'Compares looped and untied estimators under a common parameter budget: a squared-Hellinger risk bound for looped sieve MLE and a minimax lower bound for untied families, with looped nets reaching the minimax rate up to log factors for Hölder-smooth targets and untied risk staying positive at sufficiently large fixed budgets.', zh: '在共同参数预算下比较循环与非共享（untied）估计器：给出循环筛极大似然的平方 Hellinger 风险上界与 untied 族的极小极大下界；对已知 Hölder 光滑度的目标，循环网络在对数因子内达到极小极大速率，且在足够大的固定预算下循环风险趋于零，而 untied 风险仍存在正下界。' }, paper: 'https://arxiv.org/abs/2609.25778'
+  },
+  {
+    id: '2609.26487', date: '2026-09-22', title: 'When Recursive Models Finish Computing', authors: 'Hare Krishna et al.', venue: 'arXiv 2026', category: 'Broader Latent Reasoning', tags: ['trm', 'dynamics', 'sudoku', 'algorithmic-reasoning'],
+    summary: { en: 'Extends TRM recurrence from 16 to 512 steps on 1,000 hard Sudokus, lifting exact-solve accuracy to 91.9% for the MLP variant, and identifies a shared signature of completed computation: locally contractive motion along the trajectory despite expanding directions elsewhere.', zh: '把 TRM 的循环从 16 步延长到 512 步，在 1000 道困难数独上使 MLP 变体的精确求解率升至 91.9%，并发现计算完成的共同标志：沿轨迹方向局部收缩，而其他方向仍可扩张。' }, paper: 'https://arxiv.org/abs/2609.26487'
+  },
+  {
+    id: '2609.27373', date: '2026-09-23', title: 'Attention Routing Stabilizes Early: Working-Set Inference for Recurrent Language Models', authors: 'Ke Wan, Chen Chen', venue: 'arXiv 2026', category: 'Systems & Applications', tags: ['sparse-attention', 'inference-latency', 'attention-reuse'],
+    summary: { en: 'Attention routing in looped LMs stabilizes well before hidden states do. WISE discovers a block-structured working set with full attention in early loops, then reuses that support while keeping attention weights and recurrent refinement dynamic, reaching 1.76x late-step attention speedup at 4K context.', zh: '循环语言模型的注意力路由比隐状态更早稳定。WISE 在前几轮用完整注意力发现块结构工作集，随后复用该支撑集而保留动态注意力权重与递归精炼，在 4K 上下文下取得 1.76 倍的后期注意力加速。' }, paper: 'https://arxiv.org/abs/2609.27373'
+  },
+  {
+    id: '2609.28809', date: '2026-09-23', title: 'Stream Recursion Model (SRM)', authors: 'Asael Sorensen et al.', venue: 'arXiv 2026', category: 'Broader Latent Reasoning', tags: ['hrm', 'hierarchical-recurrence', 'mechanistic-interpretability', 'latent-reasoning'],
+    summary: { en: 'Modifies HRM into multiple interacting latent streams updated by recursive refinement so that stream dynamics, causal contribution and routing become directly analyzable, matching GPT-2 per parameter while showing consistent specialization across streams.', zh: '将 HRM 改造为多个相互作用的潜在流并以递归精修更新，使流的动态、因果贡献与路由可直接分析；在单参数效率上匹敌 GPT-2，并显示各流具有稳定的专门化分工。' }, paper: 'https://arxiv.org/abs/2609.28809'
+  },
+  {
+    id: '2609.29768', date: '2026-09-24', title: 'Depth through recurrence: Looped transformers for flow-matching TTS', authors: 'Jiabao Ai et al.', venue: 'arXiv 2026', category: 'Systems & Applications', tags: ['speech-synthesis', 'flow-matching', 'weight-sharing'],
+    summary: { en: 'A controlled study of weight reuse in flow-matching TTS: seven loop layouts all execute 18 block calls per evaluation, and applying each of nine blocks twice preserves intelligibility and speaker similarity while using 47.1% fewer parameters than the unshared baseline.', zh: '该工作系统比较流匹配 TTS 中的权重复用布局：七种循环方案每次评估均执行 18 次块调用，其中把九个块各连续执行两次的方案在保持可懂度与说话人相似度的同时，比非共享基线少 47.1% 参数。' }, paper: 'https://arxiv.org/abs/2609.29768'
+  },
+  {
+    id: '2609.29812', date: '2026-09-24', title: 'FlashLoop: Fast and Memory-Efficient Looped Transformers via Lazy Updates', authors: 'Wanqi Yang, Shiwei Liu', venue: 'arXiv 2026', category: 'Systems & Applications', tags: ['memory-efficiency', 'kv-cache', 'inference-latency', 'sparse-attention'],
+    summary: { en: 'Most loop-time work is redundant: state changes concentrate on few tokens, attention-output differences on a sparse stable set of key columns, and inter-loop KV residuals quantize well. FlashLoop exploits these with lazy updates to cut loop FLOPs and KV memory while preserving accuracy.', zh: '循环中的大部分计算是冗余的：状态变化集中在少数 token，注意力输出差异由稀疏而稳定的 key 列主导，相邻轮 KV 残差也易于低比特量化。FlashLoop 据此采用惰性更新，在保持精度的同时降低逐轮算力与 KV 显存。' }, paper: 'https://arxiv.org/abs/2609.29812'
+  },
+  {
+    id: '2609.33144', date: '2026-09-27', title: 'Beyond the Training Horizon: Mechanisms and Limits of Length Generalization in Looped Transformers', authors: 'Jia Liang, Xi Jin, Liangming Pan', venue: 'arXiv 2026', category: 'Foundations & Theory', tags: ['length-generalization', 'mechanistic-interpretability', 'weight-sharing', 'depth'],
+    summary: { en: 'Contrasts two looped-Transformer recurrence schemes on polynomial iteration, finite-state composition and graph traversal, finding both generalize past the training horizon yet degrade at greater depth, and that recurrent states encode computational status as well as content.', zh: '从机制上对比两种循环 Transformer 递推方案在多项式迭代、有限状态复合与图遍历任务上的表现，发现二者都能超越训练长度泛化却在更深时退化，且循环状态同时编码内容与“是否仍可继续计算”的状态信息。' }, paper: 'https://arxiv.org/abs/2609.33144'
+  },
+  {
+    id: '2609.33271', date: '2026-09-27', title: 'Next Thoughts Are Distributions: Generative Autoregressive Reasoning in the Latent Space', authors: 'Yang Li et al.', venue: 'arXiv 2026', category: 'Broader Latent Reasoning', tags: ['latent-reasoning', 'continuous-thought', 'diffusion', 'test-time-compute'],
+    summary: { en: 'Models each next continuous thought as a multimodal distribution produced by a diffusion head over an autoregressive reasoner, so latent reasoning can branch; ATF improves math accuracy, benefits from reinforcement learning and extra test-time thinking, and covers more solutions across samples.', zh: '用扩散头在自回归推理器上把下一个连续思维建模为多峰分布，使潜在推理可以分支；ATF 提升数学准确率，并能从强化学习与额外测试时思考中获益，多次采样覆盖更多解法。' }, paper: 'https://arxiv.org/abs/2609.33271'
+  },
+  {
+    id: '2610.08830', date: '2026-09-27', title: 'MoR-MLLM: Mixture of Recursions for Efficient Multimodal Large Language Models', authors: 'Pengcheng Zheng et al.', venue: 'arXiv 2026', category: 'Adaptive Compute', tags: ['mixture-of-recursions', 'adaptive-depth', 'depth-routing', 'multimodal'],
+    summary: { en: 'MoR-MLLM brings Mixture-of-Recursions to multimodal LLMs, giving each token a learned recursive depth so visually or linguistically hard tokens get more computation while easy ones skip it, stabilized by three-stage tuning and an entropy-regularized routing loss.', zh: 'MoR-MLLM 把 Mixture-of-Recursions 引入多模态大模型，为每个 token 学习递归深度，使视觉或语言上困难的 token 获得更多计算、简单 token 跳过冗余操作，并用三阶段调优与熵正则路由损失稳定训练。' }, paper: 'https://arxiv.org/abs/2610.08830'
+  },
+  {
+    id: '2609.34218', date: '2026-09-28', title: 'Loop Dropout: Regularizing Shared Updates in Looped Language Models', authors: 'Zirui Zhu et al.', venue: 'arXiv 2026', category: 'Training & Analysis', tags: ['lora', 'regularization', 'post-training', 'weight-sharing'],
+    summary: { en: 'Identifies a late-loop bias in LoRA on looped LMs, where early loops receive little adaptation, and fixes it with stochastic masking of adapter applications plus inverse-survival rescaling, improving math, instruction tuning, and code at no inference cost.', zh: '发现LoRA用于循环语言模型时存在后循环偏置、前几个循环几乎得不到适配，并用适配器应用的随机掩码加逆生存重标定来修正，在不增加推理开销的情况下提升数学、指令微调与代码表现。' }, paper: 'https://arxiv.org/abs/2609.34218', code: 'https://github.com/NUS-HPC-AI-Lab/loop-dropout'
+  },
+  {
+    id: '2609.34794', date: '2026-09-28', title: 'Where Do Embodied Decisions Come From? Rethinking Latent and Explicit Reasoning', authors: 'Yuan Lin et al.', venue: 'arXiv 2026', category: 'Broader Latent Reasoning', tags: ['latent-reasoning', 'vision-language-action', 'embodied', 'chain-of-thought'],
+    summary: { en: 'Shows that intervening on explicit CoT collapses VLA navigation F1 from 72.14% to 11.84%, then proposes decide-then-explain, which predicts actions before explanations and beats think-then-act and no-CoT baselines while relying more on perception-grounded latent computation.', zh: '发现干预显式 CoT 会使 VLA 导航 F1 从 72.14% 跌至 11.84%，进而提出先决策后解释的范式：先预测动作再生成解释，在自动驾驶与机器人操作上优于先思考后行动与无 CoT 基线，且更依赖感知驱动的潜在计算。' }, paper: 'https://arxiv.org/abs/2609.34794', code: 'https://github.com/ocean-luna/openvla-decide-then-explain'
+  },
+  {
+    id: '2609.35643', date: '2026-09-28', title: 'Not All Thinking is Created Equal: Latent Reasoning Discovers a Recurrent Search Algorithm for Depth Generalization', authors: 'Huzi Cheng, Zhewei Zhang', venue: 'arXiv 2026', category: 'Broader Latent Reasoning', tags: ['latent-reasoning', 'length-generalization', 'mechanistic-interpretability', 'probing'],
+    summary: { en: 'Compares vanilla, CoT, pause-token and two latent-reasoning variants of one backbone on multi-hop reasoning, finding latent models generalize to longer hops because they learn a sparse recurrent search circuit that propagates reachability instead of relying on local graph features.', zh: '在同一主干上比较原始、CoT、停顿 token 与两种潜在推理变体，发现潜在模型能泛化到更多跳数，因为它们学到的是传播可达性的稀疏循环搜索回路，而非依赖局部图特征。' }, paper: 'https://arxiv.org/abs/2609.35643'
+  },
+  {
+    id: '2609.35748', date: '2026-09-28', title: 'Improving Test-Time Scaling with Adaptive Looped Transformers', authors: 'Yichen You et al.', venue: 'arXiv 2026', category: 'Adaptive Compute', tags: ['adaptive-depth', 'halting', 'test-time-compute', 'latent-reasoning'],
+    summary: { en: 'TaH2 jointly post-trains a looped backbone and an iteration decider supervised by lookahead labels marking whether another loop helps, concentrating extra iterations on tokens that benefit and raising the AIME accuracy-compute slope by 53% over the non-looped baseline.', zh: 'TaH2 将循环主干与迭代决策器联合后训练，用前瞻标签标注再做一次循环是否有益，从而把额外迭代集中在真正受益的 token 上，在 AIME 上把精度-计算斜率相对非循环基线提升 53%。' }, paper: 'https://arxiv.org/abs/2609.35748', code: 'https://github.com/thu-nics/TaH'
+  },
+  {
+    id: '2609.35751', date: '2026-09-28', title: 'How to Loop MoE: Flatten the Experts, Untie the Attention', authors: 'Shouren Wang et al.', venue: 'arXiv 2026', category: 'Architectures & Scaling', tags: ['mixture-of-experts', 'weight-sharing', 'routing', 'language-modeling'],
+    summary: { en: 'Asks how an MoE should be looped and answers with Foil: flatten expert layers so each pass routes over twice as many experts, and untie attention per pass while experts and routers stay shared, lowering loss and balancing routing at 100B tokens.', zh: '研究 MoE 应当如何循环，提出 Foil：压平专家层使每一轮从大一倍的专家池中路由，并让每轮拥有独立注意力参数而专家与路由器保持共享，在 100B token 上降低损失并改善路由均衡。' }, paper: 'https://arxiv.org/abs/2609.35751', code: 'https://github.com/SR-A-W/how-to-loop-moe'
+  },
+  {
+    id: '2609.36159', date: '2026-09-28', title: 'Principled Thoughts for Latent Recursive LLM Systems', authors: 'Fahd Seddik, Fatemeh Fard', venue: 'arXiv 2026', category: 'Latent Reasoning', tags: ['latent-reasoning', 'training-objective', 'representation-supervision', 'multi-agent'],
+    summary: { en: 'Argues that cross-entropy-only training leaves continuous thoughts unconstrained, proves four resulting failure modes, and turns causality, minimality, separability and stability into differentiable auxiliary losses. REST gains up to 7.5 points in single-agent and multi-agent latent recursion.', zh: '指出仅用交叉熵训练会使连续思考缺乏约束，证明由此产生的四种失效模式，并把因果性、最小性、可分离性与稳定性转化为可微辅助损失；REST 在单智能体与多智能体潜在递归中最多提升 7.5 个点。' }, paper: 'https://arxiv.org/abs/2609.36159', project: 'https://fard-lab.github.io/REST'
+  },
+  {
+    id: '2609.36636', date: '2026-09-29', title: 'What Makes Recurrence Effective in Looped Language Models?', authors: 'Xinlin Zhuang et al.', venue: 'arXiv 2026', category: 'Latent Reasoning', tags: ['looped-transformer', 'input-injection', 'depth-extrapolation', 'recurrence'],
+    summary: { en: 'Controlled study of when extra recurrence helps looped language models: reasoning improves beyond the training horizon while knowledge degrades, effective depth alone does not predict performance, and channel-wise history-state injection with timestep conditioning is more robust than conventional initial-state injection.', zh: '系统研究循环语言模型在何种条件下受益于额外循环：推理表现可在超出训练深度后继续提升，而知识类性能下降；仅凭有效深度不足以预测表现，层与迭代的分配方式同样重要；逐通道历史状态注入配合时间步条件化，比常规初始状态注入更稳健。' }, paper: 'https://arxiv.org/abs/2609.36636'
+  },
+  {
+    id: '2609.36653', date: '2026-09-29', title: 'Scheduling Recursive Reasoning in Looped Transformers', authors: 'Boyuan Wang et al.', venue: 'arXiv 2026', category: 'Adaptive Compute', tags: ['adaptive-compute', 'recurrent-depth', 'test-time-compute', 'latent-reasoning'],
+    summary: { en: 'TAPS decomposes the sensitivity of terminal loss to recurrent update scale into persistent-progress and centered-fluctuation terms and adapts the step size online; it improves terminal accuracy without retraining and, when folded into training, yields further gains with up to 1.56x wall-clock speedup at matched baseline accuracy.', zh: 'TAPS 把终端损失对递归更新尺度的敏感性分解为持续进展项与去中心波动项，并在推理时在线调整步长；无需重新训练即可提升终端精度，将该原则写入训练还可再获提升，并在匹配基线精度时实现最高 1.56 倍墙钟加速。' }, paper: 'https://arxiv.org/abs/2609.36653'
+  },
+  {
+    id: '2609.37379', date: '2026-09-29', title: 'Looped Transformers as Optimizers', authors: 'Yulong Huang et al.', venue: 'arXiv 2026', category: 'Foundations & Theory', tags: ['theory', 'optimization', 'weight-sharing', 'fast-weights'],
+    summary: { en: 'Treats the looped hidden state as fast weights and derives loop transitions in closed form from a projection, a local objective and an optimizer rule; aligning existing transitions\' input maps reduces training loss and improves commonsense accuracy, and the derived OperLoop improves generative performance at matched training FLOPs.', zh: '把循环隐状态视为快速权重，从投影、局部目标与优化器规则出发闭式推导循环转移，指出现有转移与之不匹配；对齐现有转移的输入映射后训练损失下降、常识准确率提升，而据此提出的 OperLoop 在匹配训练 FLOPs 下提升了生成性能。' }, paper: 'https://arxiv.org/abs/2609.37379'
+  },
+  {
+    id: '2609.37432', date: '2026-09-29', title: 'Looped Actor: Depth-Recurrent Reasoning Models for Reinforcement Learning', authors: 'T. Konstantin Rusch et al.', venue: 'arXiv 2026', category: 'Adaptive Compute', tags: ['adaptive-compute', 'recurrent-depth', 'reinforcement-learning', 'halting'],
+    summary: { en: 'Looped Actor is a depth-recurrent policy that refines a latent state toward a fixed point and varies its loop count with the state; it matches an untied baseline with 16x more parameters, and on Boxoban loop counts grow with the number of remaining pushes.', zh: 'Looped Actor 是一种深度循环策略，用共享块把隐状态迭代推向不动点，并按状态改变循环次数；它以远少参数追平 16 倍参数的非共享基线，且在 Boxoban 上循环次数随剩余推动步数增加。' }, paper: 'https://arxiv.org/abs/2609.37432', code: 'https://github.com/camail-official/LoopedActor'
+  },
+  {
+    id: '2609.39740', date: '2026-09-30', title: 'LatentHarness: Learning Latent Actions for Memory and Reasoning via Counterfactual Policy Distillation', authors: 'Xiaoqiang Wang, Suyuchen Wang, Bang Liu', venue: 'arXiv 2026', category: 'Broader Latent Reasoning', tags: ['latent-reasoning', 'distillation', 'memory', 'long-context'],
+    summary: { en: 'Treats memory access and latent computation as one sequential latent-action policy - THINK, RECALL or EXIT - trained by counterfactual policy distillation that branches each action and scores its effect, improving general and long-context reasoning by 2.8% and 10.0% relative, respectively, while running 5.9x faster.', zh: '把记忆访问与潜在计算统一为 THINK、RECALL、EXIT 三类潜在动作的序列决策，用反事实策略蒸馏对每个动作分支打分训练，在通用与长上下文推理基准上分别相对提升 2.8% 与 10.0%，并快 5.9 倍。' }, paper: 'https://arxiv.org/abs/2609.39740'
+  },
+  {
+    id: '2609.39892', date: '2026-09-30', title: 'Shared Weights, Selected Computations: How Looped Transformers Route What Each Loop Does', authors: 'Jiaju Wu, Yi Hu, Muhan Zhang', venue: 'arXiv 2026', category: 'Latent Reasoning', tags: ['looped-transformer', 'routing', 'mechanistic-interpretability', 'latent-computation'],
+    summary: { en: 'Asks whether every loop of a looped Transformer performs the same computation. On graph walks, loops can advance by different numbers of steps, and a learned linear map acting on the entering hidden state selects which learned transition the shared block executes.', zh: '追问循环 Transformer 的每一次循环是否执行相同计算。在图游走任务上，不同循环可前进不同步数，而作用在输入隐状态上的学习到的线性映射 J 会选择共享块执行哪一种已学会的转移。' }, paper: 'https://arxiv.org/abs/2609.39892'
+  },
+  {
+    id: '2609.39967', date: '2026-09-30', title: 'What Limits Recursive Reasoning Models: Optimization, Architecture and Test-Time Scaling', authors: 'Yuliana Shakhvalieva et al.', venue: 'arXiv 2026', category: 'Broader Latent Reasoning', tags: ['hrm', 'trm', 'optimization', 'length-generalization'],
+    summary: { en: 'Separates architecture, gradient horizon and state-update control across HRM, TRM and URM in one pipeline and finds an explicit hierarchy is unnecessary: a stable 13.6M model with an intermediate gradient horizon and large batches lifts Arithmetic OOD accuracy from 36.2% to 71.2%.', zh: '在同一实验流程中分离 HRM、TRM 与 URM 的架构、梯度视野与状态更新控制，发现显式层级结构并非必需：采用中等梯度视野与大物理批次的稳定 13.6M 模型把算术分布外准确率从 36.2% 提升到 71.2%。' }, paper: 'https://arxiv.org/abs/2609.39967'
+  },
+  {
+    id: '2609.40305', date: '2026-09-30', title: 'Looped Diffusion Transformer', authors: 'Yong Xien Chng et al.', venue: 'arXiv 2026', category: 'Systems & Applications', tags: ['diffusion-transformer', 'text-to-image', 'weight-sharing'],
+    summary: { en: 'Looped-DiT repeats shared Transformer blocks inside each denoising step and stabilizes the extra depth with deep supervision across loops plus self-modulating attention. A 260M looped model surpasses a 6.5x larger baseline while using 4.9x less inference compute.', zh: 'Looped-DiT 在每个去噪步内重复执行共享 Transformer 块，并用跨轮深监督与自调制注意力稳定额外深度；260M 参数的循环模型超过大 6.5 倍的基线，推理算力低 4.9 倍。' }, paper: 'https://arxiv.org/abs/2609.40305'
+  },
+  {
+    id: '2609.40316', date: '2026-09-30', title: 'Scaling Laws for Looped Mixture of Experts', authors: 'Yanbei Chen, Anirudh Goyal, Raghuraman Krishnamoorthi', venue: 'arXiv 2026', category: 'Architectures & Scaling', tags: ['scaling-laws', 'mixture-of-experts', 'parameter-efficiency', 'compute-scaling'],
+    summary: { en: 'Derives a joint scaling law over model size, data, sparsity and loop count through a bounded sparsity-conditional recurrence mapping, finding that sparsity buys roughly 3x active-parameter efficiency while recurrence buys roughly 2x total-parameter efficiency on reasoning.', zh: '通过有界的稀疏条件循环映射，把模型规模、数据、稀疏度与循环次数纳入统一缩放律，发现稀疏度带来约 3 倍激活参数效率，而循环在推理任务上带来约 2 倍总参数效率。' }, paper: 'https://arxiv.org/abs/2609.40316'
+  },
+  {
+    id: '2610.00673', date: '2026-09-30', title: 'Closing the Loop: Practical Training Recipes for Looped Language Models', authors: 'Andrei Marchenko et al.', venue: 'arXiv 2026', category: 'Training & Analysis', tags: ['training-recipe', 'data-efficiency', 'weight-sharing', 'post-training'],
+    summary: { en: 'Cuts from-scratch looped-LM training from 7.7T to 310B tokens with mid-training, warmup and stronger exit-gate regularization; a 1.4B looped model beats a parameter-matched dense baseline on all 12 benchmarks, and a single learned input-mixing scalar plus a smoothed exit loss converts a pretrained dense checkpoint.', zh: '通过中期训练、学习率预热与更强的退出门正则，把循环语言模型的从零训练成本从7.7T降到310B token；1.4B循环模型在全部12项基准上胜过参数匹配的稠密基线，而仅用一个可学习输入混合标量加平滑退出损失，即可把预训练稠密模型转为循环模型。' }, paper: 'https://arxiv.org/abs/2610.00673'
+  },
+  {
+    id: '2610.01153', date: '2026-10-01', title: 'Looping Beyond Twice: A Scalable Recipe for Looped Mixture-of-Experts', authors: 'Di He et al.', venue: 'arXiv 2026', category: 'Architectures & Scaling', tags: ['mixture-of-experts', 'residual-scaling', 'stability', 'scaling'],
+    summary: { en: 'Diagnoses why looped MoE stops paying off past two passes - residual variance growth and expert-selection collapse - then stabilizes recurrence with scaled residual updates, input re-injection, per-loop routers and a looping residual to reach 9-12 stable loops from 100M to 1.7B.', zh: '诊断循环 MoE 在两轮之后收益消失的原因——残差方差随迭代增长与专家选择塌缩，再用残差缩放、输入重注入、逐循环路由器与循环残差加以稳定，在 100M–1.7B 规模上稳定循环 9–12 轮。' }, paper: 'https://arxiv.org/abs/2610.01153', code: 'https://github.com/hed-ucas/LOOM'
+  },
+  {
+    id: '2610.01981', date: '2026-10-01', title: 'Universal interpolation for deep residual self-attention networks', authors: 'Sibylle Marcotte, Joan Bruna', venue: 'arXiv 2026', category: 'Foundations & Theory', tags: ['universal-approximation', 'weight-sharing', 'expressivity', 'depth'],
+    summary: { en: 'Asks how much a depth-only, heavily weight-tied attention stack can represent and proves that two frozen single-head residual softmax blocks with Gaussian-initialized projections can interpolate any collection of N token sequences of length n to any other such collection at continuous or finite depth, while characterizing the restrictions imposed by causal masking.', zh: '研究仅靠深度、高度权重共享的自注意力堆叠能表示多少函数，证明两个冻结的单头 softmax 残差块（高斯初始化投影）可在连续或有限深度下，把任意 N 条长度为 n 的 token 序列集合插值到另一同规模集合，并刻画因果掩码带来的限制及相应保证。' }, paper: 'https://arxiv.org/abs/2610.01981'
+  },
+  {
+    id: '2610.02383', date: '2026-10-01', title: 'The Surprising Effectiveness of Shared Memory in Looped Transformers', authors: 'Giovanni Monea et al.', venue: 'arXiv 2026', category: 'Architectures & Scaling', tags: ['kv-cache', 'memory', 'language-modeling', 'weight-sharing'],
+    summary: { en: 'Pretrains looped LMs so only the first recursion writes a KV cache while later recursions read it plus a short local window; sharing memory improves quality instead of costing it, cutting context memory 76-79% at five recursions from 150M to 1B.', zh: '预训练时只让第一轮循环写入 KV 缓存，后续循环读取该缓存并保留一小段本地窗口；共享记忆不但没有损害质量反而提升质量，在 150M–1B 规模、五轮循环下将上下文内存降低 76%–79%。' }, paper: 'https://arxiv.org/abs/2610.02383'
+  },
+  {
+    id: '2610.02741', date: '2026-10-02', title: 'On the Chain-of-Thought Monitorability of Looped Language Models', authors: 'Han Wang, Ishwar B Balappanawar, Huan Zhang', venue: 'arXiv 2026', category: 'Safety & Monitoring', tags: ['monitorability', 'looped-transformer', 'chain-of-thought', 'safety'],
+    summary: { en: 'First systematic evaluation of chain-of-thought monitorability in looped language models: across eight MonitorBench tasks in standard and stress-test settings, deeper loops reduce monitoring only on specific Logic/Science/Engineering cue-answer tasks, and looped models are not systematically less monitorable than size- or depth-matched non-looped ones.', zh: '首次系统评估循环语言模型的思维链可监控性：在 MonitorBench 八个任务的标准与压力测试设置下，更深的循环只在特定的逻辑、科学、工程类线索—答案任务上削弱监控；与参数量或深度匹配的非循环模型相比，循环模型并未系统性更难监控。' }, paper: 'https://arxiv.org/abs/2610.02741'
+  },
+  {
+    id: '2610.04198', date: '2026-10-03', title: 'ALoDLM: Adaptively Looped Diffusion Language Models', authors: 'Liancheng Fang et al.', venue: 'arXiv 2026', category: 'Adaptive Compute', tags: ['adaptive-depth', 'latent-reasoning', 'compute-allocation'],
+    summary: { en: 'ALoDLM replaces the uniform denoising depth of diffusion language models with token-adaptive latent recurrence: ready positions commit early while unresolved ones keep refining, and a token-wise schedule learned through a conditional NELBO improves quality-efficiency at 1.7B and 8B.', zh: 'ALoDLM 用 token 自适应的潜在递归取代扩散语言模型中统一的去噪深度：已经可以确定的位置提前提交，未解决的位置继续精炼，并通过条件 NELBO 学习 token 级计算调度，在 1.7B 与 8B 规模上改善质量-效率权衡。' }, paper: 'https://arxiv.org/abs/2610.04198', code: 'https://github.com/amazon-science/ALoDLM', project: 'https://alo-dlm.github.io'
+  },
+  {
+    id: '2610.06949', date: '2026-10-03', title: 'AdaLoop: Adaptive-Depth Latent Reasoning for Audio Language Models', authors: 'Lee Seung-woo, Bowen Qi', venue: 'arXiv 2026', category: 'Adaptive Compute', tags: ['halting', 'adaptive-depth', 'latent-reasoning', 'multimodal'],
+    summary: { en: 'AdaLoop adds a lightweight recurrent module that iterates a shared Transformer block over an audio representation and learns when to halt per audio-question pair, adding under 3% parameters and improving three audio LLMs by 2.9 to 3.8 points, with the largest gains on perception-heavy subtasks.', zh: 'AdaLoop 增加一个轻量循环模块，用共享 Transformer 块反复精炼音频表示，并为每个音频-问题对学习何时停止，参数量增加不足 3%，在三个音频大模型上平均提升 2.9 至 3.8 分，最大增益出现在感知密集型子任务上。' }, paper: 'https://arxiv.org/abs/2610.06949'
+  },
+  {
+    id: '2610.06666', date: '2026-10-05', title: 'What Matters for Latent Reasoning with Flow Matching', authors: 'Yassine Ouali, Adrian Bulat, Georgios Tzimiropoulos', venue: 'arXiv 2026', category: 'Latent Reasoning', tags: ['latent-reasoning', 'flow-matching', 'training-objective', 'continuous-thought'],
+    summary: { en: 'Derives FLaRe from five requirements for a latent thought (useful, diverse, explainable, refinable, efficient): a flow-matching recipe covering what the latent encodes, where to train the flow and how to read out, reaching 97% of explicit-CoT accuracy at a quarter of the latency.', zh: '从潜在思考应满足的五项要求（有用、多样、可解释、可精炼、高效）出发提出 FLaRe：一套流匹配训练配方，涵盖潜在空间编码什么、在何处训练流以及如何读出答案，以四分之一延迟达到显式 CoT 97% 的准确率。' }, paper: 'https://arxiv.org/abs/2610.06666'
+  },
+  {
+    id: '2610.06833', date: '2026-10-05', title: 'Towards Looped Models Done Right, Part II: Rethinking at Fixed Points', authors: 'Benhao Huang et al.', venue: 'arXiv 2026', category: 'Training & Analysis', tags: ['fixed-point', 'input-injection', 'depth-prior', 'truncated-backprop'],
+    summary: { en: 'Argues that near-fixed-point recurrent states license truncated backprop, terminal KV sharing, faster distilled prefill, and replay-based RL, then improves the two ingredients shaping those fixed points: a learned entropy-regularized depth prior and orthogonal input injection.', zh: '指出接近不动点的循环状态可支撑截断反传、末端KV共享、更快的蒸馏预填充与基于回放的强化学习，并改进塑造这些不动点的两个训练要素：带熵正则的可学习深度先验与正交输入注入。' }, paper: 'https://arxiv.org/abs/2610.06833'
+  },
+  {
+    id: '2610.07591', date: '2026-10-06', title: 'Recurrent Looped Transformer', authors: 'Yifan Zhang et al.', venue: 'arXiv 2026', category: 'Architectures & Scaling', tags: ['cross-token-recurrence', 'state-tracking', 'length-generalization', 'weight-sharing'],
+    summary: { en: 'Splits layers into a parallel causal encoder and a recurrent decoder that merges each token\'s encoder output with the previous token\'s decoder state, so computation depth grows with sequence length at fixed per-token cost and parity generalizes to 256 bits.', zh: '把层拆分为并行因果编码器与循环解码器，解码器将当前 token 的编码输出与上一 token 的解码状态合并，使计算深度随序列长度增长而单 token 成本固定，奇偶校验可泛化到 256 位。' }, paper: 'https://arxiv.org/abs/2610.07591', code: 'https://github.com/yifanzhang-pro/recurrent-looped-tranformer'
+  },
+  {
+    id: '2610.07907', date: '2026-10-06', title: 'Continuous Memory Machines', authors: 'Ciaran Regan et al.', venue: 'arXiv 2026', category: 'Broader Latent Reasoning', tags: ['continuous-thought', 'recurrent-memory', 'memory', 'interpretability'],
+    summary: { en: 'Splits recurrent state into matrix-valued short- and long-term memories with distinct roles, jointly read and written by a Transformer, improving generalization over memory-augmented baselines on algorithmic, in-context and recurrent reasoning while keeping the Continuous Thought Machine\'s interpretable attention.', zh: '把循环状态拆分为承担不同角色的矩阵值短期与长期记忆，由 Transformer 联合读写，在算法、上下文学习与循环推理任务上优于既有记忆增强网络，同时保留连续思维机可解释的注意力模式。' }, paper: 'https://arxiv.org/abs/2610.07907'
+  },
+  {
+    id: '2610.09013', date: '2026-10-06', title: 'Enabling Dynamic Computation in Looped LMs', authors: 'Aayush Mishra et al.', venue: 'arXiv 2026', category: 'Adaptive Compute', tags: ['halting', 'exit-policy', 'kv-cache', 'adaptive-depth'],
+    summary: { en: 'Ouro-style looped LMs do not realize dynamic computation in practice because every loop needs its own KV cache; a best-available KV caching scheme cuts FLOPs and KV memory by up to 30% at full-depth performance, and a corrected early-exit prior lets tokens exit at heterogeneous depths.', zh: '作者指出 Ouro 式循环语言模型因每一轮循环都需要独立 KV 缓存，在实践中并未真正实现动态计算；“最佳可用”KV 缓存策略在保持全深度性能的同时把 FLOPs 与 KV 内存最多减少 30%，修正后的早退先验则让 token 按难度在不同深度退出。' }, paper: 'https://arxiv.org/abs/2610.09013'
+  },
+  {
+    id: '2610.09876', date: '2026-10-07', title: 'Think Before You Paint: Recursive Latent Reasoning for Diffusion Models', authors: 'Paweł Skierś et al.', venue: 'arXiv 2026', category: 'Broader Latent Reasoning', tags: ['trm', 'diffusion', 'latent-reasoning', 'vision'],
+    summary: { en: 'Places a small TRM-style Thinker inside every denoising step of a frozen diffusion model, reasoning over learned tokens and steering generation through ControlNet, which solves 92.5% of hard MNIST Sudoku with 10M parameters and no symbolic supervision.', zh: '在冻结扩散模型的每个去噪步内嵌入小型 TRM 式 Thinker，在学到的 token 网格上推理并通过 ControlNet 引导生成，仅用 10M 参数、无需符号监督即解出 92.5% 的困难 MNIST 数独。' }, paper: 'https://arxiv.org/abs/2610.09876'
+  },
+  {
+    id: '2610.10381', date: '2026-10-07', title: 'ResidualQuant: KV Cache Quantization for Looped Transformers with 2-Bit Residuals', authors: 'Heejun Kim et al.', venue: 'arXiv 2026', category: 'Systems & Applications', tags: ['kv-cache', 'quantization', 'memory-efficiency'],
+    summary: { en: 'KV states in looped Transformers repeat across loops. ResidualQuant stores the final loop at higher precision and encodes earlier loops as INT2 residuals with least-squares scaling and rotations, plus loop-wise mixed precision, cutting KV storage 80.7% while keeping accuracy near BF16.', zh: '循环 Transformer 各轮的 KV 状态高度相似。ResidualQuant 以最后一轮 KV 为高精度参考，把前面各轮编码为带最小二乘缩放与旋转的 INT2 残差，并配合逐轮混合精度，将 KV 存储压缩 80.7%，精度仍接近 BF16。' }, paper: 'https://arxiv.org/abs/2610.10381'
+  },
+  {
+    id: '2610.10623', date: '2026-10-07', title: 'Recurrent Self-Improvement: Dynamic Cross-Loop On-Policy Distillation for Looped Language Models', authors: 'Yi Wang et al.', venue: 'arXiv 2026', category: 'Training & Analysis', tags: ['distillation', 'post-training', 'recurrent-depth', 'self-improvement'],
+    summary: { en: 'Uses a looped model\'s own frozen terminal loop as a compute-privileged teacher for its intermediate loops on student-generated rollouts, giving dense cross-loop supervision without external teachers; a dynamic variant refreshes the teacher as shared weights update.', zh: '把循环模型自身冻结的末端循环当作算力更强的教师，在学生自生成的轨迹上指导中间循环，无需外部教师即可获得跨循环的稠密监督；动态版本随共享权重更新持续刷新教师。' }, paper: 'https://arxiv.org/abs/2610.10623'
+  },
+  {
+    id: '2610.10625', date: '2026-10-07', title: 'Safe at One Loop, Risky at Another: Aligning Safety Across Recurrent Depths in Looped Language Models', authors: 'Yi Wang et al.', venue: 'arXiv 2026', category: 'Safety & Monitoring', tags: ['safety-alignment', 'depth-robustness', 'jailbreak', 'looped-lm'],
+    summary: { en: 'Shows that one looped LM can be safe at one inference depth and jailbreakable at another, with attacks transferring across depths; proposes SafeBridge, which adds depth-specific control and selective state bridging over shared recurrent layers with joint safety supervision across depths.', zh: '揭示同一循环语言模型在不同推理深度上可能一边安全、一边可被越狱，且攻击可跨深度迁移；提出 SafeBridge，在共享循环层上加入深度特定控制与选择性状态桥接，并跨深度联合施加安全监督。' }, paper: 'https://arxiv.org/abs/2610.10625'
+  },
+  {
+    id: '2610.10996', date: '2026-10-07', title: 'Invariant-Measure Reasoners: Stable Representations for Latent Reasoning', authors: 'Yuto Inui, Takuya Konishi, Yoshinobu Kawahara', venue: 'arXiv 2026', category: 'Foundations & Theory', tags: ['fixed-point', 'latent-reasoning', 'convergence', 'stability'],
+    summary: { en: 'Observes that recurrently updated latents can settle on a compact set without reaching a fixed point, and predicts from the invariant measure over that set, stabilising answers across depths and sometimes exploiting non-fixed-point dynamics rather than suppressing them.', zh: '注意到反复更新的隐状态可能收敛到一个紧集却不收敛到不动点，于是用该集合上的不变测度做预测，使不同循环深度下的答案更稳定，并在某些情形下反而利用了这种非不动点动力学。' }, paper: 'https://arxiv.org/abs/2610.10996'
+  },
+  {
+    id: '2610.11472', date: '2026-10-08', title: 'From Chain-of-Thought to Loops: Non-Autoregressive Latent Reasoning via Looped Transformers', authors: 'Gerard Grau García et al.', venue: 'arXiv 2026', category: 'Latent Reasoning', tags: ['latent-reasoning', 'non-autoregressive', 'looped-transformer', 'latent-workspace'],
+    summary: { en: 'Replaces left-to-right latent generation with iterative refinement of a compact latent workspace: a shared Transformer is reapplied several times, a probabilistic head samples latent tokens in parallel, and those condition an autoregressive decoder. Matches explicit-CoT accuracy on HumanEval and MBPP at 42x lower reasoning-phase latency.', zh: '用对紧凑潜在工作区的迭代精炼取代从左到右的潜在生成：共享 Transformer 反复应用若干次后，由概率头并行采样潜在 token 来条件化自回归解码器；在 HumanEval 与 MBPP 上准确率与显式 CoT 相当，而推理阶段延迟降至约 1/42。' }, paper: 'https://arxiv.org/abs/2610.11472'
+  },
+  {
+    id: '2610.11570', date: '2026-10-08', title: 'Scaling to Tens of Thousands of Test-Time Iterations with Loop-Native Attention Residuals', authors: 'Pengxiang Li et al.', venue: 'arXiv 2026', category: 'Architectures & Scaling', tags: ['residual-scaling', 'overthinking', 'test-time-compute', 'test-time-depth'],
+    summary: { en: 'Argues looped Transformers need loop-native residuals: content-weighted, temporally decayed aggregation of past recurrent states suppresses unreliable updates and lets a 7M model keep improving beyond 20,000 test-time iterations on Sudoku-Extreme.', zh: '主张循环 Transformer 需要专属的循环原生残差：以内容加权与时间衰减聚合历史循环状态，抑制不可靠更新，使 7M 参数模型在数独极限版上超过两万次测试时迭代仍持续提升。' }, paper: 'https://arxiv.org/abs/2610.11570', code: 'https://github.com/pixeli99/InfiLoop'
+  },
+  {
+    id: '2610.12448', date: '2026-10-08', title: 'One Block, Multiple Depths: Recurrent Vision Transformers with Depth-Programmed Experts', authors: 'Adrian Bulat, Yassine Ouali, Georgios Tzimiropoulos', venue: 'arXiv 2026', category: 'Architectures & Scaling', tags: ['vision-transformer', 'mixture-of-experts', 'elastic-depth', 'weight-sharing'],
+    summary: { en: 'Applies a single ViT block repeatedly and restores depth-specific FFNs through a continuous depth coordinate that mixes a small shared expert bank, matching full-depth encoders with about 70% fewer stored parameters and supporting resampled elastic deployment depths.', zh: '反复应用单个 ViT 块，并用连续深度坐标混合一个小型共享专家库来恢复各循环深度特有的 FFN，以约少 70% 的存储参数达到全深度编码器精度，并支持重采样的弹性部署深度。' }, paper: 'https://arxiv.org/abs/2610.12448'
+  },
+  {
+    id: '2610.12582', date: '2026-10-08', title: 'One Model to Loop Them All: Elastic Latent Recurrence for Language Models', authors: 'Faisal Ladhak et al.', venue: 'arXiv 2026', category: 'Adaptive Compute', tags: ['budget-conditioning', 'adaptive-depth', 'looped-transformer', 'compute-allocation'],
+    summary: { en: 'Elastic Latent Recurrence trains looped LMs so one checkpoint reaches near-parity with a non-recurrent model at a single loop and gains accuracy with each extra loop, using gated state updates, mixed loop counts, and loop-index/budget conditioning; the 4B model adds 7.25 points at four loops.', zh: 'Elastic Latent Recurrence 训练出的循环语言模型在单循环时即可接近同规模非循环模型的精度，并随循环次数增加持续提升；其关键在于门控状态更新、混合循环数训练以及按循环序号与预算进行条件化，4B 模型四循环时提升 7.25 分。' }, paper: 'https://arxiv.org/abs/2610.12582'
+  },
+  {
+    id: '2610.13041', date: '2026-10-09', title: 'RAMP: Recurrent Adaptive Mixed Precision for Efficient Prefill in Recurrent-Depth Language Models', authors: 'Ke Wan, Chen Chen', venue: 'arXiv 2026', category: 'Systems & Applications', tags: ['mixed-precision', 'quantization', 'prefill', 'inference-latency'],
+    summary: { en: 'Quantization error injected early in a recurrent trajectory is attenuated by later loops, so RAMP runs early refinement in low-precision weight-activation arithmetic and restores full precision for terminal loops, keeping prefill quality with up to 1.16x first-prefill speedup at 4K context.', zh: '递归早期注入的量化误差会被后续轮次逐步衰减。RAMP 因此让前段递归使用低精度权重-激活计算，仅在末端若干轮恢复高精度，在 4K 上下文下保持预填充质量并获得最高 1.16 倍的首次预填充加速。' }, paper: 'https://arxiv.org/abs/2610.13041'
+  },
+  {
+    id: '2610.13106', date: '2026-10-09', title: 'Scaling RNA Foundation Models through Iterative Refinement', authors: 'Pengan Chen et al.', venue: 'arXiv 2026', category: 'Systems & Applications', tags: ['genomics', 'rna', 'iterative-refinement'],
+    summary: { en: 'Eco-RNA is an 80M-parameter RNA foundation model whose shared, input-conditioned Transformer core is applied repeatedly, making inference depth a post-training knob; increasing refinement from one to four iterations improves RNAGym fitness prediction at fixed parameters.', zh: 'Eco-RNA 是 80M 参数的 RNA 基础模型，其共享的输入条件 Transformer 核心被反复应用，使推理深度成为训练后可调的旋钮；在参数固定时，把精炼轮次从 1 增加到 4 可提升 RNAGym 适应度预测。' }, paper: 'https://arxiv.org/abs/2610.13106'
+  },
+  {
+    id: '2610.14252', date: '2026-10-09', title: 'Adaptive-Depth Is a Finishing Stage', authors: 'Andrei Piterbarg et al.', venue: 'NeurIPS 2026 AXIOM Workshop', category: 'Training & Analysis', tags: ['curriculum', 'adaptive-depth', 'training-compute', 'depth-extrapolation'],
+    summary: { en: 'Fixed-first training holds a fixed shallow depth for most of the run and varies depth only in a short final phase, cutting modeled training compute by 45% at 200M and 31-37% at 1B parameters while keeping NLL within 0.5% and 0.8% respectively.', zh: '固定优先训练在大部分训练中保持较浅的固定深度，只在最后阶段改变深度；在2亿参数下把建模训练算力降低45%、在10亿参数下降低31-37%，NLL分别控制在0.5%与0.8%以内。' }, paper: 'https://arxiv.org/abs/2610.14252'
+  },
+  {
+    id: '2610.14456', date: '2026-10-10', title: 'Learning to Extrapolate in Depth with Looped Transformers', authors: 'Huitao Yang et al.', venue: 'arXiv 2026', category: 'Foundations & Theory', tags: ['depth-generalization', 'fixed-point', 'theory', 'weight-sharing'],
+    summary: { en: 'Analyses depth extrapolation on all-pairs graph connectivity and shows that, under exchangeability and symmetric positive initialization, population training at depth K converges to an update rule governed by a single propagation-versus-fitting parameter, yielding a finite window of safe test depths with explicit endpoints and a certified depth gain that grows exponentially as training depth outpaces training hardness.', zh: '以全对连通性任务分析深度外推，证明在可交换性与对称正初始化条件下，深度 K 上的总体训练（population training）收敛为由单一参数控制的更新规则，该参数在传播与拟合之间权衡，由此得到端点显式的有限安全测试深度窗口；当训练深度超出训练难度越多，认证的深度增益呈指数增长。' }, paper: 'https://arxiv.org/abs/2610.14456'
+  },
+  {
+    id: '2610.15218', date: '2026-10-10', title: 'Running Fewer Loops Removes Refusal Behaviour in Recurrent-Depth Language Models', authors: 'Seyedarmin Azizi et al.', venue: 'arXiv 2026', category: 'Safety & Monitoring', tags: ['adaptive-depth', 'exit-policy', 'safety', 'recurrent-depth'],
+    summary: { en: 'Across four Ouro checkpoints and Huginn, cutting loop counts degrades safety far more than accuracy, with harmful-help rate rising 5.3x at half depth; existing early-exit rules do not spend extra loops on harmful requests, whereas training at randomized depths repairs the gap.', zh: '作者在四个 Ouro 检查点与 Huginn 上减少循环次数，发现安全性下降远大于精度损失——半深度时有害请求获得帮助的比例上升 5.3 倍；现有早退规则不会为有害请求分配更多循环，而随机深度训练能修复这一缺口。' }, paper: 'https://arxiv.org/abs/2610.15218'
+  },
+  {
+    id: '2610.16368', date: '2026-10-12', title: 'LoopQuant: Accurate and Efficient Post-Training Quantization for Looped Transformers', authors: 'Zhixiong Zhao et al.', venue: 'arXiv 2026', category: 'Systems & Applications', tags: ['quantization', 'low-bit', 'deployment'],
+    summary: { en: 'LoopQuant canonicalizes activations across recurrent states, allocates per-loop activation precision under a fixed bit budget, and calibrates in task space so quantized inference follows the low-bit recurrent trajectory; on Ouro-2.6B its W4A4 setting outperforms all W4A8 baselines.', zh: 'LoopQuant 统一跨轮递归状态的激活分布，在固定比特预算下按轮次敏感度分配激活精度，并在任务空间校准，使量化推理贴合低比特递归轨迹；在 Ouro-2.6B 上其 W4A4 配置超过所有 W4A8 基线。' }, paper: 'https://arxiv.org/abs/2610.16368'
+  },
+  {
+    id: '2610.17877', date: '2026-10-13', title: 'LoopREG: Representation Supervision Enables Test-Time Recurrent Depth in Diffusion Transformers', authors: 'Zipeng Wang et al.', venue: 'arXiv 2026', category: 'Architectures & Scaling', tags: ['denoising-recursion', 'representation-alignment', 'depth-extrapolation', 'vision-transformer'],
+    summary: { en: 'Supervises a recurrent diffusion Transformer\'s shared block with a pretrained visual encoder\'s representation, so extra inference visits extrapolate beyond training depth, cutting a SiT-B/2 local-REG baseline\'s FID from 15.08 to 4.91, with a third visit improving a two-visit checkpoint from 14.71 to 5.34.', zh: '用预训练视觉编码器的表征监督循环扩散 Transformer 的共享块，使额外推理轮次能外推到训练深度之外：将 SiT-B/2 的局部 REG 基线 FID 从 15.08 降至 4.91，第三次访问则把两轮检查点的 FID 从 14.71 改善到 5.34。' }, paper: 'https://arxiv.org/abs/2610.17877'
+  },
+  {
+    id: '2610.18127', date: '2026-10-13', title: 'Monitoring latent reasoning in looped language models', authors: 'Pawel Olszowiec et al.', venue: 'arXiv 2026', category: 'Safety & Monitoring', tags: ['monitoring', 'mechanistic-interpretability', 'looped-lm', 'probing'],
+    summary: { en: 'Builds a five-lens mechanistic inspection protocol and applies it to eight looped language models from four families, separating carry loops (Ouro, LoopUS), which pass the prompt only inside the looped state, from re-read loops (Parcae, Huginn, Rec-OLMo), which re-supply it at every iteration.', zh: '提出包含五个视角的机制可解释性检查流程，并应用于四个家族的八个循环语言模型，区分“携带式循环”（Ouro、LoopUS，提示仅随循环状态传递）与“重读式循环”（Parcae、Huginn、Rec-OLMo，每次迭代重新注入提示）。' }, paper: 'https://arxiv.org/abs/2610.18127'
+  },
+  {
+    id: '2610.18174', date: '2026-10-13', title: 'Looped Reasoning Finishes Earlier Than You Think', authors: 'Sumin Park, T. Konstantin Rusch', venue: 'arXiv 2026', category: 'Foundations & Theory', tags: ['convergence', 'fixed-point', 'gauge-symmetry', 'latent-reasoning'],
+    summary: { en: 'Shows that slowly decaying oscillatory modes can impose their convergence rate on coupled latent dynamics, then introduces QRR, a gauge-equivariant recurrent reasoner with exact per-token phase-rotation symmetry that avoids forming a dominant slow oscillatory bottleneck while leaving reasoning-relevant quotient dynamics decoupled, converging faster on Sudoku, Maze and Mini-ARC.', zh: '指出缓慢衰减的振荡模态可能主导耦合隐动力学的收敛速率，进而提出具有精确逐 token 相位旋转对称性的规范等变循环推理器 QRR；该设计不再形成主导性的慢振荡瓶颈，同时保持推理相关商动力学解耦，在 Sudoku、Maze 与 Mini-ARC 上收敛更快。' }, paper: 'https://arxiv.org/abs/2610.18174'
+  },
+  {
+    id: '2610.18649', date: '2026-10-13', title: 'Tiny Recursive Message Passing', authors: 'Tommaso Salvatori et al.', venue: 'arXiv 2026', category: 'Broader Latent Reasoning', tags: ['trm', 'tiny-model', 'length-generalization', 'algorithmic-reasoning'],
+    summary: { en: 'Ports the TRM recipe - deep supervision, truncated recursions and test-time deduction - onto message passing networks, reaching about 99% on Sudoku-Extreme with a 16k-parameter model trained in ten minutes and transferring zero-shot to larger N-queens and SAT instances.', zh: '把 TRM 的深监督、截断递归与测试时演绎流程移植到消息传递网络，仅用 16k 参数、十分钟训练的模型即在数独极限版上达到约 99%，并零样本迁移到更大规模的 N 皇后与 SAT 实例。' }, paper: 'https://arxiv.org/abs/2610.18649'
+  },
+  {
+    id: '2610.19768', date: '2026-10-14', title: 'Learning to Compute Is Not Learning to Retain or Reuse in Looped Transformers', authors: 'Peilong Zhou et al.', venue: 'arXiv 2026', category: 'Latent Reasoning', tags: ['hidden-state-recurrence', 'overthinking', 'depth-extrapolation', 'looped-transformer'],
+    summary: { en: 'Separates failed computation, lost retention, and non-reusable states in looped Transformers using in-context Mealy machines with exact hidden-state counterfactuals: models trained to answer at loop 32 keep only 22% of those answers at loop 64, while random-position supervision keeps 99.8%.', zh: '用带有精确隐状态反事实的上下文 Mealy 机，把循环 Transformer 的失败拆分为计算失败、保持丢失与状态不可复用：训练在 32 次循环作答的模型到 64 次循环只剩 22% 的答案，而随机位置监督可保留 99.8%。' }, paper: 'https://arxiv.org/abs/2610.19768'
+  },
+  {
+    id: '2610.21182', date: '2026-10-15', title: 'Does Latent Chain-of-Thought Actually Reason? A Single, Unifying Taxonomy for Latent Reasoning', authors: 'Jingjie Qiu et al.', venue: 'arXiv 2026', category: 'Broader Latent Reasoning', tags: ['coconut', 'latent-cot', 'mechanistic-interpretability', 'taxonomy'],
+    summary: { en: 'Across 21 model-task configurations, combines chain deletion, content replacement, probing and trajectory analysis to show that on logical tasks COCONUT often carries an answer readable before the chain begins, and proposes a taxonomy separating what a latent chain represents from how the model uses it.', zh: '在 21 组模型-任务配置中结合链删除、内容替换、探针与轨迹分析，发现在逻辑任务上 COCONUT 往往在链开始前就已编码可读答案，并提出区分潜在链所表示的内容与模型实际使用方式的统一分类法。' }, paper: 'https://arxiv.org/abs/2610.21182'
+  },
+  {
+    id: '2610.21594', date: '2026-10-15', title: 'LoopAhead: Speculating Ahead for Faster Decoding in Looped Language Models', authors: 'Zixuan Liu et al.', venue: 'arXiv 2026', category: 'Systems & Applications', tags: ['speculative-decoding', 'inference-latency', 'serving'],
+    summary: { en: 'LoopAhead adds a lightweight lookahead drafter that predicts several future tokens from early-loop states, lets deeper loops decide which speculative branches to continue or pause, and keeps the full-depth model as final arbiter, reaching up to 7.82x decoding speedup over autoregressive decoding.', zh: 'LoopAhead 引入轻量前瞻起草器，利用早期循环状态一次预测多个未来 token，再由更深轮次决定哪些推测分支继续或暂停，最终由全深度模型裁决，相对自回归解码最高取得 7.82 倍加速。' }, paper: 'https://arxiv.org/abs/2610.21594'
+  },
+  {
+    id: '2610.22075', date: '2026-10-15', title: 'Retrofitting Recurrent Vision-Language Models from Pretrained Backbones', authors: 'Madhav Iyengar, Andreas Geiger, Hilde Kühne', venue: 'arXiv 2026', category: 'Systems & Applications', tags: ['vision-language-model', 'weight-sharing', 'deployment'],
+    summary: { en: 'The authors prune layers from a pretrained VLM\'s language backbone, loop over a subset of survivors with a linear adapter that fuses preceding-layer tokens, and recover quality through language-only pretraining, projector alignment and visual instruction tuning, outperforming the unpruned baseline with 23.3% fewer language parameters.', zh: '作者裁剪预训练 VLM 语言骨干的层数，用融合前层 token 的线性适配器循环剩余层中的一部分，并通过纯语言预训练、投影器对齐与视觉指令微调恢复性能，在语言参数减少 23.3% 的同时超过未剪枝基线。' }, paper: 'https://arxiv.org/abs/2610.22075', project: 'https://madhavesdios.github.io/recurrent-vlms'
+  },
+  {
+    id: '2610.22796', date: '2026-10-16', title: 'Causal Latent Workspaces for Looped Transformers', authors: 'Ilia Zaznov', venue: 'arXiv 2026', category: 'Latent Reasoning', tags: ['latent-workspace', 'looped-transformer', 'architecture', 'language-modeling'],
+    summary: { en: 'Adds a causal, content-addressable prefix workspace to an anchored four-round shared-depth Transformer: each position writes gated vectors into prefix-specific latent slots and retrieves a summary before the next block application, achieving the best mean held-out perplexity in five of six settings against five Transformer controls.', zh: '在锚定的四轮共享深度循环 Transformer 中加入因果、按内容寻址的前缀工作区：每个位置把门控向量写入前缀专属的潜在槽位，并在下一次共享块运算前取回摘要；在六种设置中的五种取得最优平均留出困惑度，优于五个 Transformer 对照组。' }, paper: 'https://arxiv.org/abs/2610.22796'
+  },
+  {
+    id: '2610.22924', date: '2026-10-16', title: 'Sep-Latent: Separator Tokens as Natural Compression Anchors for Implicit Reasoning', authors: 'Yinlong Xu et al.', venue: 'arXiv 2026', category: 'Broader Latent Reasoning', tags: ['coconut', 'implicit-cot', 'adaptive-depth', 'compression'],
+    summary: { en: 'Uses separator tokens as structural anchors with an attention-decay mechanism and multi-level distillation so latent reasoning can terminate adaptively by query difficulty, reaching 56.8% on GSM8k-Aug with only 5.4 latent tokens on average.', zh: '以分隔符 token 作为结构锚点，配合注意力衰减与多层蒸馏，使潜在推理可按问题难度自适应终止，在 GSM8k-Aug 上平均仅用 5.4 个潜在 token 即达到 56.8% 准确率。' }, paper: 'https://arxiv.org/abs/2610.22924'
+  },
+  {
+    id: '2610.23036', date: '2026-10-16', title: 'Towards Looped Models Done Right, Part I: Topology, Input Injection, Recurrent-State Design', authors: 'Benhao Huang et al.', venue: 'arXiv 2026', category: 'Architectures & Scaling', tags: ['prelude-loop-coda', 'weight-sharing', 'mixture-of-experts', 'looped-stack'],
+    summary: { en: 'Isolates three design axes of looped LMs - where recurrence sits, how inputs are injected, and how recurrent state is organized - and finds the complete Huginn-style design, built on a prelude-recurrent block-coda sandwich, beats Ouro at 730M and transfers to MoE at 8B-A0.8B (32B-A3B unrolled).', zh: '系统拆解循环语言模型的三个设计轴——循环位于何处、输入如何注入、循环状态如何组织，发现以 prelude-recurrent block-coda 夹层为核心的完整 Huginn 式设计在 730M 规模上优于 Ouro，并可迁移到 8B-A0.8B（展开后 32B-A3B）的 MoE 模型。' }, paper: 'https://arxiv.org/abs/2610.23036', code: 'https://github.com/ifm-ai/xllm-loop'
+  },
+  {
+    id: '2610.24135', date: '2026-10-16', title: 'Inside the Loop: A Mechanistic Study of Weight-Tied Transformers on Depth-Bound Algorithmic Tasks', authors: 'Magnus Sesodia et al.', venue: 'NeurIPS 2026', category: 'Training & Analysis', tags: ['mechanistic-interpretability', 'probing', 'weight-sharing', 'algorithmic-reasoning'],
+    summary: { en: 'On directed permutation traversal with per-hop ground truth, a four-layer block iterated eight times solves every seed, whereas an identically trained untied model of equal effective depth fails unless given a lower learning rate or intermediate-layer supervision; probing and interventions show an iteration-budget-aware staircase.', zh: '在有逐跳真值的有向置换遍历任务上，四层块迭代八次可在所有随机种子下解出，而同等有效深度、同样训练的非绑定模型除非降低学习率或监督其中间层，否则始终做不到；探针与干预显示循环模型形成随迭代预算调整的逐步推进阶梯。' }, paper: 'https://arxiv.org/abs/2610.24135', code: 'https://github.com/magnus-sesodia/insidetheloop'
+  },
+  {
+    id: '2610.24998', date: '2026-10-18', title: 'Block Recursive Transformers for Structured Parameter Sharing', authors: 'Josep Marques et al.', venue: 'EMNLP Findings 2026', category: 'Architectures & Scaling', tags: ['weight-sharing', 'recursive-block', 'recursive-transformer', 'language-modeling'],
+    summary: { en: 'Shows that sharing granularity is a key factor alongside sharing amount: partitioning layers into contiguous blocks that are each reused before advancing balances local refinement against depth-wise differentiation, beating layer-wise and whole-stack recursive sharing up to 1.7B parameters.', zh: '指出共享粒度是与共享比例并列的关键因素：将层划分为连续块并逐块递归复用，在局部精修与深度差异化之间取得平衡，在 1.7B 参数以内优于逐层共享与整栈循环复用。' }, paper: 'https://arxiv.org/abs/2610.24998', project: 'https://aim-skku.github.io/BRT/'
+  },
+  {
+    id: '2610.25004', date: '2026-10-18', title: 'UpLoop: Upcycling Large Language Models with Gated Loop', authors: 'Tieyuan Chen et al.', venue: 'arXiv 2026', category: 'Architectures & Scaling', tags: ['retrofit', 'pretrained-llm', 'gating', 'depth-extrapolation'],
+    summary: { en: 'Upcycles a pretrained LLM into a looped one by recurring each selected layer locally and adding hidden-wise gates on the attention and MLP residual branches, breaking the two-loop saturation of prior looped models and gaining 6.17 points across 20 benchmarks at three loops.', zh: '通过逐层局部循环，并在注意力与 MLP 残差分支上加入隐维门控，把预训练 LLM 升级为循环模型，突破以往两轮即饱和的限制，三轮时在 20 个基准上平均提升 6.17 个百分点。' }, paper: 'https://arxiv.org/abs/2610.25004'
+  },
+  {
+    id: '2610.25086', date: '2026-10-18', title: 'Dual-Slot: From Serial Loops to Parallel Slots in Language Models', authors: 'Yiqin Hao et al.', venue: 'arXiv 2026', category: 'Architectures & Scaling', tags: ['parallel-loops', 'latency', 'kv-cache', 'language-modeling'],
+    summary: { en: 'Removes the serial dependency between loop iterations by splitting computation into a latent slot and a prediction slot, so the current token consumes the previous token\'s deep state and paired invocations replace sequential ones, retaining 93.1-96.5% (dense) and 98.1-99.6% (MoE) of vanilla decoding throughput.', zh: '将循环迭代拆分为潜在槽与预测槽，使当前 token 复用上一 token 的深层状态，用成对调用取代串行调用，在保持自回归生成的同时保留原始解码吞吐：稠密模型 93.1%–96.5%，MoE 模型 98.1%–99.6%。' }, paper: 'https://arxiv.org/abs/2610.25086'
+  },
+  {
+    id: '2610.25612', date: '2026-10-19', title: 'Curriculum Learning Teaches LLMs Long-Horizon Implicit Reasoning, Up To A Limit', authors: 'Jimson Huang et al.', venue: 'arXiv 2026', category: 'Broader Latent Reasoning', tags: ['implicit-cot', 'curriculum-learning', 'length-generalization', 'depth-extrapolation'],
+    summary: { en: 'Fine-tunes on progressively larger vocabularies and lookaheads, letting Qwen3-0.6B reach 98% accuracy at lookahead 256 versus 45% without curriculum, but progress follows a saturating exponential implying a finite intrinsic implicit-reasoning depth that grows with model size.', zh: '通过逐步增大词表与前瞻步数的课程微调，使 Qwen3-0.6B 在前瞻 256 步时达到 98%（无课程仅 45%），但进步呈饱和指数趋势，说明隐式推理深度存在随模型规模增长的内在上限。' }, paper: 'https://arxiv.org/abs/2610.25612'
+  },
+  {
+    id: '2610.25646', date: '2026-10-19', title: 'Spherical Fixed-Point Reasoners: Adaptive Loop Halting on the Hypersphere', authors: 'Arber Zela et al.', venue: 'arXiv 2026', category: 'Adaptive Compute', tags: ['halting', 'fixed-point', 'adaptive-compute', 'latent-reasoning'],
+    summary: { en: 'SFPRM moves the damped fixed-point loop of FPRM onto the unit hypersphere, turning input injection, damping, and halting into geodesic operations that are bounded by construction; it beats FPRM on Sudoku-Extreme, Maze-Hard, and Mini-ARC while allocating test-time compute more effectively.', zh: 'SFPRM 把 FPRM 的阻尼不动点循环搬到单位超球面上，使输入注入、阻尼与停机都成为测地线操作并天然有界；在 Sudoku-Extreme、Maze-Hard 与 Mini-ARC 上优于 FPRM，且测试时计算分配更有效。' }, paper: 'https://arxiv.org/abs/2610.25646', code: 'https://github.com/arberzela/sfprm'
+  },
+  {
+    id: '2610.25998', date: '2026-10-19', title: 'Internalizing Chain-of-thought into Looped Transformers', authors: 'Kehang Zhou, Pinyan Lu', venue: 'arXiv 2026', category: 'Foundations & Theory', tags: ['turing-completeness', 'latent-reasoning', 'expressivity', 'chain-of-thought'],
+    summary: { en: 'Constructs constant-bit-size looped Transformers that interpolate between explicit chain-of-thought and latent thought, proving that L loops cut a time-t, space-s Turing-machine simulation\'s context and emitted-token counts by a factor of L (given s(n)^{1/k}=Ω(L)) relative to the unlooped queue-machine baseline.', zh: '构造常位宽循环 Transformer，可在显式思维链与隐式思考之间插值；证明在 s(n)^{1/k}=Ω(L) 的条件下，用 L 次循环模拟时间 t、空间 s 的图灵机时，相对非循环队列机基线，上下文窗口与生成 token 数均缩小约 L 倍。' }, paper: 'https://arxiv.org/abs/2610.25998'
+  },
+  {
+    id: '2610.26030', date: '2026-10-19', title: 'Truncate or Not? A Scaling Study of Looped Transformers with Truncated Backpropagation', authors: 'Xuyuan Xiong et al.', venue: 'arXiv 2026', category: 'Training & Analysis', tags: ['truncated-backprop', 'scaling-law', 'training-compute', 'recurrent-depth'],
+    summary: { en: 'Varies model size, tokens, and forward/backward loop counts across nearly 600 runs and fits one scaling law in effective parameters; at matched compute, full BPTT through fewer loops beats truncated training, and two trained loops is the best looped setting.', zh: '在近600次训练中联合改变模型规模、token预算与前向/反向循环数，并用有效参数拟合统一的缩放律；等算力下，用更少循环做完整BPTT优于截断训练，训练两个循环是循环模型的最优设置。' }, paper: 'https://arxiv.org/abs/2610.26030'
+  },
+  {
+    id: '2610.26666', date: '2026-10-19', title: 'Nested Shared-Operator Recursion on ARC-AGI-1: An Empirical Study of HRM, TRM and URM', authors: 'Sara Neri et al.', venue: 'arXiv 2026', category: 'Broader Latent Reasoning', tags: ['hrm', 'trm', 'arc-agi', 'negative-result'],
+    summary: { en: 'Tests whether nesting a persistent intermediate state inside HRM, TRM and URM, so repeated fast-state updates are integrated through the same operator, helps on ARC-AGI-1; at matched parameters and a single-GPU budget it finds no consistent advantage and specifies a confirmatory protocol.', zh: '在 HRM、TRM 与 URM 中加入持久的中间状态，使快速状态的反复更新经同一算子整合，检验嵌套递归能否提升 ARC-AGI-1 表现；在参数匹配且单卡预算下未发现一致优势，并给出后续确证实验方案。' }, paper: 'https://arxiv.org/abs/2610.26666'
+  },
+  {
+    id: '2610.26747', date: '2026-10-19', title: 'recAMPLIFY: Large-Scale Pretraining of Recursive Protein Language Models', authors: 'Saurav Jha et al.', venue: 'arXiv 2026', category: 'Adaptive Compute', tags: ['halting', 'adaptive-compute', 'recurrent-depth', 'protein'],
+    summary: { en: 'recAMPLIFY pretrains a weight-tied protein language model whose core refines residues over an adjustable number of cycles, then adds Gated Mixture Recurrence, a learned residual gate unifying halting and gating that cuts expected layer depth by up to 37% while halt depth tracks biological properties.', zh: 'recAMPLIFY 预训练一个权重共享的蛋白质语言模型，其核心以可变循环次数精炼残基表示，并提出 Gated Mixture Recurrence：用学习到的残差门把停机与门控统一为单一自适应计算目标，使期望层深最多降低 37%，且停机深度与生物学性质相关。' }, paper: 'https://arxiv.org/abs/2610.26747', code: 'https://github.com/chandar-lab/AMPLIFY/tree/recamplify'
+  },
+  {
+    id: '2610.27559', date: '2026-10-20', title: 'Exploring Recurrent-Depth Language Models for Multitask Clinical Text Processing', authors: 'Xi Yang et al.', venue: 'arXiv 2026', category: 'Systems & Applications', tags: ['clinical-nlp', 'deployment', 'fine-tuning'],
+    summary: { en: 'Jointly fine-tuning Ouro-1.4B-Thinking, Ouro-2.6B-Thinking, HRM-Text-1B and Qwen3 baselines on nine clinical datasets, the authors evaluate on four held-out sets (13 total): Ouro-1.4B-Thinking beats Qwen3-1.7B on 11 datasets, Ouro-2.6B-Thinking is competitive with Qwen3-8B on most tasks, and HRM-Text-1B is mixed, with the largest gains on inference and question answering.', zh: '作者在 9 个临床数据集上联合微调 Ouro-1.4B/2.6B-Thinking、HRM-Text-1B 与 Qwen3 基线，并在 4 个留出集（共 13 个数据集）上评估：Ouro-1.4B-Thinking 在 11 个数据集上优于 Qwen3-1.7B，Ouro-2.6B-Thinking 在多数任务上可与 Qwen3-8B 匹敌，HRM-Text-1B 表现不一，推理与问答类任务提升最大。' }, paper: 'https://arxiv.org/abs/2610.27559'
+  },
+  {
+    id: '2610.28339', date: '2026-10-20', title: 'HistoLoop: Iterative Contextual Inference with a Looped Transformer for Histology-Based Spatial Gene Expression Prediction', authors: 'Ziang Liu et al.', venue: 'arXiv 2026', category: 'Systems & Applications', tags: ['genomics', 'spatial-transcriptomics', 'vision-transformer'],
+    summary: { en: 'HistoLoop casts spatial gene-expression prediction as iterative contextual inference: a shared spatial Transformer aggregates spot states into multi-resolution context tokens, cross-attention retrieves spot-specific context, and a memory-mediated update carries state to the next resolution, giving the highest macro-average under HEST-Bench HVG50.', zh: 'HistoLoop 把空间基因表达预测建模为迭代上下文推断：共享空间 Transformer 将 spot 状态聚合为多分辨率上下文 token，交叉注意力检索 spot 专属上下文，再经记忆介导的更新把状态带到下一分辨率，在 HEST-Bench HVG50 上领先。' }, paper: 'https://arxiv.org/abs/2610.28339'
+  },
+  {
+    id: '2610.28489', date: '2026-10-20', title: 'Asymmetric Looped Transformers: Fixed Global Representations for an Iterative Decoder', authors: 'Cheng Liang et al.', venue: 'arXiv 2026', category: 'Architectures & Scaling', tags: ['weight-sharing', 'kv-cache', 'language-modeling', 'context-anchor'],
+    summary: { en: 'Separates context construction from state refinement: a single-pass encoder writes global KV caches that stay fixed while a weight-tied recurrent decoder attends to them jointly with its own local KV, improving perplexity and zero-shot accuracy up to 1B.', zh: '将上下文构建与状态精修分离：单遍编码器写出固定的全局 KV 缓存，权重共享的循环解码器在同一次 softmax 中同时关注全局 KV 与自身局部 KV，在 1B 规模上改善困惑度与零样本准确率。' }, paper: 'https://arxiv.org/abs/2610.28489'
+  },
+  {
+    id: '2610.28498', date: '2026-10-20', title: 'Present but Hard to Read: Probing Latent Reasoning with Minimal Pairs', authors: 'Aur Shalev Merin', venue: 'arXiv 2026', category: 'Latent Reasoning', tags: ['probing', 'mechanistic-interpretability', 'ouro', 'latent-reasoning'],
+    summary: { en: 'Minimal-pair probing of Ouro-1.4B and Qwen 2.5-1.5B finds a copied digit in a code shared across questions (readout about 0.9), while a one-prompt-at-a-time probe barely reads it; a small signal for the unwritten intermediate sum is readable but not used.', zh: '对 Ouro-1.4B 与 Qwen 2.5-1.5B 做最小对比探测：被复制的数字存在于跨问题共享的编码中（读出值约 0.9），而一次只看一个提示的探针几乎读不出；未写出的中间和虽有微弱信号且可读，却并未真正被使用。' }, paper: 'https://arxiv.org/abs/2610.28498'
+  },
+  {
+    id: '2610.28540', date: '2026-10-20', title: 'Predictive Latents for Autoregressive Language Models: Possibility, Gauge, and Obstruction', authors: 'Yuzhou Hong', venue: 'arXiv 2026', category: 'Foundations & Theory', tags: ['latent-reasoning', 'theory', 'identifiability', 'fixed-point'],
+    summary: { en: 'Separates token, teacher-forced and open-loop risks for iterated latents, showing that under a full-rank-covariance statistic, a linear least-squares transition and a refit unembedding a width-k latent matches the Bayes token predictor up to an invertible gauge, and that small one-step losses do not certify token prediction or free rollout unless a rank/injectivity condition is stated.', zh: '把迭代隐状态的风险拆成 token 风险、教师强制风险与开环风险；在满秩协方差统计量、线性最小二乘转移与重新拟合的 unembedding 条件下，宽度 k 的隐状态可在可逆规范变换意义下匹配贝叶斯预测器，而单步损失很小并不能证明 token 预测或自由展开可靠，除非同时给出秩或单射条件。' }, paper: 'https://arxiv.org/abs/2610.28540'
+  },
+  {
+    id: '2610.28871', date: '2026-10-20', title: 'How Much Gradient Does Truncated Backprop Lose in Looped Transformers?', authors: 'Aur Shalev Merin', venue: 'arXiv 2026', category: 'Training & Analysis', tags: ['truncated-backprop', 'gradient-flow', 'training-dynamics', 'fixed-point'],
+    summary: { en: 'Measures, exactly and for every truncation length from one backward pass, the weight gradient discarded by last-k-loop training on nine looped language models: it sits near the output, shrinks during fine-tuning, and shows no demonstrated advantage over simple rules in predicting truncation\'s training cost.', zh: '在九个循环语言模型上，用一次反向传播精确算出每种截断长度所丢弃的权重梯度：该梯度集中在输出端、在微调过程中变小，且未能证明比无需测量的简单规则更能预测截断的训练代价。' }, paper: 'https://arxiv.org/abs/2610.28871'
+  },
+  {
+    id: '2610.30066', date: '2026-10-21', title: 'Looped Uniform Diffusion Language Models', authors: 'Saiteja Utpala et al.', venue: 'arXiv 2026', category: 'Architectures & Scaling', tags: ['denoising-recursion', 'language-modeling', 'weight-sharing', 'compute-scaling'],
+    summary: { en: 'Adds selective looping inside each denoising step of uniform diffusion language models, cutting training FLOPs by up to 3.3x at matched validation NLL and lowering generation perplexity at a fixed denoising budget, with loop-count distributions favoring smaller counts.', zh: '在均匀扩散语言模型的每个去噪步内加入选择性循环，在相同验证 NLL 下最多减少 3.3 倍训练算力，并在固定去噪步数下降低生成困惑度；训练时偏向较小循环次数的分布更高效。' }, paper: 'https://arxiv.org/abs/2610.30066'
+  },
+  {
+    id: '2610.30128', date: '2026-10-21', title: 'Think Harder Where It Matters: Item-Level Adaptive Recursion for Sequential Recommendation', authors: 'Zhanshuo Cao et al.', venue: 'arXiv 2026', category: 'Adaptive Compute', tags: ['halting', 'adaptive-depth', 'exit-policy', 'recommendation'],
+    summary: { en: 'LoopRec applies one weight-shared block recurrently in sequential recommendation and puts a lightweight binary exit-or-continue gate at each recursion boundary, turning fixed depth into a per-item property; learned allocation sends deeper computation to lower-frequency items and recent interactions.', zh: 'LoopRec 在序列推荐中反复应用单个权重共享块，并在每个递归边界设置轻量二分类“退出或继续”门，把固定深度变成逐物品的自适应属性；学习到的分配会把更深计算给低频物品与近期交互。' }, paper: 'https://arxiv.org/abs/2610.30128', code: 'https://github.com/Elpmis117/LoopRec'
+  },
+  {
+    id: '2610.30824', date: '2026-10-22', title: 'Loop to Look Better: Learning Adaptive Depth for Question-Guided Perception in Vision-Language Models', authors: 'Wencheng Ye et al.', venue: 'arXiv 2026', category: 'Adaptive Compute', tags: ['adaptive-depth', 'halting', 'vision-transformer', 'mixture-of-recursions'],
+    summary: { en: 'LoopLook gives pretrained VLMs encoder-side recurrent perception: a middle-to-late vision-encoder window is revisited with question injection, a learned stopping mechanism sets visual depth, and a token-wise Mixture-of-Looks merges loop representations, gaining up to 8.6% for 5.1-6.5% TTFT overhead.', zh: 'LoopLook 为预训练视觉语言模型引入编码器侧的循环感知：带问题注入地反复访问视觉编码器中后段，用学习到的停机机制决定视觉深度，并以 token 级 Mixture-of-Looks 融合各轮表示，最高提升 8.6%，首 token 时间仅增加 5.1-6.5%。' }, paper: 'https://arxiv.org/abs/2610.30824'
+  },
+  {
+    id: '2610.31633', date: '2026-10-22', title: 'BeNice! Closing Looping\'s Inference-Memory Gap via KV-Sharing', authors: 'Hayden Prairie et al.', venue: 'arXiv 2026', category: 'Systems & Applications', tags: ['kv-cache', 'memory-efficiency', 'weight-sharing'],
+    summary: { en: 'Looped models build a separate KV cache per recurrence, so inference memory grows with depth. A two-stage recipe uses stochastic-depth pretraining to induce contractive residual dynamics, then BeNice! broadcasts the final loop\'s cache into the first, matching unshared finetuning perplexity without per-loop caches.', zh: '循环模型每轮递归都会单独生成一份 KV 缓存，推理显存随深度线性增长。该工作采用两阶段方案：先用随机深度预训练诱导收缩型残差动力学，再用 BeNice! 把最后一轮递归的 KV 缓存广播到第一轮，在达到与非共享微调相当困惑度的同时消除逐轮缓存。' }, paper: 'https://arxiv.org/abs/2610.31633'
+  },
 ];
 
-export const lastUpdated = '2026-09-05';
+export const lastUpdated = '2026-10-25';

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
-import { lastUpdated } from '../lib/papers';
+import { lastUpdated, papers } from '../lib/papers';
 import './globals.css';
 
 const siteUrl = 'https://awesome-loop-transformers.bright-haven-2369.chatgpt.site';
@@ -77,7 +77,7 @@ const structuredData = {
   mainEntity: {
     '@type': 'Dataset',
     name: 'Awesome Loop Transformers paper catalog',
-    description: 'A bilingual catalog of 142 papers and projects covering looped Transformers and related latent-reasoning research.',
+    description: `A bilingual catalog of ${papers.length} papers and projects covering looped Transformers and related latent-reasoning research.`,
     url: `${siteUrl}/#catalog`,
     license: 'https://creativecommons.org/licenses/by/4.0/',
     dateModified: lastUpdated,
