@@ -998,7 +998,7 @@
 - **[FlashLoop: Fast and Memory-Efficient Looped Transformers via Lazy Updates](https://arxiv.org/abs/2609.29812)**<br>
   Wanqi Yang, Shiwei Liu · *arXiv 2026*<br>
   循环中的大部分计算是冗余的：状态变化集中在少数 token，注意力输出差异由稀疏而稳定的 key 列主导，相邻轮 KV 残差也易于低比特量化。FlashLoop 据此采用惰性更新，在保持精度的同时降低逐轮算力与 KV 显存。<br>
-  [论文](https://arxiv.org/abs/2609.29812)
+  [论文](https://arxiv.org/abs/2609.29812) · [代码](https://github.com/Superone77/FlashLoop) · [主页](https://superone77.github.io/FlashLoop/)
 
 - **[Attention Routing Stabilizes Early: Working-Set Inference for Recurrent Language Models](https://arxiv.org/abs/2609.27373)**<br>
   Ke Wan, Chen Chen · *arXiv 2026*<br>

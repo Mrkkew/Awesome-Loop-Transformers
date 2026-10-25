@@ -682,7 +682,7 @@ export const papers: Paper[] = [
   },
   {
     id: '2609.29812', date: '2026-09-24', title: 'FlashLoop: Fast and Memory-Efficient Looped Transformers via Lazy Updates', authors: 'Wanqi Yang, Shiwei Liu', venue: 'arXiv 2026', category: 'Systems & Applications', tags: ['memory-efficiency', 'kv-cache', 'inference-latency', 'sparse-attention'],
-    summary: { en: 'Most loop-time work is redundant: state changes concentrate on few tokens, attention-output differences on a sparse stable set of key columns, and inter-loop KV residuals quantize well. FlashLoop exploits these with lazy updates to cut loop FLOPs and KV memory while preserving accuracy.', zh: '循环中的大部分计算是冗余的：状态变化集中在少数 token，注意力输出差异由稀疏而稳定的 key 列主导，相邻轮 KV 残差也易于低比特量化。FlashLoop 据此采用惰性更新，在保持精度的同时降低逐轮算力与 KV 显存。' }, paper: 'https://arxiv.org/abs/2609.29812'
+    summary: { en: 'Most loop-time work is redundant: state changes concentrate on few tokens, attention-output differences on a sparse stable set of key columns, and inter-loop KV residuals quantize well. FlashLoop exploits these with lazy updates to cut loop FLOPs and KV memory while preserving accuracy.', zh: '循环中的大部分计算是冗余的：状态变化集中在少数 token，注意力输出差异由稀疏而稳定的 key 列主导，相邻轮 KV 残差也易于低比特量化。FlashLoop 据此采用惰性更新，在保持精度的同时降低逐轮算力与 KV 显存。' }, paper: 'https://arxiv.org/abs/2609.29812', code: 'https://github.com/Superone77/FlashLoop', project: 'https://superone77.github.io/FlashLoop/'
   },
   {
     id: '2609.33144', date: '2026-09-27', title: 'Beyond the Training Horizon: Mechanisms and Limits of Length Generalization in Looped Transformers', authors: 'Jia Liang, Xi Jin, Liangming Pan', venue: 'arXiv 2026', category: 'Foundations & Theory', tags: ['length-generalization', 'mechanistic-interpretability', 'weight-sharing', 'depth'],

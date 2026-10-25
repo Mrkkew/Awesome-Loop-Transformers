@@ -2974,7 +2974,9 @@
         "en": "Most loop-time work is redundant: state changes concentrate on few tokens, attention-output differences on a sparse stable set of key columns, and inter-loop KV residuals quantize well. FlashLoop exploits these with lazy updates to cut loop FLOPs and KV memory while preserving accuracy.",
         "zh": "循环中的大部分计算是冗余的：状态变化集中在少数 token，注意力输出差异由稀疏而稳定的 key 列主导，相邻轮 KV 残差也易于低比特量化。FlashLoop 据此采用惰性更新，在保持精度的同时降低逐轮算力与 KV 显存。"
       },
-      "paper": "https://arxiv.org/abs/2609.29812"
+      "paper": "https://arxiv.org/abs/2609.29812",
+      "code": "https://github.com/Superone77/FlashLoop",
+      "project": "https://superone77.github.io/FlashLoop/"
     },
     {
       "id": "2609.33144",

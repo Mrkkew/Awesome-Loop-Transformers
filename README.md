@@ -998,7 +998,7 @@ Choose a topic below, then expand a year. Papers are ordered newest first within
 - **[FlashLoop: Fast and Memory-Efficient Looped Transformers via Lazy Updates](https://arxiv.org/abs/2609.29812)**<br>
   Wanqi Yang, Shiwei Liu · *arXiv 2026*<br>
   Most loop-time work is redundant: state changes concentrate on few tokens, attention-output differences on a sparse stable set of key columns, and inter-loop KV residuals quantize well. FlashLoop exploits these with lazy updates to cut loop FLOPs and KV memory while preserving accuracy.<br>
-  [Paper](https://arxiv.org/abs/2609.29812)
+  [Paper](https://arxiv.org/abs/2609.29812) · [Code](https://github.com/Superone77/FlashLoop) · [Project](https://superone77.github.io/FlashLoop/)
 
 - **[Attention Routing Stabilizes Early: Working-Set Inference for Recurrent Language Models](https://arxiv.org/abs/2609.27373)**<br>
   Ke Wan, Chen Chen · *arXiv 2026*<br>
