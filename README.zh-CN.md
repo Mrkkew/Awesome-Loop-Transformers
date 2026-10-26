@@ -3,7 +3,7 @@
 
 <p align="center"><strong>简体中文</strong>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="README.md">English</a></p>
 
-<p align="center"><a href="https://awesome-loop-transformers.bright-haven-2369.chatgpt.site"><img src="public/readme-hero.png" alt="Awesome Loop Transformers：共享 Transformer 模块经多次循环更新隐状态，再输出结果。" width="100%" /></a></p>
+<p align="center"><a href="https://awesome-loop-transformers.liyulin.workers.dev"><img src="public/readme-hero.png" alt="Awesome Loop Transformers：共享 Transformer 模块经多次循环更新隐状态，再输出结果。" width="100%" /></a></p>
 
 <h1 align="center">Awesome Loop Transformers</h1>
 
@@ -11,7 +11,7 @@
 
 <p align="center"><a href="https://github.com/Mrkkew/Awesome-Loop-Transformers/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/Mrkkew/Awesome-Loop-Transformers?style=flat-square&labelColor=080b18&color=d8ff55"></a>&nbsp;<a href="#complete-catalog"><img alt="Papers in the full catalog" src="https://img.shields.io/badge/papers-235-5df2ff?style=flat-square&labelColor=080b18"></a>&nbsp;<a href="https://github.com/Mrkkew/Awesome-Loop-Transformers/actions/workflows/ci.yml"><img alt="Data and build" src="https://img.shields.io/github/actions/workflow/status/Mrkkew/Awesome-Loop-Transformers/ci.yml?style=flat-square&label=build&labelColor=080b18"></a>&nbsp;<a href="LICENSE"><img alt="License: CC BY 4.0" src="https://img.shields.io/badge/license-CC%20BY%204.0-a78bfa?style=flat-square&labelColor=080b18"></a>&nbsp;<a href="data/papers.json"><img alt="JSON catalog" src="https://img.shields.io/badge/data-JSON-c6ff4a?style=flat-square&labelColor=080b18"></a></p>
 
-<p align="center"><a href="https://awesome-loop-transformers.bright-haven-2369.chatgpt.site/#catalog"><strong>搜索交互式论文目录 ↗</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="https://github.com/Mrkkew/Awesome-Loop-Transformers/issues/new?template=paper-suggestion.yml">推荐论文</a></p>
+<p align="center"><a href="https://awesome-loop-transformers.liyulin.workers.dev/#catalog"><strong>搜索交互式论文目录 ↗</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="https://github.com/Mrkkew/Awesome-Loop-Transformers/issues/new?template=paper-suggestion.yml">推荐论文</a></p>
 
 <p align="center"><a href="#start-here"><strong>🧭 阅读路线</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#essential-reading"><strong>📌 推荐阅读</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#complete-catalog"><strong>📚 完整目录</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#contributing"><strong>🤝 参与贡献</strong></a></p>
 
@@ -60,7 +60,7 @@
 
 ## 完整目录
 
-先选择研究方向，再展开年份；各组按首次公开日期倒序排列。如需搜索标题、作者或模型，请使用[交互式目录](https://awesome-loop-transformers.bright-haven-2369.chatgpt.site/#catalog)。
+先选择研究方向，再展开年份；各组按首次公开日期倒序排列。如需搜索标题、作者或模型，请使用[交互式目录](https://awesome-loop-transformers.liyulin.workers.dev/#catalog)。
 
 | 方向 | 数量 | 关注问题 |
 | --- | :---: | --- |

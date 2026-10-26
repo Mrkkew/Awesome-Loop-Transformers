@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 
-const siteUrl = 'https://awesome-loop-transformers.bright-haven-2369.chatgpt.site';
+const siteUrl = 'https://awesome-loop-transformers.liyulin.workers.dev';
 
 export default function robots(): MetadataRoute.Robots {
   return {

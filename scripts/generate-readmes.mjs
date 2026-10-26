@@ -2,7 +2,7 @@ import { writeFileSync } from 'node:fs';
 import { categories, categoryZh, lastUpdated, papers } from '../lib/papers.ts';
 
 const repo = 'https://github.com/Mrkkew/Awesome-Loop-Transformers';
-const site = 'https://awesome-loop-transformers.bright-haven-2369.chatgpt.site';
+const site = 'https://awesome-loop-transformers.liyulin.workers.dev';
 
 const intro = {
   en: {

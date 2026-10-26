@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import { lastUpdated, papers } from '../lib/papers';
 import './globals.css';
 
-const siteUrl = 'https://awesome-loop-transformers.bright-haven-2369.chatgpt.site';
+const siteUrl = 'https://awesome-loop-transformers.liyulin.workers.dev';
 const catalogUrl = 'https://raw.githubusercontent.com/Mrkkew/Awesome-Loop-Transformers/main/data/papers.json';
 const description = 'A bilingual research atlas of looped and recurrent-depth Transformers, latent reasoning, adaptive compute, and test-time compute.';
 
