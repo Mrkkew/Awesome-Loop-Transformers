@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "title": "Awesome Loop Transformers",
   "repository": "https://github.com/Mrkkew/Awesome-Loop-Transformers",
-  "lastUpdated": "2026-10-25",
+  "lastUpdated": "2026-10-27",
   "scope": {
     "core": "Looped, recursive, and recurrent-depth Transformer research, including direct theory, analysis, systems, and applications.",
     "broader": "A selective track of latent-reasoning work that performs multi-step computation in learned hidden states without necessarily using a looped Transformer."
@@ -42,10 +42,10 @@
     }
   ],
   "counts": {
-    "total": 235,
-    "from2024": 230,
-    "coreFrom2024": 189,
-    "broaderFrom2024": 41
+    "total": 247,
+    "from2024": 242,
+    "coreFrom2024": 199,
+    "broaderFrom2024": 43
   },
   "papers": [
     {
@@ -4429,6 +4429,235 @@
         "zh": "循环模型每轮递归都会单独生成一份 KV 缓存，推理显存随深度线性增长。该工作采用两阶段方案：先用随机深度预训练诱导收缩型残差动力学，再用 BeNice! 把最后一轮递归的 KV 缓存广播到第一轮，在达到与非共享微调相当困惑度的同时消除逐轮缓存。"
       },
       "paper": "https://arxiv.org/abs/2610.31633"
+    },
+    {
+      "id": "2610.32246",
+      "date": "2026-10-23",
+      "title": "Do Halting Heads Really Save Compute in Looped Language Models?",
+      "authors": "Tsung-Han Wu, Minsuk Heo, Kenny Tan",
+      "venue": "arXiv 2026",
+      "category": "Adaptive Compute",
+      "tags": [
+        "halting",
+        "adaptive-compute",
+        "negative-result",
+        "evaluation"
+      ],
+      "summary": {
+        "en": "Pretraining looped language models from scratch up to 1.3B parameters, the authors find that halting heads trained on a mix of all iterations predict tokens need under half the iterations, yet the standard stopping rule still runs almost every iteration because training never scores the single iteration where a token stops. Scoring every iteration fixes this only with a strong early-stop penalty, and average iterations per token overstate savings because batched generation runs until the slowest token stops; they recommend reporting actual iterations with the stopping threshold and batch size, plus a pre-training test that bounds a head's gain.",
+        "zh": "作者从零预训练最多 1.3B 参数的循环语言模型，发现用所有迭代混合训练的停机头预测 token 只需不到一半迭代，但标准停止规则仍几乎每轮都运行，因为训练从未单独给 token 真正停止的那一轮打分。逐轮打分只有在很强的早停惩罚下才有效；按 token 平均迭代数会高估节省，因为批量生成要等到最慢 token 停止。作者建议报告实际执行迭代数、停止阈值与批量大小，并给出训练停机头前即可界定其收益的测试。"
+      },
+      "paper": "https://arxiv.org/abs/2610.32246"
+    },
+    {
+      "id": "2610.32492",
+      "date": "2026-10-23",
+      "title": "Accordion: Elastic-Depth Inference via Fixed-Prefix Layer Looping",
+      "authors": "Yudong Zhang et al.",
+      "venue": "arXiv 2026",
+      "category": "Architectures & Scaling",
+      "tags": [
+        "elastic-depth",
+        "mixture-of-experts",
+        "inference-budget",
+        "layer-looping"
+      ],
+      "summary": {
+        "en": "Accordion is a mixture-of-experts model that exposes five inference budgets through fixed-prefix layer looping, with the smallest budget equal to the unlooped model; one budget is sampled per micro-batch during joint pretraining, and the budgets are preserved through supervised fine-tuning and reinforcement learning with parameter-group merging and budget-matched multi-teacher distillation. After 3.6T pretraining tokens, deeper inference raises the five-category macro-average over 37 tasks by 3.01 points for Accordion-6B-A0.5B, with the middle budget capturing 89% of the gain at half the additional layer executions.",
+        "zh": "Accordion 是一个通过固定前缀层循环提供五档推理预算的混合专家模型，最小预算即未循环模型；联合预训练时每个 micro-batch 采样一档预算，并在监督微调与强化学习阶段通过参数组合并与预算匹配的多教师蒸馏保留各档能力。经 3.6T token 预训练后，Accordion-6B-A0.5B 增加推理深度使其在 37 个任务上的五类宏平均提升 3.01 个百分点，中间预算以一半的额外层执行量取得 89% 的增益。"
+      },
+      "paper": "https://arxiv.org/abs/2610.32492"
+    },
+    {
+      "id": "2610.33360",
+      "date": "2026-10-23",
+      "title": "LSTM-Style Looped Transformers with Shared KV Caches",
+      "authors": "Andreas Kirsch",
+      "venue": "arXiv 2026",
+      "category": "Architectures & Scaling",
+      "tags": [
+        "kv-cache",
+        "weight-sharing",
+        "recurrent-depth",
+        "language-modeling"
+      ],
+      "summary": {
+        "en": "An LSTM-style looped Transformer shares one KV cache across its recurrent core. At width 1024 it uses 40.4% fewer parameters than an untied control at nearly matched forward FLOPs and cuts persistent cache sets from fifteen to four; a consistency loss over the final 10% of training aligns cache entries from parallel and recursive passes, removing 81-89% of the continuation-loss penalty across three widths on FineWeb, while the loss cost of weight tying is smallest at lower token budgets.",
+        "zh": "一种 LSTM 风格的循环 Transformer 在其循环核心中共享同一份 KV 缓存。宽度 1024 时，它在几乎匹配前向 FLOPs 的条件下比非绑定对照少 40.4% 参数，并把持久缓存组从十五个减到四个；训练最后 10% 加入一致性损失，使并行与递归两条路径产生的缓存条目对齐，在 FineWeb 三个宽度上消除 81%–89% 的续写损失惩罚，且权重绑定带来的损失代价在 token 预算较低时最小。"
+      },
+      "paper": "https://arxiv.org/abs/2610.33360"
+    },
+    {
+      "id": "2610.33517",
+      "date": "2026-10-24",
+      "title": "One Model, Two Paths: Balancing Single-Pass and Looped Performance in Language Models",
+      "authors": "Jiarun Shen, Lei Zhao, Xiao Li",
+      "venue": "arXiv 2026",
+      "category": "Training & Analysis",
+      "tags": [
+        "weight-sharing",
+        "training-objective",
+        "looped-inference",
+        "language-modeling"
+      ],
+      "summary": {
+        "en": "A pretrained model can support both single-pass and looped inference by reusing middle-layer weights for extra computation, but looped-only training degrades the single-pass path. Jointly supervising both outputs with weighted losses, plus guidance from the frozen original model, largely removes that degradation while preserving looped gains over ordinary continued training; most of the benefit comes from tuning the single-pass loss weight.",
+        "zh": "预训练模型可以复用中间层权重做额外计算，从而同时支持单遍与循环推理，但只训练循环路径会损害单遍质量。用加权损失联合监督两路输出，并加入冻结原模型的指导，可在保留循环增益的同时基本消除单遍性能退化；其中大部分收益来自调整单遍损失的权重。"
+      },
+      "paper": "https://arxiv.org/abs/2610.33517"
+    },
+    {
+      "id": "2610.34157",
+      "date": "2026-10-25",
+      "title": "LoopGR: Parameter-Efficient Scaling for Generative Recommendation via Recurrent Depth",
+      "authors": "Huizhe Zhang et al.",
+      "venue": "arXiv 2026",
+      "category": "Systems & Applications",
+      "tags": [
+        "recommendation",
+        "recurrent-depth",
+        "parameter-efficiency",
+        "distillation"
+      ],
+      "summary": {
+        "en": "LoopGR scales generative recommendation along recurrent depth: a shared generative decoder alternates with a lightweight context updater, and recurrent trajectory self-distillation distills a low-budget student from a high-budget teacher by matching both predictive distributions and evolution directions. It consistently beats strong generative-recommendation baselines and, versus a representative encoder-decoder baseline, achieves better performance with up to 52% fewer parameters.",
+        "zh": "LoopGR 沿循环深度扩展生成式推荐：共享生成解码器与轻量上下文更新器交替运行，并用循环轨迹自蒸馏把高预算教师蒸馏为低预算学生，同时对齐预测分布与演化方向。它在多个强生成式推荐基线上稳定领先；相较代表性编码器-解码器基线，以最多减少 52% 的模型规模取得更优性能。"
+      },
+      "paper": "https://arxiv.org/abs/2610.34157"
+    },
+    {
+      "id": "2610.34173",
+      "date": "2026-10-25",
+      "title": "Reasoning or Just Prompting? Probing the Mechanism of Latent Chemical Reasoning",
+      "authors": "Kaiyuan Lu, Jiatong Li, Yatao Bian",
+      "venue": "arXiv 2026",
+      "category": "Broader Latent Reasoning",
+      "tags": [
+        "latent-reasoning",
+        "probing",
+        "soft-prompt",
+        "mechanistic-interpretability"
+      ],
+      "summary": {
+        "en": "Probing LatentChem-style latent chemical reasoning, the authors find that swapping or moderately perturbing intermediate latent states barely changes accuracy, while removing them entirely can cause a large drop: the states matter, but their molecule-specific content much less. A single fixed prefix shared across molecules reproduces LatentChem performance, and a learned static soft prompt matches per-input latent generation in controlled models, suggesting latent chemical reasoning is better viewed as soft prompting than as a hidden reasoning chain.",
+        "zh": "作者探测 LatentChem 式潜在化学推理，发现替换或适度扰动中间潜在状态几乎不改变准确率，而完全移除它们会造成明显下降：这些状态本身重要，但其分子特异内容影响很小。一个跨分子共享的固定前缀即可复现 LatentChem 的性能，在受控模型中学习到的静态 soft prompt 也能媲美逐输入生成潜在状态，说明潜在化学推理更像 soft prompting 而非隐藏的推理链。"
+      },
+      "paper": "https://arxiv.org/abs/2610.34173"
+    },
+    {
+      "id": "2610.34427",
+      "date": "2026-10-25",
+      "title": "ScaleRLT: Exact Log-Probabilities and Fast Deferred Rollouts for Reinforcement Learning on Looped Transformers",
+      "authors": "Dezhen Lu, Zixiang Ni, Runguo Li",
+      "venue": "arXiv 2026",
+      "category": "Systems & Applications",
+      "tags": [
+        "reinforcement-learning",
+        "rollout-engine",
+        "log-probabilities",
+        "grpo"
+      ],
+      "summary": {
+        "en": "ScaleRLT makes deferred rollouts for looped models exact for on-policy RL: a hybrid log-probability takes its value from a no-grad replay through the rollout schedule and its gradient from the dense learner, reproducing rollouts bit for bit across 167 FP32 and 28 bf16 cells and matching a float64 GRPO loss to 3.1e-4. On one GPU deferral raises rollout throughput by 1.47-1.56x, and in a two-node GRPO loop one-wave KV admission and CUDA graphs shorten an update by 2.71x; over 100 updates held-out GSM8K accuracy rises from 23% to 82% with the mixed-depth readout.",
+        "zh": "ScaleRLT 让循环模型在 on-policy 强化学习中的延迟 rollout 变得精确：混合对数概率用无梯度回放按 rollout 调度得到数值、用稠密学习器提供梯度，在 167 个 FP32 与 28 个 bf16 单元中逐位复现 rollout，并使完整 GRPO 损失与 float64 参考匹配到 3.1e-4。单 GPU 上延迟调度把 rollout 吞吐提高 1.47–1.56 倍；两节点 GRPO 中，单波 KV 准入与 CUDA graph 把一次更新缩短 2.71 倍；100 次更新后，混合深度读出让留出集 GSM8K 准确率从 23% 升到 82%。"
+      },
+      "paper": "https://arxiv.org/abs/2610.34427"
+    },
+    {
+      "id": "2610.34563",
+      "date": "2026-10-25",
+      "title": "Recursive CLIP: Vision-Language Distillation with Looped Transformer Blocks",
+      "authors": "Szymon Mazurek, Alberto Presta, Michał Byra",
+      "venue": "arXiv 2026",
+      "category": "Architectures & Scaling",
+      "tags": [
+        "vision-language",
+        "weight-sharing",
+        "knowledge-distillation",
+        "clip"
+      ],
+      "summary": {
+        "en": "Studies recursive CLIP backbones that apply N transformer blocks M times with N × M fixed to ViT-B depth, in two variants: rCLIP with a recursive vision encoder only and r2CLIP with both encoders recursive, under direct contrastive training and distillation from a DFN-2B ViT-B/16 teacher on CC3M/CC12M. CLIP tolerates substantial recurrent block reuse on zero-shot classification, retrieval, few-shot learning, grounding and concept unlearning, with effects depending on the encoder and task, while storing and adapting far fewer distinct blocks.",
+        "zh": "研究递归 CLIP 骨干：用 N 个 Transformer 块重复 M 次，并保持 N×M 等于 ViT-B 深度；分为仅视觉编码器递归的 rCLIP 与双编码器递归的 r2CLIP，在直接对比训练和从 DFN-2B 预训练的 ViT-B/16 教师向 CC3M/CC12M 蒸馏两种设定下评估。CLIP 能承受较大的循环块复用，在零样本分类、跨模态检索、少样本学习、视觉定位与概念遗忘上均可用，效果取决于编码器与任务，同时显著减少需存储和适配的不同块数量。"
+      },
+      "paper": "https://arxiv.org/abs/2610.34563"
+    },
+    {
+      "id": "2610.34639",
+      "date": "2026-10-25",
+      "title": "Cross-Loop Query Handoff: How Later Loops Redirect Two-Hop Retrieval in the Ouro Looped Language Models",
+      "authors": "Ziyu Mu, Zehua Wang",
+      "venue": "arXiv 2026",
+      "category": "Training & Analysis",
+      "tags": [
+        "mechanistic-interpretability",
+        "ouro",
+        "attention-queries",
+        "two-hop-retrieval"
+      ],
+      "summary": {
+        "en": "Transplanting attention queries between loops at the same layer, head and final prompt position in Ouro-1.4B and Ouro-2.6B, the authors show that injecting loop-3 queries into loop 1 rescues 90% and 97% of synthetic two-hop questions answered incorrectly at loop 1 but correctly at loop 3, versus 24% and 21% for shuffled donors. Late keys and values rescue far fewer targets, and on natural questions the effect is smaller and replicates only in Ouro-2.6B, identifying a transferable late-loop query collection rather than a single-vector handoff.",
+        "zh": "作者在 Ouro-1.4B 与 Ouro-2.6B 中，于相同层、注意力头与最终提示位置之间移植不同循环的注意力 query：把 loop-3 的 query 注入 loop 1，可挽救 90% 与 97% 在 loop 1 答错、在 loop 3 答对的合成两跳问题，而打乱来源的对照仅 24% 与 21%。后轮 key/value 能挽救的目标少得多；在自然问题上效果更小且仅在 Ouro-2.6B 复现，说明可迁移的是后轮 query 集合而非单向量交接。"
+      },
+      "paper": "https://arxiv.org/abs/2610.34639",
+      "code": "https://github.com/Muuzzziiy/cql-handoff"
+    },
+    {
+      "id": "2610.35229",
+      "date": "2026-10-26",
+      "title": "Joint Latent Reasoning and Observation for Agentic Video Understanding",
+      "authors": "Junzhang Liu et al.",
+      "venue": "arXiv 2026",
+      "category": "Broader Latent Reasoning",
+      "tags": [
+        "latent-reasoning",
+        "video-understanding",
+        "distillation",
+        "agentic-reasoning"
+      ],
+      "summary": {
+        "en": "LARVA distills multi-round video agents through jointly learned latent reasoning and visual observations: an observer passes compact continuous representations to a reasoner that selects the next acquisition action or answers, with action and answer supervision propagating through the interface; observation reconstruction and reasoning-distribution alignment add supervision from textual teacher trajectories. With 4B and 7B backbones it is strong on five video benchmarks, and the 7B model beats a textual chain-of-thought student by 5.1, 2.5 and 3.7 points on VideoHolmes, Video-MME and LVBench.",
+        "zh": "LARVA 通过联合学习潜在推理与视觉观察来蒸馏多轮视频智能体：观察者把紧凑连续表示传给推理者，由推理者选择下一次取景动作或给出答案，动作与答案监督会穿过该接口回传；观察重建与推理分布对齐则从文本教师轨迹提供辅助监督。以 4B 与 7B 骨干在五个视频基准上表现强劲，7B 模型在 VideoHolmes、Video-MME 与 LVBench 上分别比文本思维链学生高 5.1、2.5 与 3.7 个百分点。"
+      },
+      "paper": "https://arxiv.org/abs/2610.35229"
+    },
+    {
+      "id": "2610.35544",
+      "date": "2026-10-26",
+      "title": "StateLoop: Persistent State for Looped Transformers",
+      "authors": "Feichen Song et al.",
+      "venue": "arXiv 2026",
+      "category": "Architectures & Scaling",
+      "tags": [
+        "persistent-state",
+        "recurrent-depth",
+        "gating",
+        "language-modeling"
+      ],
+      "summary": {
+        "en": "StateLoop keeps one additional persistent state per token across loop iterations: a learned gate decides how much of the previous state to retain and how much of the current backbone output to write, and the updated state is projected back into the next iteration and final prediction. It lowers Pile perplexity and improves average accuracy on eight zero-shot tasks over a vanilla looped Transformer, with the perplexity advantage growing with trained loop depth.",
+        "zh": "StateLoop 在循环迭代之间为每个 token 额外维护一个持久状态：学习到的门控决定保留多少旧状态、写入多少当前骨干输出，更新后的状态再投影回下一轮迭代与最终预测。相较普通循环 Transformer，它降低了 Pile 困惑度并提升了八个零样本任务的平均准确率，且困惑度优势随训练循环深度增加而扩大。"
+      },
+      "paper": "https://arxiv.org/abs/2610.35544"
+    },
+    {
+      "id": "2610.35556",
+      "date": "2026-10-26",
+      "title": "LoopFold: Parallelizing Recurrent Depth in Looped Transformers",
+      "authors": "Feichen Song et al.",
+      "venue": "arXiv 2026",
+      "category": "Systems & Applications",
+      "tags": [
+        "parallel-loops",
+        "inference-latency",
+        "recurrent-depth",
+        "decoding"
+      ],
+      "summary": {
+        "en": "LoopFold folds computation at multiple recurrent depths into parallel batches for the same token prefix: a lightweight predictor estimates inputs for later loops so they can start before earlier loops finish, and a corrector refines their outputs with newly available earlier-loop results, with all components trained only by the final next-token loss. At 1.4B parameters, deeper configurations raise average zero-shot accuracy across eight tasks from 53.41% to 56.38%, and a nine-loop model runs in five sequential stages with 46% lower decoding latency.",
+        "zh": "LoopFold 把同一 token 前缀在多个循环深度上的计算折叠成并行批次：轻量预测器估计后续循环的输入，使其能在前序循环完成前启动，校正器再利用新到的前序结果精修这些输出，全部组件仅用最终下一 token 预测损失训练。在 1.4B 参数下，更深的配置把八个任务的零样本平均准确率从 53.41% 提升到 56.38%，九循环模型以五个串行阶段运行，解码延迟降低 46%。"
+      },
+      "paper": "https://arxiv.org/abs/2610.35556"
     }
   ]
 }
