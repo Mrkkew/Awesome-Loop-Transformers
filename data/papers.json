@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "title": "Awesome Loop Transformers",
   "repository": "https://github.com/Mrkkew/Awesome-Loop-Transformers",
-  "lastUpdated": "2026-10-27",
+  "lastUpdated": "2026-11-16",
   "scope": {
     "core": "Looped, recursive, and recurrent-depth Transformer research, including direct theory, analysis, systems, and applications.",
     "broader": "A selective track of latent-reasoning work that performs multi-step computation in learned hidden states without necessarily using a looped Transformer."
@@ -42,9 +42,9 @@
     }
   ],
   "counts": {
-    "total": 247,
-    "from2024": 242,
-    "coreFrom2024": 199,
+    "total": 249,
+    "from2024": 244,
+    "coreFrom2024": 201,
     "broaderFrom2024": 43
   },
   "papers": [
@@ -4658,6 +4658,46 @@
         "zh": "LoopFold 把同一 token 前缀在多个循环深度上的计算折叠成并行批次：轻量预测器估计后续循环的输入，使其能在前序循环完成前启动，校正器再利用新到的前序结果精修这些输出，全部组件仅用最终下一 token 预测损失训练。在 1.4B 参数下，更深的配置把八个任务的零样本平均准确率从 53.41% 提升到 56.38%，九循环模型以五个串行阶段运行，解码延迟降低 46%。"
       },
       "paper": "https://arxiv.org/abs/2610.35556"
+    },
+    {
+      "id": "2611.05234",
+      "date": "2026-11-03",
+      "title": "ARLoop: Fully-Open Pre-trained Looped Transformers with Attention Residuals",
+      "authors": "Yuekun Yao, Yupei Du, Dawei Zhu, Huan Sun",
+      "venue": "arXiv 2026",
+      "category": "Architectures & Scaling",
+      "tags": [
+        "attention-residuals",
+        "depth-attention",
+        "pretraining",
+        "parameter-efficiency"
+      ],
+      "summary": {
+        "en": "Replaces the single summed residual stream of a looped Transformer with attention over depth: each layer aggregates the outputs of preceding iterations by attention, so the model decides which intermediate representations to reuse instead of inheriting all of them. Sliding-window depth attention over a few recent iterations matches or beats full-history attention once recurrent depth grows. Across 140M/370M control runs with one to five recurrences and 0.6B/1.2B pretraining it beats earlier residual designs for looped models; the 1.2B model, trained on 0.5T tokens with three recurrences, outperforms the fully-open Huginn-3.5B on every evaluated task and rivals Qwen3.5-2B on far less data.",
+        "zh": "把循环 Transformer 中单路相加的残差流换成沿深度的注意力：每层的输入由前几轮迭代的输出经注意力聚合得到，由模型决定复用哪些中间表示，而不是全部继承。当循环深度增大时，只关注最近几轮的滑窗深度注意力即可匹配甚至超过全历史注意力。在 140M/370M 规模、1 至 5 次循环的受控实验以及 0.6B/1.2B 预训练中，它优于既有的循环模型残差设计；1.2B 模型仅用 0.5T token、三次循环训练，就在全部评测任务上超过完全开源的 Huginn-3.5B，并以远少的数据与 Qwen3.5-2B 相当。"
+      },
+      "paper": "https://arxiv.org/abs/2611.05234",
+      "code": "https://github.com/OSU-NLP-Group/ARLoop"
+    },
+    {
+      "id": "2611.07226",
+      "date": "2026-11-04",
+      "title": "Loopback Transformer: Towards a Unified View of Residual Looped Transformers",
+      "authors": "Xuan Ouyang, Zefan Cai, Chenlong Zhang, Cheng Luo, Ke Wan, Junjie Hu",
+      "venue": "arXiv 2026",
+      "category": "Architectures & Scaling",
+      "tags": [
+        "residual-stream",
+        "depth-memory",
+        "recency-prior",
+        "language-modeling"
+      ],
+      "summary": {
+        "en": "Reads the residual stream of a looped Transformer as a depth memory and argues that parameter sharing alone does not decide how repeated computation is reused: weighting a whole block output also reweights the history its input already carried. Reading individual updates while keeping the shared stack input on a separate path separates three controls, input strength, total update weight, and allocation across updates; geometric decay fixes the total weight and supplies a recency prior, and attention learns the allocation. On ClimbMix it reaches lower validation loss than standard Transformers using 40-75% of their parameters at 191M-3B with matched tokens and executed depth, is more accurate on thirteen downstream tasks at 1.4B and 3B, and at 191M/374M/778M leads the standard Transformer and seven looped residual designs.",
+        "zh": "把循环 Transformer 的残差流视为深度记忆，指出仅靠参数共享并不能决定重复计算的结果如何被复用：对整块输出加权等于连输入已携带的历史一起重新加权。改为分别读取单次更新、并让共享层栈的输入走独立通路后，可以把输入强度、更新总权重与各次更新间的分配三个量解耦：几何衰减固定总权重并提供近因先验，注意力学习具体分配。在 ClimbMix 上，它以标准 Transformer 40%–75% 的参数量（191M–3B，训练 token 与执行深度对齐）取得更低验证损失；1.4B/3B 规模在十三个下游任务上平均准确率更高；191M/374M/778M 规模下优于标准 Transformer 与七种循环残差设计。"
+      },
+      "paper": "https://arxiv.org/abs/2611.07226",
+      "code": "https://github.com/yancyou/Loopback"
     }
   ]
 }

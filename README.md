@@ -9,13 +9,13 @@
 
 <p align="center"><strong>Looped Transformers, latent reasoning, and test-time compute.<br>A bilingual reading guide with papers, official code, and research summaries.</strong></p>
 
-<p align="center"><a href="https://github.com/Mrkkew/Awesome-Loop-Transformers/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/Mrkkew/Awesome-Loop-Transformers?style=flat-square&labelColor=080b18&color=d8ff55"></a>&nbsp;<a href="#complete-catalog"><img alt="Papers in the full catalog" src="https://img.shields.io/badge/papers-247-5df2ff?style=flat-square&labelColor=080b18"></a>&nbsp;<a href="https://github.com/Mrkkew/Awesome-Loop-Transformers/actions/workflows/ci.yml"><img alt="Data and build" src="https://img.shields.io/github/actions/workflow/status/Mrkkew/Awesome-Loop-Transformers/ci.yml?style=flat-square&label=build&labelColor=080b18"></a>&nbsp;<a href="LICENSE"><img alt="License: CC BY 4.0" src="https://img.shields.io/badge/license-CC%20BY%204.0-a78bfa?style=flat-square&labelColor=080b18"></a>&nbsp;<a href="data/papers.json"><img alt="JSON catalog" src="https://img.shields.io/badge/data-JSON-c6ff4a?style=flat-square&labelColor=080b18"></a></p>
+<p align="center"><a href="https://github.com/Mrkkew/Awesome-Loop-Transformers/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/Mrkkew/Awesome-Loop-Transformers?style=flat-square&labelColor=080b18&color=d8ff55"></a>&nbsp;<a href="#complete-catalog"><img alt="Papers in the full catalog" src="https://img.shields.io/badge/papers-249-5df2ff?style=flat-square&labelColor=080b18"></a>&nbsp;<a href="https://github.com/Mrkkew/Awesome-Loop-Transformers/actions/workflows/ci.yml"><img alt="Data and build" src="https://img.shields.io/github/actions/workflow/status/Mrkkew/Awesome-Loop-Transformers/ci.yml?style=flat-square&label=build&labelColor=080b18"></a>&nbsp;<a href="LICENSE"><img alt="License: CC BY 4.0" src="https://img.shields.io/badge/license-CC%20BY%204.0-a78bfa?style=flat-square&labelColor=080b18"></a>&nbsp;<a href="data/papers.json"><img alt="JSON catalog" src="https://img.shields.io/badge/data-JSON-c6ff4a?style=flat-square&labelColor=080b18"></a></p>
 
 <p align="center"><a href="https://awesome-loop-transformers.liyulin.workers.dev/#catalog"><strong>Search the interactive catalog ↗</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="https://github.com/Mrkkew/Awesome-Loop-Transformers/issues/new?template=paper-suggestion.yml">Suggest a paper</a></p>
 
 <p align="center"><a href="#start-here"><strong>🧭 Start here</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#essential-reading"><strong>📌 Essential reading</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#complete-catalog"><strong>📚 Full catalog</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#contributing"><strong>🤝 Contribute</strong></a></p>
 
-<p align="center"><sub>247 papers · 8 research topics · English / 简体中文 · Last research update: 2026-10-27</sub></p>
+<p align="center"><sub>249 papers · 8 research topics · English / 简体中文 · Last research update: 2026-11-16</sub></p>
 
 ---
 
@@ -54,7 +54,7 @@ Eight entry points, from shared-depth architectures to latent reasoning. Short n
 
 **Broader latent reasoning:** selected work on continuous thoughts, implicit CoT, and recursive reasoning, including Coconut, HRM, and TRM. These methods need not use a looped Transformer and are listed separately.
 
-Of the **242 works from 2024 onward**, **199** belong to the core track and **43** to broader latent reasoning. Earlier foundations are also included.
+Of the **244 works from 2024 onward**, **201** belong to the core track and **43** to broader latent reasoning. Earlier foundations are also included.
 
 <a id="complete-catalog"></a>
 
@@ -65,7 +65,7 @@ Choose a topic below, then expand a year. Papers are ordered newest first within
 | Track | Works | What it covers |
 | --- | :---: | --- |
 | **[Foundations & Theory](#foundations--theory)** | 30 | Expressivity, programmability, in-context optimization, length and depth generalization. |
-| **[Architectures & Scaling](#architectures--scaling)** | 47 | Weight sharing, recurrent cores, MoE, multi-resolution designs, and scaling laws. |
+| **[Architectures & Scaling](#architectures--scaling)** | 49 | Weight sharing, recurrent cores, MoE, multi-resolution designs, and scaling laws. |
 | **[Latent Reasoning](#latent-reasoning)** | 21 | Test-time depth, silent multi-step computation, Huginn, Ouro, and latent CoT. |
 | **[Adaptive Compute](#adaptive-compute)** | 25 | Token routing, learned halting, early exit, and budget-conditioned depth. |
 | **[Training & Analysis](#training--analysis)** | 34 | Optimization, stability, residual scaling, fixed points, and mechanistic studies. |
@@ -269,7 +269,17 @@ Choose a topic below, then expand a year. Papers are ordered newest first within
 ### Architectures & Scaling
 
 <details>
-<summary><strong>2026</strong> · 40 papers</summary>
+<summary><strong>2026</strong> · 42 papers</summary>
+
+- **[Loopback Transformer: Towards a Unified View of Residual Looped Transformers](https://arxiv.org/abs/2611.07226)**<br>
+  Xuan Ouyang, Zefan Cai, Chenlong Zhang, Cheng Luo, Ke Wan, Junjie Hu · *arXiv 2026*<br>
+  Reads the residual stream of a looped Transformer as a depth memory and argues that parameter sharing alone does not decide how repeated computation is reused: weighting a whole block output also reweights the history its input already carried. Reading individual updates while keeping the shared stack input on a separate path separates three controls, input strength, total update weight, and allocation across updates; geometric decay fixes the total weight and supplies a recency prior, and attention learns the allocation. On ClimbMix it reaches lower validation loss than standard Transformers using 40-75% of their parameters at 191M-3B with matched tokens and executed depth, is more accurate on thirteen downstream tasks at 1.4B and 3B, and at 191M/374M/778M leads the standard Transformer and seven looped residual designs.<br>
+  [Paper](https://arxiv.org/abs/2611.07226) · [Code](https://github.com/yancyou/Loopback)
+
+- **[ARLoop: Fully-Open Pre-trained Looped Transformers with Attention Residuals](https://arxiv.org/abs/2611.05234)**<br>
+  Yuekun Yao, Yupei Du, Dawei Zhu, Huan Sun · *arXiv 2026*<br>
+  Replaces the single summed residual stream of a looped Transformer with attention over depth: each layer aggregates the outputs of preceding iterations by attention, so the model decides which intermediate representations to reuse instead of inheriting all of them. Sliding-window depth attention over a few recent iterations matches or beats full-history attention once recurrent depth grows. Across 140M/370M control runs with one to five recurrences and 0.6B/1.2B pretraining it beats earlier residual designs for looped models; the 1.2B model, trained on 0.5T tokens with three recurrences, outperforms the fully-open Huginn-3.5B on every evaluated task and rivals Qwen3.5-2B on far less data.<br>
+  [Paper](https://arxiv.org/abs/2611.05234) · [Code](https://github.com/OSU-NLP-Group/ARLoop)
 
 - **[StateLoop: Persistent State for Looped Transformers](https://arxiv.org/abs/2610.35544)**<br>
   Feichen Song et al. · *arXiv 2026*<br>

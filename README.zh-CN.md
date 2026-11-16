@@ -9,13 +9,13 @@
 
 <p align="center"><strong>循环 Transformer、潜在推理与测试时计算。<br>汇集论文原文、官方代码与中英文概述，梳理研究进展。</strong></p>
 
-<p align="center"><a href="https://github.com/Mrkkew/Awesome-Loop-Transformers/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/Mrkkew/Awesome-Loop-Transformers?style=flat-square&labelColor=080b18&color=d8ff55"></a>&nbsp;<a href="#complete-catalog"><img alt="Papers in the full catalog" src="https://img.shields.io/badge/papers-247-5df2ff?style=flat-square&labelColor=080b18"></a>&nbsp;<a href="https://github.com/Mrkkew/Awesome-Loop-Transformers/actions/workflows/ci.yml"><img alt="Data and build" src="https://img.shields.io/github/actions/workflow/status/Mrkkew/Awesome-Loop-Transformers/ci.yml?style=flat-square&label=build&labelColor=080b18"></a>&nbsp;<a href="LICENSE"><img alt="License: CC BY 4.0" src="https://img.shields.io/badge/license-CC%20BY%204.0-a78bfa?style=flat-square&labelColor=080b18"></a>&nbsp;<a href="data/papers.json"><img alt="JSON catalog" src="https://img.shields.io/badge/data-JSON-c6ff4a?style=flat-square&labelColor=080b18"></a></p>
+<p align="center"><a href="https://github.com/Mrkkew/Awesome-Loop-Transformers/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/Mrkkew/Awesome-Loop-Transformers?style=flat-square&labelColor=080b18&color=d8ff55"></a>&nbsp;<a href="#complete-catalog"><img alt="Papers in the full catalog" src="https://img.shields.io/badge/papers-249-5df2ff?style=flat-square&labelColor=080b18"></a>&nbsp;<a href="https://github.com/Mrkkew/Awesome-Loop-Transformers/actions/workflows/ci.yml"><img alt="Data and build" src="https://img.shields.io/github/actions/workflow/status/Mrkkew/Awesome-Loop-Transformers/ci.yml?style=flat-square&label=build&labelColor=080b18"></a>&nbsp;<a href="LICENSE"><img alt="License: CC BY 4.0" src="https://img.shields.io/badge/license-CC%20BY%204.0-a78bfa?style=flat-square&labelColor=080b18"></a>&nbsp;<a href="data/papers.json"><img alt="JSON catalog" src="https://img.shields.io/badge/data-JSON-c6ff4a?style=flat-square&labelColor=080b18"></a></p>
 
 <p align="center"><a href="https://awesome-loop-transformers.liyulin.workers.dev/#catalog"><strong>搜索交互式论文目录 ↗</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="https://github.com/Mrkkew/Awesome-Loop-Transformers/issues/new?template=paper-suggestion.yml">推荐论文</a></p>
 
 <p align="center"><a href="#start-here"><strong>🧭 阅读路线</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#essential-reading"><strong>📌 推荐阅读</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#complete-catalog"><strong>📚 完整目录</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#contributing"><strong>🤝 参与贡献</strong></a></p>
 
-<p align="center"><sub>247 篇论文 · 8 个研究方向 · English / 简体中文 · 文献更新: 2026-10-27</sub></p>
+<p align="center"><sub>249 篇论文 · 8 个研究方向 · English / 简体中文 · 文献更新: 2026-11-16</sub></p>
 
 ---
 
@@ -54,7 +54,7 @@
 
 **广义潜在推理：**连续思维、隐式 CoT 与递归推理等方向的代表性工作，包括 Coconut、HRM 和 TRM。这些方法不一定采用循环 Transformer，因此单独分类。
 
-2024 年以来共收录 **242** 项工作，其中核心方向 **199** 项、广义潜在推理 **43** 项；目录同时保留更早的基础研究。
+2024 年以来共收录 **244** 项工作，其中核心方向 **201** 项、广义潜在推理 **43** 项；目录同时保留更早的基础研究。
 
 <a id="complete-catalog"></a>
 
@@ -65,7 +65,7 @@
 | 方向 | 数量 | 关注问题 |
 | --- | :---: | --- |
 | **[基础与理论](#foundations--theory)** | 30 | 表达能力、可编程性，以及长度与深度泛化。 |
-| **[架构与扩展](#architectures--scaling)** | 47 | 参数共享、循环核心、MoE、多分辨率设计与扩展规律。 |
+| **[架构与扩展](#architectures--scaling)** | 49 | 参数共享、循环核心、MoE、多分辨率设计与扩展规律。 |
 | **[潜在推理](#latent-reasoning)** | 21 | 测试时深度、隐状态中的多步计算，以及潜在 CoT。 |
 | **[自适应计算](#adaptive-compute)** | 25 | Token 级路由、学习式停止、提前退出与预算条件深度。 |
 | **[训练与机制分析](#training--analysis)** | 34 | 优化、稳定性、收敛、不动点与过度思考。 |
@@ -269,7 +269,17 @@
 ### 架构与扩展
 
 <details>
-<summary><strong>2026</strong> · 40 篇</summary>
+<summary><strong>2026</strong> · 42 篇</summary>
+
+- **[Loopback Transformer: Towards a Unified View of Residual Looped Transformers](https://arxiv.org/abs/2611.07226)**<br>
+  Xuan Ouyang, Zefan Cai, Chenlong Zhang, Cheng Luo, Ke Wan, Junjie Hu · *arXiv 2026*<br>
+  把循环 Transformer 的残差流视为深度记忆，指出仅靠参数共享并不能决定重复计算的结果如何被复用：对整块输出加权等于连输入已携带的历史一起重新加权。改为分别读取单次更新、并让共享层栈的输入走独立通路后，可以把输入强度、更新总权重与各次更新间的分配三个量解耦：几何衰减固定总权重并提供近因先验，注意力学习具体分配。在 ClimbMix 上，它以标准 Transformer 40%–75% 的参数量（191M–3B，训练 token 与执行深度对齐）取得更低验证损失；1.4B/3B 规模在十三个下游任务上平均准确率更高；191M/374M/778M 规模下优于标准 Transformer 与七种循环残差设计。<br>
+  [论文](https://arxiv.org/abs/2611.07226) · [代码](https://github.com/yancyou/Loopback)
+
+- **[ARLoop: Fully-Open Pre-trained Looped Transformers with Attention Residuals](https://arxiv.org/abs/2611.05234)**<br>
+  Yuekun Yao, Yupei Du, Dawei Zhu, Huan Sun · *arXiv 2026*<br>
+  把循环 Transformer 中单路相加的残差流换成沿深度的注意力：每层的输入由前几轮迭代的输出经注意力聚合得到，由模型决定复用哪些中间表示，而不是全部继承。当循环深度增大时，只关注最近几轮的滑窗深度注意力即可匹配甚至超过全历史注意力。在 140M/370M 规模、1 至 5 次循环的受控实验以及 0.6B/1.2B 预训练中，它优于既有的循环模型残差设计；1.2B 模型仅用 0.5T token、三次循环训练，就在全部评测任务上超过完全开源的 Huginn-3.5B，并以远少的数据与 Qwen3.5-2B 相当。<br>
+  [论文](https://arxiv.org/abs/2611.05234) · [代码](https://github.com/OSU-NLP-Group/ARLoop)
 
 - **[StateLoop: Persistent State for Looped Transformers](https://arxiv.org/abs/2610.35544)**<br>
   Feichen Song et al. · *arXiv 2026*<br>
