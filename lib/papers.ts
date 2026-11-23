@@ -7,6 +7,7 @@ export type Category =
   | 'Adaptive Compute'
   | 'Training & Analysis'
   | 'Systems & Applications'
+  | 'Looped Vision, Diffusion & Multimodal'
   | 'Safety & Monitoring'
   | 'Broader Latent Reasoning';
 
@@ -32,6 +33,7 @@ export const categories: Category[] = [
   'Adaptive Compute',
   'Training & Analysis',
   'Systems & Applications',
+  'Looped Vision, Diffusion & Multimodal',
   'Safety & Monitoring',
   'Broader Latent Reasoning',
 ];
@@ -43,6 +45,7 @@ export const categoryZh: Record<Category, string> = {
   'Adaptive Compute': '自适应计算',
   'Training & Analysis': '训练与机制分析',
   'Systems & Applications': '系统与应用',
+  'Looped Vision, Diffusion & Multimodal': '循环视觉、扩散与多模态',
   'Safety & Monitoring': '安全与监控',
   'Broader Latent Reasoning': '广义潜在推理',
 };
