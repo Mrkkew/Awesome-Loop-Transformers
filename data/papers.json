@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "title": "Awesome Loop Transformers",
   "repository": "https://github.com/Mrkkew/Awesome-Loop-Transformers",
-  "lastUpdated": "2026-11-16",
+  "lastUpdated": "2026-11-23",
   "scope": {
     "core": "Looped, recursive, and recurrent-depth Transformer research, including direct theory, analysis, systems, and applications.",
     "broader": "A selective track of latent-reasoning work that performs multi-step computation in learned hidden states without necessarily using a looped Transformer."
@@ -33,6 +33,10 @@
       "nameZh": "系统与应用"
     },
     {
+      "name": "Looped Vision, Diffusion & Multimodal",
+      "nameZh": "循环视觉、扩散与多模态"
+    },
+    {
       "name": "Safety & Monitoring",
       "nameZh": "安全与监控"
     },
@@ -42,10 +46,10 @@
     }
   ],
   "counts": {
-    "total": 249,
-    "from2024": 244,
-    "coreFrom2024": 201,
-    "broaderFrom2024": 43
+    "total": 277,
+    "from2024": 272,
+    "coreFrom2024": 228,
+    "broaderFrom2024": 44
   },
   "papers": [
     {
@@ -4698,6 +4702,538 @@
       },
       "paper": "https://arxiv.org/abs/2611.07226",
       "code": "https://github.com/yancyou/Loopback"
+    },
+    {
+      "id": "2611.04663",
+      "date": "2026-11-03",
+      "title": "Best-of-Depth: Learning Exploratory Dynamics in Looped Transformers",
+      "authors": "Shota Takashiro, Takeshi Kojima, Masanori Koyama, Kohei Hayashi, Yusuke Iwasawa",
+      "venue": "arXiv 2026",
+      "category": "Training & Analysis",
+      "tags": [
+        "training-objective",
+        "exploration",
+        "algorithmic-reasoning",
+        "recurrent-depth"
+      ],
+      "summary": {
+        "en": "Trains the trajectory of a looped Transformer as a candidate set instead of supervising only its last iteration: the loss takes the best prediction at any depth, so intermediate loops are rewarded for holding different partial solutions rather than all converging on one answer. On N-Queens it lifts solution coverage from 45.75% at the final depth to 91.03% across the trajectory, and fine-tuning a pretrained looped model with this objective also improves code generation.",
+        "zh": "把循环 Transformer 的整条轨迹当作候选集合来训练，而不是只监督最后一次迭代：损失取各深度中最好的预测，于是中间循环保留不同的部分解就会被奖励，而不是全部收敛到同一答案。在 N-Queens 上解覆盖率从最后深度的 45.75% 提升到整条轨迹的 91.03%；用该目标微调预训练循环模型还能改善代码生成。"
+      },
+      "paper": "https://arxiv.org/abs/2611.04663"
+    },
+    {
+      "id": "2611.08977",
+      "date": "2026-11-06",
+      "title": "Energy-Based Reasoners: Your Recurrent Reasoner Should Be an Energy-Based Model",
+      "authors": "William Xingxu Chen, Alexi Gladstone, Zeyu Michael Li, Heng Ji, Yilun Du",
+      "venue": "arXiv 2026",
+      "category": "Latent Reasoning",
+      "tags": [
+        "energy-based-model",
+        "stopping-criterion",
+        "algorithmic-reasoning",
+        "latent-refinement"
+      ],
+      "summary": {
+        "en": "Learns an energy over latent reasoning states and casts each looped update as a gradient-descent step on it, so the energy both scores the current state and supplies a stopping signal; exploration-based training widens the landscape the model sees. Across four algorithmic reasoning benchmarks EBRs match or beat prior recurrent reasoners, reaching 99.9% on Sudoku-Extreme with 345x less inference compute, and on multi-solution tasks they cover more distinct valid solutions at near-100% single-sample accuracy.",
+        "zh": "在潜在推理状态上学习一个能量函数，并把每次循环更新视为该能量上的梯度下降：能量既给当前状态打分，也提供停止信号；配套的探索式训练让模型见到更宽的能量地形。在四个算法推理基准上，EBR 匹配或超过此前的循环推理模型，在 Sudoku-Extreme 上以少 345 倍的推理算力达到 99.9% 准确率；在多解任务上，它在保持近 100% 单样本准确率的同时覆盖更多不同的合法解。"
+      },
+      "paper": "https://arxiv.org/abs/2611.08977"
+    },
+    {
+      "id": "2611.10423",
+      "date": "2026-11-07",
+      "title": "Mental Imagery That Matters: Curing Latent Collapse in Multimodal Reasoning",
+      "authors": "Mi Luo, Rohan Dugad, Zihui Xue, Alex Dimakis, Kristen Grauman",
+      "venue": "NeurIPS 2026",
+      "category": "Broader Latent Reasoning",
+      "tags": [
+        "latent-visual-states",
+        "multimodal-reasoning",
+        "training-objectives",
+        "faithfulness"
+      ],
+      "summary": {
+        "en": "Perturbation tests across latent-reasoning MLLMs show that dropping, replacing or shuffling generated visual latents barely moves final-answer probability, whereas equivalent edits to the text trace hurt far more: most answer-relevant computation runs through text, a failure mode the authors call Mental Simulation Collapse. They trace it to existing objectives, where visual alignment makes latents resemble helper images without requiring the decoder to use them, and counter it with Anchored Mental Simulation, a contrastive distillation that makes visual latents behaviourally consequential.",
+        "zh": "对多个潜在推理多模态模型的扰动实验显示，删除、替换或打乱生成的视觉潜在块几乎不改变最终答案概率，而对文本推理轨迹做同等扰动的破坏明显更大：与答案相关的计算主要走文本通路，作者称之为“心理模拟坍缩”。他们把成因归于现有训练目标——视觉对齐只让潜在块看起来像辅助图像，并不要求解码器依赖它——并用 Anchored Mental Simulation 这一对比蒸馏方法让视觉潜在状态真正影响模型行为。"
+      },
+      "paper": "https://arxiv.org/abs/2611.10423"
+    },
+    {
+      "id": "2611.12293",
+      "date": "2026-11-09",
+      "title": "Depth as a Candidate Source: Portfolio Allocation for Recurrent Test-Time Scaling in Large Language Models",
+      "authors": "Chaoyuan Hao, Wentao Yue, Yanyan Wu et al.",
+      "venue": "arXiv 2026",
+      "category": "Adaptive Compute",
+      "tags": [
+        "test-time-scaling",
+        "depth-portfolio",
+        "budget-allocation",
+        "recurrent-depth"
+      ],
+      "summary": {
+        "en": "Finds that deeper recurrence can discard correct solutions already found at shallower depths, and that the success sets of different depths are broadly non-nested, so depth decides which candidates are reachable rather than only how much compute is spent. Depth Portfolio Allocation therefore treats recurrent test-time scaling as budgeted allocation across depth-specific candidate sources; mixed-depth portfolios widen oracle coverage at matched candidate counts on GSM8K, SVAMP, MultiArith and MBPP.",
+        "zh": "发现更深的循环可能丢掉浅层已经找到的正确解，且不同深度的成功集合大体并不嵌套——深度不止决定花多少算力，也决定能触达哪些候选解。据此提出的深度组合分配（DPA）把循环式测试时扩展视为在多个深度候选源之间分配预算；在候选数与成本对齐的条件下，混合深度组合在 GSM8K、SVAMP、MultiArith 与 MBPP 上扩大了 oracle 覆盖率。"
+      },
+      "paper": "https://arxiv.org/abs/2611.12293"
+    },
+    {
+      "id": "2611.13378",
+      "date": "2026-11-09",
+      "title": "Looping Deeper Without Growing the KV Cache: Recurrent Depth for Causal Encoder-Decoders",
+      "authors": "Jiaqi Leng, Minshen Zhang, Zhaofeng Sun et al.",
+      "venue": "arXiv 2026",
+      "category": "Systems & Applications",
+      "tags": [
+        "kv-sharing",
+        "encoder-decoder",
+        "long-context",
+        "serving"
+      ],
+      "summary": {
+        "en": "Puts the recurrence in the encoder of a causal encoder-decoder so that global KV representations are refined across rounds instead of re-read from static decoder projections, and trains the loop under stochastic recurrence depth so every round can reuse the last round KV cache. The model matches an unlooped one in memory while recovering 86-93% of a looped Transformer gain with one sixth of its global KV; looping 552B DeepSeek-V4.1-Flash eight rounds on one 4xGB200 node fits 38 requests of 128K tokens and serves 3.6x higher throughput on 8K-token prompts.",
+        "zh": "把循环放进因果编码器-解码器的编码器，让全局 KV 表示在多轮中被反复精修，而不是重复读取静态的解码器投影；并以随机循环深度训练，使每一轮都能复用上一轮的 KV 缓存。所得模型的内存占用与不循环版本相当，却以 1/6 的全局 KV 拿回循环 Transformer 86%–93% 的收益；在单台 4×GB200 上把 552B 的 DeepSeek-V4.1-Flash 循环 8 轮，可同时容纳 38 个 128K token 请求，8K token 提示上吞吐提升 3.6 倍。"
+      },
+      "paper": "https://arxiv.org/abs/2611.13378"
+    },
+    {
+      "id": "2611.14947",
+      "date": "2026-11-11",
+      "title": "One Block Is Enough: LoopMR for Accelerated MRI Reconstruction",
+      "authors": "Yimeng He, Yibin Xie, Yi Zheng et al.",
+      "venue": "arXiv 2026",
+      "category": "Looped Vision, Diffusion & Multimodal",
+      "tags": [
+        "mri-reconstruction",
+        "weight-sharing",
+        "scientific-imaging",
+        "parameter-efficiency"
+      ],
+      "summary": {
+        "en": "Tests whether weight sharing itself or the choice of block made shared-weight MRI reconstruction lag behind distinct-cascade models, by reusing a single Restormer block at every iteration of an unrolled reconstruction network. LoopMR beats E2E-VarNet, PromptMR and PromptMR+ in PSNR and SSIM at every acceleration factor on brain, knee, heart and carotid data with 10.3M parameters against 92.9M, and the shared Transformer block matches or beats its distinct-weight counterpart at 6, 12 and 24 iterations where shared CNN blocks fall behind.",
+        "zh": "检验共享权重式 MRI 重建落后于独立级联模型的原因究竟是共享本身还是模块选择：LoopMR 在展开式重建网络的每次迭代中复用同一个 Restormer 块。在脑、膝、心脏与颈动脉数据上，它在所有加速倍数下的 PSNR 与 SSIM 都优于 E2E-VarNet、PromptMR 与 PromptMR+，参数量 10.3M 对 92.9M；且在 6、12、24 次迭代时，共享的 Transformer 块能追平或超过独立权重的对应版本，而共享 CNN 块则会落后。"
+      },
+      "paper": "https://arxiv.org/abs/2611.14947"
+    },
+    {
+      "id": "2611.16265",
+      "date": "2026-11-12",
+      "title": "Rectified Looped Transformer",
+      "authors": "Musheng Li, Jiawei Zhang, Ziyuan Liu, Yuantao Gu",
+      "venue": "arXiv 2026",
+      "category": "Architectures & Scaling",
+      "tags": [
+        "state-interpolation",
+        "feedback-stability",
+        "language-modeling",
+        "perturbation-robustness"
+      ],
+      "summary": {
+        "en": "Replaces the usual loop feedback, next input equal to this loop output, with a linear interpolation between the current state and its prediction, spreading each state change across several loops. The authors prove uniformly bounded state magnitudes and reduced worst-case perturbation amplification, and at matched depths RLT reaches lower perplexity with no extra parameters or block evaluations, which also makes extrapolating over inference depth more stable.",
+        "zh": "把循环间的反馈从“下一轮输入等于本轮输出”改成当前状态与其预测的线性插值，使每次状态变化分摊到多轮。作者证明了状态幅度一致有界、最坏情况扰动放大下降；在相同训练与推理深度下，RLT 不增加参数、不增加模块计算就取得更低困惑度，解码时的深度外推也更稳定。"
+      },
+      "paper": "https://arxiv.org/abs/2611.16265"
+    },
+    {
+      "id": "2611.17495",
+      "date": "2026-11-12",
+      "title": "An Operationalization of Opaque Serial Depth",
+      "authors": "Nathan Sheffield, Alek Westover, Lukas Finnveden et al.",
+      "venue": "arXiv 2026",
+      "category": "Safety & Monitoring",
+      "tags": [
+        "monitorability",
+        "serial-depth",
+        "chain-of-thought",
+        "evaluation"
+      ],
+      "summary": {
+        "en": "Operationalises opaque serial depth as the length of the longest computational path that avoids an interpretable bottleneck, defining natural-language-rooted nodes so the measure can be read off an architecture, training recipe and deployment config before training and stays insensitive to prompting, distillation and RL. Across open-weight models NLS depth tracks layer count closely and has grown slowly, while latent-reasoning designs such as full-bandwidth Transformers could raise it sharply, which makes it a reportable complement to direct CoT-monitorability measurements.",
+        "zh": "把“不透明串行深度”操作化为一条不经过可解释瓶颈的最长计算路径长度，并给出“以自然语言为根”的节点定义，使该指标可在训练前仅凭架构、训练方案与部署配置判定，且对提示、蒸馏与强化学习不敏感。在开源权重模型上，NLS 深度与层数高度相关且近年增长缓慢；而全带宽 Transformer 这类潜在推理架构可能大幅抬高它，因此作者建议把它作为 CoT 可监控性直接测量的补充指标加以报告。"
+      },
+      "paper": "https://arxiv.org/abs/2611.17495"
+    },
+    {
+      "id": "2611.19446",
+      "date": "2026-11-14",
+      "title": "Architectures and KV Replay for Depth-Recurrent Language Models",
+      "authors": "Lucia Licakova, Niklas Schmidinger, Lukas Hauzenberger, Sebastian Böck, Sepp Hochreiter",
+      "venue": "NeurIPS 2026 LIGHT Workshop",
+      "category": "Architectures & Scaling",
+      "tags": [
+        "kv-sharing",
+        "looped-hybrid",
+        "attention-anchors",
+        "long-context"
+      ],
+      "summary": {
+        "en": "Compares ways of cutting loop-time KV memory inside one depth-recurrent framework: repeating a stack whose attention layers are mostly replaced by mLSTM or Gated DeltaNet blocks with periodic attention anchors kept, restricting recurrence to a dedicated workspace, and recurrent KV replay, where only selected iterations write KV states that later iterations reuse. Attention anchors must be frequent enough, and training the loop under the shared KV topology used at inference keeps quality close to a looped Transformer that caches every iteration separately.",
+        "zh": "在统一的深度循环框架下比较三类降低循环 KV 开销的做法：用 mLSTM 或 Gated DeltaNet 替换大部分注意力层并保留周期性注意力锚点的循环混合结构、把循环限制在专用工作区，以及“循环 KV 回放”——只让部分迭代写入 KV 供后续迭代复用。实验表明注意力锚点必须足够频繁，且在推理所用的共享 KV 拓扑下训练，回放方案的质量接近每轮独立缓存的循环 Transformer。"
+      },
+      "paper": "https://arxiv.org/abs/2611.19446"
+    },
+    {
+      "id": "2611.19649",
+      "date": "2026-11-14",
+      "title": "LoopFill: Pipelined Multi-Token Speculative Decoding for Looped Transformers",
+      "authors": "Siqi Zhu, Suozhi Huang, Yi Zhao, Jiaxuan You",
+      "venue": "arXiv 2026",
+      "category": "Systems & Applications",
+      "tags": [
+        "self-speculative-decoding",
+        "draft-tree",
+        "decoding-latency",
+        "pipelining"
+      ],
+      "summary": {
+        "en": "Merges the two drafters that pipelined self-speculative decoding usually keeps apart: a suffix lookup can extend a shallow-loop prediction inside the same draft tree, so several future tokens enter the loop pipeline together instead of waiting for one token to reach drafting depth. Verification still runs at full depth, and across seven benchmarks LoopFill averages 5.85x over greedy decoding on Ouro-2.6B and 5.13x on Huginn-3.5B, 40% and 25% above LoopAhead.",
+        "zh": "把流水线自推测解码通常分开的两种起草器合到一棵草稿树里：后缀查表可以直接延长浅循环的预测，于是多个后续 token 能一起进入循环流水线，而不必等某个 token 达到起草深度。验证仍在满深度进行；在七个基准上，LoopFill 相对贪心解码在 Ouro-2.6B 上平均加速 5.85 倍、在 Huginn-3.5B 上 5.13 倍，分别比 LoopAhead 高 40% 与 25%。"
+      },
+      "paper": "https://arxiv.org/abs/2611.19649"
+    },
+    {
+      "id": "2611.19827",
+      "date": "2026-11-15",
+      "title": "When Does Reusing Layers Help Multimodal Embeddings?",
+      "authors": "Zhizhang Hu, Yue Zhang",
+      "venue": "arXiv 2026",
+      "category": "Looped Vision, Diffusion & Multimodal",
+      "tags": [
+        "retrieval",
+        "query-conditioning",
+        "weight-sharing",
+        "analysis"
+      ],
+      "summary": {
+        "en": "Separates what an extra loop actually contributes to universal multimodal embedding: eleven loop designs and training variants on three checkpoints of one vision-language architecture are scored on whether the extra pass is used, whether image states respond to the query, and whether those updates improve retrieval. A proof shows that an image placed before the query stays query-independent under forward-only information flow, three ways of opening a query-to-image path are compared, and on all 78 MMEB-V2 datasets a naive added loop loses 0.46 points while recurrence-aware pretraining gains 4.23.",
+        "zh": "拆解额外一次循环在多模态通用嵌入中究竟贡献了什么：作者在同一视觉语言架构的三个检查点上考察十一种循环设计与训练变体，分别判断额外一轮是否被使用、图像状态是否响应查询、以及这些更新是否真的改善检索。论文证明在仅前向传播时置于查询之前的图像保持查询无关，并比较了三种打通“查询到图像”通路的做法；在 MMEB-V2 全部 78 个数据集上，简单增加一轮会掉 0.46 分，而带循环的预训练则提升 4.23 分。"
+      },
+      "paper": "https://arxiv.org/abs/2611.19827"
+    },
+    {
+      "id": "2611.20404",
+      "date": "2026-11-16",
+      "title": "Latent Feedback Is a Compute and Data Amplifier",
+      "authors": "Benhao Huang, Chaitanya Dwivedi, Xuezhe Ma, Alexander Moreno, Hector Liu",
+      "venue": "arXiv 2026",
+      "category": "Training & Analysis",
+      "tags": [
+        "latent-feedback",
+        "scaling-law",
+        "data-efficiency",
+        "training-compute"
+      ],
+      "summary": {
+        "en": "Tests latent feedback, which feeds the top-layer state of one token into the next token input, against a vanilla Transformer that spends the same compute on extra epochs, across a grid of model sizes, unique data and repetitions. Latent feedback makes every FLOP and every token count for more except when unique data is scarce relative to model size; one scaling law fitted from 60M to 271M predicts a held-out 778M loss within 0.3%, with savings of up to 48% of compute and 47% of unique data.",
+        "zh": "在模型规模、独特数据量与重复轮数构成的网格上，把“隐反馈”（把上一 token 的顶层状态接回下一 token 输入）与“同等算力下多训几轮”的普通 Transformer 对比。除独特数据相对模型规模过少的情形外，隐反馈让每个 FLOP、每个 token 都更值钱；一条在 60M–271M 上拟合的扩展律对 778M 留出规模的损失预测误差小于 0.3%，最多节省 48% 算力与 47% 独特数据。"
+      },
+      "paper": "https://arxiv.org/abs/2611.20404"
+    },
+    {
+      "id": "2611.21608",
+      "date": "2026-11-16",
+      "title": "Latent Lattice Language Models",
+      "authors": "Shivam Duggal, Zongze Wu, William T. Freeman, Antonio Torralba, Richard Zhang, Eli Shechtman",
+      "venue": "arXiv 2026",
+      "category": "Architectures & Scaling",
+      "tags": [
+        "persistent-state",
+        "recurrent-latents",
+        "language-modeling",
+        "residual-stream"
+      ],
+      "summary": {
+        "en": "Instead of adding depth or more latent reasoning steps, adds active computational states: per-layer horizontal latent streams that recur along time alongside the vertical residual stream, and that condition attention, KV writes, MLP computation and decoding. A 406M Lattice Transformer lowers validation perplexity from 15.41 to 14.40 on 20B FineWeb-Edu tokens, composes with hyper-connections and input residuals down to 13.61, and improves Mamba-2 and Gated DeltaNet hybrids at every tested native state size.",
+        "zh": "不增加深度或潜在推理步数，而是增加“活跃计算状态”：每层各有一条沿时间循环的横向潜在流，与纵向残差流并行，并直接参与注意力、KV 写入、MLP 计算与解码。406M 的 Lattice Transformer 在 20B FineWeb-Edu token 上把验证困惑度从 15.41 降到 14.40；与 hyper-connections 组合后进一步降到 13.61，并在各种原生状态尺寸下改善 Mamba-2 与 Gated DeltaNet 混合架构。"
+      },
+      "paper": "https://arxiv.org/abs/2611.21608"
+    },
+    {
+      "id": "2611.21921",
+      "date": "2026-11-16",
+      "title": "Latent Fact Composition under Next-Token Training",
+      "authors": "Tianyi Zhang, Feiying Chen",
+      "venue": "arXiv 2026",
+      "category": "Latent Reasoning",
+      "tags": [
+        "latent-composition",
+        "two-hop-reasoning",
+        "next-token-training",
+        "depth-recurrence"
+      ],
+      "summary": {
+        "en": "Asks whether a looped Transformer trained to predict every token can compose two facts whose intermediate entity appears in no two-hop training example: a looped, a standard and a DiscoLoop model answer almost none. The Baton family passes the intermediate entity into the second loop as a token embedding, which answers such questions almost perfectly when trained on the answer alone, and the paper reduces success and failure to three design conditions; under full next-token training accuracy rises and then declines, with the drop located in the second hop.",
+        "zh": "研究在“预测每一个 token”的训练下，循环 Transformer 能否组合两条事实，而其中间实体从未出现在任何两跳训练样本中：普通循环、标准 Transformer 与 DiscoLoop 几乎都答不出。Baton 系列把中间实体作为 token 嵌入送入第二轮循环，在只监督答案时几乎全部答对；作者把成败归结为三个设计条件。改为完整下一 token 训练后准确率会先升后降，而这种下降发生在第二跳、此时模型仍记得两条事实。"
+      },
+      "paper": "https://arxiv.org/abs/2611.21921"
+    },
+    {
+      "id": "2611.22426",
+      "date": "2026-11-17",
+      "title": "InfuseLoop: Cross-Trajectory Latent Injection for Scalable Parallel Looped Transformers",
+      "authors": "Zhaofeng Sun, Lanxiang Hu, Yu-Yang Qian et al.",
+      "venue": "arXiv 2026",
+      "category": "Architectures & Scaling",
+      "tags": [
+        "parallel-loops",
+        "cross-trajectory-injection",
+        "depth-scaling",
+        "decoding"
+      ],
+      "summary": {
+        "en": "Diagnoses why parallel looped Transformers stop improving as loops are added: each iteration only receives the state of its own trajectory, even though completed neighbouring trajectories already carry usable representations. InfuseLoop aggregates those causally available hidden states with lightweight attention residuals, removing training-loss spikes and keeping validation loss improving up to eight loops, which cuts perplexity by 3.4-17.1% against vanilla parallel loops for 0.3% extra decoding time.",
+        "zh": "解释了并行循环 Transformer 增加循环后收益递减的原因：每次迭代只拿到自己轨迹上的状态，而已完成的相邻轨迹其实已携带可用表示。InfuseLoop 用轻量注意力残差聚合这些因果可用的隐状态，消除了训练损失尖峰，使验证损失到八个循环仍在改善；相对普通并行循环，困惑度降低 3.4%–17.1%，解码时间只增加 0.3%。"
+      },
+      "paper": "https://arxiv.org/abs/2611.22426"
+    },
+    {
+      "id": "2611.22728",
+      "date": "2026-11-17",
+      "title": "LoopZip: Visual Token Compression for Efficient Looped Vision-Language Models",
+      "authors": "Weizhong Huang, Zhicheng Liu, Yan Zhang, Fei Chao, Xiawu Zheng, Liujuan Cao",
+      "venue": "arXiv 2026",
+      "category": "Looped Vision, Diffusion & Multimodal",
+      "tags": [
+        "visual-token-compression",
+        "looped-vlm",
+        "training-free",
+        "inference-efficiency"
+      ],
+      "summary": {
+        "en": "Compresses visual tokens for looped VLMs without training, because which tokens matter changes between calls of the same shared layer: a compact candidate pool is built by aggregation before the loop, selection averages instruction attention from the first two calls of a shared attention layer so tokens needed in both states survive, and a weight-tied value correction is fitted to both. On LoopVL-1B it keeps 97.16% of full performance at 50% pruning and cuts peak GPU memory by 58-59% with 2.0-2.5x end-to-end speedups across Transformers, vLLM and SGLang.",
+        "zh": "无需训练即可压缩循环 VLM 的视觉 token，因为同一个共享层的不同调用之间，重要的 token 会发生变化：先在进入循环前用聚合构建紧凑候选池，再用共享注意力层前两次调用的指令注意力均值来挑选，使两种状态都需要的 token 得以保留，并配合权重共享的值校正同时拟合两次输出。在 LoopVL-1B 上，剪掉 50% 时保留 97.16% 的完整性能，峰值显存下降 58%–59%，在 Transformers、vLLM 与 SGLang 上端到端加速 2.0–2.5 倍。"
+      },
+      "paper": "https://arxiv.org/abs/2611.22728"
+    },
+    {
+      "id": "2611.22737",
+      "date": "2026-11-17",
+      "title": "Proximal Targets: Training Looped Refiners on Problems with Many Correct Answers",
+      "authors": "Syed Affan Daimi",
+      "venue": "arXiv 2026",
+      "category": "Training & Analysis",
+      "tags": [
+        "training-targets",
+        "deep-supervision",
+        "algorithmic-reasoning",
+        "multi-solution"
+      ],
+      "summary": {
+        "en": "Shows that training every pass of a looped refiner toward one stored answer imposes a loss floor no capacity can remove when a puzzle has many correct answers, and that the minimising pass blends them into an invalid grid. The proximal target instead trains each pass toward the correct answer nearest to its own input, which makes correct answers fixed points; with the same 1.7M-parameter network it solves 98.8% of Sudoku with 2-64 answers instead of 2.5%, 93.8% of puzzles with more than 10,000 answers, and 90.9% of 200-node 3-colourings after training on at most 50 nodes.",
+        "zh": "指出当题目有大量正确解时，让循环精修网络的每一轮都逼近同一个存储答案会留下任何容量都无法消除的损失下界，使损失最小的那一轮把多个答案混合成非法网格。近端目标改为让每一轮朝距离自己输入最近的正确解训练，正确解因此成为不动点；在同一个 1.7M 参数网络下，有 2–64 个解的 Sudoku 从 2.5% 提升到 98.8%，解超过一万的题目达到 93.8%，且仅在至多 50 节点的图上训练就在 200 节点三着色上达到 90.9%。"
+      },
+      "paper": "https://arxiv.org/abs/2611.22737"
+    },
+    {
+      "id": "2611.22757",
+      "date": "2026-11-17",
+      "title": "LoopPrune: Recurrent Pruning for Looped Diffusion Transformers",
+      "authors": "Weizhong Huang, Huaijia Kou, Yan Zhang, Fei Chao, Xiawu Zheng, Liujuan Cao",
+      "venue": "arXiv 2026",
+      "category": "Looped Vision, Diffusion & Multimodal",
+      "tags": [
+        "structured-pruning",
+        "looped-dit",
+        "diffusion",
+        "compression"
+      ],
+      "summary": {
+        "en": "Prunes looped diffusion Transformers, where a training-free importance score cannot separate recurrent contributions while training-based pruning ignores position-specific errors that propagate into the inputs of later loops. LoopPrune combines shared-removal effects with position variation into a recurrent importance estimate, reconstructs shared weights from pooled recurrent input statistics, and recovers loop positions by comparing full denoising predictions at identical student states against a dense teacher, keeping quality at 30% structured pruning across four models and six benchmarks.",
+        "zh": "针对循环扩散 Transformer 的剪枝：免训练的重要性评分无法区分不同循环的贡献，而基于训练的剪枝又没有约束会传播到后续循环输入的位置相关误差。LoopPrune 把“共享移除效应”与“位置差异”合成循环重要性估计，用汇聚的循环输入统计重建共享权重，并通过在相同学生状态下比较完整去噪预测与稠密教师来恢复各循环位置；在四个模型、六个基准上以 30% 结构化剪枝保持了性能。"
+      },
+      "paper": "https://arxiv.org/abs/2611.22757"
+    },
+    {
+      "id": "2611.24001",
+      "date": "2026-11-18",
+      "title": "Rethinking Fixed-Horizon Latent Reasoning",
+      "authors": "Tianxiang Chen, Jingyuan Zhou, Weiming Yang, Kaidi Yang",
+      "venue": "arXiv 2026",
+      "category": "Adaptive Compute",
+      "tags": [
+        "latent-cot",
+        "adaptive-horizon",
+        "stopping",
+        "latent-reasoning"
+      ],
+      "summary": {
+        "en": "Shows that running latent chain-of-thought to the full preset horizon can hurt: early loops build frontier reasoning states, while later loops mainly reorganise existing candidates and can weaken support for the gold one. The paper scores latent CoT by realised versus remaining constructive progress and estimates the latter online to adjust the horizon, gaining up to 7.2 accuracy points while cutting latent compute by up to 29.0% without retraining the model.",
+        "zh": "指出把潜在 CoT 跑满预设步数反而可能变差：前段循环构建前沿推理状态，后段主要重排已有候选，甚至会削弱对正确候选的支持。作者用“已实现”与“剩余”的建设性进展来刻画潜在 CoT 的收益，并在推理时估计剩余进展以调整步数，在不重训练的情况下最多提升 7.2 个准确率点，同时减少最多 29.0% 的潜在计算。"
+      },
+      "paper": "https://arxiv.org/abs/2611.24001"
+    },
+    {
+      "id": "2611.24301",
+      "date": "2026-11-18",
+      "title": "LoopCache: Accelerating Long-Context Self-Speculative Decoding for Looped Transformers",
+      "authors": "Zizhuo Fu, Haochen Huang, Shengxuan Qiu et al.",
+      "venue": "arXiv 2026",
+      "category": "Systems & Applications",
+      "tags": [
+        "self-speculative-decoding",
+        "kv-cache",
+        "long-context",
+        "inference-latency"
+      ],
+      "summary": {
+        "en": "Targets two weaknesses of wave-style self-speculative decoding for looped Transformers: drafts fixed at a few loops go stale, and batching tokens from different loops multiplies KV traffic in long contexts. LoopCache refreshes drafts at intermediate loops using the correlation between prediction switches and output confidence, and rotates through loop-specific KV caches so each step touches one loop cache while still verifying losslessly at the nearest matching cycle, averaging 10.25x and 14.56x speedups over WaveFront Decoding and LoopSpec.",
+        "zh": "针对循环 Transformer 上波前式自推测解码的两个弱点：只在少数固定循环处起草会用到过时的预测，而把不同循环的 token 拼进同一批会在长上下文下成倍放大 KV 访问。LoopCache 依据“预测翻转与置信度相关”在中间循环动态更新草稿，并以轮转的循环专用 KV 缓存把每步 KV 流量限制在单个循环上，同时在与最近循环对齐处无损验证，相对 WaveFront Decoding 与 LoopSpec 平均加速 10.25 倍与 14.56 倍。"
+      },
+      "paper": "https://arxiv.org/abs/2611.24301"
+    },
+    {
+      "id": "2611.24576",
+      "date": "2026-11-18",
+      "title": "Late Entry in Looped Language Models",
+      "authors": "Ziqi Jin, Jiaxi Li, Weiwen Xu, Aixin Sun",
+      "venue": "arXiv 2026",
+      "category": "Adaptive Compute",
+      "tags": [
+        "decoding-schedule",
+        "kv-cache",
+        "speculative-decoding",
+        "latency"
+      ],
+      "summary": {
+        "en": "Inverts early exit: instead of halting shallow, new tokens skip the first passes and enter directly into the final K of T passes over a deep context cache, once a light fine-tune repairs the hidden-state norm mismatch at the entry boundary. Wake verification folds the finished full-depth states of earlier tokens into the existing output GEMM, so greedy-exact decoding at tau = 0 matches block decoding, and on Huginn-3.5B its speedup grows to 8.4x at T = 64.",
+        "zh": "把提前退出反过来：新 token 跳过前几轮，直接进入深上下文缓存的最后 K 轮（共 T 轮），只需轻量微调修正入口处的隐状态范数错配。Wake verification 把先前 token 已完成的满深度状态折进现有的输出 GEMM，使 tau = 0 时的贪心精确解码与整块解码一致；在 Huginn-3.5B 上，T = 64 时贪心精确的晚进入解码加速达到 8.4 倍。"
+      },
+      "paper": "https://arxiv.org/abs/2611.24576"
+    },
+    {
+      "id": "2611.25210",
+      "date": "2026-11-18",
+      "title": "Recurrent Vision Language Models Solve the Shell Game",
+      "authors": "Dingqiang Ye, Jiacong Xu, Wen Zhang, Yiqun Mei, Vishal M. Patel",
+      "venue": "arXiv 2026",
+      "category": "Looped Vision, Diffusion & Multimodal",
+      "tags": [
+        "serial-computation",
+        "temporal-recurrence",
+        "video-understanding",
+        "length-generalization"
+      ],
+      "summary": {
+        "en": "Attributes the shell-game failure of VLMs to limited serial computation, since each swap must be composed with the previous result, and makes every attention layer of a pretrained VLM recur over time by computing the keys and values of finished frame groups from the layer's own output. With a single answer token RecurrentVLM reaches 100% on VET-Bench and 99.6% on MET-Bench, holds 99% on 50-swap games after training on at most 30 swaps, and shows length generalisation that appears suddenly rather than gradually.",
+        "zh": "把 VLM 在“猜壳”任务上的失败归因于串行计算不足——每次换位都必须与上一次结果复合——于是让预训练 VLM 的每个注意力层沿时间循环：已结束帧组的 key 与 value 由该层自身的输出计算得到。只用单个答案 token，RecurrentVLM 在 VET-Bench 上达到 100%、MET-Bench 上 99.6%，仅用至多 30 次换位训练就能在 50 次换位上保持 99%，并观察到长度泛化是突然出现而非渐进提升。"
+      },
+      "paper": "https://arxiv.org/abs/2611.25210"
+    },
+    {
+      "id": "2611.25369",
+      "date": "2026-11-19",
+      "title": "Fold the Loop: Decoding-Time KV Memory for Looped Vision-Language Models",
+      "authors": "Kun Zhou, Wenmian Yang, Zhensheng Wang, Yanzeng Li, Weijia Jia",
+      "venue": "arXiv 2026",
+      "category": "Looped Vision, Diffusion & Multimodal",
+      "tags": [
+        "kv-memory",
+        "recurrent-depth",
+        "vision-language",
+        "decoding"
+      ],
+      "summary": {
+        "en": "Observes that every recurrent step of a looped VLM keeps its own copy of the same image in the KV cache, while earlier steps mainly need the final visual KV of their own module. FoldCache groups recurrent steps inside a module and lets the group share that module's final visual KV during decoding while keeping question and answer KV per step, which about halves prefix KV on LoopVL at matched accuracy and supports up to 1.7x larger batches, or 2.6x with the more aggressive variant.",
+        "zh": "观察到循环 VLM 的每一轮都会在 KV 缓存里重复保存同一张图像，而较早的轮次其实主要需要本模块最后的视觉 KV。FoldCache 在模块内把多轮分组，让组内成员在解码时共享该模块最终的视觉 KV，同时保留每轮各自的问题与答案 KV；在 LoopVL 上以相当准确率把前缀 KV 约减半，同显存下批大小提升至 1.7 倍，更激进的变体可达 2.6 倍。"
+      },
+      "paper": "https://arxiv.org/abs/2611.25369"
+    },
+    {
+      "id": "2611.25595",
+      "date": "2026-11-19",
+      "title": "LoopedWAM: Looped World Action Models for Elastic Inference",
+      "authors": "Anh Dao, Xinxin Liu, Hang Yu, Jeffrey A Chan Santiago, Yuzhang Shang",
+      "venue": "arXiv 2026",
+      "category": "Looped Vision, Diffusion & Multimodal",
+      "tags": [
+        "world-action-model",
+        "robotics",
+        "elastic-depth",
+        "parameter-efficiency"
+      ],
+      "summary": {
+        "en": "Applies the loop to a world action model: a shared six-block core is applied recurrently inside each expert, executing 30 layers of computation while storing 12 blocks, and the video and action experts run at different depths because visual features are computed once per query while action computation repeats at every sampling step. With 0.58B policy parameters and no robot pretraining, LoopedWAM reaches 96.1% on LIBERO, 91.9% on RoboTwin 2.0 and 52.2% on RoboCasaGR1 at 7.4x lower peak GPU memory than Fast-WAM, and one elastic checkpoint covers several accuracy-latency points.",
+        "zh": "把循环引入世界动作模型：每个专家内部反复使用共享的六块核心，以 12 个块的存储执行 30 层计算；由于视觉特征每次查询只算一次、动作计算每个采样步都要重复，两个专家可采用不同的深度。仅 0.58B 策略参数且未经机器人预训练，LoopedWAM 在 LIBERO 上达到 96.1%、RoboTwin 2.0 上 91.9%、RoboCasaGR1 上 52.2%，峰值显存比 Fast-WAM 低 7.4 倍；单一弹性检查点即可覆盖多个准确率-延迟工作点。"
+      },
+      "paper": "https://arxiv.org/abs/2611.25595"
+    },
+    {
+      "id": "2611.26275",
+      "date": "2026-11-19",
+      "title": "dLoop: Looped Diffusion Language Models via Recurrent Latent Refinement",
+      "authors": "Handa Li, Pengxiang Li, Mingyu Cao et al.",
+      "venue": "arXiv 2026",
+      "category": "Looped Vision, Diffusion & Multimodal",
+      "tags": [
+        "diffusion-language-model",
+        "prelude-loop-coda",
+        "latent-refinement",
+        "parallel-decoding"
+      ],
+      "summary": {
+        "en": "Restructures a pretrained diffusion language model into Prelude-Loop-Coda so an extra loop adds latent computation on the same partially masked state instead of advancing denoising, letting information at uncommitted positions keep interacting before tokens are committed. It reaches the highest or tied-highest accuracy on GSM8K, MATH, MBPP and HumanEval and beats Fast-dLLM on both accuracy and tokens per forward pass on all four, with the gains concentrated on slow, unstable trajectories.",
+        "zh": "把预训练的扩散语言模型改造为 Prelude-Loop-Coda 结构，使额外的循环在同一个部分遮蔽状态上增加潜在计算、而不是推进去噪步，从而让未提交位置的信息在提交前继续交互。它在 GSM8K、MATH、MBPP 与 HumanEval 上取得最高或并列最高的准确率，并在四项基准上于准确率和每前向 token 数两方面都优于 Fast-dLLM；机制分析显示收益集中在缓慢且不稳定的轨迹上。"
+      },
+      "paper": "https://arxiv.org/abs/2611.26275"
+    },
+    {
+      "id": "2611.26752",
+      "date": "2026-11-19",
+      "title": "Depth-Linked Residual Tokens for Multimodal Retrieval and Generation",
+      "authors": "Jiangfan Zhang, Wentao Bao, Xian Wu et al.",
+      "venue": "arXiv 2026",
+      "category": "Looped Vision, Diffusion & Multimodal",
+      "tags": [
+        "residual-tokens",
+        "single-pass-inference",
+        "multimodal-retrieval",
+        "depth"
+      ],
+      "summary": {
+        "en": "Keeps iterative refinement but removes sequential backbone passes: K learnable residual tokens are appended in one prefill and their hidden states are coupled by a lightweight learnable residual recurrence, so each token captures what earlier tokens missed. The authors prove strictly wider geometric directional reachability than independent learnable tokens plus a one-step descent guarantee, and DepThink matches or beats looped architectures on multimodal retrieval and generation across 2B, 8B and 30B-A3B backbones while training up to 11.9x and inferring up to 4.3x faster.",
+        "zh": "保留迭代精修但去掉串行骨干前向：在一次预填充中追加 K 个可学习残差 token，并让它们的隐状态通过轻量可学习残差递推相互耦合，使后一个 token 能捕获前一个遗漏的信息。作者证明其几何方向可达范围严格大于相互独立的可学习 token，并给出一步下降保证；在多模态检索与生成上，DepThink 在 2B、8B 与 30B-A3B 骨干上匹配或超过循环架构，训练快至 11.9 倍、推理快至 4.3 倍。"
+      },
+      "paper": "https://arxiv.org/abs/2611.26752"
+    },
+    {
+      "id": "2611.27610",
+      "date": "2026-11-20",
+      "title": "Circular Predictive Coding Unlocks Effective Depth",
+      "authors": "Tommaso Salvatori, Matteo Forasassi",
+      "venue": "arXiv 2026",
+      "category": "Foundations & Theory",
+      "tags": [
+        "predictive-coding",
+        "deep-equilibrium",
+        "fixed-point",
+        "energy-minimization"
+      ],
+      "summary": {
+        "en": "Argues that predictive coding stops scaling because its depth comes from stacked layers, and replaces stacking with circular networks whose depth comes from energy minimisation: convergence to an equilibrium of the circular energy is proved to approximate the fixed-point iteration of a deep equilibrium model. Circular models beat same-size predictive coding networks on image classification with far fewer parameters, reach 99.3% on Sudoku-hard through nested energy loops, and train a circular Transformer on TinyStories and WikiText-103.",
+        "zh": "指出预测编码难以随深度扩展的根源在于深度来自堆叠层，于是用“循环网络”取代堆叠，让深度来自能量最小化：论文证明循环预测编码网络收敛到能量平衡点，等价于深度平衡模型的不动点迭代。循环模型以远少参数在同规模预测编码网络中取得更好的图像分类结果，通过嵌套能量循环在 Sudoku-hard 上达到 99.3%，并在 TinyStories 与 WikiText-103 上训练了循环 Transformer。"
+      },
+      "paper": "https://arxiv.org/abs/2611.27610"
+    },
+    {
+      "id": "2611.27962",
+      "date": "2026-11-20",
+      "title": "Model Carving: Training Transformers That Optimize Their Own Topology",
+      "authors": "Kaden Zheng, Pratyusha Sharma",
+      "venue": "arXiv 2026",
+      "category": "Architectures & Scaling",
+      "tags": [
+        "learned-topology",
+        "structured-pruning",
+        "pretraining",
+        "scaling"
+      ],
+      "summary": {
+        "en": "Learns architecture and weights in a single pretraining run: a learnable scalar gate on every attention and MLP sublayer lets the training loss delete the model's own components, exposing a smaller heterogeneous network inside. At equal training compute, carved Transformers from 140M to 2.7B and looped Transformers from 140M to 1.3B reach lower validation loss than dense models given up to 1.7x more compute, and beat size-matched pruning or distillation with up to 34% fewer FLOPs per token.",
+        "zh": "在单次预训练中同时学习架构与权重：为每个注意力与 MLP 子层配一个可学习标量门，让训练损失自行删除模型组件，从而在大模型中显露出更小的异构网络。在等训练算力下，140M–2.7B 的普通 Transformer 与 140M–1.3B 的循环 Transformer 都取得比多 1.7 倍算力的稠密模型更低的验证损失，并优于同规模的剪枝或蒸馏模型，每 token FLOPs 最多降低 34%。"
+      },
+      "paper": "https://arxiv.org/abs/2611.27962"
     }
   ]
 }
