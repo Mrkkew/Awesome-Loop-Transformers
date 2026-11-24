@@ -1673,7 +1673,7 @@
     title = {Awesome Loop Transformers},
     author = {Yulin Li},
     year = {2026},
-    howpublished = {\url{https://github.com/Mrkkew/Awesome-Loop-Transformers}},
+    url = {https://github.com/Mrkkew/Awesome-Loop-Transformers},
 }
 ```
 
