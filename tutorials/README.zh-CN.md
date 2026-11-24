@@ -7,8 +7,8 @@
 Transformer。中间你会自己训练这个循环，量出多循环到底买到了什么，看到它想多了反而变差，也会认出
 那些让共享块不炸掉的工程细节。
 
-- **成本：** 只用 CPU，训练总计约一分钟，不需要下载数据，不需要 GPU。
-- **代码：** 约 150 行手写的 PyTorch，专为这份教程而写。
+- **成本：** 只用 CPU，训练总计约一分钟，不需要下载数据集，不需要 GPU。
+- **代码：** 约 370 行手写的 PyTorch 与 matplotlib，其中模型与训练循环约 200 行。
 - **Notebook：** [中文](loop-transformers.zh-CN.ipynb) · [English](loop-transformers.ipynb)
 
 ## 章节

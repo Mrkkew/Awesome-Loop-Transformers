@@ -45,11 +45,11 @@ const intro = {
     essentialHeaders: ['Paper / model', 'Research question'],
     catalogHint: 'Choose a topic below, then expand a year. Papers are ordered newest first within each group. For title, author, or model search, use the [interactive catalog](' + site + '/#catalog).',
     tutorialTitle: 'Hands-on tutorial',
-    tutorialIntro: `Everything below describes the literature. [\`tutorials/\`](tutorials/) lets you run it: a seven-chapter notebook that builds a looped Transformer out of one block, trains it on a task whose difficulty *is* the number of sequential steps, measures what extra passes buy and where they hurt, adds an ACT halting head, and finishes by reading the source of [OpenMythos](https://github.com/kyegomez/OpenMythos). CPU only, about a minute of training, no downloads.`,
+    tutorialIntro: `Everything below describes the literature. [\`tutorials/\`](tutorials/) lets you run a small version of it: a seven-chapter notebook that builds a looped Transformer out of a single block. It trains on a task whose difficulty *is* the number of sequential steps, measures what extra passes buy and where they hurt, adds an ACT halting head, and finishes by reading the source of [OpenMythos](https://github.com/kyegomez/OpenMythos). CPU only, about a minute of training, no dataset to download.`,
     tutorialResults: [
       'Parameters stay flat while effective depth grows: 205,255 for the looped model at any number of passes, versus 402,951 for a fixed stack at depth 8.',
-      'Accuracy follows `min(T, k)` and then *degrades* with extra passes: `k = 1` scores 1.00 at `T = 1` and 0.15 at `T = 6`, because the loop keeps rewriting an answer it already has.',
-      'A halting head spends 1.4 / 2.5 / 3.7 / 5.4 loops for `k = 1…4` instead of a fixed 6, and keeps 1.00 / 0.99 / 1.00 / 0.94 accuracy.',
+      'Accuracy follows `min(T, k)` and then *degrades* with extra passes: `k = 1` scores 1.00 at `T = 1` and 0.15 at `T = 6` — extra passes reopen a state that already holds the answer.',
+      'A halting head spends 1.4 / 2.5 / 3.7 / 5.4 loops for `k = 1…4` — 3.25 on average against a fixed four — at 0.98 mean accuracy, where four passes score 0.78.',
     ],
     tutorialHeaders: ['Notebook', 'Language', 'Run it'],
     tutorialRows: [
@@ -102,11 +102,11 @@ const intro = {
     essentialHeaders: ['论文 / 模型', '研究问题'],
     catalogHint: '先选择研究方向，再展开年份；各组按首次公开日期倒序排列。如需搜索标题、作者或模型，请使用[交互式目录](' + site + '/#catalog)。',
     tutorialTitle: '动手教程',
-    tutorialIntro: `上面的内容都在讲文献，[\`tutorials/\`](tutorials/) 让你亲手跑一遍：一份七章 notebook，用单个 block 搭出循环 Transformer，在一个"难度恰好等于串行步数"的任务上训练它，量出多循环买到了什么、又在哪开始变差，加上 ACT 停机头，最后读 [OpenMythos](https://github.com/kyegomez/OpenMythos) 的源码。只用 CPU，训练约一分钟，无需下载数据。`,
+    tutorialIntro: `上面的内容都在讲文献，[\`tutorials/\`](tutorials/) 让你亲手跑一个小号的版本：一份七章 notebook，用单个 block 搭出循环 Transformer。它在一个"难度恰好等于串行步数"的任务上训练这个循环，量出多循环买到了什么、又在哪开始变差，再加上一个 ACT 停机头，最后读 [OpenMythos](https://github.com/kyegomez/OpenMythos) 的源码。只用 CPU，训练约一分钟，不需要下载数据集。`,
     tutorialResults: [
       '参数不随深度增长：循环模型恒为 205,255，而固定深度 8 层需要 402,951。',
-      '准确率大体跟着 `min(T, k)` 走，多跑反而*下降*：`k = 1` 在 `T = 1` 时是 1.00，`T = 6` 时掉到 0.15——循环会反复改写一个它已经有的答案。',
-      '停机头在 `k = 1…4` 上分别只花 1.4 / 2.5 / 3.7 / 5.4 次循环（固定预算为 6），准确率保持 1.00 / 0.99 / 1.00 / 0.94。',
+      '准确率大体跟着 `min(T, k)` 走，多跑反而*下降*：`k = 1` 在 `T = 1` 时是 1.00，`T = 6` 时掉到 0.15——多出来的循环会重新打开一个已经装着答案的状态。',
+      '停机头在 `k = 1…4` 上分别花 1.4 / 2.5 / 3.7 / 5.4 次循环，平均 3.25 次（固定四次为 4.0），平均准确率 0.98，而固定四次是 0.78。',
     ],
     tutorialHeaders: ['Notebook', '语言', '直接运行'],
     tutorialRows: [

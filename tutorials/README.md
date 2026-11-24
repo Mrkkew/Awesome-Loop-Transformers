@@ -10,8 +10,9 @@ recurrent-depth Transformer. In between you train the loop yourself, measure wha
 extra passes buy, watch the model overthink, and see which engineering details keep
 a shared block from exploding.
 
-- **Cost:** CPU only, about a minute of training in total, no downloads, no GPU.
-- **Code:** about 150 lines of plain PyTorch, written for this tutorial.
+- **Cost:** CPU only, about a minute of training in total, no dataset to download, no GPU.
+- **Code:** about 370 lines of plain PyTorch and matplotlib, roughly 200 of them the model
+  and its training loop.
 - **Notebooks:** [English](loop-transformers.ipynb) · [简体中文](loop-transformers.zh-CN.ipynb)
 
 ## Chapters

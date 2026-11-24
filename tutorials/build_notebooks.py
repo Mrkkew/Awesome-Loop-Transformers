@@ -65,10 +65,11 @@ stop helping, and recognised the engineering that makes the idea survive contact
 with a real training run.
 
 **What you need:** a laptop. Every cell runs on CPU in a few seconds, the task is
-synthetic, and the only dependency is PyTorch.
+synthetic, and the only dependencies are PyTorch and matplotlib.
 
-**How to read it:** the code is deliberately small (about 150 lines in total, no
-framework). Read the prose, run the cell, then look at the figure. Each chapter
+**How to read it:** the code is deliberately small (about 370 lines in total,
+roughly 200 of which are the model and its training loop; no framework). Read the
+prose, run the cell, then look at the figure. Each chapter
 ends with a pointer into the companion paper list,
 [Awesome-Loop-Transformers](https://github.com/Mrkkew/Awesome-Loop-Transformers),
 so you can go from the toy to the literature.
@@ -95,9 +96,11 @@ and is imported, never copied.*""",
 Transformer。读完之后，你会亲手训练一个循环模型，量出"多循环"到底买到了什么，看到它在什么
 地方停止起作用，并认出那些让这个想法在真实训练中活下来的工程细节。
 
-**你需要什么：** 一台笔记本。每个 cell 都在 CPU 上几秒钟跑完，任务是合成的，唯一依赖是 PyTorch。
+**你需要什么：** 一台笔记本。每个 cell 都在 CPU 上几秒钟跑完，任务是合成的，依赖只有 PyTorch 和
+matplotlib。
 
-**怎么读：** 代码刻意写得极小（总共约 150 行，不用任何框架）。先读文字，再运行，然后看图。
+**怎么读：** 代码刻意写得极小（总共约 370 行，其中模型与训练循环约 200 行，不用任何框架）。先读
+文字，再运行，然后看图。
 每章末尾都会指向配套论文列表
 [Awesome-Loop-Transformers](https://github.com/Mrkkew/Awesome-Loop-Transformers)
 里的相应分组，方便你从玩具走向文献。
@@ -950,7 +953,8 @@ Three things to be precise about:
 md(
     """## 5. The same thing, engineered
 
-Everything above is ~150 lines. [OpenMythos](https://github.com/kyegomez/OpenMythos)
+Everything above is ~370 lines, about 200 of them the model itself.
+[OpenMythos](https://github.com/kyegomez/OpenMythos)
 is the same idea with the parts a real training run needs: GQA/MLA attention,
 fine-grained MoE with shared experts, per-pass LoRA, ACT, and a loop index that is
 concatenated rather than added.
@@ -968,7 +972,8 @@ concatenated rather than added.
 Install it and run the real thing at a size your laptop survives.""",
     """## 5. 同一件事，被工程化之后
 
-上面所有代码大约 150 行。[OpenMythos](https://github.com/kyegomez/OpenMythos) 是同一个想法，
+上面所有代码大约 370 行，其中模型本身约 200 行。
+[OpenMythos](https://github.com/kyegomez/OpenMythos) 是同一个想法，
 加上一次真实训练需要的东西：GQA/MLA attention、带共享专家的细粒度 MoE、逐次循环的 LoRA、ACT，
 以及用正弦编码（加到前 `dim // 8` 个通道）实现的 loop index。
 

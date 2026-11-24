@@ -33,11 +33,11 @@
 
 ## Hands-on tutorial
 
-Everything below describes the literature. [`tutorials/`](tutorials/) lets you run it: a seven-chapter notebook that builds a looped Transformer out of one block, trains it on a task whose difficulty *is* the number of sequential steps, measures what extra passes buy and where they hurt, adds an ACT halting head, and finishes by reading the source of [OpenMythos](https://github.com/kyegomez/OpenMythos). CPU only, about a minute of training, no downloads.
+Everything below describes the literature. [`tutorials/`](tutorials/) lets you run a small version of it: a seven-chapter notebook that builds a looped Transformer out of a single block. It trains on a task whose difficulty *is* the number of sequential steps, measures what extra passes buy and where they hurt, adds an ACT halting head, and finishes by reading the source of [OpenMythos](https://github.com/kyegomez/OpenMythos). CPU only, about a minute of training, no dataset to download.
 
 - Parameters stay flat while effective depth grows: 205,255 for the looped model at any number of passes, versus 402,951 for a fixed stack at depth 8.
-- Accuracy follows `min(T, k)` and then *degrades* with extra passes: `k = 1` scores 1.00 at `T = 1` and 0.15 at `T = 6`, because the loop keeps rewriting an answer it already has.
-- A halting head spends 1.4 / 2.5 / 3.7 / 5.4 loops for `k = 1…4` instead of a fixed 6, and keeps 1.00 / 0.99 / 1.00 / 0.94 accuracy.
+- Accuracy follows `min(T, k)` and then *degrades* with extra passes: `k = 1` scores 1.00 at `T = 1` and 0.15 at `T = 6` — extra passes reopen a state that already holds the answer.
+- A halting head spends 1.4 / 2.5 / 3.7 / 5.4 loops for `k = 1…4` — 3.25 on average against a fixed four — at 0.98 mean accuracy, where four passes score 0.78.
 
 | Notebook | Language | Run it |
 | --- | :---: | :--- |
