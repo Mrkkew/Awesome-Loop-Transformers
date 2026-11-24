@@ -149,7 +149,7 @@ function render(lang) {
   const broaderCount = papers.filter((paper) => Number(paper.date.slice(0, 4)) >= 2024 && paper.category === 'Broader Latent Reasoning').length;
   const badge = (alt, src, href) => `<a href="${href}"><img alt="${alt}" src="${src}"></a>`;
   const badges = [
-    badge('GitHub stars', 'https://img.shields.io/github/stars/Mrkkew/Awesome-Loop-Transformers?style=flat-square&labelColor=080b18&color=d8ff55', `${repo}/stargazers`),
+    badge('GitHub stars', 'https://img.shields.io/github/stars/Mrkkew/Awesome-Loop-Transformers?style=flat-square&labelColor=080b18&color=d8ff55', repo),
     badge('Papers in the full catalog', `https://img.shields.io/badge/papers-${papers.length}-5df2ff?style=flat-square&labelColor=080b18`, '#complete-catalog'),
     badge('Data and build', 'https://img.shields.io/github/actions/workflow/status/Mrkkew/Awesome-Loop-Transformers/ci.yml?style=flat-square&label=build&labelColor=080b18', `${repo}/actions/workflows/ci.yml`),
     badge('License: CC BY 4.0', 'https://img.shields.io/badge/license-CC%20BY%204.0-a78bfa?style=flat-square&labelColor=080b18', 'LICENSE'),
