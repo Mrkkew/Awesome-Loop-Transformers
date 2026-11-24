@@ -8,7 +8,7 @@ const intro = {
   en: {
     language: '<strong>English</strong>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="README.zh-CN.md">简体中文</a>',
     tagline: 'Looped Transformers, latent reasoning, and test-time compute.<br>A bilingual reading guide with papers, official code, and research summaries.',
-    nav: [['🧭 Start here', 'start-here'], ['📌 Essential reading', 'essential-reading'], ['📚 Full catalog', 'complete-catalog'], ['🤝 Contribute', 'contributing']],
+    nav: [['🧭 Start here', 'start-here'], ['🧪 Tutorial', 'tutorial'], ['📌 Essential reading', 'essential-reading'], ['📚 Full catalog', 'complete-catalog'], ['🤝 Contribute', 'contributing']],
     trackHeader: 'Track', countHeader: 'Works', focusHeader: 'What it covers',
     scopeTitle: 'What this list covers',
     scope: '**Looped Transformers:** models that reuse a learned Transformer layer, block, or stack through depth within a forward pass, alongside related theory, training, systems, and applications.\n\n**Broader latent reasoning:** selected work on continuous thoughts, implicit CoT, and recursive reasoning, including Coconut, HRM, and TRM. These methods need not use a looped Transformer and are listed separately.',
@@ -44,12 +44,28 @@ const intro = {
     essentialIntro: 'Eight entry points, from shared-depth architectures to latent reasoning. Short names link to the original papers; this is a reading selection, not a ranking.',
     essentialHeaders: ['Paper / model', 'Research question'],
     catalogHint: 'Choose a topic below, then expand a year. Papers are ordered newest first within each group. For title, author, or model search, use the [interactive catalog](' + site + '/#catalog).',
+    tutorialTitle: 'Hands-on tutorial',
+    tutorialIntro: `Everything below describes the literature. [\`tutorials/\`](tutorials/) lets you run it: a seven-chapter notebook that builds a looped Transformer out of one block, trains it on a task whose difficulty *is* the number of sequential steps, measures what extra passes buy and where they hurt, adds an ACT halting head, and finishes by reading the source of [OpenMythos](https://github.com/kyegomez/OpenMythos). CPU only, about a minute of training, no downloads.`,
+    tutorialResults: [
+      'Parameters stay flat while effective depth grows: 205,255 for the looped model at any number of passes, versus 402,951 for a fixed stack at depth 8.',
+      'Accuracy follows `min(T, k)` and then *degrades* with extra passes: `k = 1` scores 1.00 at `T = 1` and 0.15 at `T = 6`, because the loop keeps rewriting an answer it already has.',
+      'A halting head spends 1.4 / 2.5 / 3.7 / 5.4 loops for `k = 1…4` instead of a fixed 6, and keeps 1.00 / 0.99 / 1.00 / 0.94 accuracy.',
+    ],
+    tutorialHeaders: ['Notebook', 'Language', 'Run it'],
+    tutorialRows: [
+      ['loop-transformers.ipynb', 'English', 'loop-transformers.ipynb'],
+      ['loop-transformers.zh-CN.ipynb', '简体中文', 'loop-transformers.zh-CN.ipynb'],
+    ],
+    projectsTitle: 'Related projects',
+    projects: [
+      '**[OpenMythos](https://github.com/kyegomez/OpenMythos)** — a readable recurrent-depth Transformer in PyTorch: Prelude → shared `RecurrentBlock` → Coda, with LTI-stable state injection, per-pass LoRA, ACT halting, switchable MLA/GQA and fine-grained MoE. Chapter 5 of the tutorial reads its source line by line.',
+    ],
     back: '↑ Back to catalog',
   },
   zh: {
     language: '<strong>简体中文</strong>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="README.md">English</a>',
     tagline: '循环 Transformer、潜在推理与测试时计算。<br>汇集论文原文、官方代码与中英文概述，梳理研究进展。',
-    nav: [['🧭 阅读路线', 'start-here'], ['📌 推荐阅读', 'essential-reading'], ['📚 完整目录', 'complete-catalog'], ['🤝 参与贡献', 'contributing']],
+    nav: [['🧭 阅读路线', 'start-here'], ['🧪 动手教程', 'tutorial'], ['📌 推荐阅读', 'essential-reading'], ['📚 完整目录', 'complete-catalog'], ['🤝 参与贡献', 'contributing']],
     trackHeader: '方向', countHeader: '数量', focusHeader: '关注问题',
     scopeTitle: '收录范围',
     scope: '**循环 Transformer：**在一次前向计算中沿深度复用 Transformer 层、模块或层栈的模型，以及相关的理论、训练、系统与应用研究。\n\n**广义潜在推理：**连续思维、隐式 CoT 与递归推理等方向的代表性工作，包括 Coconut、HRM 和 TRM。这些方法不一定采用循环 Transformer，因此单独分类。',
@@ -85,6 +101,22 @@ const intro = {
     essentialIntro: '从共享深度架构到潜在推理，以下八项工作可作为阅读起点。简称链接至论文原文，排列不代表评价高低。',
     essentialHeaders: ['论文 / 模型', '研究问题'],
     catalogHint: '先选择研究方向，再展开年份；各组按首次公开日期倒序排列。如需搜索标题、作者或模型，请使用[交互式目录](' + site + '/#catalog)。',
+    tutorialTitle: '动手教程',
+    tutorialIntro: `上面的内容都在讲文献，[\`tutorials/\`](tutorials/) 让你亲手跑一遍：一份七章 notebook，用单个 block 搭出循环 Transformer，在一个"难度恰好等于串行步数"的任务上训练它，量出多循环买到了什么、又在哪开始变差，加上 ACT 停机头，最后读 [OpenMythos](https://github.com/kyegomez/OpenMythos) 的源码。只用 CPU，训练约一分钟，无需下载数据。`,
+    tutorialResults: [
+      '参数不随深度增长：循环模型恒为 205,255，而固定深度 8 层需要 402,951。',
+      '准确率大体跟着 `min(T, k)` 走，多跑反而*下降*：`k = 1` 在 `T = 1` 时是 1.00，`T = 6` 时掉到 0.15——循环会反复改写一个它已经有的答案。',
+      '停机头在 `k = 1…4` 上分别只花 1.4 / 2.5 / 3.7 / 5.4 次循环（固定预算为 6），准确率保持 1.00 / 0.99 / 1.00 / 0.94。',
+    ],
+    tutorialHeaders: ['Notebook', '语言', '直接运行'],
+    tutorialRows: [
+      ['loop-transformers.ipynb', 'English', 'loop-transformers.ipynb'],
+      ['loop-transformers.zh-CN.ipynb', '简体中文', 'loop-transformers.zh-CN.ipynb'],
+    ],
+    projectsTitle: '相关项目',
+    projects: [
+      '**[OpenMythos](https://github.com/kyegomez/OpenMythos)** —— 用 PyTorch 写成的、可读性很好的递归深度 Transformer：Prelude → 共享 `RecurrentBlock` → Coda，配 LTI 稳定注入、逐次循环 LoRA、ACT 停机、可切换的 MLA/GQA 与细粒度 MoE。教程第 5 章逐行读它的源码。',
+    ],
     back: '↑ 返回目录',
   },
 };
@@ -141,6 +173,10 @@ function render(lang) {
     lang === 'en'
       ? '→ [Compare the mechanisms and learn what to measure](docs/reading-guide.md): recurrent depth, continuous thoughts, routing, and parallel loops.'
       : '→ [方法对照与阅读要点](docs/reading-guide.zh-CN.md)：辨析循环深度、连续思维、路由与并行循环，并了解如何比较实验结果。', '',
+    ...section(t.tutorialTitle, 'tutorial'), t.tutorialIntro, '',
+    ...t.tutorialResults.map((item) => `- ${item}`), '',
+    `| ${t.tutorialHeaders.join(' | ')} |`, '| --- | :---: | :--- |',
+    ...t.tutorialRows.map(([, language, file]) => `| [\`${file}\`](tutorials/${file}) | ${language} | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Mrkkew/Awesome-Loop-Transformers/blob/main/tutorials/${file}) |`), '',
     ...section(t.essentials, 'essential-reading'), t.essentialIntro, '',
     `| ${t.essentialHeaders.join(' | ')} |`, '| --- | --- |',
     ...readingSelection.map(([id, name, en, zh]) => {
@@ -180,7 +216,7 @@ function render(lang) {
   const dataLinks = lang === 'en'
     ? 'Data source: [lib/papers.ts](lib/papers.ts) · Machine-readable export: [data/papers.json](data/papers.json) · [Citation](CITATION.cff)'
     : '数据源：[lib/papers.ts](lib/papers.ts) · 机器可读数据：[data/papers.json](data/papers.json) · [引用信息](CITATION.cff)';
-  out.push(`## ${t.methodTitle}`, '', ...t.method.map((item) => `- ${item}`), '', ...section(t.contributeTitle, 'contributing'), t.contribute, '', '---', '', `CC BY 4.0 · Maintained by [Yulin Li](${repo}) · ${dataLinks}`, '');
+  out.push(`## ${t.methodTitle}`, '', ...t.method.map((item) => `- ${item}`), '', `## ${t.projectsTitle}`, '', ...t.projects.map((item) => `- ${item}`), '', ...section(t.contributeTitle, 'contributing'), t.contribute, '', '---', '', `CC BY 4.0 · Maintained by [Yulin Li](${repo}) · ${dataLinks}`, '');
   return out.join('\n');
 }
 

@@ -38,3 +38,6 @@ next-env.d.ts
 /work/
 /.playwright-cli/
 /output/playwright/
+
+# typescript incremental build info
+*.tsbuildinfo

@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useMemo, useState } from 'react';
 import { categories, categoryZh, lastUpdated, papers, type Category, type Lang } from '../lib/papers';
 
+const notebookUrl = (lang: Lang) => `https://github.com/Mrkkew/Awesome-Loop-Transformers/blob/main/tutorials/loop-transformers${lang === 'zh' ? '.zh-CN' : ''}.ipynb`;
 const githubUrl = 'https://github.com/Mrkkew/Awesome-Loop-Transformers';
 
 const copy = {
@@ -12,6 +13,11 @@ const copy = {
     headlineA: 'The research map', headlineB: 'for models that', headlineC: 'think in loops.',
     dek: 'A bilingual survey of looped and recurrent-depth Transformers, with a separate track for related latent-reasoning methods.',
     star: 'Star on GitHub', proof: 'Primary papers, official code, and concise original summaries in one place.',
+    tutorial: 'Start here · Hands-on', tutorialTitle: 'Build one loop. Then read the real thing.',
+    tutorialText: 'A seven-chapter notebook takes a single block to OpenMythos: train the loop, measure what extra passes buy, watch the model overthink, and see which details keep a shared block stable.',
+    tutorialCta: 'Start the tutorial', tutorialFiles: 'Browse tutorials/',
+    tutorialSteps: [['01', 'Loop it', 'One block, applied T times: a fixed stack pays one block per step, the loop pays nothing.'], ['02', 'Break it', 'Accurate at min(T, k), worse past it. A halting head learns to stop near k instead.'], ['03', 'Read it', 'OpenMythos source: LTI-stable injection, per-pass LoRA, ACT halting, MLA/GQA.'],],
+    tutorialStats: [['205,255', 'parameters at any depth'], ['1.2×', 'fewer loops with ACT'], ['~1 min', 'CPU, no downloads'],],
     papers: 'works catalogued', recent: 'from 2024 onward', tracks: 'research tracks', languages: 'languages',
     visualTitle: 'Repeated computation, shared parameters.', visualCaption: 'The same learned block refines a latent state across repeated passes.',
     input: 'Input tokens', shared: 'Shared core', refine: 'Refine × N', output: 'Output',
@@ -40,6 +46,11 @@ const copy = {
     headlineA: '循环模型研究，', headlineB: '从这里', headlineC: '开始。',
     dek: '以循环与递归深度 Transformer 为核心，并单列相关的潜在推理研究。',
     star: '前往 GitHub 点 Star', proof: '聚合论文原文、官方代码与简明的中英文概述。',
+    tutorial: '从这里开始 · 动手', tutorialTitle: '先亲手搭一个循环，再读真实实现。',
+    tutorialText: '七章 notebook 从单个 block 走到 OpenMythos：训练这个循环，量出多循环买到了什么，看它想多了反而变差，也看清是哪些细节让共享块保持稳定。',
+    tutorialCta: '打开教程', tutorialFiles: '查看 tutorials/',
+    tutorialSteps: [['01', '循环起来', '一个 block 重复 T 次：固定深度栈每一步都要多一个 block，循环不用。'], ['02', '让它过头', 'min(T, k) 之内够用，超过就变差；停机头学会在 k 附近收手。'], ['03', '读源码', 'OpenMythos：LTI 稳定注入、逐次 LoRA、ACT 停机、MLA/GQA。'],],
+    tutorialStats: [['205,255', '任意深度的参数量'], ['1.2×', 'ACT 省下的循环次数'], ['约 1 分钟', 'CPU，无需下载'],],
     papers: '项收录工作', recent: '项来自 2024 年以后', tracks: '个研究方向', languages: '种语言',
     visualTitle: '共享参数，重复计算。', visualCaption: '同一学习模块在多次循环中持续更新隐状态。',
     input: '输入 token', shared: '共享核心', refine: '循环细化 × N', output: '输出',
@@ -79,6 +90,7 @@ export default function Home() {
   const [query, setQuery] = useState('');
   const [recentOnly, setRecentOnly] = useState(true);
   const t = copy[lang];
+  const tutorialUrl = notebookUrl(lang);
 
   const recentCount = papers.filter((paper) => Number(paper.date.slice(0, 4)) >= 2024).length;
   const broaderCount = papers.filter((paper) => paper.category === 'Broader Latent Reasoning').length;
@@ -95,7 +107,7 @@ export default function Home() {
     <main>
       <nav className="nav-shell">
         <a className="wordmark" href="#top"><span className="loop-mark">∞</span><span>Awesome Loop Transformers</span></a>
-        <div className="nav-links"><a href="#route">{lang === 'en' ? 'Reading route' : '阅读路线'}</a><a href="#catalog">{lang === 'en' ? 'Catalog' : '论文目录'}</a><a href="#method">{lang === 'en' ? 'Method' : '收录原则'}</a></div>
+        <div className="nav-links"><a href="#tutorial">{lang === 'en' ? 'Tutorial' : '动手教程'}</a><a href="#route">{lang === 'en' ? 'Reading route' : '阅读路线'}</a><a href="#catalog">{lang === 'en' ? 'Catalog' : '论文目录'}</a><a href="#method">{lang === 'en' ? 'Method' : '收录原则'}</a></div>
         <div className="nav-actions">
           <button className="language-pill" onClick={() => setLang(lang === 'en' ? 'zh' : 'en')} aria-label="Switch language">{lang === 'en' ? '中文' : 'EN'}</button>
           <a className="github-link" href={githubUrl} target="_blank" rel="noreferrer">★ GitHub</a>
@@ -109,7 +121,8 @@ export default function Home() {
           <p className="dek">{t.dek}</p>
           <div className="hero-actions">
             <a className="star-button" href={githubUrl} target="_blank" rel="noreferrer"><span>★</span>{t.star}<b>↗</b></a>
-            <a className="secondary-button" href="#catalog">{lang === 'en' ? `Explore ${papers.length} works` : `浏览 ${papers.length} 项工作`}<span>↓</span></a>
+            <a className="secondary-button" href={tutorialUrl} target="_blank" rel="noreferrer">{t.tutorialCta}<span>↗</span></a>
+            <a className="hero-text-link" href="#catalog">{lang === 'en' ? `or explore ${papers.length} works` : `或直接浏览 ${papers.length} 项工作`}<span>↓</span></a>
           </div>
           <p className="hero-proof">{t.proof}</p>
         </div>
@@ -130,6 +143,25 @@ export default function Home() {
         <div><strong>{categories.length}</strong><span>{t.tracks}</span></div>
         <div><strong>2</strong><span>{t.languages}</span></div>
         <a href={githubUrl} target="_blank" rel="noreferrer"><span>{lang === 'en' ? 'Follow the project' : '关注项目更新'}</span><strong>GitHub ↗</strong></a>
+      </section>
+
+      <section className="tutorial-band" id="tutorial">
+        <div className="tutorial-lead">
+          <p className="eyebrow"><span className="tutorial-dot" />{t.tutorial}</p>
+          <h2>{t.tutorialTitle}</h2>
+          <p className="tutorial-dek">{t.tutorialText}</p>
+          <div className="tutorial-actions">
+            <a className="tutorial-button" href={tutorialUrl} target="_blank" rel="noreferrer">{t.tutorialCta}<span>↗</span></a>
+            <a className="tutorial-ghost" href={`${githubUrl}/tree/main/tutorials`} target="_blank" rel="noreferrer">{t.tutorialFiles}</a>
+            <a className="tutorial-ghost" href={`https://colab.research.google.com/github/Mrkkew/Awesome-Loop-Transformers/blob/main/tutorials/loop-transformers${lang === 'zh' ? '.zh-CN' : ''}.ipynb`} target="_blank" rel="noreferrer">Colab ↗</a>
+          </div>
+          <ul className="tutorial-stats">
+            {t.tutorialStats.map(([value, label]) => <li key={label}><strong>{value}</strong><span>{label}</span></li>)}
+          </ul>
+        </div>
+        <div className="tutorial-cards">
+          {t.tutorialSteps.map(([number, title, detail]) => <article key={number}><span>{number}</span><div><h3>{title}</h3><p>{detail}</p></div></article>)}
+        </div>
       </section>
 
       <section className="thesis-section">

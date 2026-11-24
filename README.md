@@ -13,7 +13,7 @@
 
 <p align="center"><a href="https://awesome-loop-transformers.liyulin.workers.dev/#catalog"><strong>Search the interactive catalog ↗</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="https://github.com/Mrkkew/Awesome-Loop-Transformers/issues/new?template=paper-suggestion.yml">Suggest a paper</a></p>
 
-<p align="center"><a href="#start-here"><strong>🧭 Start here</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#essential-reading"><strong>📌 Essential reading</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#complete-catalog"><strong>📚 Full catalog</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#contributing"><strong>🤝 Contribute</strong></a></p>
+<p align="center"><a href="#start-here"><strong>🧭 Start here</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#tutorial"><strong>🧪 Tutorial</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#essential-reading"><strong>📌 Essential reading</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#complete-catalog"><strong>📚 Full catalog</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#contributing"><strong>🤝 Contribute</strong></a></p>
 
 <p align="center"><sub>277 papers · 9 research topics · English / 简体中文 · Last research update: 2026-11-23</sub></p>
 
@@ -28,6 +28,21 @@
 - **Explore related methods** — [Coconut](https://arxiv.org/abs/2412.06769), [HRM](https://arxiv.org/abs/2506.21734), and [TRM](https://arxiv.org/abs/2510.04871) → [broader latent reasoning](#broader-latent-reasoning).
 
 → [Compare the mechanisms and learn what to measure](docs/reading-guide.md): recurrent depth, continuous thoughts, routing, and parallel loops.
+
+<a id="tutorial"></a>
+
+## Hands-on tutorial
+
+Everything below describes the literature. [`tutorials/`](tutorials/) lets you run it: a seven-chapter notebook that builds a looped Transformer out of one block, trains it on a task whose difficulty *is* the number of sequential steps, measures what extra passes buy and where they hurt, adds an ACT halting head, and finishes by reading the source of [OpenMythos](https://github.com/kyegomez/OpenMythos). CPU only, about a minute of training, no downloads.
+
+- Parameters stay flat while effective depth grows: 205,255 for the looped model at any number of passes, versus 402,951 for a fixed stack at depth 8.
+- Accuracy follows `min(T, k)` and then *degrades* with extra passes: `k = 1` scores 1.00 at `T = 1` and 0.15 at `T = 6`, because the loop keeps rewriting an answer it already has.
+- A halting head spends 1.4 / 2.5 / 3.7 / 5.4 loops for `k = 1…4` instead of a fixed 6, and keeps 1.00 / 0.99 / 1.00 / 0.94 accuracy.
+
+| Notebook | Language | Run it |
+| --- | :---: | :--- |
+| [`loop-transformers.ipynb`](tutorials/loop-transformers.ipynb) | English | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Mrkkew/Awesome-Loop-Transformers/blob/main/tutorials/loop-transformers.ipynb) |
+| [`loop-transformers.zh-CN.ipynb`](tutorials/loop-transformers.zh-CN.ipynb) | 简体中文 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Mrkkew/Awesome-Loop-Transformers/blob/main/tutorials/loop-transformers.zh-CN.ipynb) |
 
 <a id="essential-reading"></a>
 
@@ -1636,6 +1651,10 @@ Choose a topic below, then expand a year. Papers are ordered newest first within
 - Summaries are original editorial notes, not copied abstracts.
 - The core looped/recursive-Transformer track is searched for comprehensive coverage; the much larger broader latent-reasoning track is intentionally representative.
 - Agent loops, repeated full-model API calls, and ordinary sequence recurrence without a direct latent-reasoning connection are out of core scope.
+
+## Related projects
+
+- **[OpenMythos](https://github.com/kyegomez/OpenMythos)** — a readable recurrent-depth Transformer in PyTorch: Prelude → shared `RecurrentBlock` → Coda, with LTI-stable state injection, per-pass LoRA, ACT halting, switchable MLA/GQA and fine-grained MoE. Chapter 5 of the tutorial reads its source line by line.
 
 <a id="contributing"></a>
 

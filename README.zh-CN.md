@@ -13,7 +13,7 @@
 
 <p align="center"><a href="https://awesome-loop-transformers.liyulin.workers.dev/#catalog"><strong>搜索交互式论文目录 ↗</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="https://github.com/Mrkkew/Awesome-Loop-Transformers/issues/new?template=paper-suggestion.yml">推荐论文</a></p>
 
-<p align="center"><a href="#start-here"><strong>🧭 阅读路线</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#essential-reading"><strong>📌 推荐阅读</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#complete-catalog"><strong>📚 完整目录</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#contributing"><strong>🤝 参与贡献</strong></a></p>
+<p align="center"><a href="#start-here"><strong>🧭 阅读路线</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#tutorial"><strong>🧪 动手教程</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#essential-reading"><strong>📌 推荐阅读</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#complete-catalog"><strong>📚 完整目录</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#contributing"><strong>🤝 参与贡献</strong></a></p>
 
 <p align="center"><sub>277 篇论文 · 9 个研究方向 · English / 简体中文 · 文献更新: 2026-11-23</sub></p>
 
@@ -28,6 +28,21 @@
 - **了解相关方法** — [Coconut](https://arxiv.org/abs/2412.06769)、[HRM](https://arxiv.org/abs/2506.21734)、[TRM](https://arxiv.org/abs/2510.04871) → [广义潜在推理](#broader-latent-reasoning)。
 
 → [方法对照与阅读要点](docs/reading-guide.zh-CN.md)：辨析循环深度、连续思维、路由与并行循环，并了解如何比较实验结果。
+
+<a id="tutorial"></a>
+
+## 动手教程
+
+上面的内容都在讲文献，[`tutorials/`](tutorials/) 让你亲手跑一遍：一份七章 notebook，用单个 block 搭出循环 Transformer，在一个"难度恰好等于串行步数"的任务上训练它，量出多循环买到了什么、又在哪开始变差，加上 ACT 停机头，最后读 [OpenMythos](https://github.com/kyegomez/OpenMythos) 的源码。只用 CPU，训练约一分钟，无需下载数据。
+
+- 参数不随深度增长：循环模型恒为 205,255，而固定深度 8 层需要 402,951。
+- 准确率大体跟着 `min(T, k)` 走，多跑反而*下降*：`k = 1` 在 `T = 1` 时是 1.00，`T = 6` 时掉到 0.15——循环会反复改写一个它已经有的答案。
+- 停机头在 `k = 1…4` 上分别只花 1.4 / 2.5 / 3.7 / 5.4 次循环（固定预算为 6），准确率保持 1.00 / 0.99 / 1.00 / 0.94。
+
+| Notebook | 语言 | 直接运行 |
+| --- | :---: | :--- |
+| [`loop-transformers.ipynb`](tutorials/loop-transformers.ipynb) | English | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Mrkkew/Awesome-Loop-Transformers/blob/main/tutorials/loop-transformers.ipynb) |
+| [`loop-transformers.zh-CN.ipynb`](tutorials/loop-transformers.zh-CN.ipynb) | 简体中文 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Mrkkew/Awesome-Loop-Transformers/blob/main/tutorials/loop-transformers.zh-CN.ipynb) |
 
 <a id="essential-reading"></a>
 
@@ -1636,6 +1651,10 @@
 - 短评均为原创概述，不直接复制论文摘要。
 - Loop Transformer 核心路线尽量完整；范围更大的广义潜在推理只选代表性工作。
 - Agent 工作流、重复调用完整模型的 API 流程，以及无关的普通序列循环不在核心范围内。
+
+## 相关项目
+
+- **[OpenMythos](https://github.com/kyegomez/OpenMythos)** —— 用 PyTorch 写成的、可读性很好的递归深度 Transformer：Prelude → 共享 `RecurrentBlock` → Coda，配 LTI 稳定注入、逐次循环 LoRA、ACT 停机、可切换的 MLA/GQA 与细粒度 MoE。教程第 5 章逐行读它的源码。
 
 <a id="contributing"></a>
 
