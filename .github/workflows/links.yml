@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+      # GitHub returns 404 for /stargazers, /forks and /watchers to anonymous
+      # clients, so a badge pointing at them looks dead to the checker.
       - name: Check external links
         uses: lycheeverse/lychee-action@v2
         with:
@@ -20,5 +22,6 @@ jobs:
             --accept 200,206,429
             --exclude 'img.shields.io'
             --exclude 'localhost'
+            --exclude '^https://github\.com/[^/]+/[^/]+/(stargazers|forks|watchers)(/|$)'
             README.md README.zh-CN.md CONTRIBUTING.md docs/ lib/papers.ts
           fail: true
