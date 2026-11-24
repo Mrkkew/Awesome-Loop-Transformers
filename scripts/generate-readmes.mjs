@@ -60,6 +60,16 @@ const intro = {
     projects: [
       '**[OpenMythos](https://github.com/kyegomez/OpenMythos)** — a readable recurrent-depth Transformer in PyTorch: Prelude → shared `RecurrentBlock` → Coda, with LTI-stable state injection, per-pass LoRA, ACT halting, switchable MLA/GQA and fine-grained MoE. Chapter 5 of the tutorial reads its source line by line.',
     ],
+    citationTitle: 'Citation',
+    citationIntro: 'If this list saved you time, cite the repository. The metadata below is mirrored in [CITATION.cff](CITATION.cff), which is what GitHub reads for its "Cite this repository" button.',
+    citationBibtex: `@misc{li2026awesomelooptransformers,
+    title = {Awesome Loop Transformers},
+    author = {Yulin Li and {Awesome Loop Transformers Contributors}},
+    journal = {GitHub repository},
+    url = {https://github.com/Mrkkew/Awesome-Loop-Transformers},
+    year = {2026},
+}`,
+    citationNote: 'The papers themselves belong to their authors: every entry links to its arXiv or publisher page, so cite the originals for the work you build on.',
     back: '↑ Back to catalog',
   },
   zh: {
@@ -117,6 +127,16 @@ const intro = {
     projects: [
       '**[OpenMythos](https://github.com/kyegomez/OpenMythos)** —— 用 PyTorch 写成的、可读性很好的递归深度 Transformer：Prelude → 共享 `RecurrentBlock` → Coda，配 LTI 稳定注入、逐次循环 LoRA、ACT 停机、可切换的 MLA/GQA 与细粒度 MoE。教程第 5 章逐行读它的源码。',
     ],
+    citationTitle: '引用',
+    citationIntro: '如果这份目录帮你省了时间，可以按下面的格式引用本仓库。同一份元数据也写在 [CITATION.cff](CITATION.cff) 里，GitHub 的 "Cite this repository" 按钮读的就是它。',
+    citationBibtex: `@misc{li2026awesomelooptransformers,
+    title = {Awesome Loop Transformers},
+    author = {Yulin Li and {Awesome Loop Transformers Contributors}},
+    journal = {GitHub repository},
+    url = {https://github.com/Mrkkew/Awesome-Loop-Transformers},
+    year = {2026},
+}`,
+    citationNote: '论文本身属于各自的作者：目录中每条都给出了 arXiv 或出版方链接，基于某项工作做研究时请引用原文。',
     back: '↑ 返回目录',
   },
 };
@@ -216,7 +236,7 @@ function render(lang) {
   const dataLinks = lang === 'en'
     ? 'Data source: [lib/papers.ts](lib/papers.ts) · Machine-readable export: [data/papers.json](data/papers.json) · [Citation](CITATION.cff)'
     : '数据源：[lib/papers.ts](lib/papers.ts) · 机器可读数据：[data/papers.json](data/papers.json) · [引用信息](CITATION.cff)';
-  out.push(`## ${t.methodTitle}`, '', ...t.method.map((item) => `- ${item}`), '', `## ${t.projectsTitle}`, '', ...t.projects.map((item) => `- ${item}`), '', ...section(t.contributeTitle, 'contributing'), t.contribute, '', '---', '', `CC BY 4.0 · Maintained by [Yulin Li](${repo}) · ${dataLinks}`, '');
+  out.push(`## ${t.methodTitle}`, '', ...t.method.map((item) => `- ${item}`), '', `## ${t.projectsTitle}`, '', ...t.projects.map((item) => `- ${item}`), '', ...section(t.contributeTitle, 'contributing'), t.contribute, '', ...section(t.citationTitle, 'citation'), t.citationIntro, '', '```bibtex', t.citationBibtex, '```', '', t.citationNote, '', '---', '', `CC BY 4.0 · Maintained by [Yulin Li](${repo}) · ${dataLinks}`, '');
   return out.join('\n');
 }
 

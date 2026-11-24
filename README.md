@@ -1662,6 +1662,24 @@ Choose a topic below, then expand a year. Papers are ordered newest first within
 
 Missing a paper or found an error? [Suggest a paper](https://github.com/Mrkkew/Awesome-Loop-Transformers/issues/new?template=paper-suggestion.yml), [report a correction](https://github.com/Mrkkew/Awesome-Loop-Transformers/issues/new?template=correction.yml), or open a pull request using the [contribution guide](CONTRIBUTING.md). English and Chinese contributions are both welcome.
 
+<a id="citation"></a>
+
+## Citation
+
+If this list saved you time, cite the repository. The metadata below is mirrored in [CITATION.cff](CITATION.cff), which is what GitHub reads for its "Cite this repository" button.
+
+```bibtex
+@misc{li2026awesomelooptransformers,
+    title = {Awesome Loop Transformers},
+    author = {Yulin Li and {Awesome Loop Transformers Contributors}},
+    journal = {GitHub repository},
+    url = {https://github.com/Mrkkew/Awesome-Loop-Transformers},
+    year = {2026},
+}
+```
+
+The papers themselves belong to their authors: every entry links to its arXiv or publisher page, so cite the originals for the work you build on.
+
 ---
 
 CC BY 4.0 · Maintained by [Yulin Li](https://github.com/Mrkkew/Awesome-Loop-Transformers) · Data source: [lib/papers.ts](lib/papers.ts) · Machine-readable export: [data/papers.json](data/papers.json) · [Citation](CITATION.cff)

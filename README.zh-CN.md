@@ -1662,6 +1662,24 @@
 
 欢迎[推荐论文](https://github.com/Mrkkew/Awesome-Loop-Transformers/issues/new?template=paper-suggestion.yml)、[反馈错误](https://github.com/Mrkkew/Awesome-Loop-Transformers/issues/new?template=correction.yml)，或按照[贡献指南](CONTRIBUTING.md)提交 Pull Request。中英文均可。
 
+<a id="citation"></a>
+
+## 引用
+
+如果这份目录帮你省了时间，可以按下面的格式引用本仓库。同一份元数据也写在 [CITATION.cff](CITATION.cff) 里，GitHub 的 "Cite this repository" 按钮读的就是它。
+
+```bibtex
+@misc{li2026awesomelooptransformers,
+    title = {Awesome Loop Transformers},
+    author = {Yulin Li and {Awesome Loop Transformers Contributors}},
+    journal = {GitHub repository},
+    url = {https://github.com/Mrkkew/Awesome-Loop-Transformers},
+    year = {2026},
+}
+```
+
+论文本身属于各自的作者：目录中每条都给出了 arXiv 或出版方链接，基于某项工作做研究时请引用原文。
+
 ---
 
 CC BY 4.0 · Maintained by [Yulin Li](https://github.com/Mrkkew/Awesome-Loop-Transformers) · 数据源：[lib/papers.ts](lib/papers.ts) · 机器可读数据：[data/papers.json](data/papers.json) · [引用信息](CITATION.cff)
