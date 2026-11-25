@@ -176,12 +176,12 @@ function renderSvg(points, meta, theme) {
   const dark = theme === 'dark';
   const W = 800;
   const H = 533;
-  const pad = { l: 54, r: 26, t: 58, b: 70 };
+  const pad = { l: 38, r: 30, t: 62, b: 46 };
   const bg = dark ? '#0D1117' : '#FFFFFF';
   const text = dark ? '#E6EDF3' : INK;
   const muted = dark ? '#8B949E' : '#5C6578';
-  const grid = dark ? '#1A2029' : '#F2F5FA';
-  const base = dark ? '#2A313C' : '#E4E9F2';
+  const grid = dark ? '#191F27' : '#F1F4F9';
+  const base = dark ? '#2C333E' : '#E2E7F0';
   const accent = dark ? LIME : CYAN;
 
   const x0 = pad.l;
@@ -206,7 +206,7 @@ function renderSvg(points, meta, theme) {
   const yMarks = Array.from({ length: yTicks + 1 }, (_, i) => {
     const value = yStep * i;
     return `<line x1="${x0}" y1="${sy(value).toFixed(1)}" x2="${x1}" y2="${sy(value).toFixed(1)}" stroke="${i === 0 ? base : grid}" stroke-width="1"/>
-  <text x="${x0 - 12}" y="${(sy(value) + 4).toFixed(1)}" text-anchor="end" font-size="11.5" fill="${muted}">${Math.round(value)}</text>`;
+  <text x="${x0 - 12}" y="${(sy(value) + 4).toFixed(1)}" text-anchor="end" font-size="11" fill="${muted}">${Math.round(value)}</text>`;
   }).join('\n  ');
 
   const months = [];
@@ -218,10 +218,11 @@ function renderSvg(points, meta, theme) {
   const kept = months.filter((_, i) => i % thin === 0 || i === months.length - 1);
   const xMarks = kept.map((ms, i) => {
     const d = new Date(ms);
-    const label = multiYear ? `${MONTHS[d.getUTCMonth()].slice(0, 3)} ${d.getUTCFullYear()}` : MONTHS[d.getUTCMonth()];
+    const label = (multiYear ? `${MONTHS[d.getUTCMonth()].slice(0, 3)} ${d.getUTCFullYear()}` : MONTHS[d.getUTCMonth()]).toUpperCase();
     const anchor = i === 0 ? 'start' : i === kept.length - 1 ? 'end' : 'middle';
-    const x = sx(ms) + (i === 0 ? -4 : i === kept.length - 1 ? 4 : 0);
-    return `<text x="${x.toFixed(1)}" y="${y1 + 22}" text-anchor="${anchor}" font-size="12" fill="${muted}">${label}</text>`;
+    // the first tick can fall before the first data point (1 Sept vs 4 Sept)
+    const x = Math.min(Math.max(sx(ms), x0), x1 - 2);
+    return `<text x="${x.toFixed(1)}" y="${y1 + 24}" text-anchor="${anchor}" font-size="9.5" letter-spacing="0.14em" fill="${muted}">${label}</text>`;
   }).join('\n  ');
 
   const endX = sx(lastDate);
@@ -236,6 +237,7 @@ function renderSvg(points, meta, theme) {
     </linearGradient>
   </defs>
   <rect width="${W}" height="${H}" fill="${bg}"/>
+  <line x1="${x0}" y1="${y0}" x2="${x0}" y2="${y1}" stroke="${base}" stroke-width="1"/>
   ${yMarks}
   ${xMarks}
   <path d="${area}" fill="url(#fill-${theme})"/>
@@ -243,10 +245,9 @@ function renderSvg(points, meta, theme) {
   <circle cx="${endX.toFixed(1)}" cy="${endY.toFixed(1)}" r="7" fill="${accent}" opacity="0.10"/>
   <circle cx="${endX.toFixed(1)}" cy="${endY.toFixed(1)}" r="3.4" fill="${bg}" stroke="${accent}" stroke-width="2.2"/>
   <text x="${endX.toFixed(1)}" y="${Math.max(endY - 15, 26).toFixed(1)}" text-anchor="middle" font-size="13.5" font-weight="700" fill="${text}">${total}</text>
-  <circle cx="${x0 + 4}" cy="${y0 - 34}" r="3.6" fill="${accent}"/>
-  <text x="${x0 + 14}" y="${y0 - 29.5}" font-size="12.5" fill="${text}">${meta.title}</text>
-  <text x="${((x0 + x1) / 2).toFixed(1)}" y="${H - 20}" text-anchor="middle" font-size="12.5" fill="${muted}">Date</text>
-  <text x="16" y="${((y0 + y1) / 2).toFixed(1)}" text-anchor="middle" font-size="12.5" fill="${muted}" transform="rotate(-90 16 ${((y0 + y1) / 2).toFixed(1)})">GitHub Stars</text>
+  <circle cx="${x0 + 4}" cy="${y0 - 50}" r="3.4" fill="${accent}"/>
+  <text x="${x0 + 13}" y="${y0 - 46}" font-size="12" fill="${text}">${meta.title}</text>
+  <text x="${x0}" y="${y0 - 9}" font-size="9" letter-spacing="0.18em" fill="${muted}">STARS</text>
 </svg>
 `;
 }
