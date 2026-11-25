@@ -1,0 +1,42 @@
+name: Stars
+
+# Redraws the star history chart once a day. The chart and its data are committed
+# to the repository, so the README never depends on an image service.
+on:
+  schedule:
+    - cron: '41 4 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: stars
+  cancel-in-progress: true
+
+jobs:
+  history:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run check:data
+      - name: Fetch the stargazers and redraw the chart
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run stars
+      - name: Commit the chart when new stars landed
+        run: |
+          if git diff --quiet -- data/star-history.json public/star-history.svg public/star-history-dark.svg; then
+            echo "Nothing new."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/star-history.json public/star-history.svg public/star-history-dark.svg
+          git commit -m "Refresh the star history chart"
+          git push

@@ -16,7 +16,8 @@
     "artifacts": "npm run readme && npm run catalog",
     "check:data": "node scripts/check-data.mjs",
     "test:sources": "node --test scripts/source-metadata.test.mjs",
-    "verify:sources": "node scripts/verify-sources.mjs"
+    "verify:sources": "node scripts/verify-sources.mjs",
+    "stars": "node scripts/star-history.mjs"
   },
   "dependencies": {
     "next": "16.2.6",
