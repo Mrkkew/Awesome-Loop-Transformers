@@ -92,16 +92,48 @@ function niceStep(max) {
 }
 
 /**
- * A cumulative curve, drawn as steps: a star count only changes on the day the
- * star arrives, so a diagonal between two dates would claim growth that never
- * happened. Steps also make the bursts (two stars the same day) visible.
+ * Stars arrive as a point process, so a curve drawn straight through the daily
+ * counts inherits every corner: long flats, then near-vertical rises. Smoothing
+ * the *arrival rate* with a small Gaussian and integrating it keeps the curve
+ * monotone, starts at zero, and still ends at the exact total — only the shape
+ * between the corners is softened.
  */
-/**
- * Monotone cubic (Fritsch–Carlson): a smooth curve that still passes through
- * every recorded day and never overshoots, so it cannot claim a count the
- * repository never had. A staircase of raw values reads as a saw blade at this
- * scale; this is the same data without the teeth.
- */
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const DAY_MS = 86_400_000;
+const SIGMA_DAYS = 4.2;
+
+/** Daily arrivals → smoothed cumulative curve, anchored at the true day range and total. */
+function smoothCumulative(points) {
+  const start = parse(points[0][0]);
+  const days = Math.round((parse(points.at(-1)[0]) - start) / DAY_MS) + 1;
+  const arrivals = new Array(days).fill(0);
+  for (let i = 1; i < points.length; i += 1) {
+    arrivals[Math.round((parse(points[i][0]) - start) / DAY_MS)] += points[i][1] - points[i - 1][1];
+  }
+  const radius = Math.ceil(SIGMA_DAYS * 3);
+  const kernel = Array.from({ length: radius * 2 + 1 }, (_, i) => Math.exp(-0.5 * ((i - radius) / SIGMA_DAYS) ** 2));
+  const total = points.at(-1)[1];
+  const raw = [];
+  let running = 0;
+  for (let i = 0; i < days; i += 1) {
+    let sum = 0;
+    let weight = 0;
+    for (let k = -radius; k <= radius; k += 1) {
+      const j = i + k;
+      if (j < 0 || j >= days) continue;
+      const w = kernel[k + radius];
+      sum += arrivals[j] * w;
+      weight += w;
+    }
+    running += weight ? sum / weight : 0;
+    raw.push(running);
+  }
+  // the kernel spends mass past the final day, so rescale to land exactly on the total
+  const scale = raw.at(-1) ? total / raw.at(-1) : 1;
+  return raw.map((v, i) => [start + i * DAY_MS, Math.min(v * scale, total)]);
+}
+
+/** Monotone cubic: smooth, and it cannot overshoot the values it passes through. */
 function smoothPath(pts) {
   const n = pts.length;
   if (n < 3) return pts.map(([x, y], i) => `${i === 0 ? 'M' : 'L'}${x.toFixed(1)},${y.toFixed(1)}`).join(' ');
@@ -140,60 +172,56 @@ function smoothPath(pts) {
   return d;
 }
 
-const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
 function renderSvg(points, meta, theme) {
   const dark = theme === 'dark';
   const W = 800;
   const H = 533;
-  const pad = { l: 56, r: 28, t: 56, b: 68 };
+  const pad = { l: 54, r: 26, t: 58, b: 70 };
   const bg = dark ? '#0D1117' : '#FFFFFF';
   const text = dark ? '#E6EDF3' : INK;
-  const muted = dark ? '#8B949E' : '#5A6478';
-  const grid = dark ? '#1B222C' : '#EDF1F7';
-  const base = dark ? '#2A313C' : '#DCE2EC';
+  const muted = dark ? '#8B949E' : '#5C6578';
+  const grid = dark ? '#1A2029' : '#F2F5FA';
+  const base = dark ? '#2A313C' : '#E4E9F2';
   const accent = dark ? LIME : CYAN;
 
   const x0 = pad.l;
   const x1 = W - pad.r;
-  const y0 = pad.t + 10;
+  const y0 = pad.t + 14;
   const y1 = H - pad.b;
   const first = parse(points[0][0]);
   const lastDate = parse(points.at(-1)[0]);
-  // keep a chart of a single day from collapsing into a vertical line
-  const span = Math.max(lastDate - first, 14 * 86_400_000);
+  const span = Math.max(lastDate - first, 14 * DAY_MS);
   const total = points.at(-1)[1];
   const yStep = niceStep(Math.max(total, 1));
   const yMax = Math.ceil(Math.max(total, 1) / yStep) * yStep;
   const sx = (ms) => x0 + ((ms - first) / span) * (x1 - x0);
   const sy = (v) => y1 - (v / yMax) * (y1 - y0);
 
-  const pts = points.map(([d, v]) => [sx(parse(d)), sy(v)]);
+  const series = smoothCumulative(points);
+  const pts = series.map(([ms, v]) => [sx(ms), sy(v)]);
   const curve = smoothPath(pts);
   const area = `${curve} L${pts.at(-1)[0].toFixed(1)},${y1} L${pts[0][0].toFixed(1)},${y1} Z`;
 
   const yTicks = Math.round(yMax / yStep);
   const yMarks = Array.from({ length: yTicks + 1 }, (_, i) => {
     const value = yStep * i;
-    return `<line x1="${x0}" y1="${sy(value).toFixed(1)}" x2="${x1}" y2="${sy(value).toFixed(1)}" stroke="${grid}" stroke-width="1" stroke-dasharray="${i === 0 ? '0' : '0'}"/>
-  <text x="${x0 - 12}" y="${(sy(value) + 4.2).toFixed(1)}" text-anchor="end" font-size="12" fill="${muted}">${Math.round(value)}</text>`;
+    return `<line x1="${x0}" y1="${sy(value).toFixed(1)}" x2="${x1}" y2="${sy(value).toFixed(1)}" stroke="${i === 0 ? base : grid}" stroke-width="1"/>
+  <text x="${x0 - 12}" y="${(sy(value) + 4).toFixed(1)}" text-anchor="end" font-size="11.5" fill="${muted}">${Math.round(value)}</text>`;
   }).join('\n  ');
 
-  // month names, like the chart people are used to: repeating dates read as a bug
   const months = [];
   for (let cursor = new Date(Date.UTC(new Date(first).getUTCFullYear(), new Date(first).getUTCMonth(), 1)); cursor.getTime() <= lastDate; cursor = new Date(Date.UTC(cursor.getUTCFullYear(), cursor.getUTCMonth() + 1, 1))) {
     months.push(cursor.getTime());
   }
-  const multiYear = span > 3 * 365 * 86_400_000;
+  const multiYear = span > 3 * 365 * DAY_MS;
   const thin = Math.ceil(months.length / 7);
   const kept = months.filter((_, i) => i % thin === 0 || i === months.length - 1);
   const xMarks = kept.map((ms, i) => {
     const d = new Date(ms);
     const label = multiYear ? `${MONTHS[d.getUTCMonth()].slice(0, 3)} ${d.getUTCFullYear()}` : MONTHS[d.getUTCMonth()];
-    // the first and last label would otherwise hang outside the plot
     const anchor = i === 0 ? 'start' : i === kept.length - 1 ? 'end' : 'middle';
     const x = sx(ms) + (i === 0 ? -4 : i === kept.length - 1 ? 4 : 0);
-    return `<text x="${x.toFixed(1)}" y="${y1 + 21}" text-anchor="${anchor}" font-size="12.5" fill="${muted}">${label}</text>`;
+    return `<text x="${x.toFixed(1)}" y="${y1 + 22}" text-anchor="${anchor}" font-size="12" fill="${muted}">${label}</text>`;
   }).join('\n  ');
 
   const endX = sx(lastDate);
@@ -202,23 +230,23 @@ function renderSvg(points, meta, theme) {
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${total} stars since ${points[0][0]}">
   <defs>
     <linearGradient id="fill-${theme}" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="${accent}" stop-opacity="${dark ? 0.16 : 0.24}"/>
-      <stop offset="100%" stop-color="${accent}" stop-opacity="0.01"/>
+      <stop offset="0%" stop-color="${accent}" stop-opacity="${dark ? 0.20 : 0.22}"/>
+      <stop offset="70%" stop-color="${accent}" stop-opacity="${dark ? 0.05 : 0.06}"/>
+      <stop offset="100%" stop-color="${accent}" stop-opacity="0"/>
     </linearGradient>
   </defs>
   <rect width="${W}" height="${H}" fill="${bg}"/>
   ${yMarks}
   ${xMarks}
   <path d="${area}" fill="url(#fill-${theme})"/>
-  <path d="${curve}" fill="none" stroke="${accent}" stroke-width="2.4" stroke-linejoin="miter" stroke-linecap="round"/>
-  <circle cx="${endX.toFixed(1)}" cy="${endY.toFixed(1)}" r="8" fill="${accent}" opacity="0.15"/>
-  <circle cx="${endX.toFixed(1)}" cy="${endY.toFixed(1)}" r="3.6" fill="${bg}" stroke="${accent}" stroke-width="2.4"/>
-  <text x="${(endX - 10).toFixed(1)}" y="${(endY - 12).toFixed(1)}" text-anchor="end" font-size="14" font-weight="700" fill="${text}">${total}</text>
-  <line x1="${x0}" y1="${y1}" x2="${x1}" y2="${y1}" stroke="${base}" stroke-width="1"/>
-  <circle cx="${x0 + 5}" cy="${y0 - 30}" r="4" fill="${accent}"/>
-  <text x="${x0 + 16}" y="${y0 - 25.5}" font-size="13" fill="${text}">${meta.title}</text>
-  <text x="${((x0 + x1) / 2).toFixed(1)}" y="${H - 18}" text-anchor="middle" font-size="13.5" fill="${muted}">Date</text>
-  <text x="17" y="${((y0 + y1) / 2).toFixed(1)}" text-anchor="middle" font-size="13.5" fill="${muted}" transform="rotate(-90 17 ${((y0 + y1) / 2).toFixed(1)})">GitHub Stars</text>
+  <path d="${curve}" fill="none" stroke="${accent}" stroke-width="2.2" stroke-linecap="round"/>
+  <circle cx="${endX.toFixed(1)}" cy="${endY.toFixed(1)}" r="7" fill="${accent}" opacity="0.10"/>
+  <circle cx="${endX.toFixed(1)}" cy="${endY.toFixed(1)}" r="3.4" fill="${bg}" stroke="${accent}" stroke-width="2.2"/>
+  <text x="${endX.toFixed(1)}" y="${Math.max(endY - 15, 26).toFixed(1)}" text-anchor="middle" font-size="13.5" font-weight="700" fill="${text}">${total}</text>
+  <circle cx="${x0 + 4}" cy="${y0 - 34}" r="3.6" fill="${accent}"/>
+  <text x="${x0 + 14}" y="${y0 - 29.5}" font-size="12.5" fill="${text}">${meta.title}</text>
+  <text x="${((x0 + x1) / 2).toFixed(1)}" y="${H - 20}" text-anchor="middle" font-size="12.5" fill="${muted}">Date</text>
+  <text x="16" y="${((y0 + y1) / 2).toFixed(1)}" text-anchor="middle" font-size="12.5" fill="${muted}" transform="rotate(-90 16 ${((y0 + y1) / 2).toFixed(1)})">GitHub Stars</text>
 </svg>
 `;
 }
