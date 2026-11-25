@@ -1682,16 +1682,10 @@ If this list is useful in your work, you can cite it as:
 
 ## Star history
 
-Every star this repository has received, read straight from the GitHub API. A small workflow refreshes it once a day; the chart and its data live here, so the page does not depend on an image service.
-
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="public/star-history-dark.svg">
-    <img alt="Star history of Mrkkew/Awesome-Loop-Transformers" src="public/star-history.svg" width="900">
-  </picture>
-  <br>
-  <sub>Refreshed daily by <code>.github/workflows/stars.yml</code> · every point is in <code>data/star-history.json</code></sub>
-</p>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="public/star-history-dark.svg">
+  <img alt="Star history of Mrkkew/Awesome-Loop-Transformers" src="public/star-history.svg">
+</picture>
 
 ---
 

@@ -83,8 +83,6 @@ const intro = {
 }`,
     citationNote: '',
     starTitle: 'Star history',
-    starIntro: 'Every star this repository has received, read straight from the GitHub API. A small workflow refreshes it once a day; the chart and its data live here, so the page does not depend on an image service.',
-    starCaption: 'Refreshed daily by <code>.github/workflows/stars.yml</code> · every point is in <code>data/star-history.json</code>',
     back: '↑ Back to catalog',
   },
   zh: {
@@ -152,8 +150,6 @@ const intro = {
 }`,
     citationNote: '',
     starTitle: 'Star 趋势',
-    starIntro: '这里记录仓库收到的每一颗 star，数据直接取自 GitHub API。一个小 workflow 每天刷新一次；图表和数据都存在本仓库，不依赖任何图片服务。',
-    starCaption: '由 <code>.github/workflows/stars.yml</code> 每天刷新 · 每个数据点都记录在 <code>data/star-history.json</code>',
     back: '↑ 返回目录',
   },
 };
@@ -256,18 +252,13 @@ function render(lang) {
   out.push(`## ${t.methodTitle}`, '', ...t.method.map((item) => `- ${item}`), '', `## ${t.projectsTitle}`, '', ...t.projects.map((item) => `- ${item}`), '', ...section(t.contributeTitle, 'contributing'), t.contribute, '', ...section(t.citationTitle, 'citation'), t.citationIntro, '', '```bibtex', t.citationBibtex, '```', '', (t.citationNote ? [t.citationNote, ''] : []),
     ...(starHistory ? [
       ...section(t.starTitle, 'star-history'),
-      t.starIntro,
+      '<picture>',
+      `  <source media="(prefers-color-scheme: dark)" srcset="public/star-history-dark.svg">`,
+      `  <img alt="Star history of ${starHistory.repo}" src="public/star-history.svg">`,
+      '</picture>',
       '',
-      '<p align="center">',
-      '  <picture>',
-      `    <source media="(prefers-color-scheme: dark)" srcset="public/star-history-dark.svg">`,
-      `    <img alt="Star history of ${starHistory.repo}" src="public/star-history.svg" width="900">`,
-      '  </picture>',
-      '  <br>',
-      `  <sub>${t.starCaption}</sub>`,
-      '</p>',
-      '',
-    ] : []), '---', '', `CC BY 4.0 · Maintained by [Yulin Li](${scholar}) · ${dataLinks}`, '');
+    ] : []),
+    '---', '', `CC BY 4.0 · Maintained by [Yulin Li](${scholar}) · ${dataLinks}`, '');
   return out.join('\n');
 }
 

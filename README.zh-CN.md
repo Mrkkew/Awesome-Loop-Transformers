@@ -1682,16 +1682,10 @@
 
 ## Star 趋势
 
-这里记录仓库收到的每一颗 star，数据直接取自 GitHub API。一个小 workflow 每天刷新一次；图表和数据都存在本仓库，不依赖任何图片服务。
-
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="public/star-history-dark.svg">
-    <img alt="Star history of Mrkkew/Awesome-Loop-Transformers" src="public/star-history.svg" width="900">
-  </picture>
-  <br>
-  <sub>由 <code>.github/workflows/stars.yml</code> 每天刷新 · 每个数据点都记录在 <code>data/star-history.json</code></sub>
-</p>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="public/star-history-dark.svg">
+  <img alt="Star history of Mrkkew/Awesome-Loop-Transformers" src="public/star-history.svg">
+</picture>
 
 ---
 
