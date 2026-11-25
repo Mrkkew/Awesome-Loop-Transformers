@@ -1,24 +1,34 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="533" viewBox="0 0 800 533" role="img" aria-label="25 stars since 2026-09-04">
+  <defs>
+    <linearGradient id="fill-light" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1F7A99" stop-opacity="0.24"/>
+      <stop offset="100%" stop-color="#1F7A99" stop-opacity="0.01"/>
+    </linearGradient>
+  </defs>
   <rect width="800" height="533" fill="#FFFFFF"/>
-  <line x1="62" y1="471" x2="780" y2="471" stroke="#D8DEE9" stroke-width="1"/>
-  <line x1="62" y1="471.0" x2="780" y2="471.0" stroke="#E9EDF5" stroke-width="1"/>
-  <text x="52" y="475.0" text-anchor="end" font-size="12" fill="#4A5468">0</text>
-  <line x1="62" y1="386.0" x2="780" y2="386.0" stroke="#E9EDF5" stroke-width="1"/>
-  <text x="52" y="390.0" text-anchor="end" font-size="12" fill="#4A5468">5</text>
-  <line x1="62" y1="301.0" x2="780" y2="301.0" stroke="#E9EDF5" stroke-width="1"/>
-  <text x="52" y="305.0" text-anchor="end" font-size="12" fill="#4A5468">10</text>
-  <line x1="62" y1="216.0" x2="780" y2="216.0" stroke="#E9EDF5" stroke-width="1"/>
-  <text x="52" y="220.0" text-anchor="end" font-size="12" fill="#4A5468">15</text>
-  <line x1="62" y1="131.0" x2="780" y2="131.0" stroke="#E9EDF5" stroke-width="1"/>
-  <text x="52" y="135.0" text-anchor="end" font-size="12" fill="#4A5468">20</text>
-  <line x1="62" y1="46.0" x2="780" y2="46.0" stroke="#E9EDF5" stroke-width="1"/>
-  <text x="52" y="50.0" text-anchor="end" font-size="12" fill="#4A5468">25</text>
-  <text x="29.4" y="491" text-anchor="start" font-size="12" fill="#4A5468">September</text>
-  <text x="301.3" y="491" text-anchor="middle" font-size="12" fill="#4A5468">October</text>
-  <text x="582.1" y="491" text-anchor="end" font-size="12" fill="#4A5468">November</text>
-  <path d="M62.0,471.0 L62.0,454.0 L106.3,437.0 L115.2,420.0 L159.5,403.0 L168.4,386.0 L177.2,369.0 L239.3,352.0 L265.9,335.0 L292.5,318.0 L522.9,301.0 L531.8,284.0 L549.5,250.0 L567.3,233.0 L585.0,216.0 L655.9,199.0 L664.8,182.0 L700.2,165.0 L753.4,148.0 L762.3,114.0 L771.1,80.0 L780.0,46.0" fill="none" stroke="#1F7A99" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
-  <line x1="62" y1="32" x2="84" y2="32" stroke="#1F7A99" stroke-width="2.6" stroke-linecap="round"/>
-  <text x="92" y="36.5" font-size="12.5" fill="#11182B">Awesome Loop Transformers</text>
-  <text x="421.0" y="517" text-anchor="middle" font-size="13.5" fill="#4A5468">Date</text>
-  <text x="18" y="258.5" text-anchor="middle" font-size="13.5" fill="#4A5468" transform="rotate(-90 18 258.5)">GitHub Stars</text>
+  <line x1="56" y1="465.0" x2="772" y2="465.0" stroke="#EDF1F7" stroke-width="1" stroke-dasharray="0"/>
+  <text x="44" y="469.2" text-anchor="end" font-size="12" fill="#5A6478">0</text>
+  <line x1="56" y1="385.2" x2="772" y2="385.2" stroke="#EDF1F7" stroke-width="1" stroke-dasharray="3 4"/>
+  <text x="44" y="389.4" text-anchor="end" font-size="12" fill="#5A6478">5</text>
+  <line x1="56" y1="305.4" x2="772" y2="305.4" stroke="#EDF1F7" stroke-width="1" stroke-dasharray="3 4"/>
+  <text x="44" y="309.6" text-anchor="end" font-size="12" fill="#5A6478">10</text>
+  <line x1="56" y1="225.6" x2="772" y2="225.6" stroke="#EDF1F7" stroke-width="1" stroke-dasharray="3 4"/>
+  <text x="44" y="229.8" text-anchor="end" font-size="12" fill="#5A6478">15</text>
+  <line x1="56" y1="145.8" x2="772" y2="145.8" stroke="#EDF1F7" stroke-width="1" stroke-dasharray="3 4"/>
+  <text x="44" y="150.0" text-anchor="end" font-size="12" fill="#5A6478">20</text>
+  <line x1="56" y1="66.0" x2="772" y2="66.0" stroke="#EDF1F7" stroke-width="1" stroke-dasharray="3 4"/>
+  <text x="44" y="70.2" text-anchor="end" font-size="12" fill="#5A6478">25</text>
+  <text x="25.5" y="486" text-anchor="start" font-size="12.5" fill="#5A6478">September</text>
+  <text x="294.7" y="486" text-anchor="middle" font-size="12.5" fill="#5A6478">October</text>
+  <text x="572.7" y="486" text-anchor="end" font-size="12.5" fill="#5A6478">November</text>
+  <path d="M56.0,465.0 H56.0 V449.0 H100.2 V433.1 H109.0 V417.1 H153.2 V401.2 H162.1 V385.2 H170.9 V369.2 H232.8 V353.3 H259.3 V337.3 H285.8 V321.4 H515.7 V305.4 H524.5 V289.4 H542.2 V257.5 H559.9 V241.6 H577.5 V225.6 H648.2 V209.6 H657.1 V193.7 H692.4 V177.7 H745.5 V161.8 H754.3 V129.8 H763.2 V97.9 H772.0 V66.0 V465 H56.0 Z" fill="url(#fill-light)"/>
+  <path d="M56.0,465.0 H56.0 V449.0 H100.2 V433.1 H109.0 V417.1 H153.2 V401.2 H162.1 V385.2 H170.9 V369.2 H232.8 V353.3 H259.3 V337.3 H285.8 V321.4 H515.7 V305.4 H524.5 V289.4 H542.2 V257.5 H559.9 V241.6 H577.5 V225.6 H648.2 V209.6 H657.1 V193.7 H692.4 V177.7 H745.5 V161.8 H754.3 V129.8 H763.2 V97.9 H772.0 V66.0" fill="none" stroke="#1F7A99" stroke-width="2.6" stroke-linejoin="miter" stroke-linecap="round"/>
+  <circle cx="772.0" cy="66.0" r="8" fill="#1F7A99" opacity="0.15"/>
+  <circle cx="772.0" cy="66.0" r="3.6" fill="#FFFFFF" stroke="#1F7A99" stroke-width="2.4"/>
+  <text x="762.0" y="54.0" text-anchor="end" font-size="14" font-weight="700" fill="#11182B">25</text>
+  <line x1="56" y1="465" x2="772" y2="465" stroke="#DCE2EC" stroke-width="1"/>
+  <circle cx="61" cy="36" r="4" fill="#1F7A99"/>
+  <text x="72" y="40.5" font-size="13" fill="#11182B">Awesome Loop Transformers</text>
+  <text x="414.0" y="515" text-anchor="middle" font-size="13.5" fill="#5A6478">Date</text>
+  <text x="17" y="265.5" text-anchor="middle" font-size="13.5" fill="#5A6478" transform="rotate(-90 17 265.5)">GitHub Stars</text>
 </svg>

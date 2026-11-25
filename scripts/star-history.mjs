@@ -91,9 +91,9 @@ function niceStep(max) {
 }
 
 /**
- * Laid out like the chart most awesome lists embed (star-history.com): no card,
- * no headline, a single line, month labels, axis titles and one legend entry.
- * Drawn by hand so the picture and its data belong to this repository.
+ * A cumulative curve, drawn as steps: a star count only changes on the day the
+ * star arrives, so a diagonal between two dates would claim growth that never
+ * happened. Steps also make the bursts (two stars the same day) visible.
  */
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
@@ -101,17 +101,17 @@ function renderSvg(points, meta, theme) {
   const dark = theme === 'dark';
   const W = 800;
   const H = 533;
-  const pad = { l: 62, r: 20, t: 46, b: 62 };
+  const pad = { l: 56, r: 28, t: 56, b: 68 };
   const bg = dark ? '#0D1117' : '#FFFFFF';
-  const text = dark ? '#C9D1D9' : INK;
-  const muted = dark ? '#8B949E' : '#4A5468';
-  const grid = dark ? '#21262D' : '#E9EDF5';
-  const axis = dark ? '#30363D' : '#D8DEE9';
-  const line = dark ? LIME : CYAN;
+  const text = dark ? '#E6EDF3' : INK;
+  const muted = dark ? '#8B949E' : '#5A6478';
+  const grid = dark ? '#1B222C' : '#EDF1F7';
+  const base = dark ? '#2A313C' : '#DCE2EC';
+  const accent = dark ? LIME : CYAN;
 
   const x0 = pad.l;
   const x1 = W - pad.r;
-  const y0 = pad.t;
+  const y0 = pad.t + 10;
   const y1 = H - pad.b;
   const first = parse(points[0][0]);
   const lastDate = parse(points.at(-1)[0]);
@@ -123,19 +123,24 @@ function renderSvg(points, meta, theme) {
   const sx = (ms) => x0 + ((ms - first) / span) * (x1 - x0);
   const sy = (v) => y1 - (v / yMax) * (y1 - y0);
 
-  const linePath = points.map(([d, v], i) => `${i === 0 ? 'M' : 'L'}${sx(parse(d)).toFixed(1)},${sy(v).toFixed(1)}`).join(' ');
+  // step path: hold the value, then jump on the day it changed
+  let curve = `M${sx(first).toFixed(1)},${sy(points[0][1]).toFixed(1)}`;
+  for (let i = 1; i < points.length; i += 1) {
+    const [d, v] = points[i];
+    curve += ` H${sx(parse(d)).toFixed(1)} V${sy(v).toFixed(1)}`;
+  }
+  const area = `${curve} V${y1} H${sx(first).toFixed(1)} Z`;
 
   const yTicks = Math.round(yMax / yStep);
   const yMarks = Array.from({ length: yTicks + 1 }, (_, i) => {
     const value = yStep * i;
-    return `<line x1="${x0}" y1="${sy(value).toFixed(1)}" x2="${x1}" y2="${sy(value).toFixed(1)}" stroke="${grid}" stroke-width="1"/>
-  <text x="${x0 - 10}" y="${(sy(value) + 4).toFixed(1)}" text-anchor="end" font-size="12" fill="${muted}">${Math.round(value)}</text>`;
+    return `<line x1="${x0}" y1="${sy(value).toFixed(1)}" x2="${x1}" y2="${sy(value).toFixed(1)}" stroke="${grid}" stroke-width="1" stroke-dasharray="${i === 0 ? '0' : '3 4'}"/>
+  <text x="${x0 - 12}" y="${(sy(value) + 4.2).toFixed(1)}" text-anchor="end" font-size="12" fill="${muted}">${Math.round(value)}</text>`;
   }).join('\n  ');
 
   // month names, like the chart people are used to: repeating dates read as a bug
   const months = [];
-  const startMonth = new Date(Date.UTC(new Date(first).getUTCFullYear(), new Date(first).getUTCMonth(), 1));
-  for (let cursor = startMonth; cursor.getTime() <= lastDate; cursor = new Date(Date.UTC(cursor.getUTCFullYear(), cursor.getUTCMonth() + 1, 1))) {
+  for (let cursor = new Date(Date.UTC(new Date(first).getUTCFullYear(), new Date(first).getUTCMonth(), 1)); cursor.getTime() <= lastDate; cursor = new Date(Date.UTC(cursor.getUTCFullYear(), cursor.getUTCMonth() + 1, 1))) {
     months.push(cursor.getTime());
   }
   const multiYear = span > 3 * 365 * 86_400_000;
@@ -146,20 +151,33 @@ function renderSvg(points, meta, theme) {
     const label = multiYear ? `${MONTHS[d.getUTCMonth()].slice(0, 3)} ${d.getUTCFullYear()}` : MONTHS[d.getUTCMonth()];
     // the first and last label would otherwise hang outside the plot
     const anchor = i === 0 ? 'start' : i === kept.length - 1 ? 'end' : 'middle';
-    const x = sx(ms) + (i === 0 ? -6 : i === kept.length - 1 ? 6 : 0);
-    return `<text x="${x.toFixed(1)}" y="${y1 + 20}" text-anchor="${anchor}" font-size="12" fill="${muted}">${label}</text>`;
+    const x = sx(ms) + (i === 0 ? -4 : i === kept.length - 1 ? 4 : 0);
+    return `<text x="${x.toFixed(1)}" y="${y1 + 21}" text-anchor="${anchor}" font-size="12.5" fill="${muted}">${label}</text>`;
   }).join('\n  ');
 
+  const endX = sx(lastDate);
+  const endY = sy(total);
+
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${total} stars since ${points[0][0]}">
+  <defs>
+    <linearGradient id="fill-${theme}" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="${accent}" stop-opacity="${dark ? 0.16 : 0.24}"/>
+      <stop offset="100%" stop-color="${accent}" stop-opacity="0.01"/>
+    </linearGradient>
+  </defs>
   <rect width="${W}" height="${H}" fill="${bg}"/>
-  <line x1="${x0}" y1="${y1}" x2="${x1}" y2="${y1}" stroke="${axis}" stroke-width="1"/>
   ${yMarks}
   ${xMarks}
-  <path d="${linePath}" fill="none" stroke="${line}" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
-  <line x1="${x0}" y1="${y0 - 14}" x2="${x0 + 22}" y2="${y0 - 14}" stroke="${line}" stroke-width="2.6" stroke-linecap="round"/>
-  <text x="${x0 + 30}" y="${y0 - 9.5}" font-size="12.5" fill="${text}">${meta.title}</text>
-  <text x="${((x0 + x1) / 2).toFixed(1)}" y="${H - 16}" text-anchor="middle" font-size="13.5" fill="${muted}">Date</text>
-  <text x="18" y="${((y0 + y1) / 2).toFixed(1)}" text-anchor="middle" font-size="13.5" fill="${muted}" transform="rotate(-90 18 ${((y0 + y1) / 2).toFixed(1)})">GitHub Stars</text>
+  <path d="${area}" fill="url(#fill-${theme})"/>
+  <path d="${curve}" fill="none" stroke="${accent}" stroke-width="2.6" stroke-linejoin="miter" stroke-linecap="round"/>
+  <circle cx="${endX.toFixed(1)}" cy="${endY.toFixed(1)}" r="8" fill="${accent}" opacity="0.15"/>
+  <circle cx="${endX.toFixed(1)}" cy="${endY.toFixed(1)}" r="3.6" fill="${bg}" stroke="${accent}" stroke-width="2.4"/>
+  <text x="${(endX - 10).toFixed(1)}" y="${(endY - 12).toFixed(1)}" text-anchor="end" font-size="14" font-weight="700" fill="${text}">${total}</text>
+  <line x1="${x0}" y1="${y1}" x2="${x1}" y2="${y1}" stroke="${base}" stroke-width="1"/>
+  <circle cx="${x0 + 5}" cy="${y0 - 30}" r="4" fill="${accent}"/>
+  <text x="${x0 + 16}" y="${y0 - 25.5}" font-size="13" fill="${text}">${meta.title}</text>
+  <text x="${((x0 + x1) / 2).toFixed(1)}" y="${H - 18}" text-anchor="middle" font-size="13.5" fill="${muted}">Date</text>
+  <text x="17" y="${((y0 + y1) / 2).toFixed(1)}" text-anchor="middle" font-size="13.5" fill="${muted}" transform="rotate(-90 17 ${((y0 + y1) / 2).toFixed(1)})">GitHub Stars</text>
 </svg>
 `;
 }
