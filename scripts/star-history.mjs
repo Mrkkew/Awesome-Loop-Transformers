@@ -76,7 +76,8 @@ function toSeries(stars, created) {
   }
   const last = points.at(-1);
   if (last[1] !== stars.length) points.push([fmt(Date.now()), stars.length]);
-  return points;
+  // a day that appears twice draws a vertical hook; keep the later value
+  return points.filter(([d], i) => i === 0 || d !== points[i - 1][0]);
 }
 
 /** Axis step that keeps the labels whole numbers and at most five rows. */
@@ -95,6 +96,50 @@ function niceStep(max) {
  * star arrives, so a diagonal between two dates would claim growth that never
  * happened. Steps also make the bursts (two stars the same day) visible.
  */
+/**
+ * Monotone cubic (Fritsch–Carlson): a smooth curve that still passes through
+ * every recorded day and never overshoots, so it cannot claim a count the
+ * repository never had. A staircase of raw values reads as a saw blade at this
+ * scale; this is the same data without the teeth.
+ */
+function smoothPath(pts) {
+  const n = pts.length;
+  if (n < 3) return pts.map(([x, y], i) => `${i === 0 ? 'M' : 'L'}${x.toFixed(1)},${y.toFixed(1)}`).join(' ');
+  const dx = [];
+  const slope = [];
+  for (let i = 0; i < n - 1; i += 1) {
+    dx.push(pts[i + 1][0] - pts[i][0]);
+    slope.push((pts[i + 1][1] - pts[i][1]) / (dx[i] || 1));
+  }
+  const m = new Array(n);
+  m[0] = slope[0];
+  m[n - 1] = slope[n - 2];
+  for (let i = 1; i < n - 1; i += 1) m[i] = (slope[i - 1] + slope[i]) / 2;
+  for (let i = 0; i < n - 1; i += 1) {
+    if (slope[i] === 0) {
+      m[i] = 0;
+      m[i + 1] = 0;
+      continue;
+    }
+    const a = m[i] / slope[i];
+    const b = m[i + 1] / slope[i];
+    const h = Math.hypot(a, b);
+    if (h > 3) {
+      const t = 3 / h;
+      m[i] = t * a * slope[i];
+      m[i + 1] = t * b * slope[i];
+    }
+  }
+  let d = `M${pts[0][0].toFixed(1)},${pts[0][1].toFixed(1)}`;
+  for (let i = 0; i < n - 1; i += 1) {
+    const [x0, y0] = pts[i];
+    const [x1, y1] = pts[i + 1];
+    const h = dx[i] / 3;
+    d += ` C${(x0 + h).toFixed(1)},${(y0 + m[i] * h).toFixed(1)} ${(x1 - h).toFixed(1)},${(y1 - m[i + 1] * h).toFixed(1)} ${x1.toFixed(1)},${y1.toFixed(1)}`;
+  }
+  return d;
+}
+
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 function renderSvg(points, meta, theme) {
@@ -123,18 +168,14 @@ function renderSvg(points, meta, theme) {
   const sx = (ms) => x0 + ((ms - first) / span) * (x1 - x0);
   const sy = (v) => y1 - (v / yMax) * (y1 - y0);
 
-  // step path: hold the value, then jump on the day it changed
-  let curve = `M${sx(first).toFixed(1)},${sy(points[0][1]).toFixed(1)}`;
-  for (let i = 1; i < points.length; i += 1) {
-    const [d, v] = points[i];
-    curve += ` H${sx(parse(d)).toFixed(1)} V${sy(v).toFixed(1)}`;
-  }
-  const area = `${curve} V${y1} H${sx(first).toFixed(1)} Z`;
+  const pts = points.map(([d, v]) => [sx(parse(d)), sy(v)]);
+  const curve = smoothPath(pts);
+  const area = `${curve} L${pts.at(-1)[0].toFixed(1)},${y1} L${pts[0][0].toFixed(1)},${y1} Z`;
 
   const yTicks = Math.round(yMax / yStep);
   const yMarks = Array.from({ length: yTicks + 1 }, (_, i) => {
     const value = yStep * i;
-    return `<line x1="${x0}" y1="${sy(value).toFixed(1)}" x2="${x1}" y2="${sy(value).toFixed(1)}" stroke="${grid}" stroke-width="1" stroke-dasharray="${i === 0 ? '0' : '3 4'}"/>
+    return `<line x1="${x0}" y1="${sy(value).toFixed(1)}" x2="${x1}" y2="${sy(value).toFixed(1)}" stroke="${grid}" stroke-width="1" stroke-dasharray="${i === 0 ? '0' : '0'}"/>
   <text x="${x0 - 12}" y="${(sy(value) + 4.2).toFixed(1)}" text-anchor="end" font-size="12" fill="${muted}">${Math.round(value)}</text>`;
   }).join('\n  ');
 
@@ -169,7 +210,7 @@ function renderSvg(points, meta, theme) {
   ${yMarks}
   ${xMarks}
   <path d="${area}" fill="url(#fill-${theme})"/>
-  <path d="${curve}" fill="none" stroke="${accent}" stroke-width="2.6" stroke-linejoin="miter" stroke-linecap="round"/>
+  <path d="${curve}" fill="none" stroke="${accent}" stroke-width="2.4" stroke-linejoin="miter" stroke-linecap="round"/>
   <circle cx="${endX.toFixed(1)}" cy="${endY.toFixed(1)}" r="8" fill="${accent}" opacity="0.15"/>
   <circle cx="${endX.toFixed(1)}" cy="${endY.toFixed(1)}" r="3.6" fill="${bg}" stroke="${accent}" stroke-width="2.4"/>
   <text x="${(endX - 10).toFixed(1)}" y="${(endY - 12).toFixed(1)}" text-anchor="end" font-size="14" font-weight="700" fill="${text}">${total}</text>

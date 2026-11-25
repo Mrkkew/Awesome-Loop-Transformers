@@ -8,21 +8,21 @@
   <rect width="800" height="533" fill="#FFFFFF"/>
   <line x1="56" y1="465.0" x2="772" y2="465.0" stroke="#EDF1F7" stroke-width="1" stroke-dasharray="0"/>
   <text x="44" y="469.2" text-anchor="end" font-size="12" fill="#5A6478">0</text>
-  <line x1="56" y1="385.2" x2="772" y2="385.2" stroke="#EDF1F7" stroke-width="1" stroke-dasharray="3 4"/>
+  <line x1="56" y1="385.2" x2="772" y2="385.2" stroke="#EDF1F7" stroke-width="1" stroke-dasharray="0"/>
   <text x="44" y="389.4" text-anchor="end" font-size="12" fill="#5A6478">5</text>
-  <line x1="56" y1="305.4" x2="772" y2="305.4" stroke="#EDF1F7" stroke-width="1" stroke-dasharray="3 4"/>
+  <line x1="56" y1="305.4" x2="772" y2="305.4" stroke="#EDF1F7" stroke-width="1" stroke-dasharray="0"/>
   <text x="44" y="309.6" text-anchor="end" font-size="12" fill="#5A6478">10</text>
-  <line x1="56" y1="225.6" x2="772" y2="225.6" stroke="#EDF1F7" stroke-width="1" stroke-dasharray="3 4"/>
+  <line x1="56" y1="225.6" x2="772" y2="225.6" stroke="#EDF1F7" stroke-width="1" stroke-dasharray="0"/>
   <text x="44" y="229.8" text-anchor="end" font-size="12" fill="#5A6478">15</text>
-  <line x1="56" y1="145.8" x2="772" y2="145.8" stroke="#EDF1F7" stroke-width="1" stroke-dasharray="3 4"/>
+  <line x1="56" y1="145.8" x2="772" y2="145.8" stroke="#EDF1F7" stroke-width="1" stroke-dasharray="0"/>
   <text x="44" y="150.0" text-anchor="end" font-size="12" fill="#5A6478">20</text>
-  <line x1="56" y1="66.0" x2="772" y2="66.0" stroke="#EDF1F7" stroke-width="1" stroke-dasharray="3 4"/>
+  <line x1="56" y1="66.0" x2="772" y2="66.0" stroke="#EDF1F7" stroke-width="1" stroke-dasharray="0"/>
   <text x="44" y="70.2" text-anchor="end" font-size="12" fill="#5A6478">25</text>
   <text x="25.5" y="486" text-anchor="start" font-size="12.5" fill="#5A6478">September</text>
   <text x="294.7" y="486" text-anchor="middle" font-size="12.5" fill="#5A6478">October</text>
   <text x="572.7" y="486" text-anchor="end" font-size="12.5" fill="#5A6478">November</text>
-  <path d="M56.0,465.0 H56.0 V449.0 H100.2 V433.1 H109.0 V417.1 H153.2 V401.2 H162.1 V385.2 H170.9 V369.2 H232.8 V353.3 H259.3 V337.3 H285.8 V321.4 H515.7 V305.4 H524.5 V289.4 H542.2 V257.5 H559.9 V241.6 H577.5 V225.6 H648.2 V209.6 H657.1 V193.7 H692.4 V177.7 H745.5 V161.8 H754.3 V129.8 H763.2 V97.9 H772.0 V66.0 V465 H56.0 Z" fill="url(#fill-light)"/>
-  <path d="M56.0,465.0 H56.0 V449.0 H100.2 V433.1 H109.0 V417.1 H153.2 V401.2 H162.1 V385.2 H170.9 V369.2 H232.8 V353.3 H259.3 V337.3 H285.8 V321.4 H515.7 V305.4 H524.5 V289.4 H542.2 V257.5 H559.9 V241.6 H577.5 V225.6 H648.2 V209.6 H657.1 V193.7 H692.4 V177.7 H745.5 V161.8 H754.3 V129.8 H763.2 V97.9 H772.0 V66.0" fill="none" stroke="#1F7A99" stroke-width="2.6" stroke-linejoin="miter" stroke-linecap="round"/>
+  <path d="M56.0,465.0 C70.7,454.4 85.5,451.7 100.2,433.1 C103.1,429.4 106.1,419.4 109.0,417.1 C123.8,405.8 138.5,412.4 153.2,401.2 C156.2,398.9 159.1,390.5 162.1,385.2 C165.0,379.9 168.0,371.3 170.9,369.2 C191.5,354.5 212.2,359.4 232.8,353.3 C241.6,350.6 250.5,342.6 259.3,337.3 C268.1,332.0 277.0,322.0 285.8,321.4 C362.4,316.0 439.0,320.4 515.7,305.4 C518.6,304.8 521.5,294.8 524.5,289.4 C530.4,278.8 536.3,265.5 542.2,257.5 C548.1,249.5 554.0,246.9 559.9,241.6 C565.7,236.2 571.6,227.5 577.5,225.6 C601.1,217.8 624.7,223.6 648.2,209.6 C651.2,207.9 654.1,197.0 657.1,193.7 C668.9,180.4 680.7,179.7 692.4,177.7 C710.1,174.7 727.8,177.4 745.5,161.8 C748.4,159.1 751.4,140.5 754.3,129.8 C757.3,119.2 760.2,108.6 763.2,97.9 C766.1,87.3 769.1,76.6 772.0,66.0 L772.0,465 L56.0,465 Z" fill="url(#fill-light)"/>
+  <path d="M56.0,465.0 C70.7,454.4 85.5,451.7 100.2,433.1 C103.1,429.4 106.1,419.4 109.0,417.1 C123.8,405.8 138.5,412.4 153.2,401.2 C156.2,398.9 159.1,390.5 162.1,385.2 C165.0,379.9 168.0,371.3 170.9,369.2 C191.5,354.5 212.2,359.4 232.8,353.3 C241.6,350.6 250.5,342.6 259.3,337.3 C268.1,332.0 277.0,322.0 285.8,321.4 C362.4,316.0 439.0,320.4 515.7,305.4 C518.6,304.8 521.5,294.8 524.5,289.4 C530.4,278.8 536.3,265.5 542.2,257.5 C548.1,249.5 554.0,246.9 559.9,241.6 C565.7,236.2 571.6,227.5 577.5,225.6 C601.1,217.8 624.7,223.6 648.2,209.6 C651.2,207.9 654.1,197.0 657.1,193.7 C668.9,180.4 680.7,179.7 692.4,177.7 C710.1,174.7 727.8,177.4 745.5,161.8 C748.4,159.1 751.4,140.5 754.3,129.8 C757.3,119.2 760.2,108.6 763.2,97.9 C766.1,87.3 769.1,76.6 772.0,66.0" fill="none" stroke="#1F7A99" stroke-width="2.4" stroke-linejoin="miter" stroke-linecap="round"/>
   <circle cx="772.0" cy="66.0" r="8" fill="#1F7A99" opacity="0.15"/>
   <circle cx="772.0" cy="66.0" r="3.6" fill="#FFFFFF" stroke="#1F7A99" stroke-width="2.4"/>
   <text x="762.0" y="54.0" text-anchor="end" font-size="14" font-weight="700" fill="#11182B">25</text>
